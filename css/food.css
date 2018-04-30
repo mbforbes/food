@@ -1,0 +1,40 @@
+@import url(../fonts/cm/serif/cmun-serif.css);
+@import url(../fonts/cm/concrete/cmun-concrete.css);
+@import url(../fonts/cm/typewriter/cmun-typewriter.css);
+@import url(../fonts/fa/css/font-awesome.min.css);
+
+body {
+    font-family: "Computer Modern Typewriter";
+    background-color: whitesmoke
+}
+
+.meal {
+    max-width: 400px;
+    box-shadow: 0 10px 6px -6px #777;
+    margin: 15px;
+    padding: 10px;
+    background-color: white
+}
+
+.meal table {
+    width: 100%;
+}
+
+td.mealCaloriesCell {
+    text-align: right;
+    font-style: italic;
+}
+
+.meal h2 {
+    margin-top: 0px;
+}
+
+.meal h3 {
+    margin-top: 0px;
+}
+
+.ingredientCell {
+    width: 100%;
+    padding-left: 10px;
+    text-align: left;
+}

@@ -1,0 +1,10 @@
+{
+    "bananaPancakes": {
+        "title": "Banana Pancakes",
+        "mealHint": "breakfast",
+        "ingredients": [
+            [120, "banana"],
+            [140, "2 eggs"]
+        ]
+    }
+}

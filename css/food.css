@@ -4,35 +4,93 @@
 @import url(../fonts/fa/css/font-awesome.min.css);
 
 body {
-    font-family: "Computer Modern Typewriter";
-    background-color: whitesmoke
+    font-family: "Computer Modern Serif";
+    background-color: #78CAD2;
+    font-size: 10pt;
 }
 
-.meal {
-    max-width: 400px;
-    box-shadow: 0 10px 6px -6px #777;
-    margin: 15px;
+/*
+ * Day (Monday)
+ */
+.day {
+    max-width: 240px;
+    box-shadow: -10px 10px 6px -6px #777;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #f0fcfc;
+    float: left;
+    height: 1000px;
+}
+
+/* Day of the week (Monday) */
+.day h1 {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+/* Meal titles (Breakfast) */
+.day h2 {
+    margin-bottom: 0px;
+}
+
+/* Meal calroire counts (260 calories) */
+.day h3 {
+    font-size: 11pt;
+    margin-top: -3px;
+    /* font-style: italic; */
+}
+
+/* Calorie total */
+.day h4 {
+    text-align: center;
+    margin-top: -5px;
+    /* font-style: italic; */
+}
+
+
+
+/*
+ * Dish (Banana Pancakes)
+ */
+.dish {
+    box-shadow: -5px 5px 3px -3px #777;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
     padding: 10px;
     background-color: white
 }
 
-.meal table {
+.dish table {
     width: 100%;
 }
 
-td.mealCaloriesCell {
-    text-align: right;
-    font-style: italic;
+.dish tr {
+    line-height: 1.0;
 }
 
-.meal h2 {
+/* Name of dish (Banana Pancakes */
+.dish h1 {
+    font-size: 12pt;
+    text-align: left;
     margin-top: 0px;
+    margin-bottom: 0px;
 }
 
-.meal h3 {
-    margin-top: 0px;
+/* Dish calories (260 calories) */
+.dish h2 {
+    font-size: 10.5pt;
+    text-align: left;
+    margin-top: -3px;
+    margin-bottom: 10px;
+    /* font-style: italic; */
 }
 
+/* Ingredient (2 eggs) */
 .ingredientCell {
     width: 100%;
     padding-left: 10px;

@@ -1,6 +1,6 @@
 {
-    "sunday": {
-        "breakfast": [],
+    "wednesday": {
+        "breakfast": ["bananaPancakes", "doritos"],
         "morningSnack": [],
         "lunch": [],
         "afternoonSnack": [],

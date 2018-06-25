@@ -4,19 +4,20 @@
 		"mealHint": "lunch",
 		"ingredients": [
 			[114, "½ avocado"],
-			[140, "2 hardboiled eggs"],
+			[140, "2 egg (hardboiled)"],
 			[240, "2 pcs Dave's Killer Bread"],
-			[5, "scallions"]
+			[5, "1 scallion"]
 		]
 	},
 	"bananaPancakes": {
 		"title": "Banana Pancakes",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[120, "banana"],
-			[140, "2 eggs"],
-			[128, "¼ cup TJ's pumpkin pancake mix"],
-			[105, "2 tbsp maple syrup"]
+			[120, "1 banana"],
+			[140, "2 egg"],
+			[128, "¼ cup pancake mix (TJ's pumpkin)"],
+			[52, "1 tbsp maple syrup"],
+			[50, "½ tbsp butter"]
 		]
 	},
 	"beefRevenge": {
@@ -33,10 +34,10 @@
 		"title": "Bibimbap",
 		"mealHint": "dinner",
 		"ingredients": [
-			[200, "1 cup (cooked) white rice"],
-			[25, "1 large carrot"],
+			[200, "1 cup rice (white, cooked)"],
+			[25, "1 carrot (large)"],
 			[17, "½ cucumber"],
-			[16, "4 white mushrooms"],
+			[16, "4 mushrooms (white)"],
 			[60, "½ tbsp olive oil"],
 			[70, "1 egg"]
 		]
@@ -47,15 +48,15 @@
 		"ingredients": [
 			[30, "½ bell pepper"],
 			[30, "½ onion"],
-			[210, "3 eggs"],
-			[80, "2 tsp olive oil"]
+			[210, "3 egg"],
+			[60, "½ tbsp olive oil"]
 		]
 	},
 	"carrots": {
 		"title": "Carrots",
 		"mealHint": "afternoonSnack",
 		"ingredients": [
-			[61, "150g carrots"]
+			[61, "150 g carrots"]
 		]
 	},
 	"chickenRiceBroc": {
@@ -63,8 +64,8 @@
 		"mealHint": "dinner",
 		"ingredients": [
 			[280, "1 chicken breast"],
-			[200, "1 cup (cooked) white rice"],
-			[105, "1 head broccoli (baked)"],
+			[200, "1 cup rice (white, cooked)"],
+			[105, "1 broccoli head (baked)"],
 			[60, "½ tbsp olive oil"]
 		]
 	},
@@ -79,7 +80,7 @@
 		"title": "Frozen Grilled Chicken Breast",
 		"mealHint": "dinner",
 		"ingredients": [
-			[257, "⅓ bag (196 grams) Tyson frozen grilled chicken breast"]
+			[257, "⅓ bag chicken breast, Tyson frozen grilled"]
 		]
 	},
 	"frozenVegetables": {
@@ -94,7 +95,7 @@
 		"title": "Instant Mashed Potatoes",
 		"mealHint": "dinner",
 		"ingredients": [
-			[25, "¼ cup 1% milk"],
+			[25, "¼ cup milk (1%)"],
 			[50, "½ tbsp butter"],
 			[70, "⅓ cup potato flakes"]
 		]
@@ -103,8 +104,8 @@
 		"title": "Protein Shake",
 		"mealHint": "afternoonSnack",
 		"ingredients": [
-			[120, "Protein powder"],
-			[102, "1 cup 1% milk"]
+			[120, "1 scoop protein powder"],
+			[102, "1 cup milk (1%)"]
 		]
 	},
 	"strawberries": {
@@ -119,7 +120,7 @@
 		"mealHint": "lunch",
 		"ingredients": [
 			[240, "2 pcs Dave's Killer Bread"],
-			[70, "3oz canned tuna in water"],
+			[70, "3 oz tuna (canned, in water)"],
 			[100, "1 tbsp mayo"]
 		]
 	},

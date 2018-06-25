@@ -1,25 +1,17 @@
 # food
 eat stuff
 
-
-saturday:
-- pb toast
-- ?
-- beef + sweet potatoes
-
-sunday
-- omelette
-- ?
-- shakshauksa
-
 ## Calories To Look Up
 
 - can of tuna
 - instant vegetables
+- actual g & cal in 1 head broccoli
+- salsa
 
 ## Meals On The Radar
 
-- smoothies
 - vegetable + egg bakes
-- burrito "bowl:" rice / salsa/ shredded chicken (find good) / avocado
+- burrito "bowl:" rice / salsa / shredded rotisserie chicken (find good) /
+  avocado
 - salmon (find good)
+- smoothies

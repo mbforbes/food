@@ -14,7 +14,7 @@
 		"dinner": ["frozenGrilledChickenBreast", "instantMashedPotatoes", "frozenVegetables"]
 	},
 	"tuesday": {
-		"breakfast": ["breakfastScramble", "dryWhiteToast", "strawberries"],
+		"breakfast": ["breakfastScramble", "butteredToast", "strawberries"],
 		"lunch": ["tunaFishSandwich", "carrots"],
 		"afternoonSnack": ["yogurt"],
 		"dinner": ["chickenRiceBroc"]
@@ -23,18 +23,28 @@
 		"breakfast": ["bananaPancakes", "strawberries"],
 		"lunch": ["avocadoSandwich"],
 		"afternoonSnack": ["proteinShake"],
-		"dinner": ["beefRevenge"]
+		"dinner": ["beefRevenge", "brusslesSproutsSide"]
 	},
 	"thursday": {
-		"breakfast": ["breakfastScramble", "dryWhiteToast", "strawberries"],
-		"lunch": ["tunaFishSandwich", "carrots"],
+		"breakfast": ["breakfastScramble", "butteredToast", "strawberries"],
 		"afternoonSnack": ["yogurt"],
 		"dinner": ["frozenGrilledChickenBreast", "instantMashedPotatoes", "frozenVegetables"]
 	},
 	"friday": {
 		"breakfast": ["bananaPancakes"],
-		"lunch": [],
+		"lunch": ["tunaFishSandwich", "carrots"],
 		"afternoonSnack": ["proteinShake"],
-		"dinner": ["bibimbap"]
+		"dinner": ["bibimbap"],
+		"eveningSnack": ["beer"]
+	},
+	"saturday": {
+		"breakfast": ["PBToast", "scrambledEggsSmall"],
+		"lunch": ["beefRevenge", "brusslesSproutsSide"],
+		"dinner": ["shakshuka", "broccoliSide"]
+	},
+	"sunday": {
+		"breakfast": ["omelette", "butteredToast"],
+		"lunch": ["PBnJ"],
+		"dinner": ["quinoaSalad"]
 	}
 }

@@ -32,11 +32,14 @@ const KNOWN_UNITS = new Set([
 // of
 const BULK_THINGS = new Set([
     'butter',
+    'jam',
     'maple syrup',
     'mayo',
     'olive oil',
+    'parmesan',
     'protein powder',
-    'rice (white, cooked)',
+    'quinoa (cooked)',
+    'rice (white, cooked)'
 ]);
 const AllMeals = ['breakfast', 'morningSnack', 'lunch', 'afternoonSnack', 'dinner', 'eveningSnack'];
 const AllDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];

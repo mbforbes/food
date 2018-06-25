@@ -25,9 +25,14 @@
 		"mealHint": "dinner",
 		"ingredients": [
 			[267, "⅓ lb ground beef"],
-			[70, "1 slice 'American' 'cheese' 'product'"],
-			[80, "10 brussles sprouts"],
-			[60, "½ tbsp olive oil"]
+			[70, "1 slice 'American' 'cheese' 'product'"]
+		]
+	},
+	"beer": {
+		"title": "Beeeeeerrr",
+		"mealHint": "eveningSnack",
+		"ingredients": [
+			[210, "12 oz beer (7% abv)"]
 		]
 	},
 	"bibimbap": {
@@ -52,6 +57,29 @@
 			[60, "½ tbsp olive oil"]
 		]
 	},
+	"broccoliSide": {
+		"title": "Broccoli (side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			[66, "1 broccoli head"]
+		]
+	},
+	"brusslesSproutsSide": {
+		"title": "Brussles Sprouts (side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			[80, "10 brussles sprouts"],
+			[60, "½ tbsp olive oil"]
+		]
+	},
+	"butteredToast": {
+		"title": "Buttered Toast",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[120, "1 pcs Dave's Killer Bread, toasted"],
+			[50, "½ tbsp butter"]
+		]
+	},
 	"carrots": {
 		"title": "Carrots",
 		"mealHint": "afternoonSnack",
@@ -65,15 +93,8 @@
 		"ingredients": [
 			[280, "1 chicken breast"],
 			[200, "1 cup rice (white, cooked)"],
-			[105, "1 broccoli head (baked)"],
+			[66, "1 broccoli head (baked)"],
 			[60, "½ tbsp olive oil"]
-		]
-	},
-	"dryWhiteToast": {
-		"title": "Dry White Toast",
-		"mealHint": "breakfast",
-		"ingredients": [
-			[120, "1 psc Dave's Killer Bread, toasted"]
 		]
 	},
 	"frozenGrilledChickenBreast": {
@@ -100,12 +121,70 @@
 			[70, "⅓ cup potato flakes"]
 		]
 	},
+	"omelette": {
+		"title": "Omelette",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[60, "½ tbsp olive oil"],
+			[30, "½ bell pepper"],
+			[30, "½ onion"],
+			[16, "4 mushrooms (white)"],
+			[50, "½ tbsp butter"],
+			[210, "3 egg"]
+		]
+	},
+	"PBToast": {
+		"title": "Peanut Butter Toast",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[190, "2 tbsp peanut butter"],
+			[240, "2 pcs Dave's Killer Bread, toasted"]
+		]
+	},
+	"PBnJ": {
+		"title": "PB & J",
+		"mealHint": "lunch",
+		"ingredients": [
+			[240, "2 pcs Dave's Killer Bread"],
+			[190, "2 tbsp peanut butter"],
+			[50, "1 tbsp jam"]
+		]
+	},
 	"proteinShake": {
 		"title": "Protein Shake",
 		"mealHint": "afternoonSnack",
 		"ingredients": [
 			[120, "1 scoop protein powder"],
 			[102, "1 cup milk (1%)"]
+		]
+	},
+	"quinoaSalad": {
+		"title": "Quinoa Salad",
+		"mealHint": "dinner",
+		"ingredients": [
+			[222, "1 cup quinoa (cooked)"],
+			[50, "200g arugula"],
+			[387, "1 can black beans"],
+			[45, "100 g salsa"],
+			[44, "10 g parmesan"]
+		]
+	},
+	"scrambledEggsSmall": {
+		"title": "Scrambled Eggs (Small)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[140, "2 egg"]
+		]
+	},
+	"shakshuka": {
+		"title": "Shakshuka",
+		"mealHint": "dinner",
+		"ingredients": [
+			[385, "1 can chickpeas, roasted"],
+			[120, "1 tbsp olive oil"],
+			[30, "½ bell pepper"],
+			[30, "½ onion"],
+			[140, "2 egg"]
 		]
 	},
 	"strawberries": {

@@ -56,7 +56,13 @@ const BULK_THINGS = new Set([
 // each Meal has a set of Dishes (e.g., 1. chicken + rice, 2. beer)
 // each Dish is keyed by a unique DishID, and has some data (title and ingredients)
 
+
 type DishID = string
+type DishIDObj = {
+    dishID: DishID,
+    guests: number,
+}
+type DishIDSpec = DishID | DishIDObj
 type MealID = 'breakfast' | 'morningSnack' | 'lunch' | 'afternoonSnack' | 'dinner' | 'eveningSnack';
 const AllMeals: MealID[] = ['breakfast', 'morningSnack', 'lunch', 'afternoonSnack', 'dinner', 'eveningSnack']
 type Ingredient = [number, string]
@@ -77,7 +83,7 @@ type Dishes = {
 }
 
 type Day = {
-    [m in MealID]?: DishID[]
+    [m in MealID]?: DishIDSpec[]
 }
 
 /**
@@ -117,10 +123,11 @@ function htmlMeal(mealID: MealID, mealCalories: number, dishesHTML: string): str
     `
 }
 
-function htmlDish(dishTitle: string, dishCalories: number, ingredientsHTML: string): string {
+function htmlDish(dishTitle: string, dishGuests: number, dishCalories: number, ingredientsHTML: string): string {
+    let dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
     return `
     <div class="dish">
-        <h1>${dishTitle}</h1>
+        <h1>${dishTitle}${dishExtra}</h1>
         <h2>${dishCalories} calories</h2>
 
         ${ingredientsHTML}
@@ -406,7 +413,7 @@ function renderDay(dishes: Dishes, dayID: DayID, day?: Day): [string, string[]] 
 /**
  * @returns [mealHTML, mealCalories, list of ingredient descriptions for meal]
  */
-function renderMeal(dishes: Dishes, mealID: MealID, mealDishes?: DishID[]): [string, number, string[]] {
+function renderMeal(dishes: Dishes, mealID: MealID, mealDishes?: DishIDSpec[]): [string, number, string[]] {
     // if meal not listed, or no meals provided, return nothing
     if (mealDishes == null || mealDishes.length === 0) {
         return ['', 0, []];
@@ -417,7 +424,7 @@ function renderMeal(dishes: Dishes, mealID: MealID, mealDishes?: DishID[]): [str
     let dishesHTML = '';
     let mealIngredDescs: string[] = [];
     for (let dishID of mealDishes) {
-        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes[dishID], dishID);
+        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes, dishID);
         mealCalories += dishCalories;
         dishesHTML += dishHTML;
         mealIngredDescs.push(...dishIngredDescs);
@@ -426,24 +433,41 @@ function renderMeal(dishes: Dishes, mealID: MealID, mealDishes?: DishID[]): [str
 }
 
 /**
- * @returns [dishHTML, dishCalories, dishIngredients
+ * @returns [dishHTML, dishCalories, dishIngredients]
  */
-function renderDish(dish: Dish, dishID: DishID): [string, number, string[]] {
-    if (dish == null) {
-        return [htmlDish('Unknown Dish: "' + dishID + '"', 0, ''), 0, []]
+function renderDish(dishes: Dishes, dishIDSpec: DishIDSpec): [string, number, string[]] {
+
+    // figure out dish spec type
+    let dishID: DishID = '';
+    let guests = 1;
+    if (typeof dishIDSpec === 'string') {
+        dishID = dishIDSpec;
+    } else {
+        dishID = dishIDSpec.dishID;
+        guests = dishIDSpec.guests;
     }
 
+    let dish = dishes[dishID];
+    if (dish == null) {
+        return [htmlDish('Unknown Dish: "' + dishID + '"', 1, 0, ''), 0, []]
+    }
+
+    // to handle multiple guests, we keep recipe and calories display the same
+    // (minus a little "(cook xN)" notification), but repeat each ingredient
+    // for the ingredients bookkeeping.
     let ingredientsHTMLInner = '';
     let dishCalories = 0;
     let dishIngredDescs: string[] = [];
     for (let ingredient of dish.ingredients) {
         ingredientsHTMLInner += htmlIngredient(ingredient);
         dishCalories += ingredient[0];
-        dishIngredDescs.push(ingredient[1]);
+        for (let i = 0; i < guests; i++) {
+            dishIngredDescs.push(ingredient[1]);
+        }
     }
 
     return [
-        htmlDish(dish.title, dishCalories, htmlIngredients(ingredientsHTMLInner)),
+        htmlDish(dish.title, guests, dishCalories, htmlIngredients(ingredientsHTMLInner)),
         dishCalories,
         dishIngredDescs,
     ];

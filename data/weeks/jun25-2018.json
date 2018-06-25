@@ -17,7 +17,7 @@
 		"breakfast": ["breakfastScramble", "butteredToast", "strawberries"],
 		"lunch": ["tunaFishSandwich", "carrots"],
 		"afternoonSnack": ["yogurt"],
-		"dinner": ["chickenRiceBroc"]
+		"dinner": [{"dishID": "chickenRiceBroc", "guests": 2}]
 	},
 	"wednesday": {
 		"breakfast": ["bananaPancakes", "strawberries"],
@@ -34,7 +34,7 @@
 		"breakfast": ["bananaPancakes"],
 		"lunch": ["tunaFishSandwich", "carrots"],
 		"afternoonSnack": ["proteinShake"],
-		"dinner": ["bibimbap"],
+		"dinner": [{"dishID": "bibimbap", "guests": 2}],
 		"eveningSnack": ["beer"]
 	},
 	"saturday": {

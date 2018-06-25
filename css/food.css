@@ -4,8 +4,8 @@
 @import url(../fonts/fa/css/font-awesome.min.css);
 
 body {
-    font-family: "Computer Modern Serif";
-    background-color: #78CAD2;
+    font-family: "Computer Modern Serif", Serif;
+    background-color: #E1DEE9;
     font-size: 10pt;
 }
 
@@ -20,9 +20,9 @@ body {
     margin-left: 0px;
     margin-right: 10px;
     padding: 10px;
-    background-color: #f0fcfc;
+    background-color: #A9CEF4;
     float: left;
-    height: 1000px;
+    /* height: 1200px; */
 }
 
 /* Day of the week (Monday) */
@@ -62,7 +62,7 @@ body {
     margin-left: 0px;
     margin-right: 0px;
     padding: 10px;
-    background-color: white
+    background-color: #fcfcfc;
 }
 
 .dish table {
@@ -83,6 +83,7 @@ body {
 
 /* Dish calories (260 calories) */
 .dish h2 {
+    color: #333;
     font-size: 10.5pt;
     text-align: left;
     margin-top: -3px;
@@ -90,7 +91,13 @@ body {
     /* font-style: italic; */
 }
 
-/* Ingredient (2 eggs) */
+/* Ingredient calories (140) */
+.calorieCell {
+    text-align: right;
+}
+
+
+/* Ingredient desc (2 eggs) */
 .ingredientCell {
     width: 100%;
     padding-left: 10px;

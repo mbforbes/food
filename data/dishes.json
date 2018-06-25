@@ -1,10 +1,133 @@
 {
-    "bananaPancakes": {
-        "title": "Banana Pancakes",
-        "mealHint": "breakfast",
-        "ingredients": [
-            [120, "banana"],
-            [140, "2 eggs"]
-        ]
-    }
+	"avocadoSandwich": {
+		"title": "Avocado Sandwich",
+		"mealHint": "lunch",
+		"ingredients": [
+			[114, "½ avocado"],
+			[140, "2 hardboiled eggs"],
+			[240, "2 pcs Dave's Killer Bread"],
+			[5, "scallions"]
+		]
+	},
+	"bananaPancakes": {
+		"title": "Banana Pancakes",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[120, "banana"],
+			[140, "2 eggs"],
+			[128, "¼ cup TJ's pumpkin pancake mix"],
+			[105, "2 tbsp maple syrup"]
+		]
+	},
+	"beefRevenge": {
+		"title": "Beef Revenge",
+		"mealHint": "dinner",
+		"ingredients": [
+			[267, "⅓ lb ground beef"],
+			[70, "1 slice 'American' 'cheese' 'product'"],
+			[80, "10 brussles sprouts"],
+			[60, "½ tbsp olive oil"]
+		]
+	},
+	"bibimbap": {
+		"title": "Bibimbap",
+		"mealHint": "dinner",
+		"ingredients": [
+			[200, "1 cup (cooked) white rice"],
+			[25, "1 large carrot"],
+			[17, "½ cucumber"],
+			[16, "4 white mushrooms"],
+			[60, "½ tbsp olive oil"],
+			[70, "1 egg"]
+		]
+	},
+	"breakfastScramble": {
+		"title": "Breakfast Scramble",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[30, "½ bell pepper"],
+			[30, "½ onion"],
+			[210, "3 eggs"],
+			[80, "2 tsp olive oil"]
+		]
+	},
+	"carrots": {
+		"title": "Carrots",
+		"mealHint": "afternoonSnack",
+		"ingredients": [
+			[61, "150g carrots"]
+		]
+	},
+	"chickenRiceBroc": {
+		"title": "Chicken, Rice, and Broccoli",
+		"mealHint": "dinner",
+		"ingredients": [
+			[280, "1 chicken breast"],
+			[200, "1 cup (cooked) white rice"],
+			[105, "1 head broccoli (baked)"],
+			[60, "½ tbsp olive oil"]
+		]
+	},
+	"dryWhiteToast": {
+		"title": "Dry White Toast",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[120, "1 psc Dave's Killer Bread, toasted"]
+		]
+	},
+	"frozenGrilledChickenBreast": {
+		"title": "Frozen Grilled Chicken Breast",
+		"mealHint": "dinner",
+		"ingredients": [
+			[257, "⅓ bag (196 grams) Tyson frozen grilled chicken breast"]
+		]
+	},
+	"frozenVegetables": {
+		"title": "Frozen Vegetables",
+		"mealHint": "dinner",
+		"ingredients": [
+			[120, "1 cup frozen vegetables, steamed"],
+			[25, "¼ tbsp butter"]
+		]
+	},
+	"instantMashedPotatoes": {
+		"title": "Instant Mashed Potatoes",
+		"mealHint": "dinner",
+		"ingredients": [
+			[25, "¼ cup 1% milk"],
+			[50, "½ tbsp butter"],
+			[70, "⅓ cup potato flakes"]
+		]
+	},
+	"proteinShake": {
+		"title": "Protein Shake",
+		"mealHint": "afternoonSnack",
+		"ingredients": [
+			[120, "Protein powder"],
+			[102, "1 cup 1% milk"]
+		]
+	},
+	"strawberries": {
+		"title": "½ Pound Strawbs",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[75, "½ pound strawberries"]
+		]
+	},
+	"tunaFishSandwich": {
+		"title": "Tuna Fish Sandwich",
+		"mealHint": "lunch",
+		"ingredients": [
+			[240, "2 pcs Dave's Killer Bread"],
+			[70, "3oz canned tuna in water"],
+			[100, "1 tbsp mayo"]
+		]
+	},
+	"yogurt": {
+		"title": "Yogurt Cup",
+		"mealHint": "afternoonSnack",
+		"ingredients": [
+			[120, "1 yogurt cup"]
+		]
+	}
 }

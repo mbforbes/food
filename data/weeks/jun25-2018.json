@@ -1,10 +1,40 @@
 {
-    "wednesday": {
-        "breakfast": ["bananaPancakes", "doritos"],
-        "morningSnack": [],
-        "lunch": [],
-        "afternoonSnack": [],
-        "dinner": [],
-        "eveningSnack": []
-    }
+	"_template": {
+		"breakfast": [],
+		"morningSnack": [],
+		"lunch": [],
+		"afternoonSnack": [],
+		"dinner": [],
+		"eveningSnack": []
+	},
+	"monday": {
+		"breakfast": ["bananaPancakes", "strawberries"],
+		"lunch": ["avocadoSandwich"],
+		"afternoonSnack": ["proteinShake"],
+		"dinner": ["frozenGrilledChickenBreast", "instantMashedPotatoes", "frozenVegetables"]
+	},
+	"tuesday": {
+		"breakfast": ["breakfastScramble", "dryWhiteToast", "strawberries"],
+		"lunch": ["tunaFishSandwich", "carrots"],
+		"afternoonSnack": ["yogurt"],
+		"dinner": ["chickenRiceBroc"]
+	},
+	"wednesday": {
+		"breakfast": ["bananaPancakes", "strawberries"],
+		"lunch": ["avocadoSandwich"],
+		"afternoonSnack": ["proteinShake"],
+		"dinner": ["beefRevenge"]
+	},
+	"thursday": {
+		"breakfast": ["breakfastScramble", "dryWhiteToast", "strawberries"],
+		"lunch": ["tunaFishSandwich", "carrots"],
+		"afternoonSnack": ["yogurt"],
+		"dinner": ["frozenGrilledChickenBreast", "instantMashedPotatoes", "frozenVegetables"]
+	},
+	"friday": {
+		"breakfast": ["bananaPancakes"],
+		"lunch": [],
+		"afternoonSnack": ["proteinShake"],
+		"dinner": ["bibimbap"]
+	}
 }

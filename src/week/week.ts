@@ -97,7 +97,8 @@ function htmlIngredients(ingredientsHTML: string): string {
 function htmlIngredient(ingredient: Ingredient): string {
     return `
     <tr>
-        <td>${ingredient[0]}</td><td class="ingredientCell">${ingredient[1]}</td>
+        <td class="calorieCell">${ingredient[0]}</td>
+        <td class="ingredientCell">${ingredient[1]}</td>
     </tr>
     `
 }

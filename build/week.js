@@ -49,7 +49,8 @@ function htmlIngredients(ingredientsHTML) {
 function htmlIngredient(ingredient) {
     return `
     <tr>
-        <td>${ingredient[0]}</td><td class="ingredientCell">${ingredient[1]}</td>
+        <td class="calorieCell">${ingredient[0]}</td>
+        <td class="ingredientCell">${ingredient[1]}</td>
     </tr>
     `;
 }

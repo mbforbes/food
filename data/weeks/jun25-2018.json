@@ -23,7 +23,7 @@
 		"breakfast": ["bananaPancakes", "strawberries"],
 		"lunch": ["avocadoSandwich"],
 		"afternoonSnack": ["proteinShake"],
-		"dinner": ["beefRevenge", "brusslesSproutsSide"]
+		"dinner": ["beefRevenge", "asparagusSide"]
 	},
 	"thursday": {
 		"breakfast": ["breakfastScramble", "butteredToast", "strawberries"],
@@ -39,12 +39,12 @@
 	},
 	"saturday": {
 		"breakfast": ["PBToast", "scrambledEggsSmall"],
-		"lunch": ["beefRevenge", "brusslesSproutsSide"],
-		"dinner": ["shakshuka", "broccoliSide"]
+		"lunch": ["beefRevenge", "squashSide"],
+		"dinner": ["shakshuka"]
 	},
 	"sunday": {
 		"breakfast": ["omelette", "butteredToast"],
-		"lunch": ["PBnJ"],
+		"lunch": ["PBnJ", "broccoliSide"],
 		"dinner": ["quinoaSalad"]
 	}
 }

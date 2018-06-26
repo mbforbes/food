@@ -1,4 +1,12 @@
 {
+	"asparagusSide": {
+		"title": "Baked Asparagus (side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			[42, "1 bunch asparagus (~210g edible)"],
+			[120, "1 tbsp olive oil"]
+		]
+	},
 	"avocadoSandwich": {
 		"title": "Avocado Sandwich",
 		"mealHint": "lunch",
@@ -61,7 +69,7 @@
 		"title": "Broccoli (side)",
 		"mealHint": "dinner",
 		"ingredients": [
-			[66, "1 broccoli head"]
+			[60, "1 broccoli head"]
 		]
 	},
 	"brusslesSproutsSide": {
@@ -93,7 +101,7 @@
 		"ingredients": [
 			[280, "1 chicken breast"],
 			[200, "1 cup rice (white, cooked)"],
-			[66, "1 broccoli head (baked)"],
+			[60, "1 broccoli head (baked)"],
 			[60, "½ tbsp olive oil"]
 		]
 	},
@@ -108,7 +116,7 @@
 		"title": "Frozen Vegetables",
 		"mealHint": "dinner",
 		"ingredients": [
-			[120, "1 cup frozen vegetables, steamed"],
+			[105, "1 cup frozen vegetables, steamed"],
 			[25, "¼ tbsp butter"]
 		]
 	},
@@ -138,7 +146,7 @@
 		"mealHint": "breakfast",
 		"ingredients": [
 			[190, "2 tbsp peanut butter"],
-			[240, "2 pcs Dave's Killer Bread, toasted"]
+			[120, "1 pcs Dave's Killer Bread, toasted"]
 		]
 	},
 	"PBnJ": {
@@ -164,8 +172,8 @@
 		"ingredients": [
 			[222, "1 cup quinoa (cooked)"],
 			[50, "200 g arugula"],
-			[387, "1 can black beans"],
-			[45, "100 g salsa"],
+			[360, "1 can black beans"],
+			[40, "½ cup salsa"],
 			[44, "10 g parmesan"]
 		]
 	},
@@ -184,7 +192,16 @@
 			[120, "1 tbsp olive oil"],
 			[30, "½ bell pepper"],
 			[30, "½ onion"],
+			[180, "1 cup tomato sauce"],
 			[140, "2 egg"]
+		]
+	},
+	"squashSide": {
+		"title": "Baked Squash (side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			[70, "410 g squash"],
+			[120, "1 tbsp olive oil"]
 		]
 	},
 	"strawberries": {
@@ -199,7 +216,7 @@
 		"mealHint": "lunch",
 		"ingredients": [
 			[240, "2 pcs Dave's Killer Bread"],
-			[70, "3 oz tuna (canned, in water)"],
+			[100, "1 can tuna (5oz can, in water)"],
 			[100, "1 tbsp mayo"]
 		]
 	},

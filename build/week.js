@@ -26,7 +26,8 @@ function revMap(m) {
 const QUANT_MAP_REV = revMap(QUANT_MAP);
 const KNOWN_UNITS = new Set([
     'tbs', 'tbsp', 'tsp', 'oz', 'ozs', 'lb', 'lbs', 'cup', 'cups', 'scoop',
-    'scoops', 'pcs', 'psc', 'g', 'bag', 'bags', 'bunch', 'bunches',
+    'scoops', 'pcs', 'psc', 'g', 'bag', 'bags', 'bunch', 'bunches', 'fillet',
+    'fillets',
 ]);
 // things we probably don't have to buy, but should check that we have enough
 // of

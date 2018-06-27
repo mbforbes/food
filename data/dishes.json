@@ -88,6 +88,16 @@
 			[50, "½ tbsp butter"]
 		]
 	},
+	"burritoBowl": {
+		"title": "Burrito Bowl",
+		"mealHint": "lunch",
+		"ingredients": [
+			[264, "150 g rotisserie chicken"],
+			[100, "½ cup rice (white, cooked)"],
+			[114, "½ avocado"],
+			[40, "½ cup salsa"]
+		]
+	},
 	"carrots": {
 		"title": "Carrots",
 		"mealHint": "afternoonSnack",
@@ -103,6 +113,18 @@
 			[200, "1 cup rice (white, cooked)"],
 			[60, "1 broccoli head (baked)"],
 			[60, "½ tbsp olive oil"]
+		]
+	},
+	"eggBake": {
+		"title": "Egg Bake",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[210, "3 eggs"],
+			[25, "¼ cup milk (1%)"],
+			[110, "¼ cup cheddar cheese (shredded)"],
+			[150, "100 g ham (pre-cooked)"],
+			[20, "⅓ onion"],
+			[20, "⅓ bell pepper"]
 		]
 	},
 	"frozenGrilledChickenBreast": {
@@ -175,6 +197,14 @@
 			[360, "1 can black beans"],
 			[40, "½ cup salsa"],
 			[44, "10 g parmesan"]
+		]
+	},
+	"salmon": {
+		"title": "Salmon",
+		"mealHint": "dinner",
+		"ingredients": [
+			[241, "1 fillet salmon (5oz)"],
+			[60, "½ tbsp olive oil"]
 		]
 	},
 	"scrambledEggsSmall": {

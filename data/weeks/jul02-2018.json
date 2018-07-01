@@ -1,0 +1,41 @@
+{
+	"_template": {
+		"breakfast": [],
+		"morningSnack": [],
+		"lunch": [],
+		"afternoonSnack": [],
+		"dinner": [],
+		"eveningSnack": []
+	},
+	"monday": {
+		"breakfast": ["eggBake"],
+		"lunch": ["burritoBowl"],
+		"afternoonSnack": ["proteinShake"],
+		"dinner": ["quinoaSalad"]
+	},
+	"tuesday": {
+		"breakfast": ["PBToast", "scrambledEggsSmall"],
+		"lunch": ["tunaFishSandwich"],
+		"afternoonSnack": ["yogurt", "carrots"]
+	},
+	"wednesday": {
+		"breakfast": ["eggBake"],
+		"lunch": ["beefRevenge", "broccoliSide"],
+		"afternoonSnack": ["proteinShake"],
+		"dinner": ["quinoaSalad"]
+	},
+	"thursday": {
+		"breakfast": ["PBToast", "scrambledEggsSmall"],
+		"dinner": ["burritoBowl", "carrots"]
+	},
+	"friday": {
+		"breakfast": ["eggBake"],
+		"lunch": ["burritoBowl"],
+		"afternoonSnack": ["proteinShake"],
+		"dinner": ["salmon", "riceSide", "squashSide"]
+	},
+	"saturday": {
+		"breakfast": ["hashBrownPatty", "scrambledEggs", "yogurt"],
+		"lunch": ["PBnJ", "carrots"]
+	}
+}

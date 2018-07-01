@@ -84,7 +84,7 @@
 		"title": "Buttered Toast",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[120, "1 pcs Dave's Killer Bread, toasted"],
+			[120, "1 pcs Dave's Killer Bread"],
 			[50, "½ tbsp butter"]
 		]
 	},
@@ -142,6 +142,13 @@
 			[25, "¼ tbsp butter"]
 		]
 	},
+	"hashBrownPatty": {
+		"title": "Hash Brown Patty",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[140, "1 hash brown patty"]
+		]
+	},
 	"instantMashedPotatoes": {
 		"title": "Instant Mashed Potatoes",
 		"mealHint": "dinner",
@@ -168,7 +175,7 @@
 		"mealHint": "breakfast",
 		"ingredients": [
 			[190, "2 tbsp peanut butter"],
-			[120, "1 pcs Dave's Killer Bread, toasted"]
+			[120, "1 pcs Dave's Killer Bread"]
 		]
 	},
 	"PBnJ": {
@@ -194,9 +201,16 @@
 		"ingredients": [
 			[222, "1 cup quinoa (cooked)"],
 			[50, "200 g arugula"],
-			[360, "1 can black beans"],
+			[180, "½ can black beans"],
 			[40, "½ cup salsa"],
 			[44, "10 g parmesan"]
+		]
+	},
+	"riceSide": {
+		"title": "Rice (side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			[100, "½ cup rice (white, cooked)"]
 		]
 	},
 	"salmon": {
@@ -211,7 +225,16 @@
 		"title": "Scrambled Eggs (Small)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[140, "2 egg"]
+			[140, "2 egg"],
+			[25, "¼ tbsp butter"]
+		]
+	},
+	"scrambledEggs": {
+		"title": "Scrambled Eggs",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[210, "3 egg"],
+			[50, "½ tbsp butter"]
 		]
 	},
 	"shakshuka": {

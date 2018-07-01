@@ -221,8 +221,6 @@ function onDishesLoaded(dishes: Dishes): void {
     // NOTE: picking week to load here
     console.log('this week fn:', getThisWeekFilename());
     console.log('next week fn:', getNextWeekFilename());
-    let weekFN = getThisWeekFilename();
-    // let weekFN = getNextWeekFilename();
 
     $.getJSON(weekFN, onWeekLoaded.bind(null, dishes));
 }
@@ -266,11 +264,18 @@ function getQuantity(s: string): number {
 }
 
 function renderQuantity(raw: number): string {
+    // whole numbers
+    if (raw % 1 === 0) {
+        return '' + raw;
+    }
+    let whole = raw < 1.0 ? '' : Math.floor(raw) + '';
+    let remainder = raw % 1;
+
     let prec = 2;
-    let inpPrec = raw.toPrecision(prec);
+    let inpPrec = remainder.toPrecision(prec);
     for (let [num, str] of QUANT_MAP_REV.entries()) {
         if (inpPrec === num.toPrecision(prec)) {
-            return str;
+            return whole + str;
         }
     }
     return '' + raw;
@@ -482,6 +487,8 @@ function renderDish(dishes: Dishes, dishIDSpec: DishIDSpec): [string, number, st
 //
 
 const dishesFN = 'data/dishes.json';
+// const weekFN = getThisWeekFilename();
+const weekFN = getNextWeekFilename();
 
 //
 // execution

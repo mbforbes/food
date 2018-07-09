@@ -30,7 +30,7 @@ const QUANT_MAP_REV = revMap(QUANT_MAP);
 const KNOWN_UNITS = new Set([
     'tbs', 'tbsp', 'tsp', 'oz', 'ozs', 'lb', 'lbs', 'cup', 'cups', 'scoop',
     'scoops', 'pcs', 'psc', 'g', 'bag', 'bags', 'bunch', 'bunches', 'fillet',
-    'fillets',
+    'fillets', 'bottle', 'bottles'
 ]);
 
 // things we probably don't have to buy, but should check that we have enough
@@ -487,8 +487,10 @@ function renderDish(dishes: Dishes, dishIDSpec: DishIDSpec): [string, number, st
 //
 
 const dishesFN = 'data/dishes.json';
-// const weekFN = getThisWeekFilename();
-const weekFN = getNextWeekFilename();
+
+const weekFN = getThisWeekFilename();
+// const weekFN = getNextWeekFilename();
+// const weekFN = 'data/weeks/jun25-2018.json'
 
 //
 // execution

@@ -12,9 +12,8 @@
 		"mealHint": "lunch",
 		"ingredients": [
 			[114, "½ avocado"],
-			[140, "2 egg (hardboiled)"],
-			[240, "2 pcs Dave's Killer Bread"],
-			[5, "1 scallion"]
+			[210, "3 egg (hardboiled)"],
+			[120, "1 pcs Dave's Killer Bread"]
 		]
 	},
 	"bananaPancakes": {
@@ -119,10 +118,10 @@
 		"title": "Egg Bake",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[210, "3 eggs"],
+			[210, "3 egg"],
 			[25, "¼ cup milk (1%)"],
-			[110, "¼ cup cheddar cheese (shredded)"],
-			[150, "100 g ham (pre-cooked)"],
+			[156, "41 g cheddar cheese (shredded)"],
+			[107, "100 g ham (pre-cooked)"],
 			[20, "⅓ onion"],
 			[20, "⅓ bell pepper"]
 		]
@@ -147,6 +146,13 @@
 		"mealHint": "breakfast",
 		"ingredients": [
 			[140, "1 hash brown patty"]
+		]
+	},
+	"hummus": {
+		"title": "Hummus",
+		"mealHint": "lunch",
+		"ingredients": [
+			[50, "2 tbsp hummus"]
 		]
 	},
 	"instantMashedPotatoes": {
@@ -199,11 +205,12 @@
 		"title": "Quinoa Salad",
 		"mealHint": "dinner",
 		"ingredients": [
-			[222, "1 cup quinoa (cooked)"],
-			[50, "200 g arugula"],
 			[180, "½ can black beans"],
-			[40, "½ cup salsa"],
-			[44, "10 g parmesan"]
+			[222, "1 cup quinoa (cooked)"],
+			[18, "71 g arugula"],
+			[120, "1 tbsp olive oil"],
+			[5, "½ lemon (juice)"],
+			[54, "¼ avocado"]
 		]
 	},
 	"riceSide": {
@@ -247,6 +254,13 @@
 			[30, "½ onion"],
 			[180, "1 cup tomato sauce"],
 			[140, "2 egg"]
+		]
+	},
+	"soylent": {
+		"title": "Soylent",
+		"mealHint": "lunch",
+		"ingredients": [
+			[400, "1 bottle soylent"]
 		]
 	},
 	"squashSide": {

@@ -5,7 +5,7 @@
 
 body {
     font-family: "Computer Modern Serif", Serif;
-    background-color: #E1DEE9;
+    background-color: #eb5e66;
     font-size: 10pt;
 }
 
@@ -14,15 +14,24 @@ body {
  */
 .day {
     width: 240px;
-    box-shadow: -10px 10px 6px -6px #777;
+    box-shadow: -10px 10px 6px -6px #ff8300;
     margin-top: 10px;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 10px;
     padding: 10px;
-    background-color: #A9CEF4;
+    background-color: #ffff99;
     float: left;
     /* height: 1200px; */
+}
+
+/**
+ * Bigger if solo view!
+ */
+.day.solo {
+    width: 500px;
+    float: none;
+    margin: 0 auto;
 }
 
 /* Day of the week (Monday) */
@@ -34,6 +43,11 @@ body {
 /* Meal titles (Breakfast) */
 .day h2 {
     margin-bottom: 0px;
+}
+
+/* More space on solo day view*/
+.day.solo > h2 {
+    margin-top: 50px;
 }
 
 /* Meal calroire counts (260 calories) */
@@ -56,13 +70,13 @@ body {
  * Dish (Banana Pancakes)
  */
 .dish {
-    box-shadow: -5px 5px 3px -3px #777;
+    box-shadow: -5px 5px 3px -3px #ff8300;
     margin-top: 10px;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
     padding: 10px;
-    background-color: #fcfcfc;
+    background-color: #ffffff;
 }
 
 .dish table {

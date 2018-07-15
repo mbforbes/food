@@ -51,10 +51,11 @@ const AllDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturd
 // html templates
 //
 // below are for the week / day / meal / dish view
-function htmlDay(dayID, dayCalories, mealHTML) {
+function htmlDay(dayID, dayCalories, mealHTML, solo) {
     let displayDay = dayID[0].toUpperCase() + dayID.slice(1);
+    let displayClass = solo ? 'day solo' : 'day';
     return `
-    <div class="day">
+    <div class="${displayClass}">
         <h1>${displayDay}</h1>
         <h4>${dayCalories} calories</h4>
 
@@ -129,17 +130,23 @@ function htmlGroceryIngredient(quantity, unit, thing) {
 //
 // funcs
 //
+//
+// pick filenames
+//
 function getWeekFilename(m) {
     return 'data/weeks/' + m.format('MMMDD-YYYY').toLowerCase() + '.json';
 }
-function getThisWeekFilename() {
+function getThisWeekFilename(start = moment()) {
     // strategy: check current day. subtract 1 day at a time until we reach
     // a monday.
-    let cur = moment();
+    let cur = start;
     while (cur.format('dddd') !== 'Monday') {
         cur = cur.subtract(1, 'days');
     }
     return getWeekFilename(cur);
+}
+function getLastWeekFilename() {
+    return getThisWeekFilename(moment().subtract(7, 'days'));
 }
 function getNextWeekFilename() {
     // strategy: starting with tomorrow, continue adding 1 day at a time until
@@ -150,10 +157,10 @@ function getNextWeekFilename() {
     }
     return getWeekFilename(candidate);
 }
+//
+// process data
+//
 function onDishesLoaded(dishes) {
-    // NOTE: picking week to load here
-    console.log('this week fn:', getThisWeekFilename());
-    console.log('next week fn:', getNextWeekFilename());
     $.getJSON(weekFN, onWeekLoaded.bind(null, dishes));
 }
 function onWeekLoaded(dishes, week) {
@@ -161,9 +168,18 @@ function onWeekLoaded(dishes, week) {
     console.log(dishes);
     console.log('Got week');
     console.log(week);
-    let [weekHTML, weekIngredDescs] = renderWeek(dishes, week);
-    let groceryList = renderGroceryList(weekIngredDescs);
-    $('body').append(weekHTML + groceryList);
+    console.log('viewType: ' + view);
+    if (view == 'week') {
+        let [weekHTML, weekIngredDescs] = renderWeek(dishes, week);
+        let groceryList = renderGroceryList(weekIngredDescs);
+        $('body').append(weekHTML + groceryList);
+    }
+    else {
+        // day view. assumes current day the one to render.
+        let dayID = moment().format('dddd').toLowerCase();
+        let [dayHTML, _] = renderDay(dishes, dayID, week[dayID], true);
+        $('body').append(dayHTML);
+    }
 }
 function addIngred(m, quantity, unit, thing) {
     let key = JSON.stringify({
@@ -301,7 +317,7 @@ function renderWeek(dishes, week) {
     let weekHTML = '';
     let weekIngredDescs = [];
     for (let dayID of AllDays) {
-        let [dayHTML, dayIngredDescs] = renderDay(dishes, dayID, week[dayID]);
+        let [dayHTML, dayIngredDescs] = renderDay(dishes, dayID, week[dayID], false);
         weekHTML += dayHTML;
         weekIngredDescs.push(...dayIngredDescs);
     }
@@ -310,10 +326,10 @@ function renderWeek(dishes, week) {
 /**
  * @returns [dayHTML, list of ingredient descriptions for day]
  */
-function renderDay(dishes, dayID, day) {
+function renderDay(dishes, dayID, day, solo) {
     // if day not listed in json: nothing
     if (day == null) {
-        return [htmlDay(dayID, 0, ''), []];
+        return [htmlDay(dayID, 0, '', solo), []];
     }
     // render and sum calories for all meals
     let dayCalories = 0;
@@ -325,7 +341,7 @@ function renderDay(dishes, dayID, day) {
         dayCalories += mealCalories;
         dayIngredDescs.push(...mealIngredDescs);
     }
-    return [htmlDay(dayID, dayCalories, mealHTML), dayIngredDescs];
+    return [htmlDay(dayID, dayCalories, mealHTML, solo), dayIngredDescs];
 }
 /**
  * @returns [mealHTML, mealCalories, list of ingredient descriptions for meal]
@@ -388,9 +404,39 @@ function renderDish(dishes, dishIDSpec) {
 // config
 //
 const dishesFN = 'data/dishes.json';
-const weekFN = getThisWeekFilename();
-// const weekFN = getNextWeekFilename();
+// parse url to pick week
+let weekFN;
+let url = new URL(window.location.href);
+let week = url.searchParams.get('week');
+switch (week) {
+    case 'prev':
+    case 'previous':
+    case 'last':
+        weekFN = getLastWeekFilename();
+        break;
+    case 'next':
+        weekFN = getNextWeekFilename();
+        break;
+    default:
+        weekFN = getThisWeekFilename();
+        break;
+}
+// this would be a manual override:
 // const weekFN = 'data/weeks/jun25-2018.json'
+console.log('Using weekFN: ' + weekFN);
+// day view really only makes sense with current week, though hitting 'prev'
+// can let you check out what you ate last week on the same day, so i guess
+// that's cool too.
+let view;
+let viewRaw = url.searchParams.get('view');
+switch (viewRaw) {
+    case 'day':
+        view = 'day';
+        break;
+    default:
+        view = 'week';
+        break;
+}
 //
 // execution
 //

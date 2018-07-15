@@ -36,15 +36,14 @@
         "dinner": ["beefRevenge", "squashSide"]
     },
     "friday": {
-        "breakfast": ["breakfastScramble"],
-        "morningSnack": ["yogurt"],
-        "lunch": ["soylent", "carrots"],
-        "afternoonSnack": ["proteinShake"],
+        "breakfast": ["breakfastScramble", "butteredToast"],
+        "lunch": ["soylent"],
+        "afternoonSnack": ["carrots", "hummus", "proteinShake"],
         "dinner": ["quinoaSalad"]
     },
     "saturday": {
-        "breakfast": ["omelette"],
-        "lunch": ["soylent", "butteredToast"],
+        "breakfast": ["omelette", "butteredToast"],
+        "lunch": ["PBnJ"],
         "dinner": ["salmon", "riceSide", "squashSide", "beer"]
     },
     "sunday": {

@@ -7,49 +7,49 @@
 		"dinner": [],
 		"eveningSnack": []
 	},
-    "monday": {
-        "breakfast": ["breakfastScramble"],
-        "morningSnack": ["yogurt"],
-        "lunch": ["tunaFishSandwich", "carrots"],
-        "afternoonSnack": ["proteinShake"],
-        "dinner": ["chickenRiceBroc"]
-    },
-    "tuesday": {
-        "breakfast": ["PBToast", "scrambledEggsSmall"],
-        "morningSnack": ["yogurt"],
-        "lunch": ["soylent", "broccoliSide"],
-        "afternoonSnack": ["carrots", "hummus"],
-        "dinner": [
-            {"dishID": "beefRevenge", "guests": 2},
-            {"dishID": "brusslesSproutsSide", "guests": 2}
-        ]
-    },
-    "wednesday": {
-        "breakfast": ["breakfastScramble", "butteredToast"],
-        "lunch": ["avocadoSandwich"],
-        "afternoonSnack": ["proteinShake"],
-        "dinner": ["quinoaSalad"]
+	"monday": {
+		"breakfast": ["breakfastScramble"],
+		"morningSnack": ["yogurt"],
+		"lunch": ["tunaFishSandwich", "carrots"],
+		"afternoonSnack": ["proteinShake"],
+		"dinner": ["chickenRiceBroc"]
+	},
+	"tuesday": {
+		"breakfast": ["PBToast", "scrambledEggsSmall"],
+		"morningSnack": ["yogurt"],
+		"lunch": ["soylent", "broccoliSide"],
+		"afternoonSnack": ["carrots", "hummus"],
+		"dinner": [
+			{"dishID": "beefRevenge", "guests": 2},
+			{"dishID": "brusslesSproutsSide", "guests": 2}
+		]
+	},
+	"wednesday": {
+		"breakfast": ["breakfastScramble", "butteredToast"],
+		"lunch": ["avocadoSandwich"],
+		"afternoonSnack": ["proteinShake"],
+		"dinner": ["quinoaSalad"]
 
-    },
-    "thursday": {
-        "breakfast": ["PBToast", "scrambledEggsSmall"],
-        "dinner": ["beefRevenge", "squashSide"]
-    },
-    "friday": {
-        "breakfast": ["breakfastScramble", "butteredToast"],
-        "lunch": ["soylent"],
-        "afternoonSnack": ["carrots", "hummus", "proteinShake"],
-        "dinner": ["quinoaSalad"]
-    },
-    "saturday": {
-        "breakfast": ["omelette", "butteredToast"],
-        "lunch": ["PBnJ"],
-        "dinner": ["salmon", "riceSide", "squashSide", "beer"]
-    },
-    "sunday": {
-        "breakfast": ["PBToast", "scrambledEggsSmall"],
-        "lunch": ["soylent"],
-        "dinner": ["shakshuka"]
-    }
+	},
+	"thursday": {
+		"breakfast": ["PBToast", "scrambledEggsSmall"],
+		"dinner": ["beefRevenge", "squashSide"]
+	},
+	"friday": {
+		"breakfast": ["breakfastScramble", "butteredToast"],
+		"lunch": ["soylent"],
+		"afternoonSnack": ["carrots", "hummus", "proteinShake"],
+		"dinner": ["quinoaSalad"]
+	},
+	"saturday": {
+		"breakfast": ["omelette", "butteredToast"],
+		"lunch": ["PBnJ"],
+		"dinner": ["salmon", "riceSide", "squashSide", "beer"]
+	},
+	"sunday": {
+		"breakfast": ["PBToast", "scrambledEggsSmall"],
+		"lunch": ["soylent"],
+		"dinner": ["shakshuka"]
+	}
 
 }

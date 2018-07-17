@@ -45,6 +45,10 @@ const BULK_THINGS = new Set([
     'quinoa (cooked)',
     'rice (white, cooked)'
 ]);
+// things used as internal placeholders we don't need to add to any list
+const IGNORE_THINGS = new Set([
+    '[eat this much-ish]',
+]);
 const AllMeals = ['breakfast', 'morningSnack', 'lunch', 'afternoonSnack', 'dinner', 'eveningSnack'];
 const AllDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 //
@@ -303,7 +307,10 @@ function renderGroceryList(rawIngredDescs) {
     for (let ingredDesc of ingredDescs) {
         let [quantity, unit, thing] = ingredDesc;
         // separate ingredients from things to check
-        if (BULK_THINGS.has(thing)) {
+        if (IGNORE_THINGS.has(thing)) {
+            // noop
+        }
+        else if (BULK_THINGS.has(thing)) {
             checkListHTML += htmlGroceryIngredient(quantity, unit, thing);
         }
         else {
@@ -437,6 +444,7 @@ switch (viewRaw) {
         view = 'week';
         break;
 }
+console.log('Using view: ' + view);
 //
 // execution
 //

@@ -50,6 +50,11 @@ const BULK_THINGS = new Set([
     'rice (white, cooked)'
 ])
 
+// things used as internal placeholders we don't need to add to any list
+const IGNORE_THINGS = new Set([
+    '[eat this much-ish]',
+])
+
 //
 // types
 //
@@ -391,12 +396,13 @@ function renderGroceryList(rawIngredDescs: string[]): string {
         let [quantity, unit, thing] = ingredDesc;
 
         // separate ingredients from things to check
-        if (BULK_THINGS.has(thing)) {
+        if (IGNORE_THINGS.has(thing)) {
+            // noop
+        } else if (BULK_THINGS.has(thing)) {
             checkListHTML += htmlGroceryIngredient(quantity, unit, thing);
         } else {
             ingredientDescHTML += htmlGroceryIngredient(quantity, unit, thing);
         }
-
     }
 
     // render all
@@ -539,6 +545,7 @@ switch (viewRaw) {
         view = 'week';
         break;
 }
+console.log('Using view: ' + view);
 
 //
 // execution

@@ -114,6 +114,27 @@
 			[60, "½ tbsp olive oil"]
 		]
 	},
+	"eatOutBreakfast": {
+		"title": "[Eating Out!]",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[500, "[eat this much-ish]"]
+		]
+	},
+	"eatOutLunch": {
+		"title": "[Eating Out!]",
+		"mealHint": "lunch",
+		"ingredients": [
+			[600, "[eat this much-ish]"]
+		]
+	},
+	"eatOutDinner": {
+		"title": "[Eating Out!]",
+		"mealHint": "dinner",
+		"ingredients": [
+			[700, "[eat this much-ish]"]
+		]
+	},
 	"eggBake": {
 		"title": "Egg Bake",
 		"mealHint": "breakfast",
@@ -162,6 +183,15 @@
 			[25, "¼ cup milk (1%)"],
 			[50, "½ tbsp butter"],
 			[70, "⅓ cup potato flakes"]
+		]
+	},
+	"jamToast": {
+		"title": "Jam Toast",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[120, "1 pcs Dave's Killer Bread"],
+			[50, "½ tbsp butter"],
+			[50, "1 tbsp jam"]
 		]
 	},
 	"omelette": {
@@ -218,6 +248,13 @@
 		"mealHint": "dinner",
 		"ingredients": [
 			[100, "½ cup rice (white, cooked)"]
+		]
+	},
+	"riceSideDouble": {
+		"title": "Double Rice (side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			[200, "1 cup rice (white, cooked)"]
 		]
 	},
 	"salmon": {

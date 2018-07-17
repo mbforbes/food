@@ -1,0 +1,45 @@
+{
+	"_template": {
+		"breakfast": [],
+		"morningSnack": [],
+		"lunch": [],
+		"afternoonSnack": [],
+		"dinner": [],
+		"eveningSnack": []
+	},
+	"monday": {
+		"breakfast": ["hashBrownPatty", "scrambledEggs"],
+		"lunch": ["PBnJ", "proteinShake"],
+		"dinner": ["frozenGrilledChickenBreast", "instantMashedPotatoes", "brusslesSproutsSide", "squashSide"]
+	},
+	"tuesday": {
+		"breakfast": ["yogurt", "jamToast", "jamToast"],
+		"lunch": ["eatOutLunch"],
+		"dinner": ["eatOutDinner"]
+	},
+	"wednesday": {
+		"breakfast": ["hashBrownPatty", "scrambledEggs"],
+		"lunch": ["soylent", "broccoliSide", "hummus", "hummus", "carrots", "hummus"],
+		"dinner": ["frozenGrilledChickenBreast", "instantMashedPotatoes", "brusslesSproutsSide", "squashSide"]
+	},
+	"thursday": {
+		"breakfast": ["yogurt", "jamToast", "jamToast"],
+		"lunch": ["eatOutLunch"],
+		"dinner": ["eatOutDinner"]
+	},
+	"friday": {
+		"breakfast": ["hashBrownPatty", "scrambledEggs"],
+		"lunch": ["eatOutLunch"],
+		"dinner": ["eatOutDinner"]
+	},
+	"saturday": {
+		"breakfast": ["eatOutBreakfast"],
+		"lunch": ["eatOutLunch"],
+		"dinner": ["eatOutDinner"]
+	},
+	"sunday": {
+		"breakfast": ["eatOutBreakfast"],
+		"lunch": ["soylent", "carrots", "hummus"],
+		"dinner": ["salmon", "riceSideDouble", "asparagusSide"]
+	}
+}

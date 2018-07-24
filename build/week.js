@@ -27,7 +27,7 @@ const QUANT_MAP_REV = revMap(QUANT_MAP);
 const KNOWN_UNITS = new Set([
     'tbs', 'tbsp', 'tsp', 'oz', 'ozs', 'lb', 'lbs', 'cup', 'cups', 'scoop',
     'scoops', 'pcs', 'psc', 'g', 'bag', 'bags', 'bunch', 'bunches', 'fillet',
-    'fillets', 'bottle', 'bottles'
+    'fillets', 'bottle', 'bottles', 'bar', 'bars',
 ]);
 // things we probably don't have to buy, but should check that we have enough
 // of
@@ -48,6 +48,7 @@ const BULK_THINGS = new Set([
 // things used as internal placeholders we don't need to add to any list
 const IGNORE_THINGS = new Set([
     '[eat this much-ish]',
+    '[chipotle burrito]',
 ]);
 const AllMeals = ['breakfast', 'morningSnack', 'lunch', 'afternoonSnack', 'dinner', 'eveningSnack'];
 const AllDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];

@@ -114,6 +114,13 @@
 			[60, "½ tbsp olive oil"]
 		]
 	},
+	"chipotleBurrito": {
+		"title": "Chipotle Burrito",
+		"mealHint": "lunch",
+		"ingredients": [
+			[1200, "[chipotle burrito]"]
+		]
+	},
 	"eatOutBreakfast": {
 		"title": "[Eating Out!]",
 		"mealHint": "breakfast",
@@ -145,6 +152,13 @@
 			[107, "100 g ham (pre-cooked)"],
 			[20, "⅓ onion"],
 			[20, "⅓ bell pepper"]
+		]
+	},
+	"energyBarPro": {
+		"title": "Energy Bar (Pro Base)",
+		"mealHint": "afternoonSnack",
+		"ingredients": [
+			[280, "1 bar (Pro Base)"]
 		]
 	},
 	"frozenGrilledChickenBreast": {
@@ -181,6 +195,7 @@
 		"mealHint": "dinner",
 		"ingredients": [
 			[25, "¼ cup milk (1%)"],
+			[0, "⅓ cup water"],
 			[50, "½ tbsp butter"],
 			[70, "⅓ cup potato flakes"]
 		]

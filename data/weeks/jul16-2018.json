@@ -9,8 +9,8 @@
 	},
 	"monday": {
 		"breakfast": ["hashBrownPatty", "scrambledEggs"],
-		"lunch": ["PBnJ", "proteinShake"],
-		"dinner": ["frozenGrilledChickenBreast", "instantMashedPotatoes", "brusslesSproutsSide", "squashSide"]
+		"lunch": ["soylent", "proteinShake"],
+		"dinner": ["frozenGrilledChickenBreast", "instantMashedPotatoes", "brusslesSproutsSide", "brusslesSproutsSide"]
 	},
 	"tuesday": {
 		"breakfast": ["yogurt", "jamToast", "jamToast"],
@@ -19,8 +19,10 @@
 	},
 	"wednesday": {
 		"breakfast": ["hashBrownPatty", "scrambledEggs"],
-		"lunch": ["soylent", "broccoliSide", "hummus", "hummus", "carrots", "hummus"],
-		"dinner": ["frozenGrilledChickenBreast", "instantMashedPotatoes", "brusslesSproutsSide", "squashSide"]
+		"morningSnack": ["energyBarPro"],
+		"lunch": ["proteinShake"],
+		"afternoonSnack": ["broccoliSide", "hummus"],
+		"dinner": ["frozenGrilledChickenBreast", "instantMashedPotatoes", "beer"]
 	},
 	"thursday": {
 		"breakfast": ["yogurt", "jamToast", "jamToast"],

@@ -107,6 +107,29 @@ type Week = {
 // html templates
 //
 
+// below are for the what-dishes-do-we-have AKA "dishes" view
+
+/**
+ * Function for rendering all meal options for a given meal. E.g. "Breakfast":
+ * (all breakfast dishes entered in json file).
+ *
+ * @param meal name of meal (like "breakfast")
+ * @param dishesHTML html of all dishes, including their separators.
+ */
+function htmlAllDishesForMeal(meal: string, dishesHTML: string): string {
+    let displayMeal = meal[0].toUpperCase() + meal.slice(1);
+    let displayClass = 'day solo';
+
+    return `
+    <div class="${displayClass}">
+        <h1>${displayMeal}</h1>
+
+        ${dishesHTML}
+    </div>
+    `
+}
+
+
 // below are for the week / day / meal / dish view
 
 function htmlDay(dayID: DayID, dayCalories: number, mealHTML: string, solo: boolean): string {
@@ -134,11 +157,14 @@ function htmlMeal(mealID: MealID, mealCalories: number, dishesHTML: string): str
     `
 }
 
-function htmlDish(dishTitle: string, dishGuests: number, dishCalories: number, ingredientsHTML: string): string {
+function htmlDish(dishID: string|null, dishTitle: string, dishGuests: number, dishCalories: number, ingredientsHTML: string): string {
     let dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
+    let dishIDDisplay = (dishID == null) ? '' : ' <h2><pre>[' + dishID + ']</pre></h2>';
+
     return `
     <div class="dish">
         <h1>${dishTitle}${dishExtra}</h1>
+        ${dishIDDisplay}
         <h2>${dishCalories} calories</h2>
 
         ${ingredientsHTML}
@@ -236,8 +262,48 @@ function getNextWeekFilename(): string {
 // process data
 //
 
-function onDishesLoaded(dishes: Dishes): void {
+/**
+ * Callback for once dishes are loaded and rendering time-based (day/week)
+ * view.
+ */
+function onDishesLoadedTime(dishes: Dishes): void {
+    console.log('Rendering time-based view.');
     $.getJSON(weekFN, onWeekLoaded.bind(null, dishes));
+}
+
+/**
+ * Callback for once dishes are loaded and rendering dishes-only view.
+ */
+function onDishesLoadedDishes(dishes: Dishes): void {
+    console.log('Rendering dishes view.');
+
+    console.log('Got dishes');
+    console.log(dishes);
+
+    // render all dishes
+    let mealMap = new Map<string, string[]>();
+    for (let dishID in dishes) {
+        let [html, calories, ingredients] = renderDish(dishes, dishID, true);
+
+        let mealHint = dishes[dishID].mealHint;
+        if (!mealMap.has(mealHint)) {
+            mealMap.set(mealHint, []);
+        }
+        mealMap.get(mealHint).push(html);
+    }
+
+    for (let mealID of AllMeals) {
+        if (!mealMap.has(mealID)) {
+            continue;
+        }
+
+        $('body').append(
+            htmlAllDishesForMeal(
+                mealID,
+                mealMap.get(mealID).join('\n'),
+            )
+        );
+    }
 }
 
 function onWeekLoaded(dishes: Dishes, week: Week): void {
@@ -457,7 +523,7 @@ function renderMeal(dishes: Dishes, mealID: MealID, mealDishes?: DishIDSpec[]): 
     let dishesHTML = '';
     let mealIngredDescs: string[] = [];
     for (let dishID of mealDishes) {
-        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes, dishID);
+        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes, dishID, false);
         mealCalories += dishCalories;
         dishesHTML += dishHTML;
         mealIngredDescs.push(...dishIngredDescs);
@@ -468,7 +534,7 @@ function renderMeal(dishes: Dishes, mealID: MealID, mealDishes?: DishIDSpec[]): 
 /**
  * @returns [dishHTML, dishCalories, dishIngredients]
  */
-function renderDish(dishes: Dishes, dishIDSpec: DishIDSpec): [string, number, string[]] {
+function renderDish(dishes: Dishes, dishIDSpec: DishIDSpec, displayID: boolean): [string, number, string[]] {
 
     // figure out dish spec type
     let dishID: DishID = '';
@@ -482,7 +548,7 @@ function renderDish(dishes: Dishes, dishIDSpec: DishIDSpec): [string, number, st
 
     let dish = dishes[dishID];
     if (dish == null) {
-        return [htmlDish('Unknown Dish: "' + dishID + '"', 1, 0, ''), 0, []]
+        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, ''), 0, []]
     }
 
     // to handle multiple guests, we keep recipe and calories display the same
@@ -499,8 +565,9 @@ function renderDish(dishes: Dishes, dishIDSpec: DishIDSpec): [string, number, st
         }
     }
 
+    let providedDishID = displayID ? dishID : null;
     return [
-        htmlDish(dish.title, guests, dishCalories, htmlIngredients(ingredientsHTMLInner)),
+        htmlDish(providedDishID, dish.title, guests, dishCalories, htmlIngredients(ingredientsHTMLInner)),
         dishCalories,
         dishIngredDescs,
     ];
@@ -542,14 +609,22 @@ switch (viewRaw) {
     case 'day':
         view = 'day';
         break;
+    case 'dishes':
+        view = 'dishes';
+        break;
     default:
         view = 'week';
         break;
 }
 console.log('Using view: ' + view);
 
+
 //
 // execution
 //
 
-$.getJSON(dishesFN, onDishesLoaded);
+if (view == 'dishes') {
+    $.getJSON(dishesFN, onDishesLoadedDishes);
+} else {
+    $.getJSON(dishesFN, onDishesLoadedTime);
+}

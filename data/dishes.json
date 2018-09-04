@@ -54,6 +54,13 @@
 			[70, "1 egg"]
 		]
 	},
+	"breakfastSausagePatties": {
+		"title": "Breakfast Sausage Patties",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[200, "2 breakfast sausage patties"]
+		]
+	},
 	"breakfastScramble": {
 		"title": "Breakfast Scramble",
 		"mealHint": "breakfast",
@@ -125,21 +132,21 @@
 		"title": "[Eating Out!]",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[500, "[eat this much-ish]"]
+			[700, "[eat this much-ish]"]
 		]
 	},
 	"eatOutLunch": {
 		"title": "[Eating Out!]",
 		"mealHint": "lunch",
 		"ingredients": [
-			[600, "[eat this much-ish]"]
+			[700, "[eat this much-ish]"]
 		]
 	},
 	"eatOutDinner": {
 		"title": "[Eating Out!]",
 		"mealHint": "dinner",
 		"ingredients": [
-			[700, "[eat this much-ish]"]
+			[900, "[eat this much-ish]"]
 		]
 	},
 	"eggBake": {
@@ -159,6 +166,23 @@
 		"mealHint": "afternoonSnack",
 		"ingredients": [
 			[280, "1 bar (Pro Base)"]
+		]
+	},
+	"englishMuffinButtered": {
+		"title": "English Muffin + Butter",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[120, "1 english muffin"],
+			[50, "½ tbsp butter"]
+		]
+	},
+	"freshChickenBreast": {
+		"title": "Chicken Breast",
+		"mealHint": "dinner",
+		"ingredients": [
+			[60, "½ tbsp olive oil (for grilling)"],
+			[280, "1 chicken breast"],
+			[50, "½ tbsp butter (for sauce)"]
 		]
 	},
 	"frozenGrilledChickenBreast": {
@@ -190,14 +214,24 @@
 			[50, "2 tbsp hummus"]
 		]
 	},
-	"instantMashedPotatoes": {
-		"title": "Instant Mashed Potatoes",
+	"instantMashedPotatoesSmall": {
+		"title": "Instant Mashed Potatoes (small)",
 		"mealHint": "dinner",
 		"ingredients": [
 			[25, "¼ cup milk (1%)"],
 			[0, "⅓ cup water"],
 			[50, "½ tbsp butter"],
 			[70, "⅓ cup potato flakes"]
+		]
+	},
+	"instantMashedPotatoesRegular": {
+		"title": "Instant Mashed Potatoes (regular)",
+		"mealHint": "dinner",
+		"ingredients": [
+			[33, "⅓ cup milk (1%)"],
+			[0, "⅔ cup water"],
+			[100, "1 tbsp butter"],
+			[140, "⅔ cup potato flakes"]
 		]
 	},
 	"jamToast": {
@@ -207,6 +241,34 @@
 			[120, "1 pcs Dave's Killer Bread"],
 			[50, "½ tbsp butter"],
 			[50, "1 tbsp jam"]
+		]
+	},
+	"justCrackEggDenver": {
+		"title": "Just Crack an Egg: Denver (cup only; no egg)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[120, "1 cup Just Crack an Egg: Denver"]
+		]
+	},
+	"justCrackEggAmerican": {
+		"title": "Just Crack an Egg: American (cup only; no egg)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[180, "1 cup Just Crack an Egg: American"]
+		]
+	},
+	"justCrackEggUltimate": {
+		"title": "Just Crack an Egg: Ultimate (cup only; no egg)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[170, "1 cup Just Crack an Egg: Ultimate"]
+		]
+	},
+	"justCrackEggRustic": {
+		"title": "Just Crack an Egg: Rustic (cup only; no egg)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[100, "1 cup Just Crack an Egg: Rustic"]
 		]
 	},
 	"omelette": {
@@ -256,6 +318,14 @@
 			[120, "1 tbsp olive oil"],
 			[5, "½ lemon (juice)"],
 			[54, "¼ avocado"]
+		]
+	},
+	"ramenFancy": {
+		"title": "Fancy Ramen",
+		"mealHint": "lunch",
+		"ingredients": [
+			[500, "1 pack Tonkotsu Ramen (Sun Noodle Brand)"],
+			[70, "1 egg"]
 		]
 	},
 	"riceSide": {

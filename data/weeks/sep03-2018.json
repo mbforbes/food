@@ -1,0 +1,43 @@
+{
+	"_template": {
+		"breakfast": [],
+		"morningSnack": [],
+		"lunch": [],
+		"afternoonSnack": [],
+		"dinner": [],
+		"eveningSnack": []
+    },
+    "tuesday": {
+        "breakfast": ["englishMuffinButtered", "justCrackEggAmerican", "scrambledEggsSmall"],
+        "lunch": ["tunaFishSandwich", "carrots"],
+        "afternoonSnack": ["yogurt"],
+        "dinner": ["ramenFancy"]
+    },
+	"wednesday": {
+		"breakfast": ["breakfastSausagePatties", "englishMuffinButtered", "scrambledEggsSmall"],
+		"lunch": ["soylent"],
+        "afternoonSnack": [],
+        "dinner": ["eatOutDinner"]
+    },
+    "thursday": {
+        "breakfast": ["PBToast", "justCrackEggDenver", "scrambledEggsSmall"],
+        "lunch": ["eatOutLunch"],
+        "dinner": ["quinoaSalad"]
+
+    },
+    "friday": {
+        "breakfast": ["bananaPancakes"],
+        "lunch": ["eatOutLunch"],
+        "dinner": ["freshChickenBreast", "instantMashedPotatoesRegular", "broccoliSide"]
+    },
+    "saturday": {
+        "breakfast": ["breakfastScramble"],
+        "lunch": ["eatOutLunch"],
+        "dinner": ["eatOutDinner"]
+    },
+    "sunday": {
+        "breakfast": ["omelette"],
+        "lunch": ["quinoaSalad"],
+        "dinner": ["freshChickenBreast", "instantMashedPotatoesRegular", "brusslesSproutsSide"]
+    }
+}

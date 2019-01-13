@@ -14,8 +14,6 @@ eat stuff
 
 - [ ] **(Optional) pictures in dishes view.**
 
-- [ ] **Better code organization.** It's getting gross.
-
 ## Meals On The Radar
 
 - Quinoa salad upgrade

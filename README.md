@@ -6,8 +6,6 @@ eat stuff
 - [ ] **It's too hard to add dishes.** With a decent idea of what's healthy, it
   should be easier to add dishes for quick planning purposes without computing
   exact quantities and calories. We can then add measurements down the road.
-  
-- [ ] **UI Buttons**. To easily switch between views.
 
 - [ ] **(Optional) pictures in dishes view.**
 

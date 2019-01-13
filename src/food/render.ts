@@ -13,7 +13,7 @@
  */
 function htmlAllDishesForMeal(meal: string, dishesHTML: string): string {
     let displayMeal = meal[0].toUpperCase() + meal.slice(1);
-    let displayClass = 'day solo';
+    let displayClass = 'meal';
 
     return `
     <div class="${displayClass}">
@@ -51,12 +51,19 @@ function htmlMeal(mealID: MealID, mealCalories: number, dishesHTML: string): str
     `
 }
 
-function htmlDish(dishID: string | null, dishTitle: string, dishGuests: number, dishCalories: number, ingredientsHTML: string): string {
+function htmlDish(
+    dishID: string | null,
+    dishTitle: string,
+    dishGuests: number,
+    dishCalories: number,
+    cssClass: string,
+    ingredientsHTML: string,
+): string {
     let dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
     let dishIDDisplay = (dishID == null) ? '' : ' <h2><pre>[' + dishID + ']</pre></h2>';
 
     return `
-    <div class="dish">
+    <div class="${cssClass}">
         <h1>${dishTitle}${dishExtra}</h1>
         ${dishIDDisplay}
         <h2>${dishCalories} calories</h2>
@@ -230,7 +237,7 @@ function renderMeal(dishes: Dishes, mealID: MealID, mealDishes?: DishIDSpec[]): 
     let dishesHTML = '';
     let mealIngredDescs: string[] = [];
     for (let dishID of mealDishes) {
-        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes, dishID, false);
+        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes, dishID, false, 'dish');
         mealCalories += dishCalories;
         dishesHTML += dishHTML;
         mealIngredDescs.push(...dishIngredDescs);
@@ -241,7 +248,12 @@ function renderMeal(dishes: Dishes, mealID: MealID, mealDishes?: DishIDSpec[]): 
 /**
  * @returns [dishHTML, dishCalories, dishIngredients]
  */
-function renderDish(dishes: Dishes, dishIDSpec: DishIDSpec, displayID: boolean): [string, number, string[]] {
+function renderDish(
+    dishes: Dishes,
+    dishIDSpec: DishIDSpec,
+    displayID: boolean,
+    cssClass: string,
+): [string, number, string[]] {
 
     // figure out dish spec type
     let dishID: DishID = '';
@@ -255,7 +267,7 @@ function renderDish(dishes: Dishes, dishIDSpec: DishIDSpec, displayID: boolean):
 
     let dish = dishes[dishID];
     if (dish == null) {
-        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, ''), 0, []]
+        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, cssClass, ''), 0, []]
     }
 
     // to handle multiple guests, we keep recipe and calories display the same
@@ -274,7 +286,10 @@ function renderDish(dishes: Dishes, dishIDSpec: DishIDSpec, displayID: boolean):
 
     let providedDishID = displayID ? dishID : null;
     return [
-        htmlDish(providedDishID, dish.title, guests, dishCalories, htmlIngredients(ingredientsHTMLInner)),
+        htmlDish(
+            providedDishID, dish.title, guests, dishCalories, cssClass,
+            htmlIngredients(ingredientsHTMLInner)
+        ),
         dishCalories,
         dishIngredDescs,
     ];

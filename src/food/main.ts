@@ -62,7 +62,7 @@ function onDishesLoadedDishes(dishes: Dishes): void {
     // render all dishes
     let mealMap = new Map<string, string[]>();
     for (let dishID in dishes) {
-        let [html, calories, ingredients] = renderDish(dishes, dishID, true);
+        let [html, calories, ingredients] = renderDish(dishes, dishID, true, 'dishCard');
 
         let mealHint = dishes[dishID].mealHint;
         if (!mealMap.has(mealHint)) {

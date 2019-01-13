@@ -7,9 +7,6 @@ eat stuff
   should be easier to add dishes for quick planning purposes without computing
   exact quantities and calories. We can then add measurements down the road.
   
-- [ ] **Better dishes view**. A single super long scroll is bad. A grid + pictures
-  would be nice.
-  
 - [ ] **UI Buttons**. To easily switch between views.
 
 - [ ] **(Optional) pictures in dishes view.**

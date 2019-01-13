@@ -63,7 +63,7 @@ const AllDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturd
  */
 function htmlAllDishesForMeal(meal, dishesHTML) {
     let displayMeal = meal[0].toUpperCase() + meal.slice(1);
-    let displayClass = 'day solo';
+    let displayClass = 'meal';
     return `
     <div class="${displayClass}">
         <h1>${displayMeal}</h1>
@@ -94,11 +94,11 @@ function htmlMeal(mealID, mealCalories, dishesHTML) {
     ${dishesHTML}
     `;
 }
-function htmlDish(dishID, dishTitle, dishGuests, dishCalories, ingredientsHTML) {
+function htmlDish(dishID, dishTitle, dishGuests, dishCalories, cssClass, ingredientsHTML) {
     let dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
     let dishIDDisplay = (dishID == null) ? '' : ' <h2><pre>[' + dishID + ']</pre></h2>';
     return `
-    <div class="dish">
+    <div class="${cssClass}">
         <h1>${dishTitle}${dishExtra}</h1>
         ${dishIDDisplay}
         <h2>${dishCalories} calories</h2>
@@ -253,7 +253,7 @@ function renderMeal(dishes, mealID, mealDishes) {
     let dishesHTML = '';
     let mealIngredDescs = [];
     for (let dishID of mealDishes) {
-        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes, dishID, false);
+        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes, dishID, false, 'dish');
         mealCalories += dishCalories;
         dishesHTML += dishHTML;
         mealIngredDescs.push(...dishIngredDescs);
@@ -263,7 +263,7 @@ function renderMeal(dishes, mealID, mealDishes) {
 /**
  * @returns [dishHTML, dishCalories, dishIngredients]
  */
-function renderDish(dishes, dishIDSpec, displayID) {
+function renderDish(dishes, dishIDSpec, displayID, cssClass) {
     // figure out dish spec type
     let dishID = '';
     let guests = 1;
@@ -276,7 +276,7 @@ function renderDish(dishes, dishIDSpec, displayID) {
     }
     let dish = dishes[dishID];
     if (dish == null) {
-        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, ''), 0, []];
+        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, cssClass, ''), 0, []];
     }
     // to handle multiple guests, we keep recipe and calories display the same
     // (minus a little "(cook xN)" notification), but repeat each ingredient
@@ -293,7 +293,7 @@ function renderDish(dishes, dishIDSpec, displayID) {
     }
     let providedDishID = displayID ? dishID : null;
     return [
-        htmlDish(providedDishID, dish.title, guests, dishCalories, htmlIngredients(ingredientsHTMLInner)),
+        htmlDish(providedDishID, dish.title, guests, dishCalories, cssClass, htmlIngredients(ingredientsHTMLInner)),
         dishCalories,
         dishIngredDescs,
     ];
@@ -434,7 +434,7 @@ function onDishesLoadedDishes(dishes) {
     // render all dishes
     let mealMap = new Map();
     for (let dishID in dishes) {
-        let [html, calories, ingredients] = renderDish(dishes, dishID, true);
+        let [html, calories, ingredients] = renderDish(dishes, dishID, true, 'dishCard');
         let mealHint = dishes[dishID].mealHint;
         if (!mealMap.has(mealHint)) {
             mealMap.set(mealHint, []);

@@ -87,9 +87,10 @@ function htmlDay(dayID, dayCalories, mealHTML, solo) {
 }
 function htmlMeal(mealID, mealCalories, dishesHTML) {
     let displayMeal = mealID[0].toUpperCase() + mealID.slice(1);
+    const calories = mealCalories < 0 ? '???' : mealCalories + '';
     return `
     <h2>${displayMeal}</h2>
-    <h3>${mealCalories} calories</h3>
+    <h3>${calories} calories</h3>
 
     ${dishesHTML}
     `;
@@ -97,11 +98,12 @@ function htmlMeal(mealID, mealCalories, dishesHTML) {
 function htmlDish(dishID, dishTitle, dishGuests, dishCalories, cssClass, ingredientsHTML) {
     let dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
     let dishIDDisplay = (dishID == null) ? '' : ' <h2><pre>[' + dishID + ']</pre></h2>';
+    const calories = dishCalories < 0 ? '???' : dishCalories + '';
     return `
     <div class="${cssClass}">
         <h1>${dishTitle}${dishExtra}</h1>
         ${dishIDDisplay}
-        <h2>${dishCalories} calories</h2>
+        <h2>${calories} calories</h2>
 
         ${ingredientsHTML}
     </div>
@@ -119,9 +121,10 @@ function htmlIngredients(ingredientsHTML) {
     `;
 }
 function htmlIngredient(ingredient) {
+    const calories = ingredient[0] < 0 ? '???' : ingredient[0] + '';
     return `
     <tr>
-        <td class="calorieCell">${ingredient[0]}</td>
+        <td class="calorieCell">${calories}</td>
         <td class="ingredientCell">${ingredient[1]}</td>
     </tr>
     `;
@@ -235,6 +238,8 @@ function renderDay(dishes, dayID, day, solo) {
     for (let mealID of AllMeals) {
         let [curMealHTML, mealCalories, mealIngredDescs] = renderMeal(dishes, mealID, day[mealID]);
         mealHTML += curMealHTML;
+        // if any meal has unk (< 0) cals, make whole day unk cals
+        dayCalories = mealCalories < 0 ? -1 : dayCalories + mealCalories;
         dayCalories += mealCalories;
         dayIngredDescs.push(...mealIngredDescs);
     }
@@ -254,7 +259,8 @@ function renderMeal(dishes, mealID, mealDishes) {
     let mealIngredDescs = [];
     for (let dishID of mealDishes) {
         let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes, dishID, false, 'dish');
-        mealCalories += dishCalories;
+        // if any dish has unk (< 0) cals, make whole meal unk cals
+        mealCalories = dishCalories < 0 ? -1 : mealCalories + dishCalories;
         dishesHTML += dishHTML;
         mealIngredDescs.push(...dishIngredDescs);
     }
@@ -286,7 +292,8 @@ function renderDish(dishes, dishIDSpec, displayID, cssClass) {
     let dishIngredDescs = [];
     for (let ingredient of dish.ingredients) {
         ingredientsHTMLInner += htmlIngredient(ingredient);
-        dishCalories += ingredient[0];
+        // if any ingredient has unk (< 0) cals, make whole dish unk cals
+        dishCalories = ingredient[0] < 0 ? -1 : dishCalories + ingredient[0];
         for (let i = 0; i < guests; i++) {
             dishIngredDescs.push(ingredient[1]);
         }

@@ -132,14 +132,14 @@
 		"title": "[Eating Out!]",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[700, "[eat this much-ish]"]
+			[500, "[eat this much-ish]"]
 		]
 	},
 	"eatOutLunch": {
 		"title": "[Eating Out!]",
 		"mealHint": "lunch",
 		"ingredients": [
-			[700, "[eat this much-ish]"]
+			[600, "[eat this much-ish]"]
 		]
 	},
 	"eatOutDinner": {
@@ -313,6 +313,7 @@
 		"mealHint": "dinner",
 		"ingredients": [
 			[180, "½ can black beans"],
+			[140, "2 egg (hardboiled)"],
 			[222, "1 cup quinoa (cooked)"],
 			[18, "71 g arugula"],
 			[120, "1 tbsp olive oil"],

@@ -1,0 +1,29 @@
+{
+	"_template": {
+		"breakfast": [],
+		"morningSnack": [],
+		"lunch": [],
+		"afternoonSnack": [],
+		"dinner": [],
+		"eveningSnack": []
+    },
+    "monday": {
+        "breakfast": ["eatOutBreakfast"],
+        "lunch": ["eatOutLunch"],
+        "dinner": ["eatOutDinner"]
+    },
+    "tuesday": {
+        "lunch": ["eatOutLunch"],
+        "dinner": ["eatOutDinner"]
+    },
+	"wednesday": {
+    },
+    "thursday": {
+    },
+    "friday": {
+    },
+    "saturday": {
+    },
+    "sunday": {
+    }
+}

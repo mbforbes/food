@@ -53,6 +53,23 @@ const IGNORE_THINGS = new Set([
     '[chipotle burrito]',
 ])
 
+let EMPTY_WEEK: Week = {
+    monday: {
+    },
+    tuesday: {
+    },
+    wednesday: {
+    },
+    thursday: {
+    },
+    friday: {
+    },
+    saturday: {
+    },
+    sunday: {
+    }
+}
+
 //
 // types
 //

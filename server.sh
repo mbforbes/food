@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python -m SimpleHTTPServer 8001
+python -m server 8001

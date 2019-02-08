@@ -48,6 +48,15 @@ const IGNORE_THINGS = new Set([
     '[eat this much-ish]',
     '[chipotle burrito]',
 ]);
+let EMPTY_WEEK = {
+    monday: {},
+    tuesday: {},
+    wednesday: {},
+    thursday: {},
+    friday: {},
+    saturday: {},
+    sunday: {}
+};
 const AllMeals = ['breakfast', 'morningSnack', 'lunch', 'afternoonSnack', 'dinner', 'eveningSnack'];
 const AllDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 //
@@ -429,7 +438,7 @@ function getNextWeekFilename() {
  */
 function onDishesLoadedTime(dishes) {
     console.log('Rendering time-based view.');
-    $.getJSON(weekFN, onWeekLoaded.bind(null, dishes));
+    $.getJSON(weekFN, onWeekLoaded.bind(null, dishes)).fail(onWeekFail.bind(null, dishes));
 }
 /**
  * Callback for once dishes are loaded and rendering dishes-only view.
@@ -455,6 +464,15 @@ function onDishesLoadedDishes(dishes) {
         $('body').append(htmlAllDishesForMeal(mealID, mealMap.get(mealID).join('\n')));
     }
 }
+function onWeekFail(dishes) {
+    if (view == 'edit') {
+        // write default week to path and try again
+        serialize(EMPTY_WEEK, weekFN, onDishesLoadedTime.bind(null, dishes));
+    }
+    else {
+        $('body').append("week didn't exist uh oh. Click 'edit' to make current week.");
+    }
+}
 function onWeekLoaded(dishes, week) {
     console.log('Got dishes');
     console.log(dishes);
@@ -462,12 +480,17 @@ function onWeekLoaded(dishes, week) {
     console.log(week);
     console.log('viewType: ' + view);
     if (view == 'week') {
+        // render full-week display-only view.
         let [weekHTML, weekIngredDescs] = renderWeek(dishes, week);
         let groceryList = renderGroceryList(weekIngredDescs);
         $('body').append(weekHTML + groceryList);
     }
-    else {
-        // day view. assumes current day the one to render.
+    else if (view == 'edit') {
+        // TODO: render full-week edit view.
+        $('body').append('going to render edits here');
+    }
+    else if (view == 'day') {
+        // render day view. assumes current day is the one to render.
         let dayID = moment().format('dddd').toLowerCase();
         let [dayHTML, _] = renderDay(dishes, dayID, week[dayID], true);
         $('body').append(dayHTML);
@@ -490,8 +513,15 @@ switch (week) {
     case 'next':
         weekFN = getNextWeekFilename();
         break;
-    default:
+    case 'current':
+    case 'cur':
+    case 'this':
+    case null:
         weekFN = getThisWeekFilename();
+        break;
+    default:
+        // NOTE: unsafe
+        weekFN = week;
         break;
 }
 // this would be a manual override:
@@ -509,6 +539,9 @@ switch (viewRaw) {
     case 'dishes':
         view = 'dishes';
         break;
+    case 'edit':
+        view = 'edit';
+        break;
     default:
         view = 'week';
         break;
@@ -518,8 +551,25 @@ console.log('Using view: ' + view);
 // execution
 //
 if (view == 'dishes') {
+    // display dishes
     $.getJSON(dishesFN, onDishesLoadedDishes);
 }
-else {
+else if (view == 'day' || view == 'week' || view == 'edit') {
+    // display time-based rendering (week, day, or edit)
     $.getJSON(dishesFN, onDishesLoadedTime);
+}
+else {
+    console.error('Unknown view: ' + view);
+}
+/// <reference path="constants.ts" />
+function serialize(week, path, next) {
+    // NOTE: unsafe
+    $.ajax(path, {
+        type: 'PUT',
+        data: JSON.stringify(week),
+        success: function (response) {
+            console.log('Successfully wrote week to ' + path);
+            next();
+        }
+    });
 }

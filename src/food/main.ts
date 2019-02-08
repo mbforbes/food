@@ -47,7 +47,7 @@ function getNextWeekFilename(): string {
  */
 function onDishesLoadedTime(dishes: Dishes): void {
     console.log('Rendering time-based view.');
-    $.getJSON(weekFN, onWeekLoaded.bind(null, dishes));
+    $.getJSON(weekFN, onWeekLoaded.bind(null, dishes)).fail(onWeekFail.bind(null, dishes));
 }
 
 /**
@@ -85,6 +85,15 @@ function onDishesLoadedDishes(dishes: Dishes): void {
     }
 }
 
+function onWeekFail(dishes: Dishes): void {
+    if (view == 'edit') {
+        // write default week to path and try again
+        serialize(EMPTY_WEEK, weekFN, onDishesLoadedTime.bind(null, dishes));
+    } else {
+        $('body').append("week didn't exist uh oh. Click 'edit' to make current week.");
+    }
+}
+
 function onWeekLoaded(dishes: Dishes, week: Week): void {
     console.log('Got dishes');
     console.log(dishes);
@@ -94,11 +103,15 @@ function onWeekLoaded(dishes: Dishes, week: Week): void {
 
     console.log('viewType: ' + view);
     if (view == 'week') {
+        // render full-week display-only view.
         let [weekHTML, weekIngredDescs] = renderWeek(dishes, week);
         let groceryList = renderGroceryList(weekIngredDescs);
         $('body').append(weekHTML + groceryList);
-    } else {
-        // day view. assumes current day the one to render.
+    } else if (view == 'edit') {
+        // TODO: render full-week edit view.
+        $('body').append('going to render edits here');
+    } else if (view == 'day') {
+        // render day view. assumes current day is the one to render.
         let dayID = moment().format('dddd').toLowerCase() as DayID;
         let [dayHTML, _] = renderDay(dishes, dayID, week[dayID], true);
         $('body').append(dayHTML);
@@ -126,10 +139,18 @@ switch (week) {
     case 'next':
         weekFN = getNextWeekFilename();
         break;
-    default:
+    case 'current':
+    case 'cur':
+    case 'this':
+    case null:
         weekFN = getThisWeekFilename();
         break;
+    default:
+        // NOTE: unsafe
+        weekFN = week;
+        break;
 }
+
 // this would be a manual override:
 // const weekFN = 'data/weeks/jun25-2018.json'
 console.log('Using weekFN: ' + weekFN);
@@ -146,6 +167,9 @@ switch (viewRaw) {
     case 'dishes':
         view = 'dishes';
         break;
+    case 'edit':
+        view = 'edit';
+        break;
     default:
         view = 'week';
         break;
@@ -158,7 +182,11 @@ console.log('Using view: ' + view);
 //
 
 if (view == 'dishes') {
+    // display dishes
     $.getJSON(dishesFN, onDishesLoadedDishes);
-} else {
+} else if (view == 'day' || view == 'week' || view == 'edit') {
+    // display time-based rendering (week, day, or edit)
     $.getJSON(dishesFN, onDishesLoadedTime);
+} else {
+    console.error('Unknown view: ' + view);
 }

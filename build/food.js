@@ -562,14 +562,14 @@ else {
     console.error('Unknown view: ' + view);
 }
 /// <reference path="constants.ts" />
-function serialize(week, path, next) {
+function serialize(week, path, success) {
     // NOTE: unsafe
     $.ajax(path, {
         type: 'PUT',
         data: JSON.stringify(week),
         success: function (response) {
             console.log('Successfully wrote week to ' + path);
-            next();
+            success();
         }
     });
 }

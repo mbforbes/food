@@ -37,7 +37,7 @@
 	},
 	"beer": {
 		"title": "Beeeeeerrr",
-		"mealHint": "eveningSnack",
+		"mealHint": "snack",
 		"ingredients": [
 			[210, "12 oz beer (7% abv)"]
 		]
@@ -106,7 +106,7 @@
 	},
 	"carrots": {
 		"title": "Carrots",
-		"mealHint": "afternoonSnack",
+		"mealHint": "snack",
 		"ingredients": [
 			[61, "150 g carrots"]
 		]
@@ -163,7 +163,7 @@
 	},
 	"energyBarPro": {
 		"title": "Energy Bar (Pro Base)",
-		"mealHint": "afternoonSnack",
+		"mealHint": "snack",
 		"ingredients": [
 			[280, "1 bar (Pro Base)"]
 		]
@@ -302,7 +302,7 @@
 	},
 	"proteinShake": {
 		"title": "Protein Shake",
-		"mealHint": "afternoonSnack",
+		"mealHint": "snack",
 		"ingredients": [
 			[120, "1 scoop protein powder"],
 			[102, "1 cup milk (1%)"]
@@ -412,7 +412,7 @@
 	},
 	"yogurt": {
 		"title": "Yogurt Cup",
-		"mealHint": "afternoonSnack",
+		"mealHint": "snack",
 		"ingredients": [
 			[120, "1 yogurt cup"]
 		]

@@ -1,3 +1,6 @@
+/// <reference path="constants.ts" />
+/// <reference path="drag-n-drop.ts" />
+
 //
 // html templates
 //
@@ -11,8 +14,18 @@
  * @param meal name of meal (like "breakfast")
  * @param dishesHTML html of all dishes, including their separators.
  */
-function htmlAllDishesForMeal(meal: string, dishesHTML: string): string {
+function htmlAllDishesForMeal(meal: string, dishesHTML: string, view: View): string {
     let displayMeal = meal[0].toUpperCase() + meal.slice(1);
+
+    if (view == View.Edit) {
+        return `
+        <h1>${displayMeal}</h1>
+        <div class="editMealDishes">
+            ${dishesHTML}
+        </div>
+        `
+    }
+
     let displayClass = 'meal';
 
     return `
@@ -26,10 +39,21 @@ function htmlAllDishesForMeal(meal: string, dishesHTML: string): string {
 
 // below are for the week / day / meal / dish view
 
-function htmlDay(dayID: DayID, dayCalories: number, mealHTML: string, solo: boolean): string {
+function htmlDay(dayID: DayID, dayCalories: number, mealHTML: string, view: View): string {
     let displayDay = dayID[0].toUpperCase() + dayID.slice(1);
-    let displayClass = solo ? 'day solo' : 'day';
+    if (view == View.Edit) {
+        return `
+        <div class="editDay">
+            <p><b>${displayDay}</b> <i>${dayCalories} calories</i></p>
+            <div class="editDayMeals">
+                ${mealHTML}
+            </div>
+        </div>
+        `
+    }
 
+    // week and day view
+    let displayClass = view == View.ShowDay ? 'day solo' : 'day';
     return `
     <div class="${displayClass}">
         <h1>${displayDay}</h1>
@@ -40,10 +64,22 @@ function htmlDay(dayID: DayID, dayCalories: number, mealHTML: string, solo: bool
     `
 }
 
-function htmlMeal(mealID: MealID, mealCalories: number, dishesHTML: string): string {
+function htmlMeal(dayID: DayID, mealID: MealID, mealCalories: number, dishesHTML: string, view: View): string {
     let displayMeal = mealID[0].toUpperCase() + mealID.slice(1);
     const calories = mealCalories < 0 ? '???' : mealCalories + '';
 
+    if (view == View.Edit) {
+        return `
+        <div class="editDayMeal" ondragover="allowDrop(event)" ondrop="mealDrop('${dayID}', '${mealID}', event)">
+            <div class="editDayMealsDishes">
+                ${dishesHTML}
+            </div>
+            <p>${displayMeal} [${calories} calories]</p>
+        </div>
+        `
+    }
+
+    // display view for week or day
     return `
     <h2>${displayMeal}</h2>
     <h3>${calories} calories</h3>
@@ -57,13 +93,28 @@ function htmlDish(
     dishTitle: string,
     dishGuests: number,
     dishCalories: number,
-    cssClass: string,
     ingredientsHTML: string,
+    view: View,
+    timeInfo?: TimeInfo,
 ): string {
-    let dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
-    let dishIDDisplay = (dishID == null) ? '' : ' <h2><pre>[' + dishID + ']</pre></h2>';
-    const calories = dishCalories < 0 ? '???' : dishCalories + '';
+    if (dishID == null) {
+        console.error('Got null dish');
+    }
+    if (view == View.Edit) {
+        let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
+        let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
+        return `
+        <div class="editDish" draggable="true" ondragstart="drag(event, '${dishID}', ${dayID}, ${mealID} )">
+        :-)
+        </div>
+        `
+    }
 
+    // dishes only view, or view within a day plan.
+    const cssClass = view == View.Dishes ? 'dishCard' : 'dish';
+    const dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
+    const dishIDDisplay = (view == View.Dishes) ? ' <h2><pre>[' + dishID + ']</pre></h2>' : '';
+    const calories = dishCalories < 0 ? '???' : dishCalories + '';
     return `
     <div class="${cssClass}">
         <h1>${dishTitle}${dishExtra}</h1>
@@ -193,11 +244,28 @@ function renderGroceryList(rawIngredDescs: string[]): string {
     return htmlGroceryIngredientList(ingredientDescHTML, checkListHTML);
 }
 
-function renderWeek(dishes: Dishes, week: Week): [string, string[]] {
+function renderEdit(dishes: Dishes, week: Week): string {
+    let [weekHTML, weekIngredDescs] = renderWeek(dishes, week, View.Edit);
+    let dishesHTML = renderDishes(dishes, View.Edit);
+    let groceryList = renderGroceryList(weekIngredDescs);
+    return `
+    <div class="editContainer">
+        <div class="editTime">
+            ${weekHTML}
+        </div>
+        <div class="editDishes" ondragover="allowDrop(event)" ondrop="trashDrop(event)">
+            ${dishesHTML}
+        </div>
+    </div>
+    ${groceryList}
+    `
+}
+
+function renderWeek(dishes: Dishes, week: Week, view: View): [string, string[]] {
     let weekHTML = '';
     let weekIngredDescs: string[] = [];
     for (let dayID of AllDays) {
-        let [dayHTML, dayIngredDescs] = renderDay(dishes, dayID, week[dayID], false);
+        let [dayHTML, dayIngredDescs] = renderDay(dishes, dayID, week[dayID], view);
         weekHTML += dayHTML;
         weekIngredDescs.push(...dayIngredDescs);
     }
@@ -207,10 +275,10 @@ function renderWeek(dishes: Dishes, week: Week): [string, string[]] {
 /**
  * @returns [dayHTML, list of ingredient descriptions for day]
  */
-function renderDay(dishes: Dishes, dayID: DayID, day: Day, solo: boolean): [string, string[]] {
+function renderDay(dishes: Dishes, dayID: DayID, day: Day, view: View): [string, string[]] {
     // if day not listed in json: nothing
     if (day == null) {
-        return [htmlDay(dayID, 0, '', solo), []];
+        return [htmlDay(dayID, 0, '', view), []];
     }
 
     // render and sum calories for all meals
@@ -218,22 +286,23 @@ function renderDay(dishes: Dishes, dayID: DayID, day: Day, solo: boolean): [stri
     let mealHTML = '';
     let dayIngredDescs: string[] = [];
     for (let mealID of AllMeals) {
-        let [curMealHTML, mealCalories, mealIngredDescs] = renderMeal(dishes, mealID, day[mealID]);
+        let [curMealHTML, mealCalories, mealIngredDescs] = renderMeal(dishes, dayID, mealID, day[mealID], view);
         mealHTML += curMealHTML;
         // if any meal has unk (< 0) cals, make whole day unk cals
         dayCalories = mealCalories < 0 ? -1 : dayCalories + mealCalories;
-        dayCalories += mealCalories;
         dayIngredDescs.push(...mealIngredDescs);
     }
-    return [htmlDay(dayID, dayCalories, mealHTML, solo), dayIngredDescs];
+    return [htmlDay(dayID, dayCalories, mealHTML, view), dayIngredDescs];
 }
 
 /**
  * @returns [mealHTML, mealCalories, list of ingredient descriptions for meal]
  */
-function renderMeal(dishes: Dishes, mealID: MealID, mealDishes?: DishIDSpec[]): [string, number, string[]] {
-    // if meal not listed, or no meals provided, return nothing
-    if (mealDishes == null || mealDishes.length === 0) {
+function renderMeal(dishes: Dishes, dayID: DayID, mealID: MealID, mealDishes: DishIDSpec[] | null, view: View): [string, number, string[]] {
+    // if meal not listed, we can't render it. otherwise, we assume that the
+    // meal is listed for some reason, even if it is empty (e.g., an empty zone
+    // for drang'n'drop), so we render it.
+    if (mealDishes == null) {
         return ['', 0, []];
     }
 
@@ -242,25 +311,56 @@ function renderMeal(dishes: Dishes, mealID: MealID, mealDishes?: DishIDSpec[]): 
     let dishesHTML = '';
     let mealIngredDescs: string[] = [];
     for (let dishID of mealDishes) {
-        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes, dishID, false, 'dish');
+        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(
+            dishes, dishID, view, { dayID: dayID, mealID: mealID });
         // if any dish has unk (< 0) cals, make whole meal unk cals
         mealCalories = dishCalories < 0 ? -1 : mealCalories + dishCalories;
         dishesHTML += dishHTML;
         mealIngredDescs.push(...dishIngredDescs);
     }
-    return [htmlMeal(mealID, mealCalories, dishesHTML), mealCalories, mealIngredDescs];
+    return [htmlMeal(dayID, mealID, mealCalories, dishesHTML, view), mealCalories, mealIngredDescs];
 }
 
 /**
+ * @returns dishesHTML
+ */
+function renderDishes(dishes: Dishes, view: View): string {
+    // first, map each dish to the meal it belongs to
+    let mealMap = new Map<string, string[]>();
+    for (let dishID in dishes) {
+        let [html, calories, ingredients] = renderDish(dishes, dishID, view);
+
+        let mealHint = dishes[dishID].mealHint;
+        if (!mealMap.has(mealHint)) {
+            mealMap.set(mealHint, []);
+        }
+        mealMap.get(mealHint).push(html);
+    }
+
+    // then, iterate through meals, and render all dishes for each meal
+    let res = '';
+    for (let mealID of AllMeals) {
+        if (!mealMap.has(mealID)) {
+            continue;
+        }
+        res += htmlAllDishesForMeal(mealID, mealMap.get(mealID).join('\n'), view)
+    }
+    return res;
+}
+
+/**
+ * @param timeInfo is provided if this dish is being rendered as part of a day's
+ * meal. (For drag'n'drop info.) Otherwise (as part of dish view) it's just.
+ * null
+ *
  * @returns [dishHTML, dishCalories, dishIngredients]
  */
 function renderDish(
     dishes: Dishes,
     dishIDSpec: DishIDSpec,
-    displayID: boolean,
-    cssClass: string,
+    view: View,
+    timeInfo?: TimeInfo,
 ): [string, number, string[]] {
-
     // figure out dish spec type
     let dishID: DishID = '';
     let guests = 1;
@@ -273,7 +373,7 @@ function renderDish(
 
     let dish = dishes[dishID];
     if (dish == null) {
-        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, cssClass, ''), 0, []]
+        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, '', view, timeInfo), 0, []]
     }
 
     // to handle multiple guests, we keep recipe and calories display the same
@@ -291,11 +391,15 @@ function renderDish(
         }
     }
 
-    let providedDishID = displayID ? dishID : null;
     return [
         htmlDish(
-            providedDishID, dish.title, guests, dishCalories, cssClass,
-            htmlIngredients(ingredientsHTMLInner)
+            dishID,
+            dish.title,
+            guests,
+            dishCalories,
+            htmlIngredients(ingredientsHTMLInner),
+            view,
+            timeInfo,
         ),
         dishCalories,
         dishIngredDescs,

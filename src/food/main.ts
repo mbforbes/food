@@ -6,10 +6,28 @@
 /// <reference path="parse.ts" />
 
 //
+// Globals set per page load
+//
+
+type DNDG = {
+    weekFN: string,
+    weekData: Week,
+}
+
+/**
+ * These are set for drag and drop purposes. They're not used elsewhere to keep
+ * functions pure for ease of debugging.
+ */
+let DragNDropGlobals: DNDG = {
+    weekFN: null,
+    weekData: null,
+}
+
+//
 // pick filenames
 //
 
-function getWeekFilename(m: moment.Moment): string {
+function getWeekPath(m: moment.Moment): string {
     return 'data/weeks/' + m.format('MMMDD-YYYY').toLowerCase() + '.json';
 }
 
@@ -20,7 +38,7 @@ function getThisWeekFilename(start: moment.Moment = moment()): string {
     while (cur.format('dddd') !== 'Monday') {
         cur = cur.subtract(1, 'days');
     }
-    return getWeekFilename(cur);
+    return getWeekPath(cur);
 }
 
 function getLastWeekFilename(): string {
@@ -34,7 +52,7 @@ function getNextWeekFilename(): string {
     while (candidate.format('dddd') != 'Monday') {
         candidate = candidate.add(1, 'days');
     }
-    return getWeekFilename(candidate);
+    return getWeekPath(candidate);
 }
 
 //
@@ -45,9 +63,10 @@ function getNextWeekFilename(): string {
  * Callback for once dishes are loaded and rendering time-based (day/week)
  * view.
  */
-function onDishesLoadedTime(dishes: Dishes): void {
+function onDishesLoadedTime(weekFN: string, view: View, dishes: Dishes): void {
     console.log('Rendering time-based view.');
-    $.getJSON(weekFN, onWeekLoaded.bind(null, dishes)).fail(onWeekFail.bind(null, dishes));
+    $.getJSON(weekFN, onWeekLoaded.bind(null, view, dishes))
+        .fail(onWeekFail.bind(null, weekFN, view, dishes));
 }
 
 /**
@@ -59,34 +78,11 @@ function onDishesLoadedDishes(dishes: Dishes): void {
     console.log('Got dishes');
     console.log(dishes);
 
-    // render all dishes
-    let mealMap = new Map<string, string[]>();
-    for (let dishID in dishes) {
-        let [html, calories, ingredients] = renderDish(dishes, dishID, true, 'dishCard');
-
-        let mealHint = dishes[dishID].mealHint;
-        if (!mealMap.has(mealHint)) {
-            mealMap.set(mealHint, []);
-        }
-        mealMap.get(mealHint).push(html);
-    }
-
-    for (let mealID of AllMeals) {
-        if (!mealMap.has(mealID)) {
-            continue;
-        }
-
-        $('body').append(
-            htmlAllDishesForMeal(
-                mealID,
-                mealMap.get(mealID).join('\n'),
-            )
-        );
-    }
+    $('body').append(renderDishes(dishes, View.Dishes));
 }
 
-function onWeekFail(dishes: Dishes): void {
-    if (view == 'edit') {
+function onWeekFail(weekFN: string, view: View, dishes: Dishes): void {
+    if (view == View.Edit) {
         // write default week to path and try again
         serialize(EMPTY_WEEK, weekFN, onDishesLoadedTime.bind(null, dishes));
     } else {
@@ -94,99 +90,113 @@ function onWeekFail(dishes: Dishes): void {
     }
 }
 
-function onWeekLoaded(dishes: Dishes, week: Week): void {
+function onWeekLoaded(view: View, dishes: Dishes, week: Week): void {
     console.log('Got dishes');
     console.log(dishes);
 
+    // Save week data for drag'n'drop.
     console.log('Got week');
     console.log(week);
+    DragNDropGlobals.weekData = week;
 
     console.log('viewType: ' + view);
-    if (view == 'week') {
+    if (view == View.ShowWeek) {
         // render full-week display-only view.
-        let [weekHTML, weekIngredDescs] = renderWeek(dishes, week);
+        let [weekHTML, weekIngredDescs] = renderWeek(dishes, week, View.ShowWeek);
         let groceryList = renderGroceryList(weekIngredDescs);
         $('body').append(weekHTML + groceryList);
-    } else if (view == 'edit') {
-        // TODO: render full-week edit view.
-        $('body').append('going to render edits here');
-    } else if (view == 'day') {
+    } else if (view == View.Edit) {
+        // render full-week edit view.
+        $('body').append(renderEdit(dishes, week));
+    } else if (view == View.ShowDay) {
         // render day view. assumes current day is the one to render.
         let dayID = moment().format('dddd').toLowerCase() as DayID;
-        let [dayHTML, _] = renderDay(dishes, dayID, week[dayID], true);
+        let [dayHTML, _] = renderDay(dishes, dayID, week[dayID], View.ShowDay);
         $('body').append(dayHTML);
     }
 }
 
 
-
 //
-// config
+// core execution
 //
 
 const dishesFN = 'data/dishes.json';
 
-// parse url to pick week
-let weekFN: string;
-let url = new URL(window.location.href);
-let week = url.searchParams.get('week');
-switch (week) {
-    case 'prev':
-    case 'previous':
-    case 'last':
-        weekFN = getLastWeekFilename();
-        break;
-    case 'next':
-        weekFN = getNextWeekFilename();
-        break;
-    case 'current':
-    case 'cur':
-    case 'this':
-    case null:
-        weekFN = getThisWeekFilename();
-        break;
-    default:
-        // NOTE: unsafe
-        weekFN = week;
-        break;
+function getWeekFN(url: URL): string {
+    // parse url to pick week
+    let weekFN: string;
+    let week = url.searchParams.get('week');
+    switch (week) {
+        case 'prev':
+        case 'previous':
+        case 'last':
+            weekFN = getLastWeekFilename();
+            break;
+        case 'next':
+            weekFN = getNextWeekFilename();
+            break;
+        case 'current':
+        case 'cur':
+        case 'this':
+        case null:
+            weekFN = getThisWeekFilename();
+            break;
+        default:
+            // NOTE: unsafe
+            weekFN = week;
+            break;
+    }
+
+    // this would be a manual override:
+    // const weekFN = 'data/weeks/jun25-2018.json'
+    console.log('Using weekFN: ' + weekFN);
+    return weekFN;
 }
 
-// this would be a manual override:
-// const weekFN = 'data/weeks/jun25-2018.json'
-console.log('Using weekFN: ' + weekFN);
-
-// day view really only makes sense with current week, though hitting 'prev'
-// can let you check out what you ate last week on the same day, so i guess
-// that's cool too.
-let view: string;
-let viewRaw = url.searchParams.get('view');
-switch (viewRaw) {
-    case 'day':
-        view = 'day';
-        break;
-    case 'dishes':
-        view = 'dishes';
-        break;
-    case 'edit':
-        view = 'edit';
-        break;
-    default:
-        view = 'week';
-        break;
+function getView(url: URL): View {
+    // day view really only makes sense with current week, though hitting 'prev'
+    // can let you check out what you ate last week on the same day, so i guess
+    // that's cool too.
+    let view: View = null;
+    let viewRaw = url.searchParams.get('view');
+    switch (viewRaw) {
+        case 'day':
+            view = View.ShowDay;
+            break;
+        case 'dishes':
+            view = View.Dishes;
+            break;
+        case 'edit':
+            view = View.Edit;
+            break;
+        default:
+            view = View.ShowWeek;
+            break;
+    }
+    console.log('Using view: ' + view);
+    return view;
 }
-console.log('Using view: ' + view);
 
+function main() {
+    // get config
+    let url = new URL(window.location.href);
+    let weekFN = getWeekFN(url);
+    let view = getView(url);
 
-//
-// execution
-//
+    // set global config for drag'n'drop
+    DragNDropGlobals.weekFN = weekFN;
 
-if (view == 'dishes') {
-    // display dishes
-    $.getJSON(dishesFN, onDishesLoadedDishes);
-} else if (view == 'day' || view == 'week' || view == 'edit') {
-    // display time-based rendering (week, day, or edit)
-    $.getJSON(dishesFN, onDishesLoadedTime);
-} else {
-    console.error('Unknown view: ' + view);
+    // perform the page requested action
+    if (view == View.Dishes) {
+        // display dishes
+        $.getJSON(dishesFN, onDishesLoadedDishes);
+    } else if (view == View.ShowDay || view == View.ShowWeek || view == View.Edit) {
+        // display time-based rendering (week, day, or edit)
+        $.getJSON(dishesFN, onDishesLoadedTime.bind(null, weekFN, view));
+    } else {
+        console.error('Unknown view: ' + view);
+    }
 }
+
+main();

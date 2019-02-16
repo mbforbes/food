@@ -49,16 +49,110 @@ const IGNORE_THINGS = new Set([
     '[chipotle burrito]',
 ]);
 let EMPTY_WEEK = {
-    monday: {},
-    tuesday: {},
-    wednesday: {},
-    thursday: {},
-    friday: {},
-    saturday: {},
-    sunday: {}
+    monday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
+    },
+    tuesday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
+    },
+    wednesday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
+    },
+    thursday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
+    },
+    friday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
+    },
+    saturday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
+    },
+    sunday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
+    }
 };
-const AllMeals = ['breakfast', 'morningSnack', 'lunch', 'afternoonSnack', 'dinner', 'eveningSnack'];
+const AllMeals = ['breakfast', 'morningSnack', 'lunch', 'snack', 'afternoonSnack', 'dinner', 'eveningSnack'];
 const AllDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+var View;
+(function (View) {
+    View[View["ShowWeek"] = 0] = "ShowWeek";
+    View[View["ShowDay"] = 1] = "ShowDay";
+    View[View["Dishes"] = 2] = "Dishes";
+    View[View["Edit"] = 3] = "Edit";
+})(View || (View = {}));
+/**
+ * Called when you start dragging a dish. Sets the data that should be
+ * transferred.
+ */
+function drag(ev, dishID, dayID, mealID) {
+    // always send dish id
+    ev.dataTransfer.setData('dishID', dishID);
+    // if coming from a specific meal, we set that as well, so it can be
+    // trashed.
+    if (dayID != null && mealID != null) {
+        ev.dataTransfer.setData('dayID', dayID);
+        ev.dataTransfer.setData('mealID', mealID);
+    }
+}
+/**
+ * For some reason, this needs to be set on droppable zones when something is
+ * dragged over them to allow something to be dropped onto them.
+ */
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+/**
+ * Dropping a dish onto a meal.
+ */
+function mealDrop(dayID, mealID, ev) {
+    ev.preventDefault();
+    // add the dish to the meal
+    let dishID = ev.dataTransfer.getData('dishID');
+    // console.log('got ' + dayID + ' ' + mealID + ' ' + dishID);
+    DragNDropGlobals.weekData[dayID][mealID].push(dishID);
+    // write out
+    serialize(DragNDropGlobals.weekData, DragNDropGlobals.weekFN, () => { location.reload(); });
+}
+/**
+ * Dropping a dish onto a trash area.
+ */
+function trashDrop(ev) {
+    // this only does something if dragging from a particular meal
+    let dayID = ev.dataTransfer.getData('dayID');
+    let mealID = ev.dataTransfer.getData('mealID');
+    if (dayID != '' && mealID != '') {
+        let dishID = ev.dataTransfer.getData('dishID');
+        let meal = DragNDropGlobals.weekData[dayID][mealID];
+        let idx = meal.indexOf(dishID);
+        if (idx > -1) {
+            meal.splice(idx, 1);
+        }
+        serialize(DragNDropGlobals.weekData, DragNDropGlobals.weekFN, () => { location.reload(); });
+    }
+}
+/// <reference path="constants.ts" />
+/// <reference path="drag-n-drop.ts" />
 //
 // html templates
 //
@@ -70,8 +164,16 @@ const AllDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturd
  * @param meal name of meal (like "breakfast")
  * @param dishesHTML html of all dishes, including their separators.
  */
-function htmlAllDishesForMeal(meal, dishesHTML) {
+function htmlAllDishesForMeal(meal, dishesHTML, view) {
     let displayMeal = meal[0].toUpperCase() + meal.slice(1);
+    if (view == View.Edit) {
+        return `
+        <h1>${displayMeal}</h1>
+        <div class="editMealDishes">
+            ${dishesHTML}
+        </div>
+        `;
+    }
     let displayClass = 'meal';
     return `
     <div class="${displayClass}">
@@ -82,9 +184,20 @@ function htmlAllDishesForMeal(meal, dishesHTML) {
     `;
 }
 // below are for the week / day / meal / dish view
-function htmlDay(dayID, dayCalories, mealHTML, solo) {
+function htmlDay(dayID, dayCalories, mealHTML, view) {
     let displayDay = dayID[0].toUpperCase() + dayID.slice(1);
-    let displayClass = solo ? 'day solo' : 'day';
+    if (view == View.Edit) {
+        return `
+        <div class="editDay">
+            <p><b>${displayDay}</b> <i>${dayCalories} calories</i></p>
+            <div class="editDayMeals">
+                ${mealHTML}
+            </div>
+        </div>
+        `;
+    }
+    // week and day view
+    let displayClass = view == View.ShowDay ? 'day solo' : 'day';
     return `
     <div class="${displayClass}">
         <h1>${displayDay}</h1>
@@ -94,9 +207,20 @@ function htmlDay(dayID, dayCalories, mealHTML, solo) {
     </div>
     `;
 }
-function htmlMeal(mealID, mealCalories, dishesHTML) {
+function htmlMeal(dayID, mealID, mealCalories, dishesHTML, view) {
     let displayMeal = mealID[0].toUpperCase() + mealID.slice(1);
     const calories = mealCalories < 0 ? '???' : mealCalories + '';
+    if (view == View.Edit) {
+        return `
+        <div class="editDayMeal" ondragover="allowDrop(event)" ondrop="mealDrop('${dayID}', '${mealID}', event)">
+            <div class="editDayMealsDishes">
+                ${dishesHTML}
+            </div>
+            <p>${displayMeal} [${calories} calories]</p>
+        </div>
+        `;
+    }
+    // display view for week or day
     return `
     <h2>${displayMeal}</h2>
     <h3>${calories} calories</h3>
@@ -104,9 +228,23 @@ function htmlMeal(mealID, mealCalories, dishesHTML) {
     ${dishesHTML}
     `;
 }
-function htmlDish(dishID, dishTitle, dishGuests, dishCalories, cssClass, ingredientsHTML) {
-    let dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
-    let dishIDDisplay = (dishID == null) ? '' : ' <h2><pre>[' + dishID + ']</pre></h2>';
+function htmlDish(dishID, dishTitle, dishGuests, dishCalories, ingredientsHTML, view, timeInfo) {
+    if (dishID == null) {
+        console.error('Got null dish');
+    }
+    if (view == View.Edit) {
+        let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
+        let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
+        return `
+        <div class="editDish" draggable="true" ondragstart="drag(event, '${dishID}', ${dayID}, ${mealID} )">
+        :-)
+        </div>
+        `;
+    }
+    // dishes only view, or view within a day plan.
+    const cssClass = view == View.Dishes ? 'dishCard' : 'dish';
+    const dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
+    const dishIDDisplay = (view == View.Dishes) ? ' <h2><pre>[' + dishID + ']</pre></h2>' : '';
     const calories = dishCalories < 0 ? '???' : dishCalories + '';
     return `
     <div class="${cssClass}">
@@ -222,11 +360,27 @@ function renderGroceryList(rawIngredDescs) {
     // render all
     return htmlGroceryIngredientList(ingredientDescHTML, checkListHTML);
 }
-function renderWeek(dishes, week) {
+function renderEdit(dishes, week) {
+    let [weekHTML, weekIngredDescs] = renderWeek(dishes, week, View.Edit);
+    let dishesHTML = renderDishes(dishes, View.Edit);
+    let groceryList = renderGroceryList(weekIngredDescs);
+    return `
+    <div class="editContainer">
+        <div class="editTime">
+            ${weekHTML}
+        </div>
+        <div class="editDishes" ondragover="allowDrop(event)" ondrop="trashDrop(event)">
+            ${dishesHTML}
+        </div>
+    </div>
+    ${groceryList}
+    `;
+}
+function renderWeek(dishes, week, view) {
     let weekHTML = '';
     let weekIngredDescs = [];
     for (let dayID of AllDays) {
-        let [dayHTML, dayIngredDescs] = renderDay(dishes, dayID, week[dayID], false);
+        let [dayHTML, dayIngredDescs] = renderDay(dishes, dayID, week[dayID], view);
         weekHTML += dayHTML;
         weekIngredDescs.push(...dayIngredDescs);
     }
@@ -235,31 +389,32 @@ function renderWeek(dishes, week) {
 /**
  * @returns [dayHTML, list of ingredient descriptions for day]
  */
-function renderDay(dishes, dayID, day, solo) {
+function renderDay(dishes, dayID, day, view) {
     // if day not listed in json: nothing
     if (day == null) {
-        return [htmlDay(dayID, 0, '', solo), []];
+        return [htmlDay(dayID, 0, '', view), []];
     }
     // render and sum calories for all meals
     let dayCalories = 0;
     let mealHTML = '';
     let dayIngredDescs = [];
     for (let mealID of AllMeals) {
-        let [curMealHTML, mealCalories, mealIngredDescs] = renderMeal(dishes, mealID, day[mealID]);
+        let [curMealHTML, mealCalories, mealIngredDescs] = renderMeal(dishes, dayID, mealID, day[mealID], view);
         mealHTML += curMealHTML;
         // if any meal has unk (< 0) cals, make whole day unk cals
         dayCalories = mealCalories < 0 ? -1 : dayCalories + mealCalories;
-        dayCalories += mealCalories;
         dayIngredDescs.push(...mealIngredDescs);
     }
-    return [htmlDay(dayID, dayCalories, mealHTML, solo), dayIngredDescs];
+    return [htmlDay(dayID, dayCalories, mealHTML, view), dayIngredDescs];
 }
 /**
  * @returns [mealHTML, mealCalories, list of ingredient descriptions for meal]
  */
-function renderMeal(dishes, mealID, mealDishes) {
-    // if meal not listed, or no meals provided, return nothing
-    if (mealDishes == null || mealDishes.length === 0) {
+function renderMeal(dishes, dayID, mealID, mealDishes, view) {
+    // if meal not listed, we can't render it. otherwise, we assume that the
+    // meal is listed for some reason, even if it is empty (e.g., an empty zone
+    // for drang'n'drop), so we render it.
+    if (mealDishes == null) {
         return ['', 0, []];
     }
     // iterate through dishes listed
@@ -267,18 +422,46 @@ function renderMeal(dishes, mealID, mealDishes) {
     let dishesHTML = '';
     let mealIngredDescs = [];
     for (let dishID of mealDishes) {
-        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes, dishID, false, 'dish');
+        let [dishHTML, dishCalories, dishIngredDescs] = renderDish(dishes, dishID, view, { dayID: dayID, mealID: mealID });
         // if any dish has unk (< 0) cals, make whole meal unk cals
         mealCalories = dishCalories < 0 ? -1 : mealCalories + dishCalories;
         dishesHTML += dishHTML;
         mealIngredDescs.push(...dishIngredDescs);
     }
-    return [htmlMeal(mealID, mealCalories, dishesHTML), mealCalories, mealIngredDescs];
+    return [htmlMeal(dayID, mealID, mealCalories, dishesHTML, view), mealCalories, mealIngredDescs];
 }
 /**
+ * @returns dishesHTML
+ */
+function renderDishes(dishes, view) {
+    // first, map each dish to the meal it belongs to
+    let mealMap = new Map();
+    for (let dishID in dishes) {
+        let [html, calories, ingredients] = renderDish(dishes, dishID, view);
+        let mealHint = dishes[dishID].mealHint;
+        if (!mealMap.has(mealHint)) {
+            mealMap.set(mealHint, []);
+        }
+        mealMap.get(mealHint).push(html);
+    }
+    // then, iterate through meals, and render all dishes for each meal
+    let res = '';
+    for (let mealID of AllMeals) {
+        if (!mealMap.has(mealID)) {
+            continue;
+        }
+        res += htmlAllDishesForMeal(mealID, mealMap.get(mealID).join('\n'), view);
+    }
+    return res;
+}
+/**
+ * @param timeInfo is provided if this dish is being rendered as part of a day's
+ * meal. (For drag'n'drop info.) Otherwise (as part of dish view) it's just.
+ * null
+ *
  * @returns [dishHTML, dishCalories, dishIngredients]
  */
-function renderDish(dishes, dishIDSpec, displayID, cssClass) {
+function renderDish(dishes, dishIDSpec, view, timeInfo) {
     // figure out dish spec type
     let dishID = '';
     let guests = 1;
@@ -291,7 +474,7 @@ function renderDish(dishes, dishIDSpec, displayID, cssClass) {
     }
     let dish = dishes[dishID];
     if (dish == null) {
-        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, cssClass, ''), 0, []];
+        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, '', view, timeInfo), 0, []];
     }
     // to handle multiple guests, we keep recipe and calories display the same
     // (minus a little "(cook xN)" notification), but repeat each ingredient
@@ -307,9 +490,8 @@ function renderDish(dishes, dishIDSpec, displayID, cssClass) {
             dishIngredDescs.push(ingredient[1]);
         }
     }
-    let providedDishID = displayID ? dishID : null;
     return [
-        htmlDish(providedDishID, dish.title, guests, dishCalories, cssClass, htmlIngredients(ingredientsHTMLInner)),
+        htmlDish(dishID, dish.title, guests, dishCalories, htmlIngredients(ingredientsHTMLInner), view, timeInfo),
         dishCalories,
         dishIngredDescs,
     ];
@@ -402,10 +584,18 @@ function getQUT(pieces) {
 /// <reference path="constants.ts" />
 /// <reference path="util.ts" />
 /// <reference path="parse.ts" />
+/**
+ * These are set for drag and drop purposes. They're not used elsewhere to keep
+ * functions pure for ease of debugging.
+ */
+let DragNDropGlobals = {
+    weekFN: null,
+    weekData: null,
+};
 //
 // pick filenames
 //
-function getWeekFilename(m) {
+function getWeekPath(m) {
     return 'data/weeks/' + m.format('MMMDD-YYYY').toLowerCase() + '.json';
 }
 function getThisWeekFilename(start = moment()) {
@@ -415,7 +605,7 @@ function getThisWeekFilename(start = moment()) {
     while (cur.format('dddd') !== 'Monday') {
         cur = cur.subtract(1, 'days');
     }
-    return getWeekFilename(cur);
+    return getWeekPath(cur);
 }
 function getLastWeekFilename() {
     return getThisWeekFilename(moment().subtract(7, 'days'));
@@ -427,7 +617,7 @@ function getNextWeekFilename() {
     while (candidate.format('dddd') != 'Monday') {
         candidate = candidate.add(1, 'days');
     }
-    return getWeekFilename(candidate);
+    return getWeekPath(candidate);
 }
 //
 // process data
@@ -436,9 +626,10 @@ function getNextWeekFilename() {
  * Callback for once dishes are loaded and rendering time-based (day/week)
  * view.
  */
-function onDishesLoadedTime(dishes) {
+function onDishesLoadedTime(weekFN, view, dishes) {
     console.log('Rendering time-based view.');
-    $.getJSON(weekFN, onWeekLoaded.bind(null, dishes)).fail(onWeekFail.bind(null, dishes));
+    $.getJSON(weekFN, onWeekLoaded.bind(null, view, dishes))
+        .fail(onWeekFail.bind(null, weekFN, view, dishes));
 }
 /**
  * Callback for once dishes are loaded and rendering dishes-only view.
@@ -447,25 +638,10 @@ function onDishesLoadedDishes(dishes) {
     console.log('Rendering dishes view.');
     console.log('Got dishes');
     console.log(dishes);
-    // render all dishes
-    let mealMap = new Map();
-    for (let dishID in dishes) {
-        let [html, calories, ingredients] = renderDish(dishes, dishID, true, 'dishCard');
-        let mealHint = dishes[dishID].mealHint;
-        if (!mealMap.has(mealHint)) {
-            mealMap.set(mealHint, []);
-        }
-        mealMap.get(mealHint).push(html);
-    }
-    for (let mealID of AllMeals) {
-        if (!mealMap.has(mealID)) {
-            continue;
-        }
-        $('body').append(htmlAllDishesForMeal(mealID, mealMap.get(mealID).join('\n')));
-    }
+    $('body').append(renderDishes(dishes, View.Dishes));
 }
-function onWeekFail(dishes) {
-    if (view == 'edit') {
+function onWeekFail(weekFN, view, dishes) {
+    if (view == View.Edit) {
         // write default week to path and try again
         serialize(EMPTY_WEEK, weekFN, onDishesLoadedTime.bind(null, dishes));
     }
@@ -473,100 +649,114 @@ function onWeekFail(dishes) {
         $('body').append("week didn't exist uh oh. Click 'edit' to make current week.");
     }
 }
-function onWeekLoaded(dishes, week) {
+function onWeekLoaded(view, dishes, week) {
     console.log('Got dishes');
     console.log(dishes);
+    // Save week data for drag'n'drop.
     console.log('Got week');
     console.log(week);
+    DragNDropGlobals.weekData = week;
     console.log('viewType: ' + view);
-    if (view == 'week') {
+    if (view == View.ShowWeek) {
         // render full-week display-only view.
-        let [weekHTML, weekIngredDescs] = renderWeek(dishes, week);
+        let [weekHTML, weekIngredDescs] = renderWeek(dishes, week, View.ShowWeek);
         let groceryList = renderGroceryList(weekIngredDescs);
         $('body').append(weekHTML + groceryList);
     }
-    else if (view == 'edit') {
-        // TODO: render full-week edit view.
-        $('body').append('going to render edits here');
+    else if (view == View.Edit) {
+        // render full-week edit view.
+        $('body').append(renderEdit(dishes, week));
     }
-    else if (view == 'day') {
+    else if (view == View.ShowDay) {
         // render day view. assumes current day is the one to render.
         let dayID = moment().format('dddd').toLowerCase();
-        let [dayHTML, _] = renderDay(dishes, dayID, week[dayID], true);
+        let [dayHTML, _] = renderDay(dishes, dayID, week[dayID], View.ShowDay);
         $('body').append(dayHTML);
     }
 }
 //
-// config
+// core execution
 //
 const dishesFN = 'data/dishes.json';
-// parse url to pick week
-let weekFN;
-let url = new URL(window.location.href);
-let week = url.searchParams.get('week');
-switch (week) {
-    case 'prev':
-    case 'previous':
-    case 'last':
-        weekFN = getLastWeekFilename();
-        break;
-    case 'next':
-        weekFN = getNextWeekFilename();
-        break;
-    case 'current':
-    case 'cur':
-    case 'this':
-    case null:
-        weekFN = getThisWeekFilename();
-        break;
-    default:
-        // NOTE: unsafe
-        weekFN = week;
-        break;
+function getWeekFN(url) {
+    // parse url to pick week
+    let weekFN;
+    let week = url.searchParams.get('week');
+    switch (week) {
+        case 'prev':
+        case 'previous':
+        case 'last':
+            weekFN = getLastWeekFilename();
+            break;
+        case 'next':
+            weekFN = getNextWeekFilename();
+            break;
+        case 'current':
+        case 'cur':
+        case 'this':
+        case null:
+            weekFN = getThisWeekFilename();
+            break;
+        default:
+            // NOTE: unsafe
+            weekFN = week;
+            break;
+    }
+    // this would be a manual override:
+    // const weekFN = 'data/weeks/jun25-2018.json'
+    console.log('Using weekFN: ' + weekFN);
+    return weekFN;
 }
-// this would be a manual override:
-// const weekFN = 'data/weeks/jun25-2018.json'
-console.log('Using weekFN: ' + weekFN);
-// day view really only makes sense with current week, though hitting 'prev'
-// can let you check out what you ate last week on the same day, so i guess
-// that's cool too.
-let view;
-let viewRaw = url.searchParams.get('view');
-switch (viewRaw) {
-    case 'day':
-        view = 'day';
-        break;
-    case 'dishes':
-        view = 'dishes';
-        break;
-    case 'edit':
-        view = 'edit';
-        break;
-    default:
-        view = 'week';
-        break;
+function getView(url) {
+    // day view really only makes sense with current week, though hitting 'prev'
+    // can let you check out what you ate last week on the same day, so i guess
+    // that's cool too.
+    let view = null;
+    let viewRaw = url.searchParams.get('view');
+    switch (viewRaw) {
+        case 'day':
+            view = View.ShowDay;
+            break;
+        case 'dishes':
+            view = View.Dishes;
+            break;
+        case 'edit':
+            view = View.Edit;
+            break;
+        default:
+            view = View.ShowWeek;
+            break;
+    }
+    console.log('Using view: ' + view);
+    return view;
 }
-console.log('Using view: ' + view);
-//
-// execution
-//
-if (view == 'dishes') {
-    // display dishes
-    $.getJSON(dishesFN, onDishesLoadedDishes);
+function main() {
+    // get config
+    let url = new URL(window.location.href);
+    let weekFN = getWeekFN(url);
+    let view = getView(url);
+    // set global config for drag'n'drop
+    DragNDropGlobals.weekFN = weekFN;
+    // perform the page requested action
+    if (view == View.Dishes) {
+        // display dishes
+        $.getJSON(dishesFN, onDishesLoadedDishes);
+    }
+    else if (view == View.ShowDay || view == View.ShowWeek || view == View.Edit) {
+        // display time-based rendering (week, day, or edit)
+        $.getJSON(dishesFN, onDishesLoadedTime.bind(null, weekFN, view));
+    }
+    else {
+        console.error('Unknown view: ' + view);
+    }
 }
-else if (view == 'day' || view == 'week' || view == 'edit') {
-    // display time-based rendering (week, day, or edit)
-    $.getJSON(dishesFN, onDishesLoadedTime);
-}
-else {
-    console.error('Unknown view: ' + view);
-}
+main();
 /// <reference path="constants.ts" />
 function serialize(week, path, success) {
     // NOTE: unsafe
     $.ajax(path, {
         type: 'PUT',
-        data: JSON.stringify(week),
+        data: JSON.stringify(week, null, 4),
         success: function (response) {
             console.log('Successfully wrote week to ' + path);
             success();

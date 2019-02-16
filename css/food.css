@@ -9,6 +9,116 @@ body {
     font-size: 10pt;
 }
 
+/* Edit view */
+
+
+.trashContainer {
+    width: 100%;
+    height: 50px;
+    background-color: grey;
+    margin: 10px;
+}
+
+/*
+ * Edit view overall container. Time view on left side, dishes on right side.
+ */
+.editContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+/*
+ * Edit view left side: time. Each day can take up one row.
+ */
+.editTime {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 10px;
+}
+
+/*
+ * Edit view right side: dishes. We organize them by meals. Each meal takes up
+ * two rows: one for the meal title, the next for all the dishes.
+ */
+.editDishes {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+/**
+ * In the edit view, on the right side where all the dishes are, within a meal's
+ * two columns, in the second column, are all the dishes. Each dish is a little
+ * card, and they should flow naturally.
+ */
+.editMealDishes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/*
+ * In the edit view, dishes appear both in the time view (left) and dish
+ * inventory (right).
+ */
+.editDish {
+    width: 50px;
+    height: 50px;
+    background-color: #fcfcfc;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: -4px 4px 2px -2px grey;
+}
+
+/*
+ * Rows are the day name, and then the meals.
+ */
+ .editDay {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffff99;
+    margin-bottom: 5px;
+}
+
+.editDay p {
+    margin: 2px;
+}
+
+/**
+ * The meals are laid out horizontally.
+ */
+.editDayMeals {
+    display: flex;
+    flex-direction: row;
+}
+
+.editDayMeal {
+    /* As a flex item, the meals should fill to take they day's space so they
+    can be effective drop zones for dragging and dropping dishes from the
+    inventory on the right. */
+    flex-grow: 1;
+
+    /* As a flex container, a meal contains a row for the dishes, and a row for
+    the name of the meal and its calories. */
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    margin: 2px;
+}
+
+/**
+ * In the edit view, on the left (time), this contains the dishes for a meal in
+ * a day.
+ */
+.editDayMealsDishes {
+    display: flex;
+    flex-direction: row;
+    /* Min-height set so it can be a drag'n'drop zone. */
+    min-height: 50px;
+}
+
 /* For all dishes view */
 
 .meal {
@@ -32,7 +142,7 @@ body {
     box-shadow: -10px 10px 6px -6px grey;
 }
 
-/* General + for day & week view */
+/* Display week and day views */
 
 /*
  * Day (Monday)

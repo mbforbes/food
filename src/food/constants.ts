@@ -55,18 +55,46 @@ const IGNORE_THINGS = new Set([
 
 let EMPTY_WEEK: Week = {
     monday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
     },
     tuesday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
     },
     wednesday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
     },
     thursday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
     },
     friday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
     },
     saturday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
     },
     sunday: {
+        breakfast: [],
+        lunch: [],
+        snack: [],
+        dinner: [],
     }
 }
 
@@ -87,8 +115,8 @@ type DishIDObj = {
     guests: number,
 }
 type DishIDSpec = DishID | DishIDObj
-type MealID = 'breakfast' | 'morningSnack' | 'lunch' | 'afternoonSnack' | 'dinner' | 'eveningSnack';
-const AllMeals: MealID[] = ['breakfast', 'morningSnack', 'lunch', 'afternoonSnack', 'dinner', 'eveningSnack']
+type MealID = 'breakfast' | 'morningSnack' | 'lunch' | 'snack' | 'afternoonSnack' | 'dinner' | 'eveningSnack';
+const AllMeals: MealID[] = ['breakfast', 'morningSnack', 'lunch', 'snack', 'afternoonSnack', 'dinner', 'eveningSnack']
 type Ingredient = [number, string]
 type DayID = 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
 const AllDays: DayID[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
@@ -115,4 +143,16 @@ type Day = {
  */
 type Week = {
     [d in DayID]?: Day
+}
+
+enum View {
+    ShowWeek = 0,
+    ShowDay = 1,
+    Dishes = 2,
+    Edit = 3,
+}
+
+type TimeInfo = {
+    dayID: DayID,
+    mealID: MealID,
 }

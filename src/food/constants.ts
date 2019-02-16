@@ -124,7 +124,8 @@ const AllDays: DayID[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'
 type Dish = {
     title: string,
     mealHint: MealID,
-    ingredients: Ingredient[]
+    ingredients: Ingredient[],
+    img?: string,
 }
 
 /**

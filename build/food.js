@@ -228,16 +228,37 @@ function htmlMeal(dayID, mealID, mealCalories, dishesHTML, view) {
     ${dishesHTML}
     `;
 }
-function htmlDish(dishID, dishTitle, dishGuests, dishCalories, ingredientsHTML, view, timeInfo) {
+function htmlDish(dishID, dishTitle, dishGuests, dishCalories, dishImg, ingredientsHTML, view, timeInfo) {
     if (dishID == null) {
         console.error('Got null dish');
     }
     if (view == View.Edit) {
         let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
         let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
+        // return pic if possible
+        if (dishImg != null) {
+            return `
+            <div
+                class="editDish"
+                draggable="true"
+                ondragstart="drag(event, '${dishID}', ${dayID}, ${mealID} )"
+            >
+                <img
+                    src="${dishImg}"
+                />
+                <span class="tooltip">
+                <b>${dishTitle}</b> (${dishCalories} cal)
+                <br />
+                <hr />
+                ${ingredientsHTML}
+                </span>
+            </div>
+            `;
+        }
+        // otherwise return text rep
         return `
         <div class="editDish" draggable="true" ondragstart="drag(event, '${dishID}', ${dayID}, ${mealID} )">
-        :-)
+        ${dishTitle}
         </div>
         `;
     }
@@ -474,7 +495,7 @@ function renderDish(dishes, dishIDSpec, view, timeInfo) {
     }
     let dish = dishes[dishID];
     if (dish == null) {
-        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, '', view, timeInfo), 0, []];
+        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, null, '', view, timeInfo), 0, []];
     }
     // to handle multiple guests, we keep recipe and calories display the same
     // (minus a little "(cook xN)" notification), but repeat each ingredient
@@ -491,7 +512,7 @@ function renderDish(dishes, dishIDSpec, view, timeInfo) {
         }
     }
     return [
-        htmlDish(dishID, dish.title, guests, dishCalories, htmlIngredients(ingredientsHTMLInner), view, timeInfo),
+        htmlDish(dishID, dish.title, guests, dishCalories, dish.img, htmlIngredients(ingredientsHTMLInner), view, timeInfo),
         dishCalories,
         dishIngredDescs,
     ];
@@ -643,7 +664,7 @@ function onDishesLoadedDishes(dishes) {
 function onWeekFail(weekFN, view, dishes) {
     if (view == View.Edit) {
         // write default week to path and try again
-        serialize(EMPTY_WEEK, weekFN, onDishesLoadedTime.bind(null, dishes));
+        serialize(EMPTY_WEEK, weekFN, onDishesLoadedTime.bind(null, weekFN, view, dishes));
     }
     else {
         $('body').append("week didn't exist uh oh. Click 'edit' to make current week.");

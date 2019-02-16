@@ -25,7 +25,8 @@
 			[128, "¼ cup pancake mix (TJ's pumpkin)"],
 			[52, "1 tbsp maple syrup"],
 			[50, "½ tbsp butter"]
-		]
+		],
+		"img": "img/banana-pancakes.png"
 	},
 	"beefRevenge": {
 		"title": "Beef Revenge",

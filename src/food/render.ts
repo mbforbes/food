@@ -93,6 +93,7 @@ function htmlDish(
     dishTitle: string,
     dishGuests: number,
     dishCalories: number,
+    dishImg: string | null,
     ingredientsHTML: string,
     view: View,
     timeInfo?: TimeInfo,
@@ -103,9 +104,30 @@ function htmlDish(
     if (view == View.Edit) {
         let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
         let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
+        // return pic if possible
+        if (dishImg != null) {
+            return `
+            <div
+                class="editDish"
+                draggable="true"
+                ondragstart="drag(event, '${dishID}', ${dayID}, ${mealID} )"
+            >
+                <img
+                    src="${dishImg}"
+                />
+                <span class="tooltip">
+                <b>${dishTitle}</b> (${dishCalories} cal)
+                <br />
+                <hr />
+                ${ingredientsHTML}
+                </span>
+            </div>
+            `
+        }
+        // otherwise return text rep
         return `
         <div class="editDish" draggable="true" ondragstart="drag(event, '${dishID}', ${dayID}, ${mealID} )">
-        :-)
+        ${dishTitle}
         </div>
         `
     }
@@ -373,7 +395,7 @@ function renderDish(
 
     let dish = dishes[dishID];
     if (dish == null) {
-        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, '', view, timeInfo), 0, []]
+        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, null, '', view, timeInfo), 0, []]
     }
 
     // to handle multiple guests, we keep recipe and calories display the same
@@ -397,6 +419,7 @@ function renderDish(
             dish.title,
             guests,
             dishCalories,
+            dish.img,
             htmlIngredients(ingredientsHTMLInner),
             view,
             timeInfo,

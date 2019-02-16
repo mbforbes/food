@@ -64,12 +64,33 @@ body {
  * inventory (right).
  */
 .editDish {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     background-color: #fcfcfc;
     margin: 5px;
     padding: 5px;
     box-shadow: -4px 4px 2px -2px grey;
+}
+
+.editDish img {
+    width: 75px;
+    height: 75px;
+}
+
+.editDish .tooltip {
+    width: 200px;
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 8px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+
+.editDish:hover .tooltip {
+    visibility: visible;
 }
 
 /*

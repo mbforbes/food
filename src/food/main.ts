@@ -84,7 +84,7 @@ function onDishesLoadedDishes(dishes: Dishes): void {
 function onWeekFail(weekFN: string, view: View, dishes: Dishes): void {
     if (view == View.Edit) {
         // write default week to path and try again
-        serialize(EMPTY_WEEK, weekFN, onDishesLoadedTime.bind(null, dishes));
+        serialize(EMPTY_WEEK, weekFN, onDishesLoadedTime.bind(null, weekFN, view, dishes));
     } else {
         $('body').append("week didn't exist uh oh. Click 'edit' to make current week.");
     }

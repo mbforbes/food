@@ -20,6 +20,11 @@ function drag(ev: DragEvent, dishID: string, dayID?: DayID, mealID?: MealID): vo
  */
 function allowDrop(ev: DragEvent): void {
     ev.preventDefault();
+    $(ev.target).attr('drop-active', 'on');
+}
+
+function dragLeave(ev: DragEvent): void {
+    $(ev.target).removeAttr('drop-active');
 }
 
 
@@ -28,6 +33,7 @@ function allowDrop(ev: DragEvent): void {
  */
 function mealDrop(dayID: DayID, mealID: MealID, ev: DragEvent): void {
     ev.preventDefault();
+    $(ev.target).removeAttr('drop-active');
 
     // add the dish to the meal
     let dishID = ev.dataTransfer.getData('dishID');

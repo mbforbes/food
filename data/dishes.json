@@ -7,6 +7,19 @@
 			[120, "1 tbsp olive oil"]
 		]
 	},
+	"asparagusPanchettaHash": {
+		"title": "Asparagus Pancetta Hash",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[294, "0.125 lb pancetta (grease incl.)"],
+			[175, "0.5 lb potatoes (Yukon gold)"],
+			[30, "½ onion"],
+			[21, "0.5 bunch asparagus"],
+			[140, "2 egg"]
+		],
+		"img": "img/asparagus-pancetta-hash.png",
+		"recipe": "https://smittenkitchen.com/2010/05/spring-asparagus-pancetta-hash/"
+	},
 	"avocadoSandwich": {
 		"title": "Avocado Sandwich",
 		"mealHint": "lunch",
@@ -42,6 +55,21 @@
 		"ingredients": [
 			[210, "12 oz beer (7% abv)"]
 		]
+	},
+	"breakfastSandwich": {
+		"title": "Breakfast Sandwich",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[140, "2 egg"],
+			[16, "0.125 cup milk (2%)"],
+			[10, "0.16 head broccoli"],
+			[5, "0.083 red onion"],
+			[74, "2 slices deli ham"],
+			[130, "1 english muffin"],
+			[113, "1 slice cheddar cheese"]
+		],
+		"img": "img/breakfast-sandwich.png",
+		"recipe": "https://tasty.co/recipe/breakfast-sandwich-meal-prep"
 	},
 	"bibimbap": {
 		"title": "Bibimbap",
@@ -105,12 +133,43 @@
 			[40, "½ cup salsa"]
 		]
 	},
+	"capreseChickenSaladBowl": {
+		"title": "Caprese Chicken Salad Bowl",
+		"mealHint": "lunch",
+		"ingredients": [
+			[56, "0.25 cup quinoa (cooked)"],
+			[60, "½ tbsp olive oil"],
+			[7, "½ tbsp balsamic vinegar"],
+			[140, "0.5 chicken breast"],
+			[35, "1 cup cherry tomatoes"],
+			[5, "0.5 bunch basil"],
+			[200, "0.5 cup mozarella"],
+			[120, "1 tbsp olive oil"],
+			[5, "1 tsp balsamic vinegar"],
+			[21, "1 tsp honey"]
+		],
+		"img": "img/caprese-chicken-salad-bowl.png",
+		"recipe": "https://sweetpeasandsaffron.com/caprese-chicken-salad-meal-prep-bowls/"
+	},
 	"carrots": {
 		"title": "Carrots",
 		"mealHint": "snack",
 		"ingredients": [
 			[61, "150 g carrots"]
 		]
+	},
+	"chiaSeedPudding": {
+		"title": "Chia Seed Pudding",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[174, "3 tbsp chia seeds"],
+			[128, "1 cup milk (2%)"],
+			[3, "0.25 tsp vanilla extract"],
+			[52, "1 tbsp maple syrup"],
+			[37, "0.25 pound strawberries"]
+		],
+		"img": "img/chia-seed-pudding.png",
+		"recipe": "https://www.eatingbirdfood.com/basic-chia-seed-pudding/"
 	},
 	"chickenRiceBroc": {
 		"title": "Chicken, Rice, and Broccoli",
@@ -385,6 +444,15 @@
 		"mealHint": "lunch",
 		"ingredients": [
 			[400, "1 bottle soylent"]
+		]
+	},
+	"spaghettiSausage": {
+		"title": "Spaghetti, Red Sauce, Sausage",
+		"mealHint": "dinner",
+		"ingredients": [
+			[-1, "0.33 box spaghetti"],
+			[-1, "0.33 can red sauce"],
+			[-1, "2 sausages"]
 		]
 	},
 	"squashSide": {

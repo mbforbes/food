@@ -107,6 +107,10 @@ body {
     margin: 2px;
 }
 
+.recipeLink {
+    color: white;
+}
+
 /**
  * The meals are laid out horizontally.
  */
@@ -127,6 +131,10 @@ body {
     flex-direction: column;
     background-color: bisque;
     margin: 2px;
+}
+
+.editDayMeal[drop-active=on] {
+    background-color: aliceblue;
 }
 
 /**

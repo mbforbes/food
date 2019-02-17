@@ -126,6 +126,7 @@ type Dish = {
     mealHint: MealID,
     ingredients: Ingredient[],
     img?: string,
+    recipe?: string,
 }
 
 /**

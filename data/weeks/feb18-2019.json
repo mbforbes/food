@@ -1,44 +1,89 @@
 {
     "monday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "eatOutBreakfast"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "tuesday": {
-        "breakfast": [],
-        "lunch": [],
-        "snack": [],
-        "dinner": []
+        "breakfast": [
+            "breakfastSandwich"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "snack": [
+            "carrots"
+        ],
+        "dinner": [
+            "salmon",
+            "brusslesSproutsSide"
+        ]
     },
     "wednesday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "breakfastSandwich"
+        ],
+        "lunch": [
+            "capreseChickenSaladBowl"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "spaghettiSausage"
+        ]
     },
     "thursday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "eatOutBreakfast"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "chickenRiceBroc"
+        ]
     },
     "friday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "breakfastSandwich"
+        ],
+        "lunch": [
+            "capreseChickenSaladBowl"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "spaghettiSausage"
+        ]
     },
     "saturday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "eatOutBreakfast"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "sunday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "eatOutBreakfast"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     }
 }

@@ -35,7 +35,7 @@
         ],
         "snack": [],
         "dinner": [
-            "spaghettiSausage"
+            "meatloaf"
         ]
     },
     "thursday": {
@@ -58,9 +58,7 @@
             "capreseChickenSaladBowl"
         ],
         "snack": [],
-        "dinner": [
-            "spaghettiSausage"
-        ]
+        "dinner": []
     },
     "saturday": {
         "breakfast": [

@@ -420,6 +420,7 @@ function renderDish(
     for (let ingredient of dish.ingredients) {
         ingredientsHTMLInner += htmlIngredient(ingredient);
         // if any ingredient has unk (< 0) cals, make whole dish unk cals
+
         dishCalories = ingredient[0] < 0 ? -1 : dishCalories + ingredient[0];
         for (let i = 0; i < guests; i++) {
             dishIngredDescs.push(ingredient[1]);

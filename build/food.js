@@ -41,7 +41,14 @@ const BULK_THINGS = new Set([
     'potato flakes',
     'protein powder',
     'quinoa (cooked)',
-    'rice (white, cooked)'
+    'rice (white, cooked)',
+    'dried parsley leaves',
+    'brown sugar',
+    'balsamic vinegar',
+    'ketchup',
+    'red wine vinegar',
+    'honey',
+    'Worchestireshire sauce',
 ]);
 // things used as internal placeholders we don't need to add to any list
 const IGNORE_THINGS = new Set([

@@ -331,6 +331,25 @@
 			[100, "1 cup Just Crack an Egg: Rustic"]
 		]
 	},
+	"meatloaf": {
+		"title": "Meatloaf",
+		"mealHint": "dinner",
+		"ingredients": [
+			[800, "1 lb ground beef (90% lean)"],
+			[430, "1 cup dried bread crumbs"],
+			[60, "1 onion"],
+			[64, "0.5 cup milk (2%)"],
+			[70, "1 egg"],
+			[40, "2 tbsp ketchup"],
+			[13, "1 tbsp Worchestireshire sauce"],
+			[2, "1 tsp dried parsley leaves"],
+			[80, "0.25 cup ketchup"],
+			[100, "2 tbsp brown sugar"],
+			[3, "1 tbsp red wine vinegar"]
+		],
+		"img": "img/meatloaf.png",
+		"recipe": "https://www.thewholesomedish.com/the-best-classic-meatloaf/"
+	},
 	"omelette": {
 		"title": "Omelette",
 		"mealHint": "breakfast",

@@ -49,6 +49,11 @@ const BULK_THINGS = new Set([
     'red wine vinegar',
     'honey',
     'Worchestireshire sauce',
+    'sake',
+    'hondashi',
+    'togarashi',
+    'soy sauce',
+    'sugar',
 ]);
 // things used as internal placeholders we don't need to add to any list
 const IGNORE_THINGS = new Set([
@@ -122,16 +127,32 @@ function drag(ev, dishID, dayID, mealID) {
         ev.dataTransfer.setData('mealID', mealID);
     }
 }
+function getHighlightEl(el) {
+    let maxTraverse = 5;
+    let cur = el;
+    while (cur.className != "editDayMeal" && maxTraverse > 0 && cur.parentElement != null) {
+        cur = cur.parentElement;
+        maxTraverse--;
+    }
+    return maxTraverse == 0 || cur.parentElement == null ? null : cur;
+}
 /**
  * For some reason, this needs to be set on droppable zones when something is
  * dragged over them to allow something to be dropped onto them.
  */
 function allowDrop(ev) {
     ev.preventDefault();
-    $(ev.target).attr('drop-active', 'on');
+    let highlightEl = getHighlightEl(ev.target);
+    if (highlightEl != null) {
+        $(highlightEl).attr('drop-active', 'on');
+    }
 }
 function dragLeave(ev) {
-    $(ev.target).removeAttr('drop-active');
+    let highlightEl = getHighlightEl(ev.target);
+    if (highlightEl != null) {
+        $(highlightEl).removeAttr('drop-active');
+    }
+    // $(ev.target).removeAttr('drop-active');
 }
 /**
  * Dropping a dish onto a meal.
@@ -254,7 +275,7 @@ function htmlDish(dishID, dishTitle, dishGuests, dishCalories, dishImg, dishReci
     if (view == View.Edit) {
         let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
         let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
-        let recipe = dishRecipe != null ? '<a class="recipeLink" href="' + dishRecipe + '">recipe</a>' : '';
+        let recipe = dishRecipe != null ? '<a class="recipeLink" target="_blank" href="' + dishRecipe + '">recipe</a>' : '';
         // return pic if possible
         if (dishImg != null) {
             return `
@@ -266,6 +287,7 @@ function htmlDish(dishID, dishTitle, dishGuests, dishCalories, dishImg, dishReci
                 <img
                     src="${dishImg}"
                 />
+                <span class="calOverlay">${calories}</span>
                 <span class="tooltip">
                 <b>${dishTitle}</b> (${calories} cal)
                 <br />

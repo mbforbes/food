@@ -14,17 +14,34 @@ function drag(ev: DragEvent, dishID: string, dayID?: DayID, mealID?: MealID): vo
     }
 }
 
+function getHighlightEl(el: Element): Element {
+    let maxTraverse = 5;
+    let cur = el;
+    while (cur.className != "editDayMeal" && maxTraverse > 0 && cur.parentElement != null) {
+        cur = cur.parentElement;
+        maxTraverse--;
+    }
+    return maxTraverse == 0 || cur.parentElement == null ? null : cur;
+}
+
 /**
  * For some reason, this needs to be set on droppable zones when something is
  * dragged over them to allow something to be dropped onto them.
  */
 function allowDrop(ev: DragEvent): void {
     ev.preventDefault();
-    $(ev.target).attr('drop-active', 'on');
+    let highlightEl = getHighlightEl(ev.target as Element);
+    if (highlightEl != null) {
+        $(highlightEl).attr('drop-active', 'on');
+    }
 }
 
 function dragLeave(ev: DragEvent): void {
-    $(ev.target).removeAttr('drop-active');
+    let highlightEl = getHighlightEl(ev.target as Element);
+    if (highlightEl != null) {
+        $(highlightEl).removeAttr('drop-active');
+    }
+    // $(ev.target).removeAttr('drop-active');
 }
 
 

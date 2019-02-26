@@ -115,7 +115,7 @@ function htmlDish(
     if (view == View.Edit) {
         let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
         let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
-        let recipe = dishRecipe != null ? '<a class="recipeLink" href="' + dishRecipe + '">recipe</a>' : '';
+        let recipe = dishRecipe != null ? '<a class="recipeLink" target="_blank" href="' + dishRecipe + '">recipe</a>' : '';
         // return pic if possible
         if (dishImg != null) {
             return `
@@ -127,6 +127,7 @@ function htmlDish(
                 <img
                     src="${dishImg}"
                 />
+                <span class="calOverlay">${calories}</span>
                 <span class="tooltip">
                 <b>${dishTitle}</b> (${calories} cal)
                 <br />

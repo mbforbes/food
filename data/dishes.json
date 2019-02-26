@@ -56,6 +56,17 @@
 			[210, "12 oz beer (7% abv)"]
 		]
 	},
+	"biscuitSandwich": {
+		"title": "Biscuit Sandwich",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[100, "1 breakfast sausage patty"],
+			[70, "1 egg"],
+			[160, "1 biscuit"],
+			[113, "1 slices cheddar cheese"]
+		],
+		"img": "img/biscuit-sandwich.png"
+	},
 	"breakfastSandwich": {
 		"title": "Breakfast Sandwich",
 		"mealHint": "breakfast",
@@ -66,7 +77,7 @@
 			[5, "0.083 red onion"],
 			[74, "2 slices deli ham"],
 			[130, "1 english muffin"],
-			[113, "1 slice cheddar cheese"]
+			[113, "1 slices cheddar cheese"]
 		],
 		"img": "img/breakfast-sandwich.png",
 		"recipe": "https://tasty.co/recipe/breakfast-sandwich-meal-prep"
@@ -88,7 +99,8 @@
 		"mealHint": "breakfast",
 		"ingredients": [
 			[200, "2 breakfast sausage patties"]
-		]
+		],
+		"img": "img/breakfast-sausage-patties.png"
 	},
 	"breakfastScramble": {
 		"title": "Breakfast Scramble",
@@ -98,7 +110,8 @@
 			[30, "½ onion"],
 			[210, "3 egg"],
 			[60, "½ tbsp olive oil"]
-		]
+		],
+		"img": "img/breakfast-scramble.png"
 	},
 	"broccoliSide": {
 		"title": "Broccoli (side)",
@@ -121,7 +134,8 @@
 		"ingredients": [
 			[120, "1 pcs Dave's Killer Bread"],
 			[50, "½ tbsp butter"]
-		]
+		],
+		"img": "img/buttered-toast.png"
 	},
 	"burritoBowl": {
 		"title": "Burrito Bowl",
@@ -193,21 +207,24 @@
 		"mealHint": "breakfast",
 		"ingredients": [
 			[500, "[eat this much-ish]"]
-		]
+		],
+		"img": "img/eat-out-breakfast.png"
 	},
 	"eatOutLunch": {
 		"title": "[Eating Out!]",
 		"mealHint": "lunch",
 		"ingredients": [
 			[600, "[eat this much-ish]"]
-		]
+		],
+		"img": "img/eat-out-lunch.png"
 	},
 	"eatOutDinner": {
 		"title": "[Eating Out!]",
 		"mealHint": "dinner",
 		"ingredients": [
 			[900, "[eat this much-ish]"]
-		]
+		],
+		"img": "img/eat-out-dinner.png"
 	},
 	"eggBake": {
 		"title": "Egg Bake",
@@ -219,7 +236,8 @@
 			[107, "100 g ham (pre-cooked)"],
 			[20, "⅓ onion"],
 			[20, "⅓ bell pepper"]
-		]
+		],
+		"img": "img/egg-bake.png"
 	},
 	"energyBarPro": {
 		"title": "Energy Bar (Pro Base)",
@@ -234,7 +252,8 @@
 		"ingredients": [
 			[120, "1 english muffin"],
 			[50, "½ tbsp butter"]
-		]
+		],
+		"img": "img/buttered-english-muffin.png"
 	},
 	"freshChickenBreast": {
 		"title": "Chicken Breast",
@@ -265,7 +284,8 @@
 		"mealHint": "breakfast",
 		"ingredients": [
 			[140, "1 hash brown patty"]
-		]
+		],
+		"img": "img/hash-brown-patty.png"
 	},
 	"hummus": {
 		"title": "Hummus",
@@ -294,6 +314,21 @@
 			[140, "⅔ cup potato flakes"]
 		]
 	},
+	"italianSub": {
+		"title": "Italian Sub",
+		"mealHint": "lunch",
+		"ingredients": [
+			[210, "0.5 baguette"],
+			[226, "2 slices provolone cheese"],
+			[111, "3 slices deli turkey"],
+			[111, "3 slices deli roast beef"],
+			[60, "6 pieces pepperoni"],
+			[100, "1 tbsp butter"],
+			[11, "0.5 tomato"],
+			[8, "1 cup shredded lettuce"]
+		],
+		"img": "img/italian-sub.png"
+	},
 	"jamToast": {
 		"title": "Jam Toast",
 		"mealHint": "breakfast",
@@ -301,35 +336,44 @@
 			[120, "1 pcs Dave's Killer Bread"],
 			[50, "½ tbsp butter"],
 			[50, "1 tbsp jam"]
-		]
+		],
+		"img": "img/jam-toast.png"
 	},
 	"justCrackEggDenver": {
-		"title": "Just Crack an Egg: Denver (cup only; no egg)",
+		"title": "Just Crack an Egg: Denver (+2 eggs)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[120, "1 cup Just Crack an Egg: Denver"]
-		]
+			[120, "1 cup Just Crack an Egg: Denver"],
+			[140, "2 egg"]
+		],
+		"img": "img/jce-denver.png"
 	},
 	"justCrackEggAmerican": {
-		"title": "Just Crack an Egg: American (cup only; no egg)",
+		"title": "Just Crack an Egg: American (+2 eggs)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[180, "1 cup Just Crack an Egg: American"]
-		]
+			[180, "1 cup Just Crack an Egg: American"],
+			[140, "2 egg"]
+		],
+		"img": "img/jce-american.png"
 	},
 	"justCrackEggUltimate": {
-		"title": "Just Crack an Egg: Ultimate (cup only; no egg)",
+		"title": "Just Crack an Egg: Ultimate (+2 eggs)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[170, "1 cup Just Crack an Egg: Ultimate"]
-		]
+			[170, "1 cup Just Crack an Egg: Ultimate"],
+			[140, "2 egg"]
+		],
+		"img": "img/jce-ultimate.png"
 	},
 	"justCrackEggRustic": {
-		"title": "Just Crack an Egg: Rustic (cup only; no egg)",
+		"title": "Just Crack an Egg: Rustic (+2 eggs)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[100, "1 cup Just Crack an Egg: Rustic"]
-		]
+			[100, "1 cup Just Crack an Egg: Rustic"],
+			[140, "2 egg"]
+		],
+		"img": "img/jce-rustic.png"
 	},
 	"meatloaf": {
 		"title": "Meatloaf",
@@ -360,7 +404,26 @@
 			[16, "4 mushrooms (white)"],
 			[50, "½ tbsp butter"],
 			[210, "3 egg"]
-		]
+		],
+		"img": "img/omelette.png"
+	},
+	"oyakodon": {
+		"title": "Oyakodon",
+		"mealHint": "dinner",
+		"ingredients": [
+			[200, "1 cup rice (white, cooked)"],
+			[10, "1 tbsp hondashi"],
+			[9, "1 tbsp soy sauce"],
+			[40, "2 tbsp sake"],
+			[48, "1 tbsp sugar"],
+			[60, "1 yellow onion"],
+			[280, "1 chicken breast"],
+			[15, "3 scallions"],
+			[15, "3 egg"],
+			[0, "1 tsp togarashi"]
+		],
+		"img": "img/oyakodon.png",
+		"recipe": "https://www.seriouseats.com/recipes/2016/08/oyakodon-japanese-chicken-and-egg-rice-bowl-recipe.html"
 	},
 	"PBToast": {
 		"title": "Peanut Butter Toast",
@@ -368,7 +431,8 @@
 		"ingredients": [
 			[190, "2 tbsp peanut butter"],
 			[120, "1 pcs Dave's Killer Bread"]
-		]
+		],
+		"img": "img/pb-toast.png"
 	},
 	"PBnJ": {
 		"title": "PB & J",
@@ -436,7 +500,8 @@
 		"ingredients": [
 			[140, "2 egg"],
 			[25, "¼ tbsp butter"]
-		]
+		],
+		"img": "img/scrambled-eggs.png"
 	},
 	"scrambledEggs": {
 		"title": "Scrambled Eggs",
@@ -444,7 +509,8 @@
 		"ingredients": [
 			[210, "3 egg"],
 			[50, "½ tbsp butter"]
-		]
+		],
+		"img": "img/scrambled-eggs.png"
 	},
 	"shakshuka": {
 		"title": "Shakshuka",
@@ -487,7 +553,8 @@
 		"mealHint": "breakfast",
 		"ingredients": [
 			[75, "½ pound strawberries"]
-		]
+		],
+		"img": "img/strawbs.png"
 	},
 	"tunaFishSandwich": {
 		"title": "Tuna Fish Sandwich",

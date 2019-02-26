@@ -1,0 +1,68 @@
+{
+    "monday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": []
+    },
+    "tuesday": {
+        "breakfast": [
+            "biscuitSandwich"
+        ],
+        "lunch": [
+            "italianSub"
+        ],
+        "snack": [
+            "carrots"
+        ],
+        "dinner": [
+            "eatOutDinner"
+        ]
+    },
+    "wednesday": {
+        "breakfast": [
+            "biscuitSandwich"
+        ],
+        "lunch": [
+            "italianSub"
+        ],
+        "snack": [
+            "carrots"
+        ],
+        "dinner": [
+            "eatOutDinner"
+        ]
+    },
+    "thursday": {
+        "breakfast": [
+            "eatOutBreakfast"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "snack": [],
+        "dinner": [
+            "oyakodon"
+        ]
+    },
+    "friday": {
+        "breakfast": [
+            "biscuitSandwich"
+        ],
+        "lunch": [],
+        "snack": [],
+        "dinner": []
+    },
+    "saturday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": []
+    },
+    "sunday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": []
+    }
+}

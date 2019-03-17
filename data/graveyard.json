@@ -1,0 +1,40 @@
+{
+	"instantMashedPotatoesSmall": {
+		"title": "Instant Mashed Potatoes (small)",
+		"mealHint": "dinner",
+		"ingredients": [
+			[25, "¼ cup milk (1%)"],
+			[0, "⅓ cup water"],
+			[50, "½ tbsp butter"],
+			[70, "⅓ cup potato flakes"]
+		]
+	},
+	"riceSideSmall": {
+		"title": "Rice (side) (small)",
+		"mealHint": "dinner",
+		"ingredients": [
+			[100, "½ cup rice (white, cooked)"]
+		]
+	},
+	"scrambledEggsSmall": {
+		"title": "Scrambled Eggs (Small)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[140, "2 egg"],
+			[25, "¼ tbsp butter"]
+		],
+		"img": "img/scrambled-eggs.png"
+	},
+	"shakshuka": {
+		"title": "Shakshuka",
+		"mealHint": "dinner",
+		"ingredients": [
+			[385, "1 can chickpeas, roasted"],
+			[120, "1 tbsp olive oil"],
+			[30, "½ bell pepper"],
+			[30, "½ onion"],
+			[180, "1 cup tomato sauce"],
+			[140, "2 egg"]
+		]
+	}
+}

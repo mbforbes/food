@@ -11,7 +11,7 @@ eat stuff
 - Quinoa salad upgrade
     - toppings
     - hardboiled eggs
-
+- Shakshuka (actually)
 - BACON
 - loaded oatmeal
 - vegetable stir fry (+rice) (+egg possible?)

@@ -53,11 +53,16 @@ const BULK_THINGS = new Set([
     'hondashi',
     'togarashi',
     'soy sauce',
+    'sesame oil',
     'sugar',
     'rice vinegar',
     'vegetable oil',
     'garlic cloves',
     'water',
+    'garlic',
+    'ginger',
+    'rice',
+    'vanilla extract',
 ]);
 // things used as internal placeholders we don't need to add to any list
 const IGNORE_THINGS = new Set([
@@ -577,7 +582,7 @@ function renderQuantity(raw) {
             return whole + str;
         }
     }
-    return '' + raw;
+    return '' + raw.toPrecision(2);
 }
 function sortedMapKeys(m) {
     let flattened = [];

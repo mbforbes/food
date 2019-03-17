@@ -15,7 +15,9 @@
 			[175, "0.5 lb potatoes (Yukon gold)"],
 			[30, "½ onion"],
 			[21, "0.5 bunch asparagus"],
-			[140, "2 egg"]
+			[140, "2 egg"],
+			[60, "1 dab goat cheese"],
+			[5, "1 green onion"]
 		],
 		"img": "img/asparagus-pancetta-hash.png",
 		"recipe": "https://smittenkitchen.com/2010/05/spring-asparagus-pancetta-hash/"
@@ -264,6 +266,28 @@
 			[50, "½ tbsp butter (for sauce)"]
 		]
 	},
+	"friedRice": {
+		"title": "Fried Rice",
+		"mealHint": "dinner",
+		"ingredients": [
+			[360, "3 tbsp vegetable oil"],
+			[60, "1 onion"],
+			[60, "1 bell pepper"],
+			[50, "2 carrots"],
+			[0, "1 tbsp garlic"],
+			[105, "1 cup peas"],
+			[0, "1 tbsp ginger"],
+			[800, "4 cups rice"],
+			[210, "3 egg"],
+			[0, "0.25 cup water"],
+			[18, "2 tbsp soy sauce"],
+			[120, "1 tbsp sesame oil"],
+			[0, "4 green onion"]
+		],
+		"img": "img/fried-rice.png",
+		"recipe": "https://cooking.nytimes.com/recipes/12177-fried-rice"
+
+	},
 	"frozenGrilledChickenBreast": {
 		"title": "Frozen Grilled Chicken Breast",
 		"mealHint": "dinner",
@@ -278,6 +302,14 @@
 			[105, "1 cup frozen vegetables, steamed"],
 			[25, "¼ tbsp butter"]
 		]
+	},
+	"hardboiledEggs": {
+		"title": "Hardboiled Eggs",
+		"mealHint": "lunch",
+		"ingredients": [
+			[140, "2 egg"]
+		],
+		"img": "img/hardboiled-eggs.png"
 	},
 	"hashBrownPatty": {
 		"title": "Hash Brown Patty",
@@ -294,18 +326,8 @@
 			[50, "2 tbsp hummus"]
 		]
 	},
-	"instantMashedPotatoesSmall": {
-		"title": "Instant Mashed Potatoes (small)",
-		"mealHint": "dinner",
-		"ingredients": [
-			[25, "¼ cup milk (1%)"],
-			[0, "⅓ cup water"],
-			[50, "½ tbsp butter"],
-			[70, "⅓ cup potato flakes"]
-		]
-	},
 	"instantMashedPotatoesRegular": {
-		"title": "Instant Mashed Potatoes (regular)",
+		"title": "Mashed Potatoes (side)",
 		"mealHint": "dinner",
 		"ingredients": [
 			[33, "⅓ cup milk (1%)"],
@@ -374,6 +396,20 @@
 			[140, "2 egg"]
 		],
 		"img": "img/jce-rustic.png"
+	},
+	"kaleSalad": {
+		"title": "Kale Salad",
+		"mealHint": "lunch",
+		"ingredients": [
+			[-1, "2 cups kale"],
+			[-1, "0.5 green apple"],
+			[-1, "0.25 cup walnuts"],
+			[-1, "2 tbsp lemon juice"],
+			[-1, "2 tbsp olive oil"],
+			[-1, "1 tsp honey"]
+		],
+		"img": "img/kale-apple-walnut-salad.png",
+		"recipe": "https://www.freshfitkitchen.com/kale-apple-and-walnut-salad/"
 	},
 	"leftovers": {
 		"title": "Leftovers!",
@@ -473,7 +509,7 @@
 	},
 	"ramenFancy": {
 		"title": "Fancy Ramen",
-		"mealHint": "lunch",
+		"mealHint": "dinner",
 		"ingredients": [
 			[500, "1 pack Tonkotsu Ramen (Sun Noodle Brand)"],
 			[70, "1 egg"]
@@ -481,13 +517,6 @@
 	},
 	"riceSide": {
 		"title": "Rice (side)",
-		"mealHint": "dinner",
-		"ingredients": [
-			[100, "½ cup rice (white, cooked)"]
-		]
-	},
-	"riceSideDouble": {
-		"title": "Double Rice (side)",
 		"mealHint": "dinner",
 		"ingredients": [
 			[200, "1 cup rice (white, cooked)"]
@@ -501,35 +530,14 @@
 			[60, "½ tbsp olive oil"]
 		]
 	},
-	"scrambledEggsSmall": {
-		"title": "Scrambled Eggs (Small)",
-		"mealHint": "breakfast",
-		"ingredients": [
-			[140, "2 egg"],
-			[25, "¼ tbsp butter"]
-		],
-		"img": "img/scrambled-eggs.png"
-	},
 	"scrambledEggs": {
 		"title": "Scrambled Eggs",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[210, "3 egg"],
+			[140, "2 egg"],
 			[50, "½ tbsp butter"]
 		],
 		"img": "img/scrambled-eggs.png"
-	},
-	"shakshuka": {
-		"title": "Shakshuka",
-		"mealHint": "dinner",
-		"ingredients": [
-			[385, "1 can chickpeas, roasted"],
-			[120, "1 tbsp olive oil"],
-			[30, "½ bell pepper"],
-			[30, "½ onion"],
-			[180, "1 cup tomato sauce"],
-			[140, "2 egg"]
-		]
 	},
 	"shrimpAndBasilStirFry": {
 		"title": "Shrimp and Basil Stir-Fry",

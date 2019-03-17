@@ -460,5 +460,6 @@ function renderQuantity(raw: number): string {
             return whole + str;
         }
     }
-    return '' + raw;
+
+    return '' + raw.toPrecision(2);
 }

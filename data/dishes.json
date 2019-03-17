@@ -318,11 +318,11 @@
 		"title": "Italian Sub",
 		"mealHint": "lunch",
 		"ingredients": [
-			[210, "0.5 baguette"],
-			[226, "2 slices provolone cheese"],
+			[330, "⅓ baguette"],
+			[140, "2 slices provolone cheese"],
 			[111, "3 slices deli turkey"],
 			[111, "3 slices deli roast beef"],
-			[60, "6 pieces pepperoni"],
+			[75, "3 big pieces pepperoni"],
 			[100, "1 tbsp butter"],
 			[11, "0.5 tomato"],
 			[8, "1 cup shredded lettuce"]
@@ -374,6 +374,13 @@
 			[140, "2 egg"]
 		],
 		"img": "img/jce-rustic.png"
+	},
+	"leftovers": {
+		"title": "Leftovers!",
+		"mealHint": "lunch",
+		"ingredients": [
+			[500, "[eat this much-ish]"]
+		]
 	},
 	"meatloaf": {
 		"title": "Meatloaf",
@@ -524,6 +531,22 @@
 			[140, "2 egg"]
 		]
 	},
+	"shrimpAndBasilStirFry": {
+		"title": "Shrimp and Basil Stir-Fry",
+		"mealHint": "dinner",
+		"ingredients": [
+			[-1, "1.5 fresno chiles"],
+			[-1, "3 garlic cloves"],
+			[-1, "2 tbsp sugar"],
+			[-1, "1 tbsp fish sauce"],
+			[-1, "2 tbsp vegetable oil"],
+			[-1, "0.5 lb shrimp"],
+			[-1, "1 cup basil leaves"],
+			[-1, "1 lime"]
+		],
+		"img": "img/shrimpAndBasilStirFry.png",
+		"recipe": "https://www.bonappetit.com/recipe/shrimp-and-basil-stir-fry"
+	},
 	"soylent": {
 		"title": "Soylent",
 		"mealHint": "lunch",
@@ -539,6 +562,25 @@
 			[-1, "0.33 can red sauce"],
 			[-1, "2 sausages"]
 		]
+	},
+	"spicySambalNoodles": {
+		"title"	: "Spicy-Sweet Sambal Pork Noodles",
+		"mealHint": "dinner",
+		"ingredients": [
+			[-1, "0.5 lbs ground pork"],
+			[-1, "0.5 inch ginger"],
+			[-1, "2 garlic cloves"],
+			[-1, "0.5 tbsp sugar"],
+			[-1, "0.5 tbsp tomato paste"],
+			[-1, "0.5 sprig basil"],
+			[-1, "1.5 tbsp sambal oelek"],
+			[-1, "1 tbsp soy sauce"],
+			[-1, "1 tbsp rice vinegar"],
+			[-1, "0.25 box spaghetti"],
+			[-1, "0.5 tbsp butter"]
+		],
+		"img": "img/spicySambalNoodles.png",
+		"recipe": "https://www.bonappetit.com/recipe/spicy-sweet-sambal-pork-noodles"
 	},
 	"squashSide": {
 		"title": "Baked Squash (side)",

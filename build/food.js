@@ -54,6 +54,10 @@ const BULK_THINGS = new Set([
     'togarashi',
     'soy sauce',
     'sugar',
+    'rice vinegar',
+    'vegetable oil',
+    'garlic cloves',
+    'water',
 ]);
 // things used as internal placeholders we don't need to add to any list
 const IGNORE_THINGS = new Set([

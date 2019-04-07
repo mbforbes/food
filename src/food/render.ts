@@ -46,7 +46,11 @@ function htmlDay(dayID: DayID, dayCalories: number, mealHTML: string, view: View
     if (view == View.Edit) {
         return `
         <div class="editDay">
-            <p><b>${displayDay}</b> <i>${calories} calories</i></p>
+            <p>
+                <span class="editDayName">${displayDay}</span>
+                &nbsp;
+                <span class="editDayCalories">${calories} calories</span>
+            </p>
             <div class="editDayMeals">
                 ${mealHTML}
             </div>
@@ -81,7 +85,10 @@ function htmlMeal(dayID: DayID, mealID: MealID, mealCalories: number, dishesHTML
             <div class="editDayMealsDishes">
                 ${dishesHTML}
             </div>
-            <p>${displayMeal} [${calories} calories]</p>
+            <p>
+                <span class="meal">${displayMeal}</span>
+                &nbsp;
+                <span class="calories">${calories} calories</span></p>
         </div>
         `
     }
@@ -102,9 +109,11 @@ function htmlDish(
     dishCalories: number,
     dishImg: string | null,
     dishRecipe: string | null,
+    dishRecipeServings: number | null,
     ingredientsHTML: string,
     view: View,
     timeInfo?: TimeInfo,
+    tooltipDirection?: string,
 ): string {
     if (dishID == null) {
         console.error('Got null dish');
@@ -115,48 +124,44 @@ function htmlDish(
     if (view == View.Edit) {
         let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
         let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
-        let recipe = dishRecipe != null ? '<a class="recipeLink" target="_blank" href="' + dishRecipe + '">recipe</a>' : '';
-        // return pic if possible
-        if (dishImg != null) {
-            return `
+        let recipeText = dishRecipeServings != null ? 'recipe (' + dishRecipeServings + ' servings)' : 'recipe';
+        let recipe = dishRecipe != null ? '<a class="recipeLink" target="_blank" href="' + dishRecipe + '">' + recipeText + '</a>' : '';
+        let tooltipClass = tooltipDirection != null ? 'tooltip ' + tooltipDirection : 'tooltip';
+        return `
             <div
                 class="editDish"
                 draggable="true"
                 ondragstart="drag(event, '${dishID}', ${dayID}, ${mealID} )"
             >
-                <img
-                    src="${dishImg}"
-                />
+                <img src="${dishImg}" />
                 <span class="calOverlay">${calories}</span>
-                <span class="tooltip">
-                <b>${dishTitle}</b> (${calories} cal)
-                <br />
-                <hr />
-                ${ingredientsHTML}
-                ${recipe}
+                <span class="${tooltipClass}">
+                    <b>${dishTitle}</b> (${calories} cal)
+                    <br />
+                    <hr />
+                    ${ingredientsHTML}
+                    ${recipe}
                 </span>
             </div>
             `
-        }
-        // otherwise return text rep
-        return `
-        <div class="editDish" draggable="true" ondragstart="drag(event, '${dishID}', ${dayID}, ${mealID} )">
-        ${dishTitle}
-        </div>
-        `
     }
 
     // dishes only view, or view within a day plan.
     const cssClass = view == View.Dishes ? 'dishCard' : 'dish';
     const dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
-    const dishIDDisplay = (view == View.Dishes) ? ' <h2><pre>[' + dishID + ']</pre></h2>' : '';
+    // const dishIDDisplay = (view == View.Dishes) ? ' <h2><pre>[' + dishID + ']</pre></h2>' : '';
 
     return `
     <div class="${cssClass}">
-        <h1>${dishTitle}${dishExtra}</h1>
-        ${dishIDDisplay}
-        <h2>${calories} calories</h2>
-
+        <table>
+        <tr>
+            <td><img src="${dishImg}" /></td>
+            <td>
+                <h1>${dishTitle}${dishExtra}</h1>
+                <h2>${calories} calories</h2>
+            </td>
+        </tr>
+        </table>
         ${ingredientsHTML}
     </div>
     `
@@ -358,13 +363,18 @@ function renderMeal(dishes: Dishes, dayID: DayID, mealID: MealID, mealDishes: Di
 }
 
 /**
+ *
+ * @param tooltipDirection is optionally provided to help customize what direction the
+ * tooltip hangs off of the element so as to not go off-screen on elements on the border
+ * (edit view only).
+ *
  * @returns dishesHTML
  */
-function renderDishes(dishes: Dishes, view: View): string {
+function renderDishes(dishes: Dishes, view: View, tooltipDirection?: string): string {
     // first, map each dish to the meal it belongs to
     let mealMap = new Map<string, string[]>();
     for (let dishID in dishes) {
-        let [html, calories, ingredients] = renderDish(dishes, dishID, view);
+        let [html, calories, ingredients] = renderDish(dishes, dishID, view, null, tooltipDirection);
 
         let mealHint = dishes[dishID].mealHint;
         if (!mealMap.has(mealHint)) {
@@ -389,6 +399,9 @@ function renderDishes(dishes: Dishes, view: View): string {
  * meal. (For drag'n'drop info.) Otherwise (as part of dish view) it's just.
  * null
  *
+ * @param tooltipDirection is optionally provided to help customize what direction the
+ * tooltip hangs off of the element so as to not go off-screen on elements on the border
+ *
  * @returns [dishHTML, dishCalories, dishIngredients]
  */
 function renderDish(
@@ -396,6 +409,7 @@ function renderDish(
     dishIDSpec: DishIDSpec,
     view: View,
     timeInfo?: TimeInfo,
+    tooltipDirection?: string,
 ): [string, number, string[]] {
     // figure out dish spec type
     let dishID: DishID = '';
@@ -409,7 +423,7 @@ function renderDish(
 
     let dish = dishes[dishID];
     if (dish == null) {
-        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, null, null, '', view, timeInfo), 0, []]
+        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, null, null, null, '', view, timeInfo, tooltipDirection), 0, []]
     }
 
     // to handle multiple guests, we keep recipe and calories display the same
@@ -436,9 +450,11 @@ function renderDish(
             dishCalories,
             dish.img,
             dish.recipe,
+            dish.recipeServings,
             htmlIngredients(ingredientsHTMLInner),
             view,
             timeInfo,
+            tooltipDirection,
         ),
         dishCalories,
         dishIngredDescs,

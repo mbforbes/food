@@ -1,13 +1,22 @@
-@import url(../fonts/cm/serif/cmun-serif.css);
-@import url(../fonts/cm/concrete/cmun-concrete.css);
-@import url(../fonts/cm/typewriter/cmun-typewriter.css);
+/* @import url(../fonts/cm/serif/cmun-serif.css); */
+/* @import url(../fonts/cm/concrete/cmun-concrete.css); */
+/* @import url(../fonts/cm/typewriter/cmun-typewriter.css); */
 @import url(../fonts/fa/css/font-awesome.min.css);
 
+@import url(../fonts/inter/inter.css);
+
 body {
-    font-family: "Computer Modern Serif", Serif;
-    background-color: #eb5e66;
+    /* font-family: "Computer Modern Serif", Serif; */
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: 'tnum' 1;
+    background-color: #fdf5e8;
     font-size: 10pt;
 }
+
+@supports (font-variation-settings: normal) {
+    html { font-family: 'Inter var', sans-serif; }
+  }
+
 
 /*
  * Edit view overall container. Time view on left side, dishes on right side.
@@ -36,6 +45,16 @@ body {
     display: flex;
     flex-direction: column;
     margin: 10px;
+    padding-right: 120px;
+
+    /* these rules allow independent scrolling to access later dishes while still
+    viewing the whole week. */
+    overflow: scroll;
+    height: 1100px;
+}
+
+.editDishes h1 {
+    margin-bottom: 0px;
 }
 
 /**
@@ -64,11 +83,13 @@ body {
 }
 
 .editDish:hover {
-    background-color: cornflowerblue;
+    background-color: #d40000;
     cursor: grab;
+    transition: all 0.2s ease-out;
 }
 
-.editDish img {
+/* .editDish img { */
+img {
     width: 75px;
     height: 75px;
 }
@@ -76,12 +97,12 @@ body {
 .editDish .calOverlay {
     font-size: 14px;
     text-align: center;
-    background-color: midnightblue;
+    background-color: #100c08;
     color: #fff;
     font-weight: bold;
     position: absolute;
     right: 0;
-    z-index: 1;
+    z-index: 2;
     margin-top: -23px;
     margin-right: 6px;
     padding-left: 2px;
@@ -98,9 +119,17 @@ body {
     padding: 8px;
     border-radius: 6px;
     position: absolute;
-    right: 0;
-    z-index: 2;
+    z-index: 3;
 }
+
+.tooltip.left {
+    right: 0;
+}
+
+.tooltip.right {
+    left: 0;
+}
+
 
 .editDish:hover .tooltip {
     visibility: visible;
@@ -112,12 +141,25 @@ body {
  .editDay {
     display: flex;
     flex-direction: column;
-    background-color: #ffff99;
-    margin-bottom: 5px;
+    background-color: #fdf5e8;
+    margin-bottom: 10px;
+    /* border: 1px solid #100c08; */
 }
 
 .editDay p {
-    margin: 2px;
+    margin: 4px;
+}
+
+.editDay .editDayName {
+    font-weight: normal;
+    font-size: 16px;
+    /* display: inline; */
+}
+
+.editDay .editDayCalories {
+    font-weight: lighter;
+    font-size: 16px;
+    /* display: inline; */
 }
 
 .recipeLink {
@@ -142,8 +184,9 @@ body {
     the name of the meal and its calories. */
     display: flex;
     flex-direction: column;
-    background-color: bisque;
+    background-color: #fdf5e8;
     margin: 2px;
+    border: 1px solid #100c08;
 }
 
 [drop-active=on] {
@@ -154,12 +197,23 @@ body {
  * In the edit view, on the left (time), this contains the dishes for a meal in
  * a day.
  */
-.editDayMealsDishes {
+ .editDayMealsDishes {
     display: flex;
     flex-direction: row;
     /* Min-height set so it can be a drag'n'drop zone. */
     min-height: 50px;
 }
+
+.editDayMeal .meal {
+    /* font-weight: bold; */
+    font-weight: normal;
+}
+
+.editDayMeal .calories {
+    /* font-style: italic; */
+    font-weight: lighter;
+}
+
 
 /* For all dishes view */
 
@@ -175,13 +229,17 @@ body {
 }
 
 .dishCard {
-    max-width: 350px;
+    width: 250px;
     float: left;
-    height: 250px;
+    height: 290px;
     background-color: #fcfcfc;
     margin: 10px;
     padding: 10px;
     box-shadow: -10px 10px 6px -6px grey;
+}
+
+.dishcard table {
+    width: 100%;
 }
 
 /* Display week and day views */
@@ -190,14 +248,14 @@ body {
  * Day (Monday)
  */
 .day {
-    width: 240px;
-    box-shadow: -10px 10px 6px -6px #ff8300;
+    width: 260px;
+    /* box-shadow: -10px 10px 6px -6px grey; */
     margin-top: 10px;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 10px;
     padding: 10px;
-    background-color: #ffff99;
+    border: 1px solid #100c08;
     float: left;
     /* height: 1200px; */
 }
@@ -219,6 +277,7 @@ body {
 
 /* Meal titles (Breakfast) */
 .day h2 {
+    font-weight: normal;
     margin-bottom: 0px;
 }
 
@@ -231,6 +290,7 @@ body {
 .day h3 {
     font-size: 11pt;
     margin-top: -3px;
+    font-weight: lighter;
     /* font-style: italic; */
 }
 
@@ -238,6 +298,7 @@ body {
 .day h4 {
     text-align: center;
     margin-top: -5px;
+    font-weight: normal;
     /* font-style: italic; */
 }
 
@@ -247,7 +308,7 @@ body {
  * Dish (Banana Pancakes)
  */
 .dish {
-    box-shadow: -5px 5px 3px -3px #ff8300;
+    /* box-shadow: -5px 5px 3px -3px #ff8300; */
     margin-top: 10px;
     margin-bottom: 0px;
     margin-left: 0px;
@@ -258,10 +319,15 @@ body {
 
 .dish table {
     width: 100%;
+    margin-bottom: 10px;
+}
+
+.dishCard img {
+    padding: 5px;
 }
 
 .dish tr, .dishCard tr {
-    line-height: 1.0;
+    line-height: 1.1;
 }
 
 /* Name of dish (Banana Pancakes */
@@ -270,15 +336,16 @@ body {
     text-align: left;
     margin-top: 0px;
     margin-bottom: 0px;
+    word-wrap: normal;
+    font-weight: normal;
 }
 
 /* Dish calories (260 calories) */
 .dish h2, .dishCard h2 {
-    color: #333;
     font-size: 10.5pt;
     text-align: left;
-    margin-top: -3px;
-    margin-bottom: 10px;
+    margin-top: 1px;
+    font-weight: lighter;
     /* font-style: italic; */
 }
 
@@ -300,11 +367,12 @@ body {
  * Ya
  */
 .groceryListOuter {
-    background-color: #A9CEF4;
+    /* background-color: #A9CEF4; */
     clear: left;
     margin: 10px;
     padding: 10px;
     width: 400px;
+    border: 1px solid #100c08;
 }
 
 .groceryListInner {

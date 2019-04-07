@@ -232,7 +232,11 @@ function htmlDay(dayID, dayCalories, mealHTML, view) {
     if (view == View.Edit) {
         return `
         <div class="editDay">
-            <p><b>${displayDay}</b> <i>${calories} calories</i></p>
+            <p>
+                <span class="editDayName">${displayDay}</span>
+                &nbsp;
+                <span class="editDayCalories">${calories} calories</span>
+            </p>
             <div class="editDayMeals">
                 ${mealHTML}
             </div>
@@ -264,7 +268,10 @@ function htmlMeal(dayID, mealID, mealCalories, dishesHTML, view) {
             <div class="editDayMealsDishes">
                 ${dishesHTML}
             </div>
-            <p>${displayMeal} [${calories} calories]</p>
+            <p>
+                <span class="meal">${displayMeal}</span>
+                &nbsp;
+                <span class="calories">${calories} calories</span></p>
         </div>
         `;
     }
@@ -276,7 +283,7 @@ function htmlMeal(dayID, mealID, mealCalories, dishesHTML, view) {
     ${dishesHTML}
     `;
 }
-function htmlDish(dishID, dishTitle, dishGuests, dishCalories, dishImg, dishRecipe, ingredientsHTML, view, timeInfo) {
+function htmlDish(dishID, dishTitle, dishGuests, dishCalories, dishImg, dishRecipe, dishRecipeServings, ingredientsHTML, view, timeInfo, tooltipDirection) {
     if (dishID == null) {
         console.error('Got null dish');
     }
@@ -284,46 +291,42 @@ function htmlDish(dishID, dishTitle, dishGuests, dishCalories, dishImg, dishReci
     if (view == View.Edit) {
         let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
         let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
-        let recipe = dishRecipe != null ? '<a class="recipeLink" target="_blank" href="' + dishRecipe + '">recipe</a>' : '';
-        // return pic if possible
-        if (dishImg != null) {
-            return `
+        let recipeText = dishRecipeServings != null ? 'recipe (' + dishRecipeServings + ' servings)' : 'recipe';
+        let recipe = dishRecipe != null ? '<a class="recipeLink" target="_blank" href="' + dishRecipe + '">' + recipeText + '</a>' : '';
+        let tooltipClass = tooltipDirection != null ? 'tooltip ' + tooltipDirection : 'tooltip';
+        return `
             <div
                 class="editDish"
                 draggable="true"
                 ondragstart="drag(event, '${dishID}', ${dayID}, ${mealID} )"
             >
-                <img
-                    src="${dishImg}"
-                />
+                <img src="${dishImg}" />
                 <span class="calOverlay">${calories}</span>
-                <span class="tooltip">
-                <b>${dishTitle}</b> (${calories} cal)
-                <br />
-                <hr />
-                ${ingredientsHTML}
-                ${recipe}
+                <span class="${tooltipClass}">
+                    <b>${dishTitle}</b> (${calories} cal)
+                    <br />
+                    <hr />
+                    ${ingredientsHTML}
+                    ${recipe}
                 </span>
             </div>
             `;
-        }
-        // otherwise return text rep
-        return `
-        <div class="editDish" draggable="true" ondragstart="drag(event, '${dishID}', ${dayID}, ${mealID} )">
-        ${dishTitle}
-        </div>
-        `;
     }
     // dishes only view, or view within a day plan.
     const cssClass = view == View.Dishes ? 'dishCard' : 'dish';
     const dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
-    const dishIDDisplay = (view == View.Dishes) ? ' <h2><pre>[' + dishID + ']</pre></h2>' : '';
+    // const dishIDDisplay = (view == View.Dishes) ? ' <h2><pre>[' + dishID + ']</pre></h2>' : '';
     return `
     <div class="${cssClass}">
-        <h1>${dishTitle}${dishExtra}</h1>
-        ${dishIDDisplay}
-        <h2>${calories} calories</h2>
-
+        <table>
+        <tr>
+            <td><img src="${dishImg}" /></td>
+            <td>
+                <h1>${dishTitle}${dishExtra}</h1>
+                <h2>${calories} calories</h2>
+            </td>
+        </tr>
+        </table>
         ${ingredientsHTML}
     </div>
     `;
@@ -503,13 +506,18 @@ function renderMeal(dishes, dayID, mealID, mealDishes, view) {
     return [htmlMeal(dayID, mealID, mealCalories, dishesHTML, view), mealCalories, mealIngredDescs];
 }
 /**
+ *
+ * @param tooltipDirection is optionally provided to help customize what direction the
+ * tooltip hangs off of the element so as to not go off-screen on elements on the border
+ * (edit view only).
+ *
  * @returns dishesHTML
  */
-function renderDishes(dishes, view) {
+function renderDishes(dishes, view, tooltipDirection) {
     // first, map each dish to the meal it belongs to
     let mealMap = new Map();
     for (let dishID in dishes) {
-        let [html, calories, ingredients] = renderDish(dishes, dishID, view);
+        let [html, calories, ingredients] = renderDish(dishes, dishID, view, null, tooltipDirection);
         let mealHint = dishes[dishID].mealHint;
         if (!mealMap.has(mealHint)) {
             mealMap.set(mealHint, []);
@@ -531,9 +539,12 @@ function renderDishes(dishes, view) {
  * meal. (For drag'n'drop info.) Otherwise (as part of dish view) it's just.
  * null
  *
+ * @param tooltipDirection is optionally provided to help customize what direction the
+ * tooltip hangs off of the element so as to not go off-screen on elements on the border
+ *
  * @returns [dishHTML, dishCalories, dishIngredients]
  */
-function renderDish(dishes, dishIDSpec, view, timeInfo) {
+function renderDish(dishes, dishIDSpec, view, timeInfo, tooltipDirection) {
     // figure out dish spec type
     let dishID = '';
     let guests = 1;
@@ -546,7 +557,7 @@ function renderDish(dishes, dishIDSpec, view, timeInfo) {
     }
     let dish = dishes[dishID];
     if (dish == null) {
-        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, null, null, '', view, timeInfo), 0, []];
+        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, null, null, null, '', view, timeInfo, tooltipDirection), 0, []];
     }
     // to handle multiple guests, we keep recipe and calories display the same
     // (minus a little "(cook xN)" notification), but repeat each ingredient
@@ -563,7 +574,7 @@ function renderDish(dishes, dishIDSpec, view, timeInfo) {
         }
     }
     return [
-        htmlDish(dishID, dish.title, guests, dishCalories, dish.img, dish.recipe, htmlIngredients(ingredientsHTMLInner), view, timeInfo),
+        htmlDish(dishID, dish.title, guests, dishCalories, dish.img, dish.recipe, dish.recipeServings, htmlIngredients(ingredientsHTMLInner), view, timeInfo, tooltipDirection),
         dishCalories,
         dishIngredDescs,
     ];
@@ -695,10 +706,55 @@ function getNextWeekFilename() {
 // process data
 //
 /**
+ * Super general util function.
+ */
+function clone(obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
+/**
+ * Perform preprocessing on dishes.
+ *
+ * The main function here is to allow recipes to be entered as written on the recipe for
+ * a full dish with many servings (e.g., 6 servings), but then in the food app, to only
+ * display the calories for a single serving.
+ *
+ * To accomplish this, we immediately divide the calories and quantities for a dish by
+ * the number of `recipeServings` it lists, if any.
+ */
+function preprocessDishes(dishes) {
+    console.log('Preprocessing dishes...');
+    let result = {};
+    for (let dishID in dishes) {
+        let origDish = dishes[dishID];
+        if (origDish.recipeServings == null || origDish.recipeServings == 1) {
+            // no transformation needed
+            result[dishID] = origDish;
+        }
+        else {
+            // we have recipe servings that need to be taken into account. First off, we
+            // copy over the dish info, remove the ingredients, and then build them back
+            // up using the multiplier.
+            let servings = origDish.recipeServings;
+            let newDish = clone(origDish);
+            newDish.ingredients = [];
+            for (let ingredient of origDish.ingredients) {
+                let [origCals, origDesc] = ingredient;
+                let [origQuantity, unit, thing] = getQUT(origDesc.split(' '));
+                let newCals = Math.round(origCals / servings);
+                let newQuantity = (origQuantity / servings).toFixed(2);
+                newDish.ingredients.push([newCals, [newQuantity + '', unit, thing].join(' ')]);
+            }
+            result[dishID] = newDish;
+        }
+    }
+    return result;
+}
+/**
  * Callback for once dishes are loaded and rendering time-based (day/week)
  * view.
  */
-function onDishesLoadedTime(weekFN, view, dishes) {
+function onDishesLoadedTime(weekFN, view, rawDishes) {
+    let dishes = preprocessDishes(rawDishes);
     console.log('Rendering time-based view.');
     $.getJSON(weekFN, onWeekLoaded.bind(null, view, dishes))
         .fail(onWeekFail.bind(null, weekFN, view, dishes));
@@ -706,7 +762,8 @@ function onDishesLoadedTime(weekFN, view, dishes) {
 /**
  * Callback for once dishes are loaded and rendering dishes-only view.
  */
-function onDishesLoadedDishes(dishes) {
+function onDishesLoadedDishes(rawDishes) {
+    let dishes = preprocessDishes(rawDishes);
     console.log('Rendering dishes view.');
     console.log('Got dishes');
     console.log(dishes);

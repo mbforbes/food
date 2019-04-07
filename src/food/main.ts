@@ -60,10 +60,57 @@ function getNextWeekFilename(): string {
 //
 
 /**
+ * Super general util function.
+ */
+function clone<T>(obj: T): T {
+    return JSON.parse(JSON.stringify(obj));
+}
+
+/**
+ * Perform preprocessing on dishes.
+ *
+ * The main function here is to allow recipes to be entered as written on the recipe for
+ * a full dish with many servings (e.g., 6 servings), but then in the food app, to only
+ * display the calories for a single serving.
+ *
+ * To accomplish this, we immediately divide the calories and quantities for a dish by
+ * the number of `recipeServings` it lists, if any.
+ */
+function preprocessDishes(dishes: Dishes): Dishes {
+    console.log('Preprocessing dishes...');
+    let result: Dishes = {};
+    for (let dishID in dishes) {
+        let origDish = dishes[dishID];
+        if (origDish.recipeServings == null || origDish.recipeServings == 1) {
+            // no transformation needed
+            result[dishID] = origDish;
+        } else {
+            // we have recipe servings that need to be taken into account. First off, we
+            // copy over the dish info, remove the ingredients, and then build them back
+            // up using the multiplier.
+            let servings = origDish.recipeServings;
+            let newDish = clone(origDish);
+            newDish.ingredients = [];
+            for (let ingredient of origDish.ingredients) {
+                let [origCals, origDesc] = ingredient;
+                let [origQuantity, unit, thing] = getQUT(origDesc.split(' '));
+                let newCals = Math.round(origCals / servings);
+                let newQuantity = (origQuantity / servings).toFixed(2);
+                newDish.ingredients.push([newCals, [newQuantity + '', unit, thing].join(' ')])
+            }
+            result[dishID] = newDish;
+        }
+    }
+    return result;
+}
+
+/**
  * Callback for once dishes are loaded and rendering time-based (day/week)
  * view.
  */
-function onDishesLoadedTime(weekFN: string, view: View, dishes: Dishes): void {
+function onDishesLoadedTime(weekFN: string, view: View, rawDishes: Dishes): void {
+    let dishes = preprocessDishes(rawDishes);
+
     console.log('Rendering time-based view.');
     $.getJSON(weekFN, onWeekLoaded.bind(null, view, dishes))
         .fail(onWeekFail.bind(null, weekFN, view, dishes));
@@ -72,7 +119,9 @@ function onDishesLoadedTime(weekFN: string, view: View, dishes: Dishes): void {
 /**
  * Callback for once dishes are loaded and rendering dishes-only view.
  */
-function onDishesLoadedDishes(dishes: Dishes): void {
+function onDishesLoadedDishes(rawDishes: Dishes): void {
+    let dishes = preprocessDishes(rawDishes);
+
     console.log('Rendering dishes view.');
 
     console.log('Got dishes');

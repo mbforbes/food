@@ -31,6 +31,14 @@
 			[120, "1 pcs Dave's Killer Bread"]
 		]
 	},
+	"bacon": {
+		"title": "Bacon",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[140, "2 pcs bacon"]
+		],
+		"img": "img/bacon.png"
+	},
 	"bananaPancakes": {
 		"title": "Banana Pancakes",
 		"mealHint": "breakfast",
@@ -285,7 +293,8 @@
 			[0, "4 green onion"]
 		],
 		"img": "img/fried-rice.png",
-		"recipe": "https://cooking.nytimes.com/recipes/12177-fried-rice"
+		"recipe": "https://cooking.nytimes.com/recipes/12177-fried-rice",
+		"recipeServings": 3
 
 	},
 	"frozenGrilledChickenBreast": {
@@ -435,7 +444,8 @@
 			[3, "1 tbsp red wine vinegar"]
 		],
 		"img": "img/meatloaf.png",
-		"recipe": "https://www.thewholesomedish.com/the-best-classic-meatloaf/"
+		"recipe": "https://www.thewholesomedish.com/the-best-classic-meatloaf/",
+		"recipeServings": 3
 	},
 	"omelette": {
 		"title": "Omelette",

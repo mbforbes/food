@@ -148,6 +148,7 @@ type Dish = {
     ingredients: Ingredient[],
     img?: string,
     recipe?: string,
+    recipeServings?: number,
 }
 
 /**

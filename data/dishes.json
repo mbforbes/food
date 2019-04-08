@@ -5,7 +5,8 @@
 		"ingredients": [
 			[42, "1 bunch asparagus (~210g edible)"],
 			[120, "1 tbsp olive oil"]
-		]
+		],
+		"img": "img/asparagus.png"
 	},
 	"asparagusPanchettaHash": {
 		"title": "Asparagus Pancetta Hash",
@@ -28,14 +29,18 @@
 		"ingredients": [
 			[114, "½ avocado"],
 			[210, "3 egg (hardboiled)"],
-			[120, "1 pcs Dave's Killer Bread"]
-		]
+			[8, "⅓ tomato"],
+			[4, "2 pieces lettuce"],
+			[120, "2 pcs bacon"],
+			[240, "2 pcs Dave's Killer Bread"]
+		],
+		"img": "img/avocado-sandwich.png"
 	},
 	"bacon": {
 		"title": "Bacon",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[140, "2 pcs bacon"]
+			[120, "2 pcs bacon"]
 		],
 		"img": "img/bacon.png"
 	},
@@ -51,20 +56,13 @@
 		],
 		"img": "img/banana-pancakes.png"
 	},
-	"beefRevenge": {
-		"title": "Beef Revenge",
-		"mealHint": "dinner",
-		"ingredients": [
-			[325, "⅓ lb ground beef (85% lean)"],
-			[70, "1 slice 'American' 'cheese' 'product'"]
-		]
-	},
 	"beer": {
 		"title": "Beeeeeerrr",
 		"mealHint": "snack",
 		"ingredients": [
 			[210, "12 oz beer (7% abv)"]
-		]
+		],
+		"img": "img/beer.png"
 	},
 	"biscuitSandwich": {
 		"title": "Biscuit Sandwich",
@@ -102,7 +100,8 @@
 			[16, "4 mushrooms (white)"],
 			[60, "½ tbsp olive oil"],
 			[70, "1 egg"]
-		]
+		],
+		"img": "img/bibimbap.png"
 	},
 	"breakfastSausagePatties": {
 		"title": "Breakfast Sausage Patties",
@@ -128,15 +127,17 @@
 		"mealHint": "dinner",
 		"ingredients": [
 			[60, "1 broccoli head"]
-		]
+		],
+		"img": "img/broccoli.png"
 	},
 	"brusslesSproutsSide": {
 		"title": "Brussles Sprouts (side)",
 		"mealHint": "dinner",
 		"ingredients": [
-			[80, "10 brussles sprouts"],
-			[60, "½ tbsp olive oil"]
-		]
+			[96, "12 brussles sprouts"],
+			[120, "1 tbsp olive oil"]
+		],
+		"img": "img/brussles-sprouts.png"
 	},
 	"butteredToast": {
 		"title": "Buttered Toast",
@@ -151,11 +152,15 @@
 		"title": "Burrito Bowl",
 		"mealHint": "lunch",
 		"ingredients": [
-			[264, "150 g rotisserie chicken"],
+			[140, "0.5 chicken breast"],
 			[100, "½ cup rice (white, cooked)"],
 			[114, "½ avocado"],
-			[40, "½ cup salsa"]
-		]
+			[40, "½ cup salsa"],
+			[-1, "½ cup corn"],
+			[-1, "½ cup shredded cheese"],
+			[-1, "½ cup black beans"]
+		],
+		"img": "img/burrito-bowl.png"
 	},
 	"capreseChickenSaladBowl": {
 		"title": "Caprese Chicken Salad Bowl",
@@ -180,7 +185,22 @@
 		"mealHint": "snack",
 		"ingredients": [
 			[61, "150 g carrots"]
-		]
+		],
+		"img": "img/carrots.png"
+	},
+	"cheeseburger": {
+		"title": "Cheeseburger",
+		"mealHint": "dinner",
+		"ingredients": [
+			[325, "⅓ lb ground beef (85% lean)"],
+			[70, "1 slice 'American' 'cheese' 'product'"],
+			[70, "1 egg"],
+			[3, "1 slice tomato"],
+			[2, "1 piece lettuce"],
+			[100, "1 tbsp mayo"],
+			[240, "1 hamburger bun"]
+		],
+		"img": "img/cheeseburger.png"
 	},
 	"chiaSeedPudding": {
 		"title": "Chia Seed Pudding",
@@ -203,14 +223,8 @@
 			[200, "1 cup rice (white, cooked)"],
 			[60, "1 broccoli head (baked)"],
 			[60, "½ tbsp olive oil"]
-		]
-	},
-	"chipotleBurrito": {
-		"title": "Chipotle Burrito",
-		"mealHint": "lunch",
-		"ingredients": [
-			[1200, "[chipotle burrito]"]
-		]
+		],
+		"img": "img/chicken-rice-broc.png"
 	},
 	"eatOutBreakfast": {
 		"title": "[Eating Out!]",
@@ -254,7 +268,8 @@
 		"mealHint": "snack",
 		"ingredients": [
 			[280, "1 bar (Pro Base)"]
-		]
+		],
+		"img": "img/energy-bar.png"
 	},
 	"englishMuffinButtered": {
 		"title": "English Muffin + Butter",
@@ -272,7 +287,8 @@
 			[60, "½ tbsp olive oil (for grilling)"],
 			[280, "1 chicken breast"],
 			[50, "½ tbsp butter (for sauce)"]
-		]
+		],
+		"img": "img/chicken-breast.png"
 	},
 	"friedRice": {
 		"title": "Fried Rice",
@@ -297,20 +313,14 @@
 		"recipeServings": 3
 
 	},
-	"frozenGrilledChickenBreast": {
-		"title": "Frozen Grilled Chicken Breast",
-		"mealHint": "dinner",
-		"ingredients": [
-			[257, "⅓ bag chicken breast, Tyson frozen grilled"]
-		]
-	},
 	"frozenVegetables": {
 		"title": "Frozen Vegetables",
 		"mealHint": "dinner",
 		"ingredients": [
 			[105, "1 cup frozen vegetables, steamed"],
 			[25, "¼ tbsp butter"]
-		]
+		],
+		"img": "img/frozen-veggies.png"
 	},
 	"hardboiledEggs": {
 		"title": "Hardboiled Eggs",
@@ -330,10 +340,11 @@
 	},
 	"hummus": {
 		"title": "Hummus",
-		"mealHint": "lunch",
+		"mealHint": "snack",
 		"ingredients": [
 			[50, "2 tbsp hummus"]
-		]
+		],
+		"img": "img/hummus.png"
 	},
 	"instantMashedPotatoesRegular": {
 		"title": "Mashed Potatoes (side)",
@@ -343,7 +354,8 @@
 			[0, "⅔ cup water"],
 			[100, "1 tbsp butter"],
 			[140, "⅔ cup potato flakes"]
-		]
+		],
+		"img": "img/mashed-potatoes.png"
 	},
 	"italianSub": {
 		"title": "Italian Sub",
@@ -420,13 +432,6 @@
 		"img": "img/kale-apple-walnut-salad.png",
 		"recipe": "https://www.freshfitkitchen.com/kale-apple-and-walnut-salad/"
 	},
-	"leftovers": {
-		"title": "Leftovers!",
-		"mealHint": "lunch",
-		"ingredients": [
-			[500, "[eat this much-ish]"]
-		]
-	},
 	"meatloaf": {
 		"title": "Meatloaf",
 		"mealHint": "dinner",
@@ -494,7 +499,8 @@
 			[240, "2 pcs Dave's Killer Bread"],
 			[190, "2 tbsp peanut butter"],
 			[50, "1 tbsp jam"]
-		]
+		],
+		"img": "img/pbnj.png"
 	},
 	"proteinShake": {
 		"title": "Protein Shake",
@@ -502,7 +508,8 @@
 		"ingredients": [
 			[120, "1 scoop protein powder"],
 			[102, "1 cup milk (1%)"]
-		]
+		],
+		"img": "img/protein-shake.png"
 	},
 	"quinoaSalad": {
 		"title": "Quinoa Salad",
@@ -515,7 +522,8 @@
 			[120, "1 tbsp olive oil"],
 			[5, "½ lemon (juice)"],
 			[54, "¼ avocado"]
-		]
+		],
+		"img": "img/quinoa-salad.png"
 	},
 	"ramenFancy": {
 		"title": "Fancy Ramen",
@@ -523,22 +531,24 @@
 		"ingredients": [
 			[500, "1 pack Tonkotsu Ramen (Sun Noodle Brand)"],
 			[70, "1 egg"]
-		]
+		],
+		"img": "img/ramen.png"
 	},
 	"riceSide": {
 		"title": "Rice (side)",
 		"mealHint": "dinner",
 		"ingredients": [
 			[200, "1 cup rice (white, cooked)"]
-		]
+		],
+		"img": "img/rice.png"
 	},
 	"salmon": {
 		"title": "Salmon",
 		"mealHint": "dinner",
 		"ingredients": [
-			[241, "1 fillet salmon (5oz)"],
-			[60, "½ tbsp olive oil"]
-		]
+			[241, "1 fillet salmon (5oz)"]
+		],
+		"img": "img/salmon.png"
 	},
 	"scrambledEggs": {
 		"title": "Scrambled Eggs",
@@ -570,7 +580,8 @@
 		"mealHint": "lunch",
 		"ingredients": [
 			[400, "1 bottle soylent"]
-		]
+		],
+		"img": "img/soylent.png"
 	},
 	"spaghettiSausage": {
 		"title": "Spaghetti, Red Sauce, Sausage",
@@ -579,7 +590,8 @@
 			[-1, "0.33 box spaghetti"],
 			[-1, "0.33 can red sauce"],
 			[-1, "2 sausages"]
-		]
+		],
+		"img": "img/spag-sausage.png"
 	},
 	"spicySambalNoodles": {
 		"title"	: "Spicy-Sweet Sambal Pork Noodles",
@@ -606,7 +618,8 @@
 		"ingredients": [
 			[70, "410 g squash"],
 			[120, "1 tbsp olive oil"]
-		]
+		],
+		"img": "img/baked-squash.png"
 	},
 	"strawberries": {
 		"title": "½ Pound Strawbs",
@@ -620,16 +633,20 @@
 		"title": "Tuna Fish Sandwich",
 		"mealHint": "lunch",
 		"ingredients": [
-			[240, "2 pcs Dave's Killer Bread"],
 			[100, "1 can tuna (5oz can, in water)"],
-			[100, "1 tbsp mayo"]
-		]
+			[200, "2 tbsp mayo"],
+			[8, "⅓ tomato"],
+			[4, "2 pieces lettuce"],
+			[240, "2 pcs Dave's Killer Bread"]
+		],
+		"img": "img/tuna-fish-sandwich.png"
 	},
 	"yogurt": {
 		"title": "Yogurt Cup",
 		"mealHint": "snack",
 		"ingredients": [
 			[120, "1 yogurt cup"]
-		]
+		],
+		"img": "img/yogurt-cup.png"
 	}
 }

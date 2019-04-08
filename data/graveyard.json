@@ -1,4 +1,18 @@
 {
+	"chipotleBurrito": {
+		"title": "Chipotle Burrito",
+		"mealHint": "lunch",
+		"ingredients": [
+			[1200, "[chipotle burrito]"]
+		]
+	},
+	"frozenGrilledChickenBreast": {
+		"title": "Frozen Grilled Chicken Breast",
+		"mealHint": "dinner",
+		"ingredients": [
+			[257, "⅓ bag chicken breast, Tyson frozen grilled"]
+		]
+	},
 	"instantMashedPotatoesSmall": {
 		"title": "Instant Mashed Potatoes (small)",
 		"mealHint": "dinner",
@@ -7,6 +21,13 @@
 			[0, "⅓ cup water"],
 			[50, "½ tbsp butter"],
 			[70, "⅓ cup potato flakes"]
+		]
+	},
+	"leftovers": {
+		"title": "Leftovers!",
+		"mealHint": "lunch",
+		"ingredients": [
+			[500, "[eat this much-ish]"]
 		]
 	},
 	"riceSideSmall": {

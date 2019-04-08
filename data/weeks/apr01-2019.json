@@ -1,59 +1,43 @@
 {
     "monday": {
-        "breakfast": [
-            "bananaPancakes"
-        ],
+        "breakfast": [],
         "lunch": [],
         "snack": [],
         "dinner": []
     },
     "tuesday": {
-        "breakfast": [
-            "bananaPancakes"
-        ],
+        "breakfast": [],
         "lunch": [],
         "snack": [],
         "dinner": []
     },
     "wednesday": {
-        "breakfast": [
-            "bananaPancakes"
-        ],
+        "breakfast": [],
         "lunch": [],
         "snack": [],
         "dinner": []
     },
     "thursday": {
-        "breakfast": [
-            "bananaPancakes"
-        ],
+        "breakfast": [],
         "lunch": [],
         "snack": [],
         "dinner": []
     },
     "friday": {
-        "breakfast": [
-            "bananaPancakes"
-        ],
+        "breakfast": [],
         "lunch": [],
         "snack": [],
         "dinner": []
     },
     "saturday": {
-        "breakfast": [
-            "bananaPancakes"
-        ],
+        "breakfast": [],
         "lunch": [],
         "snack": [],
         "dinner": []
     },
     "sunday": {
-        "breakfast": [
-            "bananaPancakes"
-        ],
-        "lunch": [
-            "beefRevenge"
-        ],
+        "breakfast": [],
+        "lunch": [],
         "snack": [],
         "dinner": []
     }

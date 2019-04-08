@@ -4,9 +4,6 @@ eat stuff
 
 ## TODO
 
-General admin
-- [ ] Add missing pics
-
 Calorie consolidation
 - [ ] Design + implement
 

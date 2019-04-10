@@ -44,6 +44,15 @@
 		],
 		"img": "img/bacon.png"
 	},
+	"bakedBroccoliSide": {
+		"title": "Baked Broccoli (side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			[120, "2 head broccoli"],
+			[120, "1 tbsp olive oil"]
+		],
+		"img": "img/baked-broccoli.png"
+	},
 	"bananaPancakes": {
 		"title": "Banana Pancakes",
 		"mealHint": "breakfast",
@@ -81,7 +90,6 @@
 		"ingredients": [
 			[140, "2 egg"],
 			[16, "0.125 cup milk (2%)"],
-			[10, "0.16 head broccoli"],
 			[5, "0.083 red onion"],
 			[74, "2 slices deli ham"],
 			[130, "1 english muffin"],
@@ -122,16 +130,8 @@
 		],
 		"img": "img/breakfast-scramble.png"
 	},
-	"broccoliSide": {
-		"title": "Broccoli (side)",
-		"mealHint": "dinner",
-		"ingredients": [
-			[60, "1 broccoli head"]
-		],
-		"img": "img/broccoli.png"
-	},
 	"brusslesSproutsSide": {
-		"title": "Brussles Sprouts (side)",
+		"title": "Baked Brussles Sprouts (side)",
 		"mealHint": "dinner",
 		"ingredients": [
 			[96, "12 brussles sprouts"],
@@ -221,10 +221,31 @@
 		"ingredients": [
 			[280, "1 chicken breast"],
 			[200, "1 cup rice (white, cooked)"],
-			[60, "1 broccoli head (baked)"],
+			[60, "1 head broccoli (baked)"],
 			[60, "½ tbsp olive oil"]
 		],
 		"img": "img/chicken-rice-broc.png"
+	},
+	"chickenVeggieStirFry": {
+		"title": "Chicken Vegetable Stir-Fry",
+		"mealHint": "dinner",
+		"ingredients": [
+			[280, "1 chicken breast"],
+			[120, "1 tbsp olive oil"],
+			[15, "0.25 onion"],
+			[16, "4 mushrooms (white)"],
+			[33, "1 zucchini"],
+			[2, "1 serrano chili pepper"],
+			[8, "2 clove garlic"],
+			[20, "4 scallions"],
+			[30, "2 tsp ginger paste"],
+			[18, "2 tbsp soy sauce"],
+			[0, "1 tbsp rice vinegar"],
+			[43, "1 tsp sesame oil"],
+			[16, "1 tsp sesame seeds"]
+		],
+		"img": "img/chicken-veggie-stir-fry.png",
+		"recipe": "https://www.youtube.com/watch?v=TCVTOa01uN8"
 	},
 	"eatOutBreakfast": {
 		"title": "[Eating Out!]",
@@ -246,7 +267,7 @@
 		"title": "[Eating Out!]",
 		"mealHint": "dinner",
 		"ingredients": [
-			[900, "[eat this much-ish]"]
+			[700, "[eat this much-ish]"]
 		],
 		"img": "img/eat-out-dinner.png"
 	},
@@ -254,10 +275,10 @@
 		"title": "Egg Bake",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[210, "3 egg"],
-			[25, "¼ cup milk (1%)"],
-			[156, "41 g cheddar cheese (shredded)"],
-			[107, "100 g ham (pre-cooked)"],
+			[140, "2 egg"],
+			[25, "0.1666 cup milk (1%)"],
+			[104, "27 g cheddar cheese (shredded)"],
+			[71, "66 g ham (pre-cooked)"],
 			[20, "⅓ onion"],
 			[20, "⅓ bell pepper"]
 		],
@@ -279,6 +300,14 @@
 			[50, "½ tbsp butter"]
 		],
 		"img": "img/buttered-english-muffin.png"
+	},
+	"englishMuffinSide": {
+		"title": "English Muffin (Side)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[120, "1 english muffin"]
+		],
+		"img": "img/english-muffin.png"
 	},
 	"freshChickenBreast": {
 		"title": "Chicken Breast",
@@ -372,6 +401,14 @@
 		],
 		"img": "img/italian-sub.png"
 	},
+	"jam": {
+		"title": "Jam (Side)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			[50, "1 tbsp jam"]
+		],
+		"img": "img/jam.png"
+	},
 	"jamToast": {
 		"title": "Jam Toast",
 		"mealHint": "breakfast",
@@ -431,6 +468,26 @@
 		],
 		"img": "img/kale-apple-walnut-salad.png",
 		"recipe": "https://www.freshfitkitchen.com/kale-apple-and-walnut-salad/"
+	},
+	"lettuceWrap": {
+		"title": "Lettuce Wrap",
+		"mealHint": "dinner",
+		"ingredients": [
+			[16, "8 pieces lettuce"],
+			[400, "0.5 lb ground beef"],
+			[60, "0.5 tbsp olive oil"],
+			[30, "0.5 onion"],
+			[70, "2 tbsp hoisin sauce"],
+			[4, "1 clove garlic"],
+			[5, "0.5 tbsp soy sauce"],
+			[0, "0.5 tbsp rice wine vinegar"],
+			[6, "1 tsp pickled ginger (minced)"],
+			[30, "0.5 can water chesnuts (minced)"],
+			[30, "6 scallions (minced)"],
+			[43, "1 tsp sesame oil"]
+		],
+		"img": "img/lettuce-wraps.png",
+		"recipe": "https://www.allrecipes.com/recipe/71722/asian-lettuce-wraps/"
 	},
 	"meatloaf": {
 		"title": "Meatloaf",
@@ -497,8 +554,8 @@
 		"mealHint": "lunch",
 		"ingredients": [
 			[240, "2 pcs Dave's Killer Bread"],
-			[190, "2 tbsp peanut butter"],
-			[50, "1 tbsp jam"]
+			[285, "3 tbsp peanut butter"],
+			[100, "2 tbsp jam"]
 		],
 		"img": "img/pbnj.png"
 	},
@@ -546,7 +603,7 @@
 		"title": "Salmon",
 		"mealHint": "dinner",
 		"ingredients": [
-			[241, "1 fillet salmon (5oz)"]
+			[578, "1 fillet salmon (12oz)"]
 		],
 		"img": "img/salmon.png"
 	},
@@ -564,7 +621,7 @@
 		"mealHint": "dinner",
 		"ingredients": [
 			[-1, "1.5 fresno chiles"],
-			[-1, "3 garlic cloves"],
+			[-1, "3 clove garlic"],
 			[-1, "2 tbsp sugar"],
 			[-1, "1 tbsp fish sauce"],
 			[-1, "2 tbsp vegetable oil"],
@@ -599,7 +656,7 @@
 		"ingredients": [
 			[-1, "0.5 lbs ground pork"],
 			[-1, "0.5 inch ginger"],
-			[-1, "2 garlic cloves"],
+			[-1, "2 clove garlic"],
 			[-1, "0.5 tbsp sugar"],
 			[-1, "0.5 tbsp tomato paste"],
 			[-1, "0.5 sprig basil"],

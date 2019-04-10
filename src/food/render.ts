@@ -121,12 +121,13 @@ function htmlDish(
 
     const calories = dishCalories < 0 ? '???' : dishCalories + '';
 
+    const recipeText = dishRecipeServings != null ? 'recipe (' + dishRecipeServings + ' servings)' : 'recipe';
+    const recipe = dishRecipe != null ? '<a class="recipeLink" target="_blank" href="' + dishRecipe + '">' + recipeText + '</a>' : '';
+    let tooltipClass = tooltipDirection != null ? 'tooltip ' + tooltipDirection : 'tooltip';
+
     if (view == View.Edit) {
         let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
         let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
-        let recipeText = dishRecipeServings != null ? 'recipe (' + dishRecipeServings + ' servings)' : 'recipe';
-        let recipe = dishRecipe != null ? '<a class="recipeLink" target="_blank" href="' + dishRecipe + '">' + recipeText + '</a>' : '';
-        let tooltipClass = tooltipDirection != null ? 'tooltip ' + tooltipDirection : 'tooltip';
         return `
             <div
                 class="editDish"
@@ -153,16 +154,14 @@ function htmlDish(
 
     return `
     <div class="${cssClass}">
-        <table>
-        <tr>
-            <td><img src="${dishImg}" /></td>
-            <td>
-                <h1>${dishTitle}${dishExtra}</h1>
-                <h2>${calories} calories</h2>
-            </td>
-        </tr>
-        </table>
-        ${ingredientsHTML}
+        <h1>${dishTitle}${dishExtra}</h1>
+        <h2>${calories} calories</h2>
+        <img src="${dishImg}" />
+
+        <span class="${tooltipClass}">
+            ${ingredientsHTML}
+            ${recipe}
+        </span>
     </div>
     `
 }

@@ -110,7 +110,7 @@ img {
     border-radius: 6px;
 }
 
-.editDish .tooltip {
+.tooltip {
     width: 200px;
     visibility: hidden;
     background-color: #333;
@@ -162,7 +162,7 @@ img {
     /* display: inline; */
 }
 
-.recipeLink {
+.tooltip .recipeLink {
     color: white;
 }
 
@@ -229,18 +229,37 @@ img {
 }
 
 .dishCard {
-    width: 250px;
+    /* width: 250px; */
     float: left;
-    height: 290px;
+    /* height: 435px; */
     background-color: #fcfcfc;
     margin: 10px;
     padding: 10px;
     box-shadow: -10px 10px 6px -6px grey;
 }
 
-.dishcard table {
-    width: 100%;
+.dishCard img {
+    width: 200px;
+    height: 200px;
 }
+
+.dish img {
+    width: 150px;
+    height: 150px;
+}
+
+.dishCard:hover .tooltip {
+    visibility: visible;
+}
+
+.dish:hover .tooltip {
+    visibility: visible;
+}
+
+.recipeLink {
+    color: #100c08;
+}
+
 
 /* Display week and day views */
 
@@ -248,7 +267,7 @@ img {
  * Day (Monday)
  */
 .day {
-    width: 260px;
+    width: 240px;
     /* box-shadow: -10px 10px 6px -6px grey; */
     margin-top: 10px;
     margin-bottom: 0px;

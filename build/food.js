@@ -25,7 +25,7 @@ const QUANT_MAP_REV = revMap(QUANT_MAP);
 const KNOWN_UNITS = new Set([
     'tbs', 'tbsp', 'tsp', 'oz', 'ozs', 'lb', 'lbs', 'cup', 'cups', 'scoop',
     'scoops', 'pcs', 'psc', 'g', 'bag', 'bags', 'bunch', 'bunches', 'fillet',
-    'fillets', 'bottle', 'bottles', 'bar', 'bars',
+    'fillets', 'bottle', 'bottles', 'bar', 'bars', 'cloves', 'clove'
 ]);
 // things we probably don't have to buy, but should check that we have enough
 // of
@@ -56,6 +56,7 @@ const BULK_THINGS = new Set([
     'sesame oil',
     'sugar',
     'rice vinegar',
+    'rice wine vinegar',
     'vegetable oil',
     'garlic cloves',
     'water',
@@ -63,6 +64,12 @@ const BULK_THINGS = new Set([
     'ginger',
     'rice',
     'vanilla extract',
+    'hoisin sauce',
+    'pickled ginger',
+    'pickled ginger (minced)',
+    'ginger paste',
+    'sesame seeds',
+    'garlic'
 ]);
 // things used as internal placeholders we don't need to add to any list
 const IGNORE_THINGS = new Set([
@@ -288,12 +295,12 @@ function htmlDish(dishID, dishTitle, dishGuests, dishCalories, dishImg, dishReci
         console.error('Got null dish');
     }
     const calories = dishCalories < 0 ? '???' : dishCalories + '';
+    const recipeText = dishRecipeServings != null ? 'recipe (' + dishRecipeServings + ' servings)' : 'recipe';
+    const recipe = dishRecipe != null ? '<a class="recipeLink" target="_blank" href="' + dishRecipe + '">' + recipeText + '</a>' : '';
+    let tooltipClass = tooltipDirection != null ? 'tooltip ' + tooltipDirection : 'tooltip';
     if (view == View.Edit) {
         let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
         let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
-        let recipeText = dishRecipeServings != null ? 'recipe (' + dishRecipeServings + ' servings)' : 'recipe';
-        let recipe = dishRecipe != null ? '<a class="recipeLink" target="_blank" href="' + dishRecipe + '">' + recipeText + '</a>' : '';
-        let tooltipClass = tooltipDirection != null ? 'tooltip ' + tooltipDirection : 'tooltip';
         return `
             <div
                 class="editDish"
@@ -318,16 +325,14 @@ function htmlDish(dishID, dishTitle, dishGuests, dishCalories, dishImg, dishReci
     // const dishIDDisplay = (view == View.Dishes) ? ' <h2><pre>[' + dishID + ']</pre></h2>' : '';
     return `
     <div class="${cssClass}">
-        <table>
-        <tr>
-            <td><img src="${dishImg}" /></td>
-            <td>
-                <h1>${dishTitle}${dishExtra}</h1>
-                <h2>${calories} calories</h2>
-            </td>
-        </tr>
-        </table>
-        ${ingredientsHTML}
+        <h1>${dishTitle}${dishExtra}</h1>
+        <h2>${calories} calories</h2>
+        <img src="${dishImg}" />
+
+        <span class="${tooltipClass}">
+            ${ingredientsHTML}
+            ${recipe}
+        </span>
     </div>
     `;
 }

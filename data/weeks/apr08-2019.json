@@ -1,0 +1,90 @@
+{
+    "monday": {
+        "breakfast": [
+            "eatOutBreakfast"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "snack": [],
+        "dinner": [
+            "salmon",
+            "asparagusSide"
+        ]
+    },
+    "tuesday": {
+        "breakfast": [
+            "eggBake",
+            "englishMuffinSide"
+        ],
+        "lunch": [
+            "tunaFishSandwich"
+        ],
+        "snack": [
+            "carrots"
+        ],
+        "dinner": [
+            "lettuceWrap"
+        ]
+    },
+    "wednesday": {
+        "breakfast": [
+            "scrambledEggs",
+            "englishMuffinButtered",
+            "jam"
+        ],
+        "lunch": [
+            "PBnJ"
+        ],
+        "snack": [
+            "yogurt"
+        ],
+        "dinner": [
+            "chickenVeggieStirFry"
+        ]
+    },
+    "thursday": {
+        "breakfast": [
+            "eggBake",
+            "englishMuffinSide"
+        ],
+        "lunch": [
+            "lettuceWrap"
+        ],
+        "snack": [
+            "carrots",
+            "carrots"
+        ],
+        "dinner": [
+            "brusslesSproutsSide",
+            "bibimbap"
+        ]
+    },
+    "friday": {
+        "breakfast": [
+            "eggBake",
+            "englishMuffinSide"
+        ],
+        "lunch": [
+            "avocadoSandwich"
+        ],
+        "snack": [],
+        "dinner": [
+            "eatOutDinner"
+        ]
+    },
+    "saturday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": []
+    },
+    "sunday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": [
+            "chickenVeggieStirFry"
+        ]
+    }
+}

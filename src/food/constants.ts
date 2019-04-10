@@ -27,7 +27,7 @@ const QUANT_MAP_REV = revMap(QUANT_MAP);
 const KNOWN_UNITS = new Set([
     'tbs', 'tbsp', 'tsp', 'oz', 'ozs', 'lb', 'lbs', 'cup', 'cups', 'scoop',
     'scoops', 'pcs', 'psc', 'g', 'bag', 'bags', 'bunch', 'bunches', 'fillet',
-    'fillets', 'bottle', 'bottles', 'bar', 'bars',
+    'fillets', 'bottle', 'bottles', 'bar', 'bars', 'cloves', 'clove'
 ]);
 
 // things we probably don't have to buy, but should check that we have enough
@@ -59,6 +59,7 @@ const BULK_THINGS = new Set([
     'sesame oil',
     'sugar',
     'rice vinegar',
+    'rice wine vinegar',
     'vegetable oil',
     'garlic cloves',
     'water',
@@ -66,6 +67,12 @@ const BULK_THINGS = new Set([
     'ginger',
     'rice',
     'vanilla extract',
+    'hoisin sauce',
+    'pickled ginger',
+    'pickled ginger (minced)',
+    'ginger paste',
+    'sesame seeds',
+    'garlic'
 ])
 
 // things used as internal placeholders we don't need to add to any list

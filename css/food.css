@@ -5,11 +5,27 @@
 
 @import url(../fonts/inter/inter.css);
 
+:root {
+
+    /* BG colors */
+    /* --page-bg-color: #fdfff0; */
+    --page-bg-color: #fff;
+    --item-hover-color: #a7d7c5;
+    --area-hover-color: #74b49b;
+    --tooltip-color: var(--item-hover-color);
+    --img-frame-color: #f4f9f4;
+    --dish-card-bg-color: #f4f9f4;
+
+    /* For softer text */
+    --off-white: #f4f9f4;
+    --off-black: #100c08;
+}
+
 body {
     /* font-family: "Computer Modern Serif", Serif; */
     font-family: 'Inter', sans-serif;
     font-feature-settings: 'tnum' 1;
-    background-color: #fdf5e8;
+    background-color: var(--page-bg-color);
     font-size: 10pt;
 }
 
@@ -83,7 +99,7 @@ body {
 }
 
 .editDish:hover {
-    background-color: #d40000;
+    background-color: var(--item-hover-color);
     cursor: grab;
     transition: all 0.2s ease-out;
 }
@@ -97,7 +113,7 @@ img {
 .editDish .calOverlay {
     font-size: 14px;
     text-align: center;
-    background-color: #100c08;
+    background-color: var(--off-black);
     color: #fff;
     font-weight: bold;
     position: absolute;
@@ -113,8 +129,9 @@ img {
 .tooltip {
     width: 200px;
     visibility: hidden;
-    background-color: #333;
-    color: #fff;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(244,249,244,1) 0%, rgba(167,215,197,1) 100%);
+    color: var(--off-black);
     text-align: center;
     padding: 8px;
     border-radius: 6px;
@@ -141,7 +158,7 @@ img {
  .editDay {
     display: flex;
     flex-direction: column;
-    background-color: #fdf5e8;
+    background-color: var(--page-bg-color);
     margin-bottom: 10px;
     /* border: 1px solid #100c08; */
 }
@@ -163,7 +180,7 @@ img {
 }
 
 .tooltip .recipeLink {
-    color: white;
+    color: var(--off-black);
 }
 
 /**
@@ -184,13 +201,14 @@ img {
     the name of the meal and its calories. */
     display: flex;
     flex-direction: column;
-    background-color: #fdf5e8;
+    background-color: var(--page-bg-color);
     margin: 2px;
     border: 1px solid #100c08;
 }
 
 [drop-active=on] {
-    background-color: aliceblue;
+    background-color: var(--area-hover-color);
+    color: var(--off-white);
 }
 
 /**
@@ -333,7 +351,7 @@ img {
     margin-left: 0px;
     margin-right: 0px;
     padding: 10px;
-    background-color: #ffffff;
+    background-color: var(--dish-card-bg-color);
 }
 
 .dish table {

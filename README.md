@@ -11,9 +11,12 @@ Calorie consolidation
 
 healthy stuff
 - bizarre protein fluff https://www.youtube.com/watch?v=oR3Z028prSU
-- chef salad (need to xport well)
+- SALADSSSSSS (need to xport well)
 
 others
+- huevos rancheros
+- meatballs
+- slow cooker meals
 - Quinoa salad upgrade
     - toppings
 - Shakshuka (actually)

@@ -1,0 +1,84 @@
+{
+    "monday": {
+        "breakfast": [
+            "PBToast",
+            "scrambledEggs"
+        ],
+        "lunch": [
+            "saladSafewayChef",
+            "hardboiledEgg"
+        ],
+        "snack": [],
+        "dinner": [
+            "salmon",
+            "asparagusSide"
+        ]
+    },
+    "tuesday": {
+        "breakfast": [
+            "breakfastSandwich"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "snack": [],
+        "dinner": [
+            {
+                "dishID": "oyakodon",
+                "guests": 2
+            }
+        ]
+    },
+    "wednesday": {
+        "breakfast": [
+            "strawberries",
+            "jamToast",
+            "scrambledEggs"
+        ],
+        "lunch": [
+            "saladSafewayThaiStyle",
+            "hardboiledEgg"
+        ],
+        "snack": [],
+        "dinner": [
+            "oyakodon",
+            "arugulaSideSalad"
+        ]
+    },
+    "thursday": {
+        "breakfast": [
+            "breakfastSandwich"
+        ],
+        "lunch": [],
+        "snack": [],
+        "dinner": [
+            "arugulaSideSalad",
+            "meatloaf"
+        ]
+    },
+    "friday": {
+        "breakfast": [
+            "PBToast",
+            "scrambledEggs"
+        ],
+        "lunch": [
+            "meatloaf"
+        ],
+        "snack": [],
+        "dinner": [
+            "quinoaSalad"
+        ]
+    },
+    "saturday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": []
+    },
+    "sunday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": []
+    }
+}

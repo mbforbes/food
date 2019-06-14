@@ -4,10 +4,14 @@ eat stuff
 
 ## TODO
 
-Calorie consolidation
-- [ ] Design + implement
+### 1. Calorie bank
 
-## Note
+- [x] implementation
+- [ ] fill up bank
+
+### 2. Importing
+
+### 3. Menus
 
 I think at this point thinking through time saving measures would be a good idea.
 

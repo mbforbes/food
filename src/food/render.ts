@@ -179,12 +179,12 @@ function htmlIngredients(ingredientsHTML: string): string {
     `
 }
 
-function htmlIngredient(ingredient: Ingredient): string {
-    const calories = ingredient[0] < 0 ? '???' : ingredient[0] + '';
+function htmlIngredient(caloriesRaw: number, ingredientQUT: IngredientQUT): string {
+    const calories = caloriesRaw < 0 ? '???' : caloriesRaw + '';
     return `
     <tr>
         <td class="calorieCell">${calories}</td>
-        <td class="ingredientCell">${ingredient[1]}</td>
+        <td class="ingredientCell">${ingredientQUT}</td>
     </tr>
     `
 }
@@ -432,13 +432,16 @@ function renderDish(
     let dishCalories = 0;
     let dishIngredDescs: string[] = [];
     for (let ingredient of dish.ingredients) {
-        ingredientsHTMLInner += htmlIngredient(ingredient);
         // if any ingredient has unk (< 0) cals, make whole dish unk cals
-
-        dishCalories = ingredient[0] < 0 ? -1 : dishCalories + ingredient[0];
+        let ingredientQUT = ingredient[1];
+        let ingredCals = getCalories(CALORIE_BANK, ingredientQUT);
+        dishCalories = ingredCals < 0 || dishCalories < 0 ? -1 : dishCalories + ingredCals;
         for (let i = 0; i < guests; i++) {
             dishIngredDescs.push(ingredient[1]);
         }
+
+        // add to ingredients html
+        ingredientsHTMLInner += htmlIngredient(ingredCals, ingredientQUT);
     }
 
     return [

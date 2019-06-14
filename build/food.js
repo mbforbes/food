@@ -23,9 +23,11 @@ function revMap(m) {
 }
 const QUANT_MAP_REV = revMap(QUANT_MAP);
 const KNOWN_UNITS = new Set([
-    'tbs', 'tbsp', 'tsp', 'oz', 'ozs', 'lb', 'lbs', 'cup', 'cups', 'scoop',
+    'tbs', 'tbsp', 'tsp', 'fl-oz', 'lb', 'lbs', 'cup', 'cups', 'scoop',
     'scoops', 'pcs', 'psc', 'g', 'bag', 'bags', 'bunch', 'bunches', 'fillet',
     'fillets', 'bottle', 'bottles', 'bar', 'bars', 'cloves', 'clove', 'pack', 'packs',
+    'x', 'head', 'heads', 'dab', 'dabs', 'slices', 'slice', 'cans', 'can', 'piece',
+    'pieces', 'oz', 'boxes', 'box',
 ]);
 // things we probably don't have to buy, but should check that we have enough
 // of
@@ -136,6 +138,195 @@ var View;
     View[View["Dishes"] = 2] = "Dishes";
     View[View["Edit"] = 3] = "Edit";
 })(View || (View = {}));
+/**
+ * @returns a number OR null if the quantity could not be parsed
+ */
+function getQuantity(s) {
+    if (QUANT_MAP.has(s)) {
+        return QUANT_MAP.get(s);
+    }
+    let candidate = parseFloat(s);
+    if (isNaN(candidate)) {
+        console.error('Unknown quantity: "' + s + '".');
+        return null;
+    }
+    return candidate;
+}
+/**
+ * @returns a unit string OR null if unit not recognized
+ */
+function getUnit(s) {
+    if (KNOWN_UNITS.has(s)) {
+        return s;
+    }
+    return null;
+}
+function getQU(pieces) {
+    if (pieces.length != 2) {
+        console.error('Cannot parse quantity and unit from string[]: ' + pieces.join(' '));
+        return [1, 'unk'];
+    }
+    return [getQuantity(pieces[0]), getUnit(pieces[1])];
+}
+/**
+ * @returns [quantity, unit, thing]
+ */
+function getQUT(pieces) {
+    // edge case: not enough (just one str)
+    if (pieces.length < 2) {
+        return [1, 'x', pieces.join(' ')];
+    }
+    // edge case: only two things: can't have unit
+    if (pieces.length == 2) {
+        let quantity = getQuantity(pieces[0]);
+        if (quantity == null) {
+            // if no quantity specified, return the whole name
+            return [1, 'x', pieces.join(' ')];
+        }
+        else {
+            // good quantity specified; use it
+            return [quantity, 'x', pieces[1]];
+        }
+    }
+    // "normal" case: possibly quantity, possibly unit
+    let quantity = getQuantity(pieces[0]);
+    if (quantity == null) {
+        // if no quantity specified, return the whole name
+        return [1, 'x', pieces.join(' ')];
+    }
+    // we have a quantity. see whether a unit.
+    let unit = getUnit(pieces[1]);
+    if (unit == null) {
+        // unit not known, but we have a quantity. include index 1 in name.
+        return [quantity, 'x', pieces.slice(1).join(' ')];
+    }
+    // we have quantity AND unit. woohoo!
+    return [quantity, unit, pieces.slice(2).join(' ')];
+}
+/// <reference path="constants.ts" />
+/// <reference path="parse.ts" />
+// Units we have (at time of writing):
+//
+// volume
+// - 'tbs', 'tbsp', 'tsp', 'cup', 'cups', 'fl-oz',
+//
+// weight
+// - 'lb', 'lbs', 'g'
+//
+// string matching
+// - 'scoop', 'scoops', 'pcs', 'psc', 'bag', 'bags', 'bunch', 'bunches', 'fillet',
+//   'fillets', 'bottle', 'bottles', 'bar', 'bars', 'cloves', 'clove', 'pack', 'packs',
+/**
+ * Standardize unit references w/ alt spellings, misspellings, and plurals. If a unit
+ * isn't in here, it's used as written.
+ */
+const UnitStandardize = new Map([
+    // volume
+    ['tbs', 'tbsp'],
+    ['cups', 'cup'],
+    // weight
+    ['lbs', 'lb'],
+    // string matching
+    ['scoops', 'scoop'],
+    ['pieces', 'psc'],
+    ['piece', 'psc'],
+    ['pcs', 'psc'],
+    ['bags', 'bag'],
+    ['bunches', 'bunch'],
+    ['fillets', 'fillet'],
+    ['bottles', 'bottle'],
+    ['bars', 'bar'],
+    ['boxes', 'box'],
+    ['cloves', 'clove'],
+    ['packs', 'pack'],
+    ['heads', 'head'],
+    ['dabs', 'dab'],
+    ['slices', 'slice'],
+    ['cans', 'can'],
+    ['fillets', 'fillet'],
+]);
+/**
+ * Convert units of the same type (volume, weight, etc.) to a common denominator so they
+ * are comparable.
+ */
+const UnitConversion = new Map([
+    // volume: to tsp
+    ['tsp', [1, 'tsp']],
+    ['tbsp', [3, 'tsp']],
+    ['cup', [48, 'tsp']],
+    ['fl-oz', [6, 'tsp']],
+    // weight: to g
+    ['g', [1, 'g']],
+    ['lb', [453.59237, 'g']],
+    ['oz', [28.3495, 'g']],
+]);
+/**
+ * Converts JSON data from calories.json file to CalorieBank.
+ */
+function buildBank(cf) {
+    let bank = {};
+    for (let ingredient in cf) {
+        let calorieData = {};
+        for (let calorieSpec of cf[ingredient]) {
+            let [calories, quantityAndunitRaw] = calorieSpec;
+            let [quantity, unitRaw] = getQU(quantityAndunitRaw.split(' '));
+            // standardize alternate spellings
+            let unit = UnitStandardize.has(unitRaw) ? UnitStandardize.get(unitRaw) : unitRaw;
+            // pre-convert if possible
+            if (UnitConversion.has(unit)) {
+                let [scaleQuantity, scaleUnit] = UnitConversion.get(unit);
+                quantity *= scaleQuantity;
+                unit = scaleUnit;
+            }
+            // save
+            let calorieUnitData = {
+                calories: calories,
+                quantity: quantity,
+            };
+            calorieData[unit] = calorieUnitData;
+        }
+        bank[ingredient] = calorieData;
+    }
+    return bank;
+}
+/**
+ * Gets calories for the provided ingredient QUT (quantity unit thing) string.
+ */
+function getCalories(bank, ingredientQUT) {
+    let [quantity, unitRaw, ingredient] = getQUT(ingredientQUT.split(' '));
+    if (!(ingredient in bank)) {
+        console.error('Ingredient "' + ingredient + '" not found in calorie bank.');
+        return -1;
+    }
+    // standardize input unit reference
+    let unit = UnitStandardize.has(unitRaw) ? UnitStandardize.get(unitRaw) : unitRaw;
+    let calorieData = bank[ingredient];
+    if (unit in calorieData) {
+        // we have a direct unit match. scale quantities and go.
+        let calorieUnitData = calorieData[unit];
+        return Math.round(calorieUnitData.calories * (quantity / calorieUnitData.quantity));
+    }
+    // no direct match. try scaling w/ conversion table.
+    if (!UnitConversion.has(unit)) {
+        // if we can't scale the unit, give up
+        console.error('Ingredient "' + ingredient + '" has unmatched unit "' + unit +
+            '", unconvertible and not found in calorie bank.');
+        return -1;
+    }
+    // scale to `newQuantity` of `newUnit`
+    let [scaleQuantity, newUnit] = UnitConversion.get(unit);
+    let newQuantity = scaleQuantity * quantity;
+    if (!(newUnit in calorieData)) {
+        console.error('Converted ingredient "' + ingredient + '" from unit "' + unit +
+            '" to unit "' + newUnit + '", but "' + newUnit + '" not found in calorie ' +
+            'data for ingredient. Available units: ' +
+            Object.keys(calorieData).join(', '));
+        return -1;
+    }
+    // converted unit match! scale.
+    let calorieUnitData = calorieData[newUnit];
+    return Math.round(calorieUnitData.calories * (newQuantity / calorieUnitData.quantity));
+}
 /**
  * Called when you start dragging a dish. Sets the data that should be
  * transferred.
@@ -354,12 +545,12 @@ function htmlIngredients(ingredientsHTML) {
     </table>
     `;
 }
-function htmlIngredient(ingredient) {
-    const calories = ingredient[0] < 0 ? '???' : ingredient[0] + '';
+function htmlIngredient(caloriesRaw, ingredientQUT) {
+    const calories = caloriesRaw < 0 ? '???' : caloriesRaw + '';
     return `
     <tr>
         <td class="calorieCell">${calories}</td>
-        <td class="ingredientCell">${ingredient[1]}</td>
+        <td class="ingredientCell">${ingredientQUT}</td>
     </tr>
     `;
 }
@@ -578,12 +769,15 @@ function renderDish(dishes, dishIDSpec, view, timeInfo, tooltipDirection) {
     let dishCalories = 0;
     let dishIngredDescs = [];
     for (let ingredient of dish.ingredients) {
-        ingredientsHTMLInner += htmlIngredient(ingredient);
         // if any ingredient has unk (< 0) cals, make whole dish unk cals
-        dishCalories = ingredient[0] < 0 ? -1 : dishCalories + ingredient[0];
+        let ingredientQUT = ingredient[1];
+        let ingredCals = getCalories(CALORIE_BANK, ingredientQUT);
+        dishCalories = ingredCals < 0 || dishCalories < 0 ? -1 : dishCalories + ingredCals;
         for (let i = 0; i < guests; i++) {
             dishIngredDescs.push(ingredient[1]);
         }
+        // add to ingredients html
+        ingredientsHTMLInner += htmlIngredient(ingredCals, ingredientQUT);
     }
     return [
         htmlDish(dishID, dish.title, guests, dishCalories, dish.img, dish.recipe, dish.recipeServings, htmlIngredients(ingredientsHTMLInner), view, timeInfo, tooltipDirection),
@@ -616,63 +810,6 @@ function sortedMapKeys(m) {
         return JSON.parse(a).thing.localeCompare(JSON.parse(b).thing);
     });
 }
-/**
- * @returns a number OR null if the quantity could not be parsed
- */
-function getQuantity(s) {
-    if (QUANT_MAP.has(s)) {
-        return QUANT_MAP.get(s);
-    }
-    let candidate = parseFloat(s);
-    if (isNaN(candidate)) {
-        return null;
-    }
-    return candidate;
-}
-/**
- * @returns a unit string OR null if unit not recognized
- */
-function getUnit(s) {
-    if (KNOWN_UNITS.has(s)) {
-        return s;
-    }
-    return null;
-}
-/**
- * @returns [quantity, unit, thing]
- */
-function getQUT(pieces) {
-    // edge case: not enough (just one str)
-    if (pieces.length < 2) {
-        return [1, 'x', pieces.join(' ')];
-    }
-    // edge case: only two things: can't have unit
-    if (pieces.length == 2) {
-        let quantity = getQuantity(pieces[0]);
-        if (quantity == null) {
-            // if no quantity specified, return the whole name
-            return [1, 'x', pieces.join(' ')];
-        }
-        else {
-            // good quantity specified; use it
-            return [quantity, 'x', pieces[1]];
-        }
-    }
-    // "normal" case: possibly quantity, possibly unit
-    let quantity = getQuantity(pieces[0]);
-    if (quantity == null) {
-        // if no quantity specified, return the whole name
-        return [1, 'x', pieces.join(' ')];
-    }
-    // we have a quantity. see whether a unit.
-    let unit = getUnit(pieces[1]);
-    if (unit == null) {
-        // unit not known, but we have a quantity. include index 1 in name.
-        return [quantity, 'x', pieces.slice(1).join(' ')];
-    }
-    // we have quantity AND unit. woohoo!
-    return [quantity, unit, pieces.slice(2).join(' ')];
-}
 /// <reference path="../../lib/moment.d.ts" />
 /// <reference path="../../lib/jquery.d.ts" />
 /// <reference path="render.ts" />
@@ -687,6 +824,7 @@ let DragNDropGlobals = {
     weekFN: null,
     weekData: null,
 };
+let CALORIE_BANK;
 //
 // pick filenames
 //
@@ -819,6 +957,7 @@ function onWeekLoaded(view, dishes, week) {
 // core execution
 //
 const dishesFN = 'data/dishes.json';
+const caloriesFN = 'data/calories.json';
 function getWeekFN(url) {
     // parse url to pick week
     let weekFN;
@@ -871,7 +1010,9 @@ function getView(url) {
     console.log('Using view: ' + view);
     return view;
 }
-function main() {
+function main(calorieFile) {
+    // set calorie bank globally
+    CALORIE_BANK = buildBank(calorieFile);
     // get config
     let url = new URL(window.location.href);
     let weekFN = getWeekFN(url);
@@ -891,7 +1032,10 @@ function main() {
         console.error('Unknown view: ' + view);
     }
 }
-main();
+function preload() {
+    $.getJSON(caloriesFN, main);
+}
+preload();
 /// <reference path="constants.ts" />
 function serialize(week, path, success) {
     // NOTE: unsafe

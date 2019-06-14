@@ -23,6 +23,8 @@ let DragNDropGlobals: DNDG = {
     weekData: null,
 }
 
+let CALORIE_BANK: CalorieBank;
+
 //
 // pick filenames
 //
@@ -171,6 +173,7 @@ function onWeekLoaded(view: View, dishes: Dishes, week: Week): void {
 //
 
 const dishesFN = 'data/dishes.json';
+const caloriesFN = 'data/calories.json';
 
 function getWeekFN(url: URL): string {
     // parse url to pick week
@@ -227,7 +230,10 @@ function getView(url: URL): View {
     return view;
 }
 
-function main() {
+function main(calorieFile: CalorieFile) {
+    // set calorie bank globally
+    CALORIE_BANK = buildBank(calorieFile);
+
     // get config
     let url = new URL(window.location.href);
     let weekFN = getWeekFN(url);
@@ -248,4 +254,8 @@ function main() {
     }
 }
 
-main();
+function preload() {
+    $.getJSON(caloriesFN, main);
+}
+
+preload();

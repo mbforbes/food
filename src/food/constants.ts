@@ -25,9 +25,11 @@ function revMap<K, V>(m: Map<K, V>): Map<V, K> {
 const QUANT_MAP_REV = revMap(QUANT_MAP);
 
 const KNOWN_UNITS = new Set([
-    'tbs', 'tbsp', 'tsp', 'oz', 'ozs', 'lb', 'lbs', 'cup', 'cups', 'scoop',
+    'tbs', 'tbsp', 'tsp', 'fl-oz', 'lb', 'lbs', 'cup', 'cups', 'scoop',
     'scoops', 'pcs', 'psc', 'g', 'bag', 'bags', 'bunch', 'bunches', 'fillet',
     'fillets', 'bottle', 'bottles', 'bar', 'bars', 'cloves', 'clove', 'pack', 'packs',
+    'x', 'head', 'heads', 'dab', 'dabs', 'slices', 'slice', 'cans', 'can', 'piece',
+    'pieces', 'oz', 'boxes', 'box',
 ]);
 
 // things we probably don't have to buy, but should check that we have enough
@@ -152,14 +154,15 @@ type DishIDObj = {
 type DishIDSpec = DishID | DishIDObj
 type MealID = 'breakfast' | 'morningSnack' | 'lunch' | 'snack' | 'afternoonSnack' | 'dinner' | 'eveningSnack';
 const AllMeals: MealID[] = ['breakfast', 'morningSnack', 'lunch', 'snack', 'afternoonSnack', 'dinner', 'eveningSnack']
-type Ingredient = [number, string]
+type DeprecatedIngredient = [number, string]
+type IngredientQUT = string;
 type DayID = 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
 const AllDays: DayID[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
 type Dish = {
     title: string,
     mealHint: MealID,
-    ingredients: Ingredient[],
+    ingredients: DeprecatedIngredient[],
     img?: string,
     recipe?: string,
     recipeServings?: number,
@@ -193,4 +196,34 @@ enum View {
 type TimeInfo = {
     dayID: DayID,
     mealID: MealID,
+}
+
+//
+// Found in calories.json file
+//
+
+/**
+ * calories, "quantity unit"
+ */
+type CalorieSpec = [number, string]
+
+type CalorieFile = {
+    [ingredient: string]: CalorieSpec[]
+}
+
+//
+// In-memory representation of calories we load into.
+//
+
+type CalorieUnitData = {
+    calories: number,
+    quantity: number,
+}
+
+type CalorieData = {
+    [unit: string]: CalorieUnitData
+}
+
+type CalorieBank = {
+    [ingredient: string]: CalorieData
 }

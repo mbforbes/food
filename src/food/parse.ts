@@ -7,6 +7,7 @@ function getQuantity(s: string): number {
     }
     let candidate = parseFloat(s);
     if (isNaN(candidate)) {
+        console.error('Unknown quantity: "' + s + '".')
         return null;
     }
     return candidate;
@@ -20,6 +21,14 @@ function getUnit(s: string): string {
         return s;
     }
     return null;
+}
+
+function getQU(pieces: string[]): [number, string] {
+    if (pieces.length != 2) {
+        console.error('Cannot parse quantity and unit from string[]: ' + pieces.join(' '));
+        return [1, 'unk'];
+    }
+    return [getQuantity(pieces[0]), getUnit(pieces[1])];
 }
 
 /**

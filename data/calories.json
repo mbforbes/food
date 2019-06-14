@@ -1,0 +1,335 @@
+{
+    "apple (granny smith)": [
+        [75, "1 x"]
+    ],
+    "arugula": [
+        [18, "71 g"]
+    ],
+    "asparagus": [
+        [42, "1 bunch"]
+    ],
+    "avocado": [
+        [54, "¼ x"]
+    ],
+    "bacon": [
+        [120, "2 pcs"]
+    ],
+    "balsamic vinegar": [
+        [5, "1 tsp"]
+    ],
+    "banana": [
+        [120, "1 x"]
+    ],
+    "basil": [
+        [5, "0.5 bunch"]
+    ],
+    "beer (7% abv)": [
+        [210, "12 fl-oz"]
+    ],
+    "bell pepper": [
+        [60, "1 x"]
+    ],
+    "biscuit": [
+        [160, "1 x"]
+    ],
+    "black beans": [
+        [180, "0.875 cups"],
+        [180, "0.5 can"]
+    ],
+    "blueberries": [
+        [85, "1 cup"]
+    ],
+    "butter": [
+        [100, "1 tbsp"]
+    ],
+    "breakfast sausage patty": [
+        [100, "1 x"]
+    ],
+    "broccoli": [
+        [60, "1 head"]
+    ],
+    "brown sugar": [
+        [50, "1 tbsp"]
+    ],
+    "brussles sprouts": [
+        [96, "12 x"]
+    ],
+    "carrot": [
+        [25, "1 x"],
+        [61, "150 g"]
+    ],
+    "carrots": [
+        [61, "150 g"],
+        [25, "1 x"]
+    ],
+    "cheddar cheese": [
+        [113, "1 slice"],
+        [104, "27 g"]
+    ],
+    "cheese (Amiercan)": [
+        [70, "1 slice"]
+    ],
+    "cheese (shredded)": [
+        [104, "27 g"],
+        [104, "0.216 cups"]
+    ],
+    "cherry tomatoes": [
+        [35, "1 cup"]
+    ],
+    "chia seeds": [
+        [290, "5 tbsp"]
+    ],
+    "chicken breast": [
+        [140, "0.5 x"]
+    ],
+    "chocolate chips": [
+        [75, "1 tbsp"]
+    ],
+    "cinnamon": [
+        [0, "0.5 tsp"]
+    ],
+    "corn": [
+        [66, "0.5 cup"]
+    ],
+    "cucumber": [
+        [17, "0.5 x"]
+    ],
+    "Dave's Killer Bread": [
+        [120, "1 psc"]
+    ],
+    "dukkah": [
+        [0, "1 tsp"]
+    ],
+    "[eat this much 500]": [
+        [500, "1 x"]
+    ],
+    "[eat this much 600]": [
+        [600, "1 x"]
+    ],
+    "[eat this much 700]": [
+        [700, "1 x"]
+    ],
+    "egg": [
+        [70, "1 x"]
+    ],
+    "english muffin": [
+        [130, "1 x"]
+    ],
+    "frozen vegetables (steamed)": [
+        [105, "1 cup"]
+    ],
+    "garlic": [
+        [8, "2 cloves"],
+        [4, "1 tbsp"]
+    ],
+    "ginger paste": [
+        [30, "2 tsp"]
+    ],
+    "goat cheese": [
+        [60, "1 dab"]
+    ],
+    "greek yogurt": [
+        [98, "0.75 cup"]
+    ],
+    "green onion": [
+       [20, "4 x"]
+    ],
+    "ground beef (85% lean)": [
+        [325, "0.33 lb"]
+    ],
+    "ham": [
+        [71, "66 g"],
+        [74, "2 slices"]
+    ],
+    "hamburger bun": [
+        [420, "1 x"]
+    ],
+    "hash brown patty": [
+        [140, "1 x"]
+    ],
+    "hondashi": [
+        [10, "1 tbsp"]
+    ],
+    "honey": [
+        [21, "1 tsp"]
+    ],
+    "hummus": [
+        [50, "2 tbsp"]
+    ],
+    "instant coffee": [
+        [0, "1 pack"]
+    ],
+    "jam": [
+        [50, "1 tbsp"]
+    ],
+    "Just Crack an Egg: American": [
+        [180, "1 cup"]
+    ],
+    "Just Crack an Egg: Denver": [
+        [120, "1 cup"]
+    ],
+    "Just Crack an Egg: Rustic": [
+        [100, "1 cup"]
+    ],
+    "Just Crack an Egg: Ultimate": [
+        [170, "1 cup"]
+    ],
+    "lemon (juice)": [
+        [5, "½ x"]
+    ],
+    "lettuce": [
+        [4, "2 pcs"]
+    ],
+    "lime": [
+        [5, "1 x"]
+    ],
+    "maple syrup": [
+        [52, "1 tbsp"]
+    ],
+    "mayo": [
+        [100, "1 tbsp"]
+    ],
+    "milk (1%)": [
+        [100, "1 cup"]
+    ],
+    "milk (2%)": [
+        [128, "1 cup"]
+    ],
+    "mozarella": [
+        [200, "0.5 cup"]
+    ],
+    "mushrooms (white)": [
+        [16, "4 x"]
+    ],
+    "oats": [
+        [225, "0.75 cup"]
+    ],
+    "olive oil": [
+        [60, "0.5 tbsp"]
+    ],
+    "onion": [
+        [30, "0.5 x"]
+    ],
+    "pancake mix (TJ's pumpkin)": [
+        [128, "0.25 cup"]
+    ],
+    "pancetta (grease incl.)": [
+        [294, "0.125 lb"]
+    ],
+    "pasta": [
+        [1600, "1 box"]
+    ],
+    "peanut butter": [
+        [190, "2 tbsp"]
+    ],
+    "peas": [
+        [105, "1 cup"]
+    ],
+    "potatoes (Yukon gold)": [
+        [175, "0.5 lb"]
+    ],
+    "potato flakes": [
+        [140, "⅔ cup"]
+    ],
+    "Pro Base Energy Bar": [
+        [280, "1 x"]
+    ],
+    "quinoa (cooked)": [
+        [56, "0.25 cup"]
+    ],
+    "raisins": [
+        [56, "2 tbsp"]
+    ],
+    "red onion": [
+        [60, "1 x"]
+    ],
+    "rice (white, cooked)": [
+        [100, "0.5 cup"]
+    ],
+    "rice vinegar": [
+        [0, "1 tbsp"]
+    ],
+    "sake": [
+        [40, "2 tbsp"]
+    ],
+    "salmon": [
+        [578, "12 oz"]
+    ],
+    "salsa": [
+        [40, "0.5 cup"]
+    ],
+    "salt": [
+        [0, "1 tsp"]
+    ],
+    "scallions": [
+        [20, "4 x"]
+    ],
+    "serrano chili pepper": [
+        [2, "1 x"]
+    ],
+    "sesame oil": [
+        [43, "1 tsp"]
+    ],
+    "sesame seeds": [
+        [16, "1 tsp"]
+    ],
+    "snap peas": [
+        [100, "0.5 lbs"]
+    ],
+    "sour cream": [
+        [92, "4 tbsp"]
+    ],
+    "soy sauce": [
+        [18, "2 tbsp"]
+    ],
+    "soylent": [
+        [400, "1 bottle"]
+    ],
+    "splenda": [
+        [0, "1 pack"]
+    ],
+    "strawberries": [
+        [74, "0.5 lbs"]
+    ],
+    "sugar": [
+        [48, "1 tbsp"]
+    ],
+    "sweet potato": [
+        [160, "0.5 lbs"]
+    ],
+    "togarashi": [
+        [0, "1 tsp"]
+    ],
+    "tomato": [
+        [9, "⅓ x"],
+        [3, "1 slice"]
+    ],
+    "red sauce": [
+        [660, "1 can"],
+        [110, "0.5 cup"]
+    ],
+    "tuna (5oz can, in water)": [
+        [100, "1 can"]
+    ],
+    "vanilla extract": [
+        [3, "0.25 tsp"]
+    ],
+    "vegetable oil": [
+        [120, "2 tbsp"]
+    ],
+    "walnuts": [
+        [50, "0.25 cup"]
+    ],
+    "water": [
+        [0, "1 cup"]
+    ],
+    "yellow onion": [
+        [60, "1 x"]
+    ],
+    "yogurt cup": [
+        [120, "1 x"]
+    ],
+    "zucchini": [
+        [33, "1 x"]
+    ]
+}

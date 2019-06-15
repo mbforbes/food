@@ -9,9 +9,7 @@ eat stuff
 - [x] implementation
 - [ ] fill up bank
 
-### 2. Importing
-
-### 3. Menus
+### 2. Menus
 
 I think at this point thinking through time saving measures would be a good idea.
 
@@ -39,6 +37,10 @@ out the high level plan, and then work out the actual recipes, ingredients, and 
 later.** I think figuring out both the high level and low level plans at the same time
 is what makes this exhausting, and makes being creative difficult.
 
+### 3. Importing
+
+(maybe)
+
 ## Salad reviews
 
 LOL
@@ -49,6 +51,9 @@ LOL
 - chef salad: 4 star
 
 ## Meals On The Radar
+
+advance in bulk
+- https://www.youtube.com/watch?v=17Bagme20IM
 
 healthy stuff
 - bizarre protein fluff https://www.youtube.com/watch?v=oR3Z028prSU

@@ -24,6 +24,8 @@ const UnitStandardize = new Map([
 
     // weight
     ['lbs', 'lb'],
+    ['pounds', 'lb'],
+    ['pound', 'lb'],
 
     // string matching
     ['scoops', 'scoop'],
@@ -38,11 +40,15 @@ const UnitStandardize = new Map([
     ['boxes', 'box'],
     ['cloves', 'clove'],
     ['packs', 'pack'],
+    ['packets', 'pack'],
+    ['packet', 'pack'],
     ['heads', 'head'],
     ['dabs', 'dab'],
     ['slices', 'slice'],
     ['cans', 'can'],
     ['fillets', 'fillet'],
+    ['inches', 'inch'],
+    ['sprigs', 'sprig'],
 ]);
 
 /**

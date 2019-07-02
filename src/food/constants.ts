@@ -29,7 +29,8 @@ const KNOWN_UNITS = new Set([
     'scoops', 'pcs', 'psc', 'g', 'bag', 'bags', 'bunch', 'bunches', 'fillet',
     'fillets', 'bottle', 'bottles', 'bar', 'bars', 'cloves', 'clove', 'pack', 'packs',
     'x', 'head', 'heads', 'dab', 'dabs', 'slices', 'slice', 'cans', 'can', 'piece',
-    'pieces', 'oz', 'boxes', 'box',
+    'pieces', 'oz', 'boxes', 'box', 'packets', 'packet', 'inches', 'inch', 'sprigs',
+    'sprig', 'pounds', 'pound',
 ]);
 
 // things we probably don't have to buy, but should check that we have enough

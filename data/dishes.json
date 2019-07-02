@@ -7,7 +7,8 @@
 			[60, "0.5 tbsp olive oil"],
 			[5, "½ lemon (juice)"],
 			[54, "¼ avocado"]
-		]
+		],
+		"img": "img/arugula-side-salad.png"
 	},
 	"asparagusSide": {
 		"title": "Baked Asparagus (side)",
@@ -166,15 +167,20 @@
 		"title": "Burrito Bowl",
 		"mealHint": "lunch",
 		"ingredients": [
-			[140, "0.5 chicken breast"],
-			[100, "½ cup rice (white, cooked)"],
-			[114, "½ avocado"],
-			[40, "½ cup salsa"],
-			[-1, "½ cup corn"],
-			[-1, "½ cup cheese (shredded)"],
-			[-1, "½ cup black beans"]
+			[0, "2 bell pepper"],
+			[0, "1 red onion"],
+			[0, "1 lb ground beef (90% lean)"],
+			[0, "1 pack taco seasoning"],
+			[0, "28 oz diced tomatoes"],
+			[0, "4 cups rice (brown, cooked)"],
+			[0, "1 can black beans"],
+			[0, "1 can corn"],
+			[0, "1 cup mexican cheese"],
+			[0, "0.5 lime"],
+			[0, "1 avocado"]
 		],
-		"img": "img/burrito-bowl.png"
+		"img": "img/burrito-bowl.png",
+		"recipeServings": 4
 	},
 	"capreseChickenSaladBowl": {
 		"title": "Caprese Chicken Salad Bowl",
@@ -279,7 +285,7 @@
 		"title": "[Eating Out!]",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[500, "[eat this much 500]"]
+			[500, "1 x [eat this much 500]"]
 		],
 		"img": "img/eat-out-breakfast.png"
 	},
@@ -287,7 +293,7 @@
 		"title": "[Eating Out!]",
 		"mealHint": "lunch",
 		"ingredients": [
-			[600, "[eat this much 600]"]
+			[600, "1 x [eat this much 600]"]
 		],
 		"img": "img/eat-out-lunch.png"
 	},
@@ -295,7 +301,7 @@
 		"title": "[Eating Out!]",
 		"mealHint": "dinner",
 		"ingredients": [
-			[700, "[eat this much 700]"]
+			[700, "1 x [eat this much 700]"]
 		],
 		"img": "img/eat-out-dinner.png"
 	},
@@ -427,12 +433,12 @@
 		"ingredients": [
 			[330, "⅓ baguette"],
 			[140, "2 slices provolone cheese"],
-			[111, "3 slices deli turkey"],
-			[111, "3 slices deli roast beef"],
+			[111, "3 slices turkey"],
+			[111, "3 slices roast beef"],
 			[75, "3 pieces pepperoni"],
 			[100, "1 tbsp butter"],
 			[11, "0.5 tomato"],
-			[8, "1 cup shredded lettuce"]
+			[8, "1 cup lettuce"]
 		],
 		"img": "img/italian-sub.png"
 	},
@@ -495,9 +501,9 @@
 		"mealHint": "lunch",
 		"ingredients": [
 			[-1, "2 cups kale"],
-			[-1, "0.5 green apple"],
+			[-1, "0.5 apple"],
 			[-1, "0.25 cup walnuts"],
-			[-1, "2 tbsp lemon juice"],
+			[-1, "2 tbsp lemon (juice)"],
 			[-1, "2 tbsp olive oil"],
 			[-1, "1 tsp honey"]
 		],
@@ -509,16 +515,16 @@
 		"mealHint": "dinner",
 		"ingredients": [
 			[16, "8 pieces lettuce"],
-			[400, "0.5 lb ground beef"],
+			[400, "0.5 lb ground beef (90% lean)"],
 			[60, "0.5 tbsp olive oil"],
 			[30, "0.5 onion"],
 			[70, "2 tbsp hoisin sauce"],
 			[4, "1 clove garlic"],
 			[5, "0.5 tbsp soy sauce"],
-			[0, "0.5 tbsp rice wine vinegar"],
-			[6, "1 tsp pickled ginger (minced)"],
-			[30, "0.5 can water chesnuts (minced)"],
-			[30, "6 scallions (minced)"],
+			[0, "0.5 tbsp rice vinegar"],
+			[6, "1 tsp pickled ginger"],
+			[30, "0.5 can water chestnuts"],
+			[30, "6 scallions"],
 			[43, "1 tsp sesame oil"]
 		],
 		"img": "img/lettuce-wraps.png",
@@ -534,7 +540,7 @@
 			[64, "0.5 cup milk (2%)"],
 			[70, "1 egg"],
 			[40, "2 tbsp ketchup"],
-			[13, "1 tbsp Worchestireshire sauce"],
+			[13, "1 tbsp Worcestershire sauce"],
 			[2, "1 tsp dried parsley leaves"],
 			[80, "0.25 cup ketchup"],
 			[100, "2 tbsp brown sugar"],
@@ -602,7 +608,7 @@
 			[0, "0.25 tsp salt"],
 
 			[0, "0.5 tsp cinnamon"],
-			[75, "1 apple (granny smith)"],
+			[75, "1 apple"],
 			[56, "2 tbsp raisins"]
 		],
 		"img": "img/overnight-oats-apple.png",
@@ -710,32 +716,36 @@
 		"img": "img/rice.png"
 	},
 	"saladSafewayApple": {
-		"title": "Apple & Walnut Salad (Safeway)",
+		"title": "Safeway Apple & Walnut Salad",
 		"mealHint": "lunch",
 		"ingredients": [
-			[-1, "1 Apple & Walnut Salad (Safeway)"]
-		]
+			[-1, "1 Safeway Apple & Walnut Salad"]
+		],
+		"img": "img/safeway-salad-apple-walnut.png"
 	},
 	"saladSafewayAsian": {
-		"title": "\"Asian Style\" Salad (Safeway)",
+		"title": "Safeway Asian Style Salad",
 		"mealHint": "lunch",
 		"ingredients": [
-			[-1, "1 \"Asian Style\" Salad (Safeway)"]
-		]
+			[-1, "1 Safeway Asian Style Salad"]
+		],
+		"img": "img/safeway-salad-asian.png"
 	},
 	"saladSafewayChef": {
-		"title": "Chef Salad (Safeway)",
+		"title": "Safeway Chef Salad",
 		"mealHint": "lunch",
 		"ingredients": [
-			[510, "1 Chef Salad (Safeway)"]
-		]
+			[510, "1 Safeway Chef Salad"]
+		],
+		"img": "img/safeway-salad-chef.png"
 	},
 	"saladSafewayThaiStyle": {
-		"title": "Thai-style Salad (Safeway)",
+		"title": "Safeway Thai-style Salad",
 		"mealHint": "lunch",
 		"ingredients": [
-			[560, "1 Thai-style Salad (Safeway)"]
-		]
+			[560, "1 Safeway Thai-style Salad"]
+		],
+		"img": "img/safeway-salad-thai.png"
 	},
 	"salmon": {
 		"title": "Salmon",
@@ -764,11 +774,32 @@
 			[16, "1 tbsp fish sauce"],
 			[120, "2 tbsp vegetable oil"],
 			[225, "0.5 lb shrimp"],
-			[5, "1 cup basil leaves"],
+			[5, "1 cup basil"],
 			[5, "1 lime"]
 		],
 		"img": "img/shrimpAndBasilStirFry.png",
 		"recipe": "https://www.bonappetit.com/recipe/shrimp-and-basil-stir-fry"
+	},
+	"slowCookerSesameChicken": {
+		"title": "Slow Cooker Sesame Chicken",
+		"mealHint": "dinner",
+		"ingredients": [
+			[0, "4 chicken breast"],
+			[0, "0.33 cup soy sauce"],
+			[0, "0.33 cup honey"],
+			[0, "2 tbsp tomato paste"],
+			[0, "3 cloves garlic"],
+			[0, "1 tsp siracha"],
+			[0, "1 tsp ground ginger"],
+			[0, "1 tsp sesame oil"],
+			[0, "2 tbsp rice vinegar"],
+			[0, "1 tbsp cornstarch"],
+			[0, "4 heads broccoli"],
+			[0, "4 cups rice (white, cooked)"]
+		],
+		"img": "img/slow-cooker-sesame-chicken.png",
+		"recipeServings": 4,
+		"recipe": "https://www.youtube.com/watch?v=17Bagme20IM"
 	},
 	"soylent": {
 		"title": "Soylent",
@@ -784,7 +815,7 @@
 		"ingredients": [
 			[-1, "0.33 box pasta"],
 			[-1, "0.33 can red sauce"],
-			[-1, "2 sausages"]
+			[-1, "2 pork sausages (Johnsonville)"]
 		],
 		"img": "img/spag-sausage.png"
 	},

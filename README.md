@@ -7,7 +7,8 @@ eat stuff
 ### 1. Calorie bank
 
 - [x] implementation
-- [ ] fill up bank
+- [x] fill up bank
+- [ ] remove from dishes.json
 
 ### 2. Menus
 
@@ -40,15 +41,6 @@ is what makes this exhausting, and makes being creative difficult.
 ### 3. Importing
 
 (maybe)
-
-## Salad reviews
-
-LOL
-
-- apple + walnut w/ chicken: 5 star
-- "asian style" w/ chicken: 4 star
-- "thai style" w/ chicken: 4 star
-- chef salad: 4 star
 
 ## Meals On The Radar
 

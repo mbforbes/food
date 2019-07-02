@@ -1,0 +1,68 @@
+{
+    "monday": {
+        "breakfast": [
+            "breakfastSandwich"
+        ],
+        "lunch": [
+            "burritoBowl"
+        ],
+        "snack": [],
+        "dinner": [
+            "slowCookerSesameChicken"
+        ]
+    },
+    "tuesday": {
+        "breakfast": [
+            "breakfastSandwich"
+        ],
+        "lunch": [],
+        "snack": [],
+        "dinner": [
+            "slowCookerSesameChicken"
+        ]
+    },
+    "wednesday": {
+        "breakfast": [
+            "breakfastSandwich"
+        ],
+        "lunch": [
+            "burritoBowl"
+        ],
+        "snack": [],
+        "dinner": [
+            "slowCookerSesameChicken"
+        ]
+    },
+    "thursday": {
+        "breakfast": [
+            "breakfastSandwich"
+        ],
+        "lunch": [
+            "burritoBowl"
+        ],
+        "snack": [],
+        "dinner": [
+            "slowCookerSesameChicken"
+        ]
+    },
+    "friday": {
+        "breakfast": [],
+        "lunch": [
+            "burritoBowl"
+        ],
+        "snack": [],
+        "dinner": []
+    },
+    "saturday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": []
+    },
+    "sunday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": []
+    }
+}

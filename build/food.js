@@ -27,7 +27,8 @@ const KNOWN_UNITS = new Set([
     'scoops', 'pcs', 'psc', 'g', 'bag', 'bags', 'bunch', 'bunches', 'fillet',
     'fillets', 'bottle', 'bottles', 'bar', 'bars', 'cloves', 'clove', 'pack', 'packs',
     'x', 'head', 'heads', 'dab', 'dabs', 'slices', 'slice', 'cans', 'can', 'piece',
-    'pieces', 'oz', 'boxes', 'box',
+    'pieces', 'oz', 'boxes', 'box', 'packets', 'packet', 'inches', 'inch', 'sprigs',
+    'sprig', 'pounds', 'pound',
 ]);
 // things we probably don't have to buy, but should check that we have enough
 // of
@@ -226,6 +227,8 @@ const UnitStandardize = new Map([
     ['cups', 'cup'],
     // weight
     ['lbs', 'lb'],
+    ['pounds', 'lb'],
+    ['pound', 'lb'],
     // string matching
     ['scoops', 'scoop'],
     ['pieces', 'psc'],
@@ -239,11 +242,15 @@ const UnitStandardize = new Map([
     ['boxes', 'box'],
     ['cloves', 'clove'],
     ['packs', 'pack'],
+    ['packets', 'pack'],
+    ['packet', 'pack'],
     ['heads', 'head'],
     ['dabs', 'dab'],
     ['slices', 'slice'],
     ['cans', 'can'],
     ['fillets', 'fillet'],
+    ['inches', 'inch'],
+    ['sprigs', 'sprig'],
 ]);
 /**
  * Convert units of the same type (volume, weight, etc.) to a common denominator so they

@@ -1,5 +1,5 @@
 {
-    "apple (granny smith)": [
+    "apple": [
         [75, "1 x"]
     ],
     "arugula": [
@@ -14,6 +14,9 @@
     "bacon": [
         [120, "2 pcs"]
     ],
+    "baguette": [
+        [990, "1 x"]
+    ],
     "balsamic vinegar": [
         [5, "1 tsp"]
     ],
@@ -21,7 +24,9 @@
         [120, "1 x"]
     ],
     "basil": [
-        [5, "0.5 bunch"]
+        [5, "0.5 bunch"],
+        [5, "1 cup"],
+        [5, "1 sprig"]
     ],
     "beer (7% abv)": [
         [210, "12 fl-oz"]
@@ -41,6 +46,12 @@
     ],
     "butter": [
         [100, "1 tbsp"]
+    ],
+    "dried bread crumbs": [
+        [430, "1 cup"]
+    ],
+    "dried parsley leaves": [
+        [2, "1 tsp"]
     ],
     "breakfast sausage patty": [
         [100, "1 x"]
@@ -89,13 +100,22 @@
         [0, "0.5 tsp"]
     ],
     "corn": [
-        [66, "0.5 cup"]
+        [60, "0.5 cup"],
+        [210, "1 can"]
+    ],
+    "cornstarch": [
+        [488, "1 cup"]
     ],
     "cucumber": [
         [17, "0.5 x"]
     ],
     "Dave's Killer Bread": [
         [120, "1 psc"]
+    ],
+    "diced tomatoes": [
+        [88, "1 can"],
+        [88, "14.5 oz"],
+        [25, "0.5 cup"]
     ],
     "dukkah": [
         [0, "1 tsp"]
@@ -115,12 +135,21 @@
     "english muffin": [
         [130, "1 x"]
     ],
+    "fish sauce": [
+        [16, "1 tbsp"]
+    ],
+    "fresno chiles": [
+        [30, "1.5 x"]
+    ],
     "frozen vegetables (steamed)": [
         [105, "1 cup"]
     ],
     "garlic": [
         [8, "2 cloves"],
         [4, "1 tbsp"]
+    ],
+    "ginger": [
+        [6, "1 inch"]
     ],
     "ginger paste": [
         [30, "2 tsp"]
@@ -134,8 +163,20 @@
     "green onion": [
        [20, "4 x"]
     ],
+    "ground beef (80% lean)": [
+        [1120, "1 lb"]
+    ],
     "ground beef (85% lean)": [
-        [325, "0.33 lb"]
+        [960, "1 lb"]
+    ],
+    "ground beef (90% lean)": [
+        [700, "1 lb"]
+    ],
+    "ground ginger": [
+        [17, "1 tbsp"]
+    ],
+    "ground pork": [
+        [335, "4 oz"]
     ],
     "ham": [
         [71, "66 g"],
@@ -146,6 +187,9 @@
     ],
     "hash brown patty": [
         [140, "1 x"]
+    ],
+    "hoisin sauce": [
+        [90, "2 tbsp"]
     ],
     "hondashi": [
         [10, "1 tbsp"]
@@ -174,11 +218,19 @@
     "Just Crack an Egg: Ultimate": [
         [170, "1 cup"]
     ],
+    "kale": [
+        [33, "1 cup"]
+    ],
+    "ketchup": [
+        [40, "2 tbsp"]
+    ],
     "lemon (juice)": [
-        [5, "½ x"]
+        [5, "½ x"],
+        [5, "1 tbsp"]
     ],
     "lettuce": [
-        [4, "2 pcs"]
+        [4, "2 pcs"],
+        [8, "1 cup"]
     ],
     "lime": [
         [5, "1 x"]
@@ -188,6 +240,9 @@
     ],
     "mayo": [
         [100, "1 tbsp"]
+    ],
+    "mexican cheese": [
+        [110, "0.25 cup"]
     ],
     "milk (1%)": [
         [100, "1 cup"]
@@ -225,14 +280,29 @@
     "peas": [
         [105, "1 cup"]
     ],
+    "pepperoni": [
+        [75, "3 pieces"]
+    ],
+    "pickled ginger": [
+        [27, "2 tbsp"]
+    ],
     "potatoes (Yukon gold)": [
         [175, "0.5 lb"]
     ],
     "potato flakes": [
         [140, "⅔ cup"]
     ],
+    "pork sausages (Johnsonville)": [
+        [260, "1 x"]
+    ],
     "Pro Base Energy Bar": [
         [280, "1 x"]
+    ],
+    "protein powder": [
+        [120, "1 scoop"]
+    ],
+    "provolone cheese": [
+        [140, "2 slices"]
     ],
     "quinoa (cooked)": [
         [56, "0.25 cup"]
@@ -243,11 +313,35 @@
     "red onion": [
         [60, "1 x"]
     ],
+    "red wine vinegar": [
+        [3, "1 tbsp"]
+    ],
     "rice (white, cooked)": [
-        [100, "0.5 cup"]
+        [206, "1 cup"]
+    ],
+    "rice (brown, cooked)": [
+        [216, "1 cup"]
     ],
     "rice vinegar": [
         [0, "1 tbsp"]
+    ],
+    "roast beef": [
+        [111, "3 slices"]
+    ],
+    "Safeway Apple & Walnut Salad": [
+        [425, "1 x"]
+    ],
+    "Safeway Asian Style Salad": [
+        [510, "1 x"]
+    ],
+    "Safeway Chef Salad": [
+        [510, "1 x"]
+    ],
+    "Safeway Cobb Salad": [
+        [420, "1 x"]
+    ],
+    "Safeway Thai-style Salad": [
+        [560, "1 x"]
     ],
     "sake": [
         [40, "2 tbsp"]
@@ -261,6 +355,9 @@
     "salt": [
         [0, "1 tsp"]
     ],
+    "sambal oelek": [
+        [14, "0.5 cup"]
+    ],
     "scallions": [
         [20, "4 x"]
     ],
@@ -272,6 +369,12 @@
     ],
     "sesame seeds": [
         [16, "1 tsp"]
+    ],
+    "shrimp": [
+        [225, "0.5 lb"]
+    ],
+    "siracha": [
+        [5, "1 tsp"]
     ],
     "snap peas": [
         [100, "0.5 lbs"]
@@ -288,6 +391,9 @@
     "splenda": [
         [0, "1 pack"]
     ],
+    "squash": [
+        [70, "410 g"]
+    ],
     "strawberries": [
         [74, "0.5 lbs"]
     ],
@@ -297,6 +403,9 @@
     "sweet potato": [
         [160, "0.5 lbs"]
     ],
+    "taco seasoning": [
+        [70, "1 packet"]
+    ],
     "togarashi": [
         [0, "1 tsp"]
     ],
@@ -304,12 +413,21 @@
         [9, "⅓ x"],
         [3, "1 slice"]
     ],
+    "tomato paste": [
+        [25, "2 tbsp"]
+    ],
+    "Tonkotsu Ramen (Sun Noodle Brand)": [
+        [500, "1 pack"]
+    ],
     "red sauce": [
         [660, "1 can"],
         [110, "0.5 cup"]
     ],
     "tuna (5oz can, in water)": [
         [100, "1 can"]
+    ],
+    "turkey": [
+        [111, "3 slices"]
     ],
     "vanilla extract": [
         [3, "0.25 tsp"]
@@ -322,6 +440,12 @@
     ],
     "water": [
         [0, "1 cup"]
+    ],
+    "water chestnuts": [
+        [60, "1 can"]
+    ],
+    "Worcestershire sauce": [
+        [13, "1 tbsp"]
     ],
     "yellow onion": [
         [60, "1 x"]

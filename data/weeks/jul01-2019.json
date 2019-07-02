@@ -4,7 +4,7 @@
             "breakfastSandwich"
         ],
         "lunch": [
-            "burritoBowl"
+            "burritoBowlJuly1"
         ],
         "snack": [],
         "dinner": [
@@ -15,7 +15,9 @@
         "breakfast": [
             "breakfastSandwich"
         ],
-        "lunch": [],
+        "lunch": [
+            "eatOutLunch"
+        ],
         "snack": [],
         "dinner": [
             "slowCookerSesameChicken"
@@ -26,7 +28,7 @@
             "breakfastSandwich"
         ],
         "lunch": [
-            "burritoBowl"
+            "burritoBowlJuly1"
         ],
         "snack": [],
         "dinner": [
@@ -38,7 +40,7 @@
             "breakfastSandwich"
         ],
         "lunch": [
-            "burritoBowl"
+            "burritoBowlJuly1"
         ],
         "snack": [],
         "dinner": [
@@ -48,7 +50,7 @@
     "friday": {
         "breakfast": [],
         "lunch": [
-            "burritoBowl"
+            "burritoBowlJuly1"
         ],
         "snack": [],
         "dinner": []

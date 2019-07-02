@@ -94,11 +94,9 @@ function preprocessDishes(dishes: Dishes): Dishes {
             let newDish = clone(origDish);
             newDish.ingredients = [];
             for (let ingredient of origDish.ingredients) {
-                let [origCals, origDesc] = ingredient;
-                let [origQuantity, unit, thing] = getQUT(origDesc.split(' '));
-                let newCals = Math.round(origCals / servings);
+                let [origQuantity, unit, thing] = getQUT(ingredient.split(' '));
                 let newQuantity = (origQuantity / servings).toFixed(2);
-                newDish.ingredients.push([newCals, [newQuantity + '', unit, thing].join(' ')])
+                newDish.ingredients.push([newQuantity + '', unit, thing].join(' '))
             }
             result[dishID] = newDish;
         }

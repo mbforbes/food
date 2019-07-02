@@ -3,10 +3,10 @@
 		"title": "Arugula Side Salad",
 		"mealHint": "dinner",
 		"ingredients": [
-			[18, "71 g arugula"],
-			[60, "0.5 tbsp olive oil"],
-			[5, "½ lemon (juice)"],
-			[54, "¼ avocado"]
+			"71 g arugula",
+			"0.5 tbsp olive oil",
+			"½ lemon (juice)",
+			"¼ avocado"
 		],
 		"img": "img/arugula-side-salad.png"
 	},
@@ -14,8 +14,8 @@
 		"title": "Baked Asparagus (side)",
 		"mealHint": "dinner",
 		"ingredients": [
-			[42, "1 bunch asparagus"],
-			[120, "1 tbsp olive oil"]
+			"1 bunch asparagus",
+			"1 tbsp olive oil"
 		],
 		"img": "img/asparagus.png"
 	},
@@ -23,13 +23,13 @@
 		"title": "Asparagus Pancetta Hash",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[294, "0.125 lb pancetta (grease incl.)"],
-			[175, "0.5 lb potatoes (Yukon gold)"],
-			[30, "½ onion"],
-			[21, "0.5 bunch asparagus"],
-			[140, "2 egg"],
-			[60, "1 dab goat cheese"],
-			[5, "1 green onion"]
+			"0.125 lb pancetta (grease incl.)",
+			"0.5 lb potatoes (Yukon gold)",
+			"½ onion",
+			"0.5 bunch asparagus",
+			"2 egg",
+			"1 dab goat cheese",
+			"1 green onion"
 		],
 		"img": "img/asparagus-pancetta-hash.png",
 		"recipe": "https://smittenkitchen.com/2010/05/spring-asparagus-pancetta-hash/"
@@ -38,12 +38,12 @@
 		"title": "Avocado Sandwich",
 		"mealHint": "lunch",
 		"ingredients": [
-			[114, "½ avocado"],
-			[210, "3 egg"],
-			[8, "⅓ tomato"],
-			[4, "2 pcs lettuce"],
-			[120, "2 pcs bacon"],
-			[240, "2 pcs Dave's Killer Bread"]
+			"½ avocado",
+			"3 egg",
+			"⅓ tomato",
+			"2 pcs lettuce",
+			"2 pcs bacon",
+			"2 pcs Dave's Killer Bread"
 		],
 		"img": "img/avocado-sandwich.png"
 	},
@@ -51,7 +51,7 @@
 		"title": "Bacon",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[120, "2 pcs bacon"]
+			"2 pcs bacon"
 		],
 		"img": "img/bacon.png"
 	},
@@ -59,8 +59,8 @@
 		"title": "Baked Broccoli (side)",
 		"mealHint": "dinner",
 		"ingredients": [
-			[120, "2 head broccoli"],
-			[120, "1 tbsp olive oil"]
+			"2 head broccoli",
+			"1 tbsp olive oil"
 		],
 		"img": "img/baked-broccoli.png"
 	},
@@ -68,11 +68,11 @@
 		"title": "Banana Pancakes",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[120, "1 banana"],
-			[140, "2 egg"],
-			[128, "¼ cup pancake mix (TJ's pumpkin)"],
-			[52, "1 tbsp maple syrup"],
-			[50, "½ tbsp butter"]
+			"1 banana",
+			"2 egg",
+			"¼ cup pancake mix (TJ's pumpkin)",
+			"1 tbsp maple syrup",
+			"½ tbsp butter"
 		],
 		"img": "img/banana-pancakes.png"
 	},
@@ -80,7 +80,7 @@
 		"title": "Beeeeeerrr",
 		"mealHint": "snack",
 		"ingredients": [
-			[210, "12 fl-oz beer (7% abv)"]
+			"12 fl-oz beer (7% abv)"
 		],
 		"img": "img/beer.png"
 	},
@@ -88,10 +88,10 @@
 		"title": "Biscuit Sandwich",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[100, "1 breakfast sausage patty"],
-			[70, "1 egg"],
-			[160, "1 biscuit"],
-			[113, "1 slices cheddar cheese"]
+			"1 breakfast sausage patty",
+			"1 egg",
+			"1 biscuit",
+			"1 slices cheddar cheese"
 		],
 		"img": "img/biscuit-sandwich.png"
 	},
@@ -99,27 +99,28 @@
 		"title": "Breakfast Sandwich",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[140, "2 egg"],
-			[16, "0.125 cup milk (2%)"],
-			[15, "0.25 red onion"],
-			[15, "0.25 bell pepper"],
-			[74, "2 slices ham"],
-			[130, "1 english muffin"],
-			[113, "1 slices cheddar cheese"]
+			"8 egg",
+			"0.5 cup milk (2%)",
+			"1 red onion",
+			"1 bell pepper",
+			"5 slices ham",
+			"5 english muffin",
+			"5 slice cheddar cheese"
 		],
 		"img": "img/breakfast-sandwich.png",
-		"recipe": "https://tasty.co/recipe/breakfast-sandwich-meal-prep"
+		"recipe": "https://tasty.co/recipe/breakfast-sandwich-meal-prep",
+		"recipeServings": 5
 	},
 	"bibimbap": {
 		"title": "Bibimbap",
 		"mealHint": "dinner",
 		"ingredients": [
-			[200, "1 cup rice (white, cooked)"],
-			[25, "1 carrot"],
-			[17, "½ cucumber"],
-			[16, "4 mushrooms (white)"],
-			[60, "½ tbsp olive oil"],
-			[70, "1 egg"]
+			"1 cup rice (white, cooked)",
+			"1 carrot",
+			"½ cucumber",
+			"4 mushrooms (white)",
+			"½ tbsp olive oil",
+			"1 egg"
 		],
 		"img": "img/bibimbap.png"
 	},
@@ -127,7 +128,7 @@
 		"title": "Breakfast Sausage Patties",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[200, "2 breakfast sausage patty"]
+			"2 breakfast sausage patty"
 		],
 		"img": "img/breakfast-sausage-patties.png"
 	},
@@ -135,13 +136,13 @@
 		"title": "Breakfast Scramble",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[60, "½ tbsp olive oil"],
-			[30, "½ bell pepper"],
-			[30, "½ onion"],
-			[140, "2 egg"],
-			[50, "0.5 tbsp butter"],
-			[70, "1 slice cheddar cheese"],
-			[30, "1 slice ham"]
+			"½ tbsp olive oil",
+			"½ bell pepper",
+			"½ onion",
+			"2 egg",
+			"0.5 tbsp butter",
+			"1 slice cheddar cheese",
+			"1 slice ham"
 		],
 		"img": "img/breakfast-scramble.png"
 	},
@@ -149,8 +150,8 @@
 		"title": "Baked Brussles Sprouts (side)",
 		"mealHint": "dinner",
 		"ingredients": [
-			[96, "12 brussles sprouts"],
-			[120, "1 tbsp olive oil"]
+			"12 brussles sprouts",
+			"1 tbsp olive oil"
 		],
 		"img": "img/brussles-sprouts.png"
 	},
@@ -158,8 +159,8 @@
 		"title": "Buttered Toast",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[120, "1 pcs Dave's Killer Bread"],
-			[50, "½ tbsp butter"]
+			"1 pcs Dave's Killer Bread",
+			"½ tbsp butter"
 		],
 		"img": "img/buttered-toast.png"
 	},
@@ -167,17 +168,36 @@
 		"title": "Burrito Bowl",
 		"mealHint": "lunch",
 		"ingredients": [
-			[0, "2 bell pepper"],
-			[0, "1 red onion"],
-			[0, "1 lb ground beef (90% lean)"],
-			[0, "1 pack taco seasoning"],
-			[0, "28 oz diced tomatoes"],
-			[0, "4 cups rice (brown, cooked)"],
-			[0, "1 can black beans"],
-			[0, "1 can corn"],
-			[0, "1 cup mexican cheese"],
-			[0, "0.5 lime"],
-			[0, "1 avocado"]
+			"2 bell pepper",
+			"1 red onion",
+			"1 lb ground beef (90% lean)",
+			"1 pack taco seasoning",
+			"14.5 oz diced tomatoes",
+			"4 cups rice (brown, cooked)",
+			"1 can black beans",
+			"1 can corn",
+			"1 cup mexican cheese",
+			"0.5 lime",
+			"1 avocado"
+		],
+		"img": "img/burrito-bowl.png",
+		"recipeServings": 4
+	},
+	"burritoBowlJuly1": {
+		"title": "Burrito Bowl July 1",
+		"mealHint": "lunch",
+		"ingredients": [
+			"2 tbsp olive oil",
+			"2 bell pepper",
+			"1 red onion",
+			"1 lb ground beef (90% lean)",
+			"1 pack taco seasoning",
+			"14.5 oz diced tomatoes",
+			"2.75 cups rice (brown, cooked)",
+			"1 can black beans",
+			"1 can corn",
+			"0.5 lime",
+			"1 avocado"
 		],
 		"img": "img/burrito-bowl.png",
 		"recipeServings": 4
@@ -186,16 +206,16 @@
 		"title": "Caprese Chicken Salad Bowl",
 		"mealHint": "lunch",
 		"ingredients": [
-			[56, "0.25 cup quinoa (cooked)"],
-			[60, "½ tbsp olive oil"],
-			[7, "½ tbsp balsamic vinegar"],
-			[140, "0.5 chicken breast"],
-			[35, "1 cup cherry tomatoes"],
-			[5, "0.5 bunch basil"],
-			[200, "0.5 cup mozarella"],
-			[120, "1 tbsp olive oil"],
-			[5, "1 tsp balsamic vinegar"],
-			[21, "1 tsp honey"]
+			"0.25 cup quinoa (cooked)",
+			"½ tbsp olive oil",
+			"½ tbsp balsamic vinegar",
+			"0.5 chicken breast",
+			"1 cup cherry tomatoes",
+			"0.5 bunch basil",
+			"0.5 cup mozarella",
+			"1 tbsp olive oil",
+			"1 tsp balsamic vinegar",
+			"1 tsp honey"
 		],
 		"img": "img/caprese-chicken-salad-bowl.png",
 		"recipe": "https://sweetpeasandsaffron.com/caprese-chicken-salad-meal-prep-bowls/"
@@ -204,7 +224,7 @@
 		"title": "Carrots",
 		"mealHint": "snack",
 		"ingredients": [
-			[61, "150 g carrots"]
+			"150 g carrots"
 		],
 		"img": "img/carrots.png"
 	},
@@ -212,13 +232,13 @@
 		"title": "Cheeseburger",
 		"mealHint": "dinner",
 		"ingredients": [
-			[325, "⅓ lb ground beef (85% lean)"],
-			[70, "1 slice cheese (Amiercan)"],
-			[70, "1 egg"],
-			[3, "1 slice tomato"],
-			[2, "1 piece lettuce"],
-			[100, "1 tbsp mayo"],
-			[240, "1 hamburger bun"]
+			"⅓ lb ground beef (85% lean)",
+			"1 slice cheese (Amiercan)",
+			"1 egg",
+			"1 slice tomato",
+			"1 piece lettuce",
+			"1 tbsp mayo",
+			"1 hamburger bun"
 		],
 		"img": "img/cheeseburger.png"
 	},
@@ -226,11 +246,11 @@
 		"title": "Chia Seed Pudding",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[290, "5 tbsp chia seeds"],
-			[100, "1 cup milk (1%)"],
-			[3, "0.25 tsp vanilla extract"],
-			[50, "1 tbsp brown sugar"],
-			[74, "0.5 lbs strawberries"]
+			"5 tbsp chia seeds",
+			"1 cup milk (1%)",
+			"0.25 tsp vanilla extract",
+			"1 tbsp brown sugar",
+			"0.5 lbs strawberries"
 		],
 		"img": "img/chia-seed-pudding.png",
 		"recipe": "https://www.eatingbirdfood.com/basic-chia-seed-pudding/"
@@ -239,10 +259,10 @@
 		"title": "Chicken, Rice, and Broccoli",
 		"mealHint": "dinner",
 		"ingredients": [
-			[280, "1 chicken breast"],
-			[200, "1 cup rice (white, cooked)"],
-			[60, "1 head broccoli"],
-			[60, "½ tbsp olive oil"]
+			"1 chicken breast",
+			"1 cup rice (white, cooked)",
+			"1 head broccoli",
+			"½ tbsp olive oil"
 		],
 		"img": "img/chicken-rice-broc.png"
 	},
@@ -250,19 +270,19 @@
 		"title": "Chicken Vegetable Stir-Fry",
 		"mealHint": "dinner",
 		"ingredients": [
-			[280, "1 chicken breast"],
-			[120, "1 tbsp olive oil"],
-			[15, "0.25 onion"],
-			[16, "4 mushrooms (white)"],
-			[33, "1 zucchini"],
-			[2, "1 serrano chili pepper"],
-			[8, "2 clove garlic"],
-			[20, "4 scallions"],
-			[30, "2 tsp ginger paste"],
-			[18, "2 tbsp soy sauce"],
-			[0, "1 tbsp rice vinegar"],
-			[43, "1 tsp sesame oil"],
-			[16, "1 tsp sesame seeds"]
+			"1 chicken breast",
+			"1 tbsp olive oil",
+			"0.25 onion",
+			"4 mushrooms (white)",
+			"1 zucchini",
+			"1 serrano chili pepper",
+			"2 clove garlic",
+			"4 scallions",
+			"2 tsp ginger paste",
+			"2 tbsp soy sauce",
+			"1 tbsp rice vinegar",
+			"1 tsp sesame oil",
+			"1 tsp sesame seeds"
 		],
 		"img": "img/chicken-veggie-stir-fry.png",
 		"recipe": "https://www.youtube.com/watch?v=TCVTOa01uN8"
@@ -271,12 +291,12 @@
 		"title": "Dukkah Chicken",
 		"mealHint": "dinner",
 		"ingredients": [
-			[160, "0.5 lbs sweet potato"],
-			[5, "1 tbsp dukkah"],
-			[5, "1 lime"],
-			[92, "4 tbsp sour cream"],
-			[280, "1 chicken breast"],
-			[100, "0.5 lbs snap peas"]
+			"0.5 lbs sweet potato",
+			"1 tbsp dukkah",
+			"1 lime",
+			"4 tbsp sour cream",
+			"1 chicken breast",
+			"0.5 lbs snap peas"
 		],
 		"img": "img/dukkah-chicken.png",
 		"recipe": "https://www.hellofresh.com/recipes/uk-pan-fried-chicken-with-sweet-5857fc5d14d0f16d6175eb32"
@@ -285,7 +305,7 @@
 		"title": "[Eating Out!]",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[500, "1 x [eat this much 500]"]
+			"1 x [eat this much 500]"
 		],
 		"img": "img/eat-out-breakfast.png"
 	},
@@ -293,7 +313,7 @@
 		"title": "[Eating Out!]",
 		"mealHint": "lunch",
 		"ingredients": [
-			[600, "1 x [eat this much 600]"]
+			"1 x [eat this much 600]"
 		],
 		"img": "img/eat-out-lunch.png"
 	},
@@ -301,7 +321,7 @@
 		"title": "[Eating Out!]",
 		"mealHint": "dinner",
 		"ingredients": [
-			[700, "1 x [eat this much 700]"]
+			"1 x [eat this much 700]"
 		],
 		"img": "img/eat-out-dinner.png"
 	},
@@ -309,12 +329,12 @@
 		"title": "Egg Bake",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[140, "2 egg"],
-			[25, "0.1666 cup milk (1%)"],
-			[104, "27 g cheddar cheese"],
-			[71, "66 g ham"],
-			[20, "⅓ onion"],
-			[20, "⅓ bell pepper"]
+			"2 egg",
+			"0.1666 cup milk (1%)",
+			"27 g cheddar cheese",
+			"66 g ham",
+			"⅓ onion",
+			"⅓ bell pepper"
 		],
 		"img": "img/egg-bake.png"
 	},
@@ -322,7 +342,7 @@
 		"title": "Energy Bar (Pro Base)",
 		"mealHint": "snack",
 		"ingredients": [
-			[280, "1 Pro Base Energy Bar"]
+			"1 Pro Base Energy Bar"
 		],
 		"img": "img/energy-bar.png"
 	},
@@ -330,8 +350,8 @@
 		"title": "English Muffin + Butter",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[120, "1 english muffin"],
-			[50, "½ tbsp butter"]
+			"1 english muffin",
+			"½ tbsp butter"
 		],
 		"img": "img/buttered-english-muffin.png"
 	},
@@ -339,7 +359,7 @@
 		"title": "English Muffin (Side)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[120, "1 english muffin"]
+			"1 english muffin"
 		],
 		"img": "img/english-muffin.png"
 	},
@@ -347,8 +367,8 @@
 		"title": "Half Chicken Breast",
 		"mealHint": "snack",
 		"ingredients": [
-			[30, "0.25 tbsp olive oil"],
-			[140, "½ chicken breast"]
+			"0.25 tbsp olive oil",
+			"½ chicken breast"
 		],
 		"img": "img/chicken-breast.png"
 	},
@@ -356,8 +376,8 @@
 		"title": "Chicken Breast",
 		"mealHint": "dinner",
 		"ingredients": [
-			[60, "½ tbsp olive oil"],
-			[280, "1 chicken breast"]
+			"½ tbsp olive oil",
+			"1 chicken breast"
 		],
 		"img": "img/chicken-breast.png"
 	},
@@ -365,19 +385,19 @@
 		"title": "Fried Rice",
 		"mealHint": "dinner",
 		"ingredients": [
-			[360, "3 tbsp vegetable oil"],
-			[60, "1 onion"],
-			[60, "1 bell pepper"],
-			[50, "2 carrots"],
-			[0, "1 tbsp garlic"],
-			[105, "1 cup peas"],
-			[0, "1 tbsp ginger paste"],
-			[800, "4 cups rice (white, cooked)"],
-			[210, "3 egg"],
-			[0, "0.25 cup water"],
-			[18, "2 tbsp soy sauce"],
-			[120, "1 tbsp sesame oil"],
-			[0, "4 green onion"]
+			"3 tbsp vegetable oil",
+			"1 onion",
+			"1 bell pepper",
+			"2 carrots",
+			"1 tbsp garlic",
+			"1 cup peas",
+			"1 tbsp ginger paste",
+			"4 cups rice (white, cooked)",
+			"3 egg",
+			"0.25 cup water",
+			"2 tbsp soy sauce",
+			"1 tbsp sesame oil",
+			"4 green onion"
 		],
 		"img": "img/fried-rice.png",
 		"recipe": "https://cooking.nytimes.com/recipes/12177-fried-rice",
@@ -387,8 +407,8 @@
 		"title": "Frozen Vegetables",
 		"mealHint": "dinner",
 		"ingredients": [
-			[105, "1 cup frozen vegetables (steamed)"],
-			[25, "¼ tbsp butter"]
+			"1 cup frozen vegetables (steamed)",
+			"¼ tbsp butter"
 		],
 		"img": "img/frozen-veggies.png"
 	},
@@ -396,7 +416,7 @@
 		"title": "Hardboiled Egg",
 		"mealHint": "lunch",
 		"ingredients": [
-			[70, "1 egg"]
+			"1 egg"
 		],
 		"img": "img/hardboiled-eggs.png"
 	},
@@ -404,7 +424,7 @@
 		"title": "Hash Brown Patty",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[140, "1 hash brown patty"]
+			"1 hash brown patty"
 		],
 		"img": "img/hash-brown-patty.png"
 	},
@@ -412,7 +432,7 @@
 		"title": "Hummus",
 		"mealHint": "snack",
 		"ingredients": [
-			[50, "2 tbsp hummus"]
+			"2 tbsp hummus"
 		],
 		"img": "img/hummus.png"
 	},
@@ -420,10 +440,10 @@
 		"title": "Mashed Potatoes (side)",
 		"mealHint": "dinner",
 		"ingredients": [
-			[33, "⅓ cup milk (1%)"],
-			[0, "⅔ cup water"],
-			[100, "1 tbsp butter"],
-			[140, "⅔ cup potato flakes"]
+			"⅓ cup milk (1%)",
+			"⅔ cup water",
+			"1 tbsp butter",
+			"⅔ cup potato flakes"
 		],
 		"img": "img/mashed-potatoes.png"
 	},
@@ -431,14 +451,14 @@
 		"title": "Italian Sub",
 		"mealHint": "lunch",
 		"ingredients": [
-			[330, "⅓ baguette"],
-			[140, "2 slices provolone cheese"],
-			[111, "3 slices turkey"],
-			[111, "3 slices roast beef"],
-			[75, "3 pieces pepperoni"],
-			[100, "1 tbsp butter"],
-			[11, "0.5 tomato"],
-			[8, "1 cup lettuce"]
+			"⅓ baguette",
+			"2 slices provolone cheese",
+			"3 slices turkey",
+			"3 slices roast beef",
+			"3 pieces pepperoni",
+			"1 tbsp butter",
+			"0.5 tomato",
+			"1 cup lettuce"
 		],
 		"img": "img/italian-sub.png"
 	},
@@ -446,7 +466,7 @@
 		"title": "Jam (Side)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[50, "1 tbsp jam"]
+			"1 tbsp jam"
 		],
 		"img": "img/jam.png"
 	},
@@ -454,9 +474,9 @@
 		"title": "Jam Toast",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[120, "1 pcs Dave's Killer Bread"],
-			[50, "½ tbsp butter"],
-			[50, "1 tbsp jam"]
+			"1 pcs Dave's Killer Bread",
+			"½ tbsp butter",
+			"1 tbsp jam"
 		],
 		"img": "img/jam-toast.png"
 	},
@@ -464,8 +484,8 @@
 		"title": "Just Crack an Egg: Denver (+2 eggs)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[120, "1 cup Just Crack an Egg: Denver"],
-			[140, "2 egg"]
+			"1 cup Just Crack an Egg: Denver",
+			"2 egg"
 		],
 		"img": "img/jce-denver.png"
 	},
@@ -473,8 +493,8 @@
 		"title": "Just Crack an Egg: American (+2 eggs)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[180, "1 cup Just Crack an Egg: American"],
-			[140, "2 egg"]
+			"1 cup Just Crack an Egg: American",
+			"2 egg"
 		],
 		"img": "img/jce-american.png"
 	},
@@ -482,8 +502,8 @@
 		"title": "Just Crack an Egg: Ultimate (+2 eggs)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[170, "1 cup Just Crack an Egg: Ultimate"],
-			[140, "2 egg"]
+			"1 cup Just Crack an Egg: Ultimate",
+			"2 egg"
 		],
 		"img": "img/jce-ultimate.png"
 	},
@@ -491,8 +511,8 @@
 		"title": "Just Crack an Egg: Rustic (+2 eggs)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[100, "1 cup Just Crack an Egg: Rustic"],
-			[140, "2 egg"]
+			"1 cup Just Crack an Egg: Rustic",
+			"2 egg"
 		],
 		"img": "img/jce-rustic.png"
 	},
@@ -500,12 +520,12 @@
 		"title": "Kale Salad",
 		"mealHint": "lunch",
 		"ingredients": [
-			[-1, "2 cups kale"],
-			[-1, "0.5 apple"],
-			[-1, "0.25 cup walnuts"],
-			[-1, "2 tbsp lemon (juice)"],
-			[-1, "2 tbsp olive oil"],
-			[-1, "1 tsp honey"]
+			"2 cups kale",
+			"0.5 apple",
+			"0.25 cup walnuts",
+			"2 tbsp lemon (juice)",
+			"2 tbsp olive oil",
+			"1 tsp honey"
 		],
 		"img": "img/kale-apple-walnut-salad.png",
 		"recipe": "https://www.freshfitkitchen.com/kale-apple-and-walnut-salad/"
@@ -514,18 +534,18 @@
 		"title": "Lettuce Wrap",
 		"mealHint": "dinner",
 		"ingredients": [
-			[16, "8 pieces lettuce"],
-			[400, "0.5 lb ground beef (90% lean)"],
-			[60, "0.5 tbsp olive oil"],
-			[30, "0.5 onion"],
-			[70, "2 tbsp hoisin sauce"],
-			[4, "1 clove garlic"],
-			[5, "0.5 tbsp soy sauce"],
-			[0, "0.5 tbsp rice vinegar"],
-			[6, "1 tsp pickled ginger"],
-			[30, "0.5 can water chestnuts"],
-			[30, "6 scallions"],
-			[43, "1 tsp sesame oil"]
+			"8 pieces lettuce",
+			"0.5 lb ground beef (90% lean)",
+			"0.5 tbsp olive oil",
+			"0.5 onion",
+			"2 tbsp hoisin sauce",
+			"1 clove garlic",
+			"0.5 tbsp soy sauce",
+			"0.5 tbsp rice vinegar",
+			"1 tsp pickled ginger",
+			"0.5 can water chestnuts",
+			"6 scallions",
+			"1 tsp sesame oil"
 		],
 		"img": "img/lettuce-wraps.png",
 		"recipe": "https://www.allrecipes.com/recipe/71722/asian-lettuce-wraps/"
@@ -534,17 +554,17 @@
 		"title": "Meatloaf",
 		"mealHint": "dinner",
 		"ingredients": [
-			[800, "1 lb ground beef (90% lean)"],
-			[430, "1 cup dried bread crumbs"],
-			[60, "1 onion"],
-			[64, "0.5 cup milk (2%)"],
-			[70, "1 egg"],
-			[40, "2 tbsp ketchup"],
-			[13, "1 tbsp Worcestershire sauce"],
-			[2, "1 tsp dried parsley leaves"],
-			[80, "0.25 cup ketchup"],
-			[100, "2 tbsp brown sugar"],
-			[3, "1 tbsp red wine vinegar"]
+			"1 lb ground beef (90% lean)",
+			"1 cup dried bread crumbs",
+			"1 onion",
+			"0.5 cup milk (2%)",
+			"1 egg",
+			"2 tbsp ketchup",
+			"1 tbsp Worcestershire sauce",
+			"1 tsp dried parsley leaves",
+			"0.25 cup ketchup",
+			"2 tbsp brown sugar",
+			"1 tbsp red wine vinegar"
 		],
 		"img": "img/meatloaf.png",
 		"recipe": "https://www.thewholesomedish.com/the-best-classic-meatloaf/",
@@ -554,12 +574,12 @@
 		"title": "Omelette",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[60, "½ tbsp olive oil"],
-			[30, "½ bell pepper"],
-			[30, "½ onion"],
-			[16, "4 mushrooms (white)"],
-			[50, "½ tbsp butter"],
-			[210, "3 egg"]
+			"½ tbsp olive oil",
+			"½ bell pepper",
+			"½ onion",
+			"4 mushrooms (white)",
+			"½ tbsp butter",
+			"3 egg"
 		],
 		"img": "img/omelette.png"
 	},
@@ -567,15 +587,15 @@
 		"title": "Overnight Oats: Banana Bread",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[225, "0.75 cup oats"],
-			[75, "0.75 cup milk (1%)"],
-			[98, "0.75 cup greek yogurt"],
-			[0, "1 pack splenda"],
-			[0, "0.25 tsp salt"],
+			"0.75 cup oats",
+			"0.75 cup milk (1%)",
+			"0.75 cup greek yogurt",
+			"1 pack splenda",
+			"0.25 tsp salt",
 
-			[0, "0.5 tsp cinnamon"],
-			[50, "0.25 cup walnuts"],
-			[120, "1 banana"]
+			"0.5 tsp cinnamon",
+			"0.25 cup walnuts",
+			"1 banana"
 		],
 		"img": "img/overnight-oats-banana.png",
 		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
@@ -584,15 +604,15 @@
 		"title": "Overnight Oats: Blueberry Chocolate",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[225, "0.75 cup oats"],
-			[75, "0.75 cup milk (1%)"],
-			[98, "0.75 cup greek yogurt"],
-			[0, "1 pack splenda"],
-			[0, "0.25 tsp salt"],
+			"0.75 cup oats",
+			"0.75 cup milk (1%)",
+			"0.75 cup greek yogurt",
+			"1 pack splenda",
+			"0.25 tsp salt",
 
-			[3, "0.25 tsp vanilla extract"],
-			[85, "1 cup blueberries"],
-			[75, "1 tbsp chocolate chips"]
+			"0.25 tsp vanilla extract",
+			"1 cup blueberries",
+			"1 tbsp chocolate chips"
 		],
 		"img": "img/overnight-oats-blueberry.png",
 		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
@@ -601,15 +621,15 @@
 		"title": "Overnight Oats: Cinnamon Apple",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[225, "0.75 cup oats"],
-			[75, "0.75 cup milk (1%)"],
-			[98, "0.75 cup greek yogurt"],
-			[0, "1 pack splenda"],
-			[0, "0.25 tsp salt"],
+			"0.75 cup oats",
+			"0.75 cup milk (1%)",
+			"0.75 cup greek yogurt",
+			"1 pack splenda",
+			"0.25 tsp salt",
 
-			[0, "0.5 tsp cinnamon"],
-			[75, "1 apple"],
-			[56, "2 tbsp raisins"]
+			"0.5 tsp cinnamon",
+			"1 apple",
+			"2 tbsp raisins"
 		],
 		"img": "img/overnight-oats-apple.png",
 		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
@@ -618,14 +638,14 @@
 		"title": "Overnight Oats: Peanut Butter Coffee",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[225, "0.75 cup oats"],
-			[75, "0.75 cup milk (1%)"],
-			[98, "0.75 cup greek yogurt"],
-			[0, "1 pack splenda"],
-			[0, "0.25 tsp salt"],
+			"0.75 cup oats",
+			"0.75 cup milk (1%)",
+			"0.75 cup greek yogurt",
+			"1 pack splenda",
+			"0.25 tsp salt",
 
-			[190, "2 tbsp peanut butter"],
-			[0, "0.5 pack instant coffee"]
+			"2 tbsp peanut butter",
+			"0.5 pack instant coffee"
 		],
 		"img": "img/overnight-oats-pb.png",
 		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
@@ -634,16 +654,16 @@
 		"title": "Oyakodon",
 		"mealHint": "dinner",
 		"ingredients": [
-			[200, "1 cup rice (white, cooked)"],
-			[10, "1 tbsp hondashi"],
-			[9, "1 tbsp soy sauce"],
-			[40, "2 tbsp sake"],
-			[48, "1 tbsp sugar"],
-			[60, "1 yellow onion"],
-			[280, "1 chicken breast"],
-			[15, "3 scallions"],
-			[15, "3 egg"],
-			[0, "1 tsp togarashi"]
+			"1 cup rice (white, cooked)",
+			"1 tbsp hondashi",
+			"1 tbsp soy sauce",
+			"2 tbsp sake",
+			"1 tbsp sugar",
+			"1 yellow onion",
+			"1 chicken breast",
+			"3 scallions",
+			"3 egg",
+			"1 tsp togarashi"
 		],
 		"img": "img/oyakodon.png",
 		"recipe": "https://www.seriouseats.com/recipes/2016/08/oyakodon-japanese-chicken-and-egg-rice-bowl-recipe.html"
@@ -652,8 +672,8 @@
 		"title": "Peanut Butter Toast",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[190, "2 tbsp peanut butter"],
-			[120, "1 pcs Dave's Killer Bread"]
+			"2 tbsp peanut butter",
+			"1 pcs Dave's Killer Bread"
 		],
 		"img": "img/pb-toast.png"
 	},
@@ -661,9 +681,9 @@
 		"title": "PB & J",
 		"mealHint": "lunch",
 		"ingredients": [
-			[240, "2 pcs Dave's Killer Bread"],
-			[285, "3 tbsp peanut butter"],
-			[100, "2 tbsp jam"]
+			"2 pcs Dave's Killer Bread",
+			"3 tbsp peanut butter",
+			"2 tbsp jam"
 		],
 		"img": "img/pbnj.png"
 	},
@@ -671,7 +691,7 @@
 		"title": "Protein Scoop",
 		"mealHint": "snack",
 		"ingredients": [
-			[120, "1 scoop protein powder"]
+			"1 scoop protein powder"
 		],
 		"img": "img/protein-scoop.png"
 	},
@@ -679,8 +699,8 @@
 		"title": "Protein Shake",
 		"mealHint": "snack",
 		"ingredients": [
-			[120, "1 scoop protein powder"],
-			[102, "1 cup milk (1%)"]
+			"1 scoop protein powder",
+			"1 cup milk (1%)"
 		],
 		"img": "img/protein-shake.png"
 	},
@@ -688,13 +708,13 @@
 		"title": "Quinoa Salad",
 		"mealHint": "dinner",
 		"ingredients": [
-			[180, "½ can black beans"],
-			[140, "2 egg"],
-			[222, "1 cup quinoa (cooked)"],
-			[18, "71 g arugula"],
-			[120, "1 tbsp olive oil"],
-			[5, "½ lemon (juice)"],
-			[108, "0.5 avocado"]
+			"½ can black beans",
+			"2 egg",
+			"1 cup quinoa (cooked)",
+			"71 g arugula",
+			"1 tbsp olive oil",
+			"½ lemon (juice)",
+			"0.5 avocado"
 		],
 		"img": "img/quinoa-salad.png"
 	},
@@ -702,8 +722,8 @@
 		"title": "Fancy Ramen",
 		"mealHint": "dinner",
 		"ingredients": [
-			[500, "1 pack Tonkotsu Ramen (Sun Noodle Brand)"],
-			[70, "1 egg"]
+			"1 pack Tonkotsu Ramen (Sun Noodle Brand)",
+			"1 egg"
 		],
 		"img": "img/ramen.png"
 	},
@@ -711,7 +731,7 @@
 		"title": "Rice (side)",
 		"mealHint": "dinner",
 		"ingredients": [
-			[200, "1 cup rice (white, cooked)"]
+			"1 cup rice (white, cooked)"
 		],
 		"img": "img/rice.png"
 	},
@@ -719,7 +739,7 @@
 		"title": "Safeway Apple & Walnut Salad",
 		"mealHint": "lunch",
 		"ingredients": [
-			[-1, "1 Safeway Apple & Walnut Salad"]
+			"1 Safeway Apple & Walnut Salad"
 		],
 		"img": "img/safeway-salad-apple-walnut.png"
 	},
@@ -727,7 +747,7 @@
 		"title": "Safeway Asian Style Salad",
 		"mealHint": "lunch",
 		"ingredients": [
-			[-1, "1 Safeway Asian Style Salad"]
+			"1 Safeway Asian Style Salad"
 		],
 		"img": "img/safeway-salad-asian.png"
 	},
@@ -735,7 +755,7 @@
 		"title": "Safeway Chef Salad",
 		"mealHint": "lunch",
 		"ingredients": [
-			[510, "1 Safeway Chef Salad"]
+			"1 Safeway Chef Salad"
 		],
 		"img": "img/safeway-salad-chef.png"
 	},
@@ -743,7 +763,7 @@
 		"title": "Safeway Thai-style Salad",
 		"mealHint": "lunch",
 		"ingredients": [
-			[560, "1 Safeway Thai-style Salad"]
+			"1 Safeway Thai-style Salad"
 		],
 		"img": "img/safeway-salad-thai.png"
 	},
@@ -751,7 +771,7 @@
 		"title": "Salmon",
 		"mealHint": "dinner",
 		"ingredients": [
-			[578, "12 oz salmon"]
+			"12 oz salmon"
 		],
 		"img": "img/salmon.png"
 	},
@@ -759,8 +779,8 @@
 		"title": "Scrambled Eggs",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[140, "2 egg"],
-			[50, "½ tbsp butter"]
+			"2 egg",
+			"½ tbsp butter"
 		],
 		"img": "img/scrambled-eggs.png"
 	},
@@ -768,14 +788,14 @@
 		"title": "Shrimp and Basil Stir-Fry",
 		"mealHint": "dinner",
 		"ingredients": [
-			[30, "1.5 fresno chiles"],
-			[12, "3 clove garlic"],
-			[96, "2 tbsp sugar"],
-			[16, "1 tbsp fish sauce"],
-			[120, "2 tbsp vegetable oil"],
-			[225, "0.5 lb shrimp"],
-			[5, "1 cup basil"],
-			[5, "1 lime"]
+			"1.5 fresno chiles",
+			"3 clove garlic",
+			"2 tbsp sugar",
+			"1 tbsp fish sauce",
+			"2 tbsp vegetable oil",
+			"0.5 lb shrimp",
+			"1 cup basil",
+			"1 lime"
 		],
 		"img": "img/shrimpAndBasilStirFry.png",
 		"recipe": "https://www.bonappetit.com/recipe/shrimp-and-basil-stir-fry"
@@ -784,18 +804,18 @@
 		"title": "Slow Cooker Sesame Chicken",
 		"mealHint": "dinner",
 		"ingredients": [
-			[0, "4 chicken breast"],
-			[0, "0.33 cup soy sauce"],
-			[0, "0.33 cup honey"],
-			[0, "2 tbsp tomato paste"],
-			[0, "3 cloves garlic"],
-			[0, "1 tsp siracha"],
-			[0, "1 tsp ground ginger"],
-			[0, "1 tsp sesame oil"],
-			[0, "2 tbsp rice vinegar"],
-			[0, "1 tbsp cornstarch"],
-			[0, "4 heads broccoli"],
-			[0, "4 cups rice (white, cooked)"]
+			"4 chicken breast",
+			"0.33 cup soy sauce",
+			"0.33 cup honey",
+			"2 tbsp tomato paste",
+			"3 cloves garlic",
+			"1 tsp siracha",
+			"1 tsp ground ginger",
+			"1 tsp sesame oil",
+			"2 tbsp rice vinegar",
+			"1 tbsp cornstarch",
+			"4 heads broccoli",
+			"4 cups rice (white, cooked)"
 		],
 		"img": "img/slow-cooker-sesame-chicken.png",
 		"recipeServings": 4,
@@ -805,7 +825,7 @@
 		"title": "Soylent",
 		"mealHint": "lunch",
 		"ingredients": [
-			[400, "1 bottle soylent"]
+			"1 bottle soylent"
 		],
 		"img": "img/soylent.png"
 	},
@@ -813,9 +833,9 @@
 		"title": "Spaghetti, Red Sauce, Sausage",
 		"mealHint": "dinner",
 		"ingredients": [
-			[-1, "0.33 box pasta"],
-			[-1, "0.33 can red sauce"],
-			[-1, "2 pork sausages (Johnsonville)"]
+			"0.33 box pasta",
+			"0.33 can red sauce",
+			"2 pork sausages (Johnsonville)"
 		],
 		"img": "img/spag-sausage.png"
 	},
@@ -823,17 +843,17 @@
 		"title"	: "Spicy-Sweet Sambal Pork Noodles",
 		"mealHint": "dinner",
 		"ingredients": [
-			[-1, "0.5 lbs ground pork"],
-			[-1, "0.5 inch ginger"],
-			[-1, "2 clove garlic"],
-			[-1, "0.5 tbsp sugar"],
-			[-1, "0.5 tbsp tomato paste"],
-			[-1, "0.5 sprig basil"],
-			[-1, "1.5 tbsp sambal oelek"],
-			[-1, "1 tbsp soy sauce"],
-			[-1, "1 tbsp rice vinegar"],
-			[-1, "0.25 box pasta"],
-			[-1, "0.5 tbsp butter"]
+			"0.5 lbs ground pork",
+			"0.5 inch ginger",
+			"2 clove garlic",
+			"0.5 tbsp sugar",
+			"0.5 tbsp tomato paste",
+			"0.5 sprig basil",
+			"1.5 tbsp sambal oelek",
+			"1 tbsp soy sauce",
+			"1 tbsp rice vinegar",
+			"0.25 box pasta",
+			"0.5 tbsp butter"
 		],
 		"img": "img/spicySambalNoodles.png",
 		"recipe": "https://www.bonappetit.com/recipe/spicy-sweet-sambal-pork-noodles"
@@ -842,8 +862,8 @@
 		"title": "Baked Squash (side)",
 		"mealHint": "dinner",
 		"ingredients": [
-			[70, "410 g squash"],
-			[120, "1 tbsp olive oil"]
+			"410 g squash",
+			"1 tbsp olive oil"
 		],
 		"img": "img/baked-squash.png"
 	},
@@ -851,7 +871,7 @@
 		"title": "½ Pound Strawbs",
 		"mealHint": "breakfast",
 		"ingredients": [
-			[75, "½ pound strawberries"]
+			"½ pound strawberries"
 		],
 		"img": "img/strawbs.png"
 	},
@@ -859,11 +879,11 @@
 		"title": "Tuna Fish Sandwich",
 		"mealHint": "lunch",
 		"ingredients": [
-			[100, "1 can tuna (5oz can, in water)"],
-			[200, "2 tbsp mayo"],
-			[8, "⅓ tomato"],
-			[4, "2 pieces lettuce"],
-			[240, "2 pcs Dave's Killer Bread"]
+			"1 can tuna (5oz can in water)",
+			"2 tbsp mayo",
+			"⅓ tomato",
+			"2 pieces lettuce",
+			"2 pcs Dave's Killer Bread"
 		],
 		"img": "img/tuna-fish-sandwich.png"
 	},
@@ -871,7 +891,7 @@
 		"title": "Yogurt Cup",
 		"mealHint": "snack",
 		"ingredients": [
-			[120, "1 yogurt cup"]
+			"1 yogurt cup"
 		],
 		"img": "img/yogurt-cup.png"
 	}

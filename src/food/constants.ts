@@ -83,6 +83,11 @@ const BULK_THINGS = new Set([
     'apple pie spice',
     'cinnamon',
     'fish sauce',
+    'siracha',
+    'rice (brown, cooked)',
+    'cornstarch',
+    'ground ginger',
+    'tomato paste',
 ])
 
 // things used as internal placeholders we don't need to add to any list
@@ -155,7 +160,6 @@ type DishIDObj = {
 type DishIDSpec = DishID | DishIDObj
 type MealID = 'breakfast' | 'morningSnack' | 'lunch' | 'snack' | 'afternoonSnack' | 'dinner' | 'eveningSnack';
 const AllMeals: MealID[] = ['breakfast', 'morningSnack', 'lunch', 'snack', 'afternoonSnack', 'dinner', 'eveningSnack']
-type DeprecatedIngredient = [number, string]
 type IngredientQUT = string;
 type DayID = 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday';
 const AllDays: DayID[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
@@ -163,7 +167,7 @@ const AllDays: DayID[] = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'
 type Dish = {
     title: string,
     mealHint: MealID,
-    ingredients: DeprecatedIngredient[],
+    ingredients: IngredientQUT[],
     img?: string,
     recipe?: string,
     recipeServings?: number,

@@ -433,11 +433,11 @@ function renderDish(
     let dishIngredDescs: string[] = [];
     for (let ingredient of dish.ingredients) {
         // if any ingredient has unk (< 0) cals, make whole dish unk cals
-        let ingredientQUT = ingredient[1];
+        let ingredientQUT = ingredient;
         let ingredCals = getCalories(CALORIE_BANK, ingredientQUT);
         dishCalories = ingredCals < 0 || dishCalories < 0 ? -1 : dishCalories + ingredCals;
         for (let i = 0; i < guests; i++) {
-            dishIngredDescs.push(ingredient[1]);
+            dishIngredDescs.push(ingredient);
         }
 
         // add to ingredients html

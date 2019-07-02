@@ -4,13 +4,7 @@ eat stuff
 
 ## TODO
 
-### 1. Calorie bank
-
-- [x] implementation
-- [x] fill up bank
-- [ ] remove from dishes.json
-
-### 2. Menus
+### 1. Menus
 
 I think at this point thinking through time saving measures would be a good idea.
 
@@ -48,24 +42,22 @@ advance in bulk
 - https://www.youtube.com/watch?v=17Bagme20IM
 
 healthy stuff
-- bizarre protein fluff https://www.youtube.com/watch?v=oR3Z028prSU
 - SALADSSSSSS (need to xport well)
 
 others
-- hello fresh [steak recipe](https://www.hellofresh.com/recipes/peppercorn-steak-w06-5857fcd16121bb11c124f383) (but use oven)
 - [beef stew (+ first comment)](https://www.allrecipes.com/recipe/14685/slow-cooker-beef-stew-i/)
-- ugh https://www.buzzfeed.com/hannahloewentheil/budget-cooking-meal-plan
-    - pasta salad
-    - quesadillas
-    - breakfast tacos / burritos
-    - egg + avocado bake
-- huevos rancheros
+- breakfast burritos
 - meatballs
 - slow cooker meals
 - Quinoa salad upgrade
     - toppings
-- Shakshuka (actually)
+- huevos rancheros
+
+Someday
 - [slow cooker "steak"](https://www.allrecipes.com/recipe/73124/slow-cooker-salisbury-steak/)
-- smoothies
-- email subj "Fwd: The breakfast I won’t share with anyone"
-- email subj "Fwd: Breakfast Blondies Are Here to Make Your Mornings Better"
+- Shakshuka (actually)
+- pasta salad
+- quesadillas
+- ugh https://www.buzzfeed.com/hannahloewentheil/budget-cooking-meal-plan
+    - egg + avocado bake
+    - smoothies

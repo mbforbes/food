@@ -80,6 +80,11 @@ const BULK_THINGS = new Set([
     'apple pie spice',
     'cinnamon',
     'fish sauce',
+    'siracha',
+    'rice (brown, cooked)',
+    'cornstarch',
+    'ground ginger',
+    'tomato paste',
 ]);
 // things used as internal placeholders we don't need to add to any list
 const IGNORE_THINGS = new Set([
@@ -777,11 +782,11 @@ function renderDish(dishes, dishIDSpec, view, timeInfo, tooltipDirection) {
     let dishIngredDescs = [];
     for (let ingredient of dish.ingredients) {
         // if any ingredient has unk (< 0) cals, make whole dish unk cals
-        let ingredientQUT = ingredient[1];
+        let ingredientQUT = ingredient;
         let ingredCals = getCalories(CALORIE_BANK, ingredientQUT);
         dishCalories = ingredCals < 0 || dishCalories < 0 ? -1 : dishCalories + ingredCals;
         for (let i = 0; i < guests; i++) {
-            dishIngredDescs.push(ingredient[1]);
+            dishIngredDescs.push(ingredient);
         }
         // add to ingredients html
         ingredientsHTMLInner += htmlIngredient(ingredCals, ingredientQUT);
@@ -895,11 +900,9 @@ function preprocessDishes(dishes) {
             let newDish = clone(origDish);
             newDish.ingredients = [];
             for (let ingredient of origDish.ingredients) {
-                let [origCals, origDesc] = ingredient;
-                let [origQuantity, unit, thing] = getQUT(origDesc.split(' '));
-                let newCals = Math.round(origCals / servings);
+                let [origQuantity, unit, thing] = getQUT(ingredient.split(' '));
                 let newQuantity = (origQuantity / servings).toFixed(2);
-                newDish.ingredients.push([newCals, [newQuantity + '', unit, thing].join(' ')]);
+                newDish.ingredients.push([newQuantity + '', unit, thing].join(' '));
             }
             result[dishID] = newDish;
         }

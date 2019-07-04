@@ -1,0 +1,120 @@
+{
+	"momsBreakfastMuffins": {
+		"title": "Mom's Breakfast Muffins<br>(2 muffins)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"2 cups almond flour",
+			"4 egg",
+			"1 cup pumpkin",
+			"1 banana",
+			"¼ cup olive oil",
+			"2 tsp baking powder",
+			"½ tsp salt",
+			"1 tsp cinnamon"
+		],
+		"img": "img/mom/breakfast-muffins.png",
+		"recipeServings": 6
+	},
+	"momsBreakfastCoffee": {
+		"title": "Mom's Breakfast Coffe<br>(2 cups)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"2 cups coffee",
+			"5 oz califa milk"
+		],
+		"img": "img/mom/coffee.png"
+	},
+	"momsBreakfastFruitSalad": {
+		"title": "Mom's Breakfast Fruit Salad",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 peach",
+			"0.5 cup raspberries"
+		],
+		"img": "img/mom/breakfast-fruit-salad.png"
+	},
+	"momsQuinoaSalad": {
+		"title": "Mom's Quinoa Salad<br>(1 cup)",
+		"mealHint": "lunch",
+		"ingredients": [
+			"3 cups quinoa (cooked)",
+			"2 carrot",
+			"1 bell pepper",
+			"3 green onion",
+			"2 persian cucumber",
+			"1 head broccoli",
+			"1 cup cherry tomatoes",
+			"0.33 cup olive oil",
+			"3 lime"
+		],
+		"img": "img/mom/quinoa-salad.png",
+		"recipeServings": 9
+	},
+	"momsQuinoaSaladAdditions": {
+		"title": "Mom's Quinoa Salad Additions",
+		"mealHint": "lunch",
+		"ingredients": [
+			"2 cups baby kale",
+			"1 tsp olive oil",
+			"1 egg"
+		],
+		"img": "img/mom/quinoa-salad.png"
+	},
+	"momsLunchFruitSalad": {
+		"title": "Mom's Lunch Fruit Salad",
+		"mealHint": "lunch",
+		"ingredients": [
+			"1 peach",
+			"0.33 cup blueberries"
+		],
+		"img": "img/mom/lunch-fruit-salad.png"
+	},
+	"momsLatte": {
+		"title": "Mom's Nonfat 12oz Latte",
+		"mealHint": "lunch",
+		"ingredients": [
+			"12 oz nonfat latte"
+		],
+		"img": "img/mom/latte.png"
+	},
+	"momsApple": {
+		"title": "Mom's Apple",
+		"mealHint": "snack",
+		"ingredients": [
+			"6 oz apple"
+		],
+		"img": "img/mom/apple.png"
+	},
+	"momsDinnerSalad": {
+		"title": "Mom's Dinner Salad",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 cup cabbage",
+			"1 cup arugula",
+			"1 tsp olive oil",
+			"3 tbsp pumpkin seeds",
+			"40 g dry roasted hazelnuts",
+			"0.5 cup raspberries"
+		],
+		"img": "img/mom/dinner-salad.png"
+	},
+	"momsDinnerCherries": {
+		"title": "Mom's Dinner Cherries",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 cup rainier cherries"
+		],
+		"img": "img/mom/cherries.png"
+	},
+	"momsCustomFluff": {
+		"title": "Mom's Custom Fluff",
+		"mealHint": "eveningSnack",
+		"ingredients": [
+			"8 oz califa milk",
+			"20 g casein protein powder",
+			"6 g xanthan gum",
+			"1 packet splenda"
+		],
+		"img": "img/mom/fluff.png"
+	}
+}

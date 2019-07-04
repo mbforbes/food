@@ -1,9 +1,14 @@
 {
+    "almond flour": [
+        [180, "0.25 cup"]
+    ],
     "apple": [
-        [75, "1 x"]
+        [75, "1 x"],
+        [52, "100 g"]
     ],
     "arugula": [
-        [18, "71 g"]
+        [18, "71 g"],
+        [10, "1 cup"]
     ],
     "asparagus": [
         [42, "1 bunch"]
@@ -11,11 +16,17 @@
     "avocado": [
         [54, "¼ x"]
     ],
+    "baby kale": [
+        [45, "2 cups"]
+    ],
     "bacon": [
         [120, "2 pcs"]
     ],
     "baguette": [
         [990, "1 x"]
+    ],
+    "baking powder": [
+        [2, "1 tsp"]
     ],
     "balsamic vinegar": [
         [5, "1 tsp"]
@@ -37,6 +48,9 @@
     "biscuit": [
         [160, "1 x"]
     ],
+    "blackberries": [
+        [62, "1 cup"]
+    ],
     "black beans": [
         [180, "0.875 cups"],
         [180, "0.5 can"]
@@ -46,12 +60,6 @@
     ],
     "butter": [
         [100, "1 tbsp"]
-    ],
-    "dried bread crumbs": [
-        [430, "1 cup"]
-    ],
-    "dried parsley leaves": [
-        [2, "1 tsp"]
     ],
     "breakfast sausage patty": [
         [100, "1 x"]
@@ -65,13 +73,19 @@
     "brussles sprouts": [
         [96, "12 x"]
     ],
+    "cabbage": [
+        [15, "1 cup"]
+    ],
+    "califa milk": [
+        [45, "8 oz"]
+    ],
     "carrot": [
         [25, "1 x"],
         [61, "150 g"]
     ],
-    "carrots": [
-        [61, "150 g"],
-        [25, "1 x"]
+    "casein protein powder": [
+        [120, "33 g"],
+        [120, "1 scoop"]
     ],
     "cheddar cheese": [
         [113, "1 slice"],
@@ -99,6 +113,9 @@
     "cinnamon": [
         [0, "0.5 tsp"]
     ],
+    "coffee": [
+        [0, "1 cup"]
+    ],
     "corn": [
         [60, "0.5 cup"],
         [210, "1 can"]
@@ -116,6 +133,12 @@
         [88, "1 can"],
         [88, "14.5 oz"],
         [25, "0.5 cup"]
+    ],
+    "dried bread crumbs": [
+        [430, "1 cup"]
+    ],
+    "dried parsley leaves": [
+        [2, "1 tsp"]
     ],
     "dukkah": [
         [0, "1 tsp"]
@@ -188,6 +211,9 @@
     "hash brown patty": [
         [140, "1 x"]
     ],
+    "dry roasted hazelnuts": [
+        [180, "1 oz"]
+    ],
     "hoisin sauce": [
         [90, "2 tbsp"]
     ],
@@ -219,7 +245,8 @@
         [170, "1 cup"]
     ],
     "kale": [
-        [33, "1 cup"]
+        [33, "1 cup"],
+        [33, "130 g"]
     ],
     "ketchup": [
         [40, "2 tbsp"]
@@ -233,7 +260,7 @@
         [8, "1 cup"]
     ],
     "lime": [
-        [5, "1 x"]
+        [8, "1 x"]
     ],
     "maple syrup": [
         [52, "1 tbsp"]
@@ -256,6 +283,9 @@
     "mushrooms (white)": [
         [16, "4 x"]
     ],
+    "nonfat latte": [
+        [100, "12 oz"]
+    ],
     "oats": [
         [225, "0.75 cup"]
     ],
@@ -274,6 +304,9 @@
     "pasta": [
         [1600, "1 box"]
     ],
+    "peach": [
+        [70, "1 x"]
+    ],
     "peanut butter": [
         [190, "2 tbsp"]
     ],
@@ -282,6 +315,9 @@
     ],
     "pepperoni": [
         [75, "3 pieces"]
+    ],
+    "persian cucumber": [
+        [16, "1 x"]
     ],
     "pickled ginger": [
         [27, "2 tbsp"]
@@ -304,11 +340,23 @@
     "provolone cheese": [
         [140, "2 slices"]
     ],
+    "pumpkin": [
+        [100, "1 cup"]
+    ],
+    "pumpkin seeds": [
+        [170, "0.25 cup"]
+    ],
     "quinoa (cooked)": [
         [56, "0.25 cup"]
     ],
+    "rainier cherries": [
+        [90, "1 cup"]
+    ],
     "raisins": [
         [56, "2 tbsp"]
+    ],
+    "raspberries": [
+        [52, "1 cup"]
     ],
     "red onion": [
         [60, "1 x"]
@@ -446,6 +494,9 @@
     ],
     "Worcestershire sauce": [
         [13, "1 tbsp"]
+    ],
+    "xanthan gum": [
+        [30, "9 g"]
     ],
     "yellow onion": [
         [60, "1 x"]

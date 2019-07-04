@@ -48,7 +48,9 @@
         ]
     },
     "friday": {
-        "breakfast": [],
+        "breakfast": [
+            "breakfastSandwich"
+        ],
         "lunch": [
             "burritoBowlJuly1"
         ],

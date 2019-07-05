@@ -1,3 +1,11 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 //
 // constants
 //
@@ -88,6 +96,9 @@ const BULK_THINGS = new Set([
 ]);
 // things used as internal placeholders we don't need to add to any list
 const IGNORE_THINGS = new Set([
+    '[eat this much 500]',
+    '[eat this much 600]',
+    '[eat this much 700]',
     '[eat this much-ish]',
     '[chipotle burrito]',
 ]);
@@ -650,9 +661,11 @@ function renderGroceryList(rawIngredDescs) {
     // render all
     return htmlGroceryIngredientList(ingredientDescHTML, checkListHTML);
 }
-function renderEdit(dishes, week) {
-    let [weekHTML, weekIngredDescs] = renderWeek(dishes, week, View.Edit);
-    let dishesHTML = renderDishes(dishes, View.Edit);
+function renderEdit(displayDishes, allDishes, week) {
+    let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.Edit);
+    let dishesHTML = renderDishes(displayDishes, View.Edit);
+    // uncomment to instead render ALL dishes in bank
+    // dishesHTML = renderDishes(allDishes, View.Edit);
     let groceryList = renderGroceryList(weekIngredDescs);
     return `
     <div class="editContainer">
@@ -873,6 +886,19 @@ function getNextWeekFilename() {
 function clone(obj) {
     return JSON.parse(JSON.stringify(obj));
 }
+function loadDishes(displayURL, otherURLs, next) {
+    return __awaiter(this, void 0, void 0, function* () {
+        // these are the dishes we display in the dishes and edit views
+        let displayDishes = yield $.getJSON(displayURL);
+        // we create the complete bank for lookups later
+        let mergedDishes = Object.assign({}, displayDishes);
+        for (let url of otherURLs) {
+            let dishes = yield $.getJSON(url);
+            mergedDishes = Object.assign({}, mergedDishes, dishes);
+        }
+        next(displayDishes, mergedDishes);
+    });
+}
 /**
  * Perform preprocessing on dishes.
  *
@@ -913,60 +939,65 @@ function preprocessDishes(dishes) {
  * Callback for once dishes are loaded and rendering time-based (day/week)
  * view.
  */
-function onDishesLoadedTime(weekFN, view, rawDishes) {
-    let dishes = preprocessDishes(rawDishes);
+function onDishesLoadedTime(weekFN, view, displayDishesRaw, allDishesRaw) {
+    let displayDishes = preprocessDishes(displayDishesRaw);
+    let allDishes = preprocessDishes(allDishesRaw);
     console.log('Rendering time-based view.');
-    $.getJSON(weekFN, onWeekLoaded.bind(null, view, dishes))
-        .fail(onWeekFail.bind(null, weekFN, view, dishes));
+    $.getJSON(weekFN, onWeekLoaded.bind(null, view, displayDishes, allDishes))
+        .fail(onWeekFail.bind(null, weekFN, view, displayDishes, allDishes));
 }
 /**
  * Callback for once dishes are loaded and rendering dishes-only view.
  */
-function onDishesLoadedDishes(rawDishes) {
-    let dishes = preprocessDishes(rawDishes);
+function onDishesLoadedDishes(displayDishesRaw, allDishesRaw) {
+    let displayDishes = preprocessDishes(displayDishesRaw);
     console.log('Rendering dishes view.');
-    console.log('Got dishes');
-    console.log(dishes);
-    $('body').append(renderDishes(dishes, View.Dishes));
+    // console.log('Got dishes');
+    // console.log(allDishes);
+    $('body').append(renderDishes(displayDishes, View.Dishes));
 }
-function onWeekFail(weekFN, view, dishes) {
+function onWeekFail(weekFN, view, displayDishes, allDishes) {
     if (view == View.Edit) {
         // write default week to path and try again
-        serialize(EMPTY_WEEK, weekFN, onDishesLoadedTime.bind(null, weekFN, view, dishes));
+        serialize(EMPTY_WEEK, weekFN, onDishesLoadedTime.bind(null, weekFN, view, displayDishes, allDishes));
     }
     else {
         $('body').append("week didn't exist uh oh. Click 'edit' to make current week.");
     }
 }
-function onWeekLoaded(view, dishes, week) {
-    console.log('Got dishes');
-    console.log(dishes);
+function onWeekLoaded(view, displayDishes, allDishes, week) {
+    // console.log('Got dishes');
+    // console.log(dishes);
     // Save week data for drag'n'drop.
-    console.log('Got week');
-    console.log(week);
+    // console.log('Got week');
+    // console.log(week);
     DragNDropGlobals.weekData = week;
     console.log('viewType: ' + view);
     if (view == View.ShowWeek) {
         // render full-week display-only view.
-        let [weekHTML, weekIngredDescs] = renderWeek(dishes, week, View.ShowWeek);
+        let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.ShowWeek);
         let groceryList = renderGroceryList(weekIngredDescs);
         $('body').append(weekHTML + groceryList);
     }
     else if (view == View.Edit) {
         // render full-week edit view.
-        $('body').append(renderEdit(dishes, week));
+        $('body').append(renderEdit(displayDishes, allDishes, week));
     }
     else if (view == View.ShowDay) {
         // render day view. assumes current day is the one to render.
         let dayID = moment().format('dddd').toLowerCase();
-        let [dayHTML, _] = renderDay(dishes, dayID, week[dayID], View.ShowDay);
+        let [dayHTML, _] = renderDay(allDishes, dayID, week[dayID], View.ShowDay);
         $('body').append(dayHTML);
     }
 }
 //
 // core execution
 //
-const dishesFN = 'data/dishes.json';
+const displayDishesFN = 'data/dishes/dishes.json';
+const otherDishesFNs = [
+    'data/dishes/mom-dishes.json',
+    'data/dishes/customization.json',
+];
 const caloriesFN = 'data/calories.json';
 function getWeekFN(url) {
     // parse url to pick week
@@ -1032,11 +1063,11 @@ function main(calorieFile) {
     // perform the page requested action
     if (view == View.Dishes) {
         // display dishes
-        $.getJSON(dishesFN, onDishesLoadedDishes);
+        loadDishes(displayDishesFN, otherDishesFNs, onDishesLoadedDishes);
     }
     else if (view == View.ShowDay || view == View.ShowWeek || view == View.Edit) {
         // display time-based rendering (week, day, or edit)
-        $.getJSON(dishesFN, onDishesLoadedTime.bind(null, weekFN, view));
+        loadDishes(displayDishesFN, otherDishesFNs, onDishesLoadedTime.bind(null, weekFN, view));
     }
     else {
         console.error('Unknown view: ' + view);

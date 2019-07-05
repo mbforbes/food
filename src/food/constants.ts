@@ -92,6 +92,9 @@ const BULK_THINGS = new Set([
 
 // things used as internal placeholders we don't need to add to any list
 const IGNORE_THINGS = new Set([
+    '[eat this much 500]',
+    '[eat this much 600]',
+    '[eat this much 700]',
     '[eat this much-ish]',
     '[chipotle burrito]',
 ])

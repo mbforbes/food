@@ -284,9 +284,11 @@ function renderGroceryList(rawIngredDescs: string[]): string {
     return htmlGroceryIngredientList(ingredientDescHTML, checkListHTML);
 }
 
-function renderEdit(dishes: Dishes, week: Week): string {
-    let [weekHTML, weekIngredDescs] = renderWeek(dishes, week, View.Edit);
-    let dishesHTML = renderDishes(dishes, View.Edit);
+function renderEdit(displayDishes: Dishes, allDishes: Dishes, week: Week): string {
+    let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.Edit);
+    let dishesHTML = renderDishes(displayDishes, View.Edit);
+    // uncomment to instead render ALL dishes in bank
+    // dishesHTML = renderDishes(allDishes, View.Edit);
     let groceryList = renderGroceryList(weekIngredDescs);
     return `
     <div class="editContainer">

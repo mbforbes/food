@@ -1,0 +1,21 @@
+{
+	"burritoBowlJuly1": {
+		"title": "Burrito Bowl July 1",
+		"mealHint": "lunch",
+		"ingredients": [
+			"2 tbsp olive oil",
+			"2 bell pepper",
+			"1 red onion",
+			"1 lb ground beef (90% lean)",
+			"1 pack taco seasoning",
+			"14.5 oz diced tomatoes",
+			"2.75 cups rice (brown, cooked)",
+			"1 can black beans",
+			"1 can corn",
+			"0.5 lime",
+			"1 avocado"
+		],
+		"img": "img/burrito-bowl.png",
+		"recipeServings": 4
+	}
+}

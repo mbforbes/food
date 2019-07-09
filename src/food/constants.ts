@@ -30,7 +30,7 @@ const KNOWN_UNITS = new Set([
     'fillets', 'bottle', 'bottles', 'bar', 'bars', 'cloves', 'clove', 'pack', 'packs',
     'x', 'head', 'heads', 'dab', 'dabs', 'slices', 'slice', 'cans', 'can', 'piece',
     'pieces', 'oz', 'boxes', 'box', 'packets', 'packet', 'inches', 'inch', 'sprigs',
-    'sprig', 'pounds', 'pound',
+    'sprig', 'pounds', 'pound', 'ml'
 ]);
 
 // things we probably don't have to buy, but should check that we have enough
@@ -59,6 +59,7 @@ const BULK_THINGS = new Set([
     'hondashi',
     'togarashi',
     'soy sauce',
+    'sambal oelek',
     'sesame oil',
     'sugar',
     'rice vinegar',

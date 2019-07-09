@@ -36,7 +36,7 @@ const KNOWN_UNITS = new Set([
     'fillets', 'bottle', 'bottles', 'bar', 'bars', 'cloves', 'clove', 'pack', 'packs',
     'x', 'head', 'heads', 'dab', 'dabs', 'slices', 'slice', 'cans', 'can', 'piece',
     'pieces', 'oz', 'boxes', 'box', 'packets', 'packet', 'inches', 'inch', 'sprigs',
-    'sprig', 'pounds', 'pound',
+    'sprig', 'pounds', 'pound', 'ml'
 ]);
 // things we probably don't have to buy, but should check that we have enough
 // of
@@ -64,6 +64,7 @@ const BULK_THINGS = new Set([
     'hondashi',
     'togarashi',
     'soy sauce',
+    'sambal oelek',
     'sesame oil',
     'sugar',
     'rice vinegar',
@@ -278,6 +279,7 @@ const UnitConversion = new Map([
     ['tbsp', [3, 'tsp']],
     ['cup', [48, 'tsp']],
     ['fl-oz', [6, 'tsp']],
+    ['ml', [0.202884, 'tsp']],
     // weight: to g
     ['g', [1, 'g']],
     ['lb', [453.59237, 'g']],
@@ -997,6 +999,8 @@ const displayDishesFN = 'data/dishes/dishes.json';
 const otherDishesFNs = [
     'data/dishes/mom-dishes.json',
     'data/dishes/customization.json',
+    'data/dishes/treats.json',
+    'data/dishes/graveyard.json',
 ];
 const caloriesFN = 'data/calories.json';
 function getWeekFN(url) {

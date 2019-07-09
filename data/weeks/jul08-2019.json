@@ -1,44 +1,87 @@
 {
     "monday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "biscuitSandwichWholeFoods"
+        ],
+        "lunch": [
+            "kaleSalad190708"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "chickenNaanWrap",
+            "spicyCoconutChickenThighsMarinade"
+        ]
     },
     "tuesday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "biscuitSandwichWholeFoods"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "chickenNaanWrap",
+            "spicyCoconutChickenThighsMarinade"
+        ]
     },
     "wednesday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "biscuitSandwichWholeFoods"
+        ],
+        "lunch": [
+            "kaleSalad"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "spanishTortilla",
+            "tomatoSoupWater"
+        ]
     },
     "thursday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "biscuitSandwichWholeFoods"
+        ],
+        "lunch": [
+            "spanishTortilla",
+            "tomatoSoupWater"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "spanishTortilla",
+            "tomatoSoupWater"
+        ]
     },
     "friday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "biscuitSandwichWholeFoods"
+        ],
+        "lunch": [
+            "spanishTortilla",
+            "tomatoSoupWater"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "spaghettiSquashMeatSauce"
+        ]
     },
     "saturday": {
-        "breakfast": [],
+        "breakfast": [
+            "huevosRancheros",
+            "picoDeGallo"
+        ],
         "lunch": [],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "spaghettiSquashMeatSauce"
+        ]
     },
     "sunday": {
         "breakfast": [],
         "lunch": [],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "chickenVeggieStirFry"
+        ]
     }
 }

@@ -1,6 +1,6 @@
 {
-	"burritoBowlJuly1": {
-		"title": "Burrito Bowl July 1",
+	"burritoBowl190701": {
+		"title": "Burrito Bowl (July 1 '19)",
 		"mealHint": "lunch",
 		"ingredients": [
 			"2 tbsp olive oil",
@@ -17,5 +17,21 @@
 		],
 		"img": "img/burrito-bowl.png",
 		"recipeServings": 4
+	},
+	"kaleSalad190708": {
+		"title": "Kale Salad (July 8 '19)",
+		"mealHint": "lunch",
+		"ingredients": [
+			"2 cups kale",
+			"2 tbsp lemon (juice)",
+			"1 tsp olive oil",
+			"0.5 apple",
+			"40 g walnuts",
+			"1 tbsp feta",
+			"1 tbsp pumpkin seeds",
+			"4 oz chicken thigh"
+		],
+		"img": "img/kale-apple-walnut-salad.png",
+		"recipe": "https://www.freshfitkitchen.com/kale-apple-and-walnut-salad/"
 	}
 }

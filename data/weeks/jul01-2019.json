@@ -55,7 +55,10 @@
             "burritoBowlJuly1"
         ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "ghettoCordonBleau",
+            "riceSide"
+        ]
     },
     "saturday": {
         "breakfast": [],

@@ -1,0 +1,45 @@
+{
+	"cheeseburger": {
+		"title": "Cheeseburger",
+		"mealHint": "dinner",
+		"ingredients": [
+			"⅓ lb ground beef (85% lean)",
+			"1 slice cheese (Amiercan)",
+			"1 egg",
+			"1 slice tomato",
+			"1 piece lettuce",
+			"1 tbsp mayo",
+			"1 hamburger bun"
+		],
+		"img": "img/cheeseburger.png"
+	},
+	"spaghettiSausage": {
+		"title": "Spaghetti, Red Sauce, Sausage",
+		"mealHint": "dinner",
+		"ingredients": [
+			"0.33 box pasta",
+			"0.33 can red sauce",
+			"2 pork sausages (Johnsonville)"
+		],
+		"img": "img/spag-sausage.png"
+	},
+	"spicySambalNoodles": {
+		"title"	: "Spicy-Sweet Sambal Pork Noodles",
+		"mealHint": "dinner",
+		"ingredients": [
+			"0.5 lbs ground pork",
+			"0.5 inch ginger",
+			"2 clove garlic",
+			"0.5 tbsp sugar",
+			"0.5 tbsp tomato paste",
+			"0.5 sprig basil",
+			"1.5 tbsp sambal oelek",
+			"1 tbsp soy sauce",
+			"1 tbsp rice vinegar",
+			"0.25 box pasta",
+			"0.5 tbsp butter"
+		],
+		"img": "img/spicySambalNoodles.png",
+		"recipe": "https://www.bonappetit.com/recipe/spicy-sweet-sambal-pork-noodles"
+	}
+}

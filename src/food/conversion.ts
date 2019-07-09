@@ -61,6 +61,7 @@ const UnitConversion: Map<string, [number, string]> = new Map([
     ['tbsp', [3, 'tsp']],
     ['cup', [48, 'tsp']],
     ['fl-oz', [6, 'tsp']],
+    ['ml', [0.202884, 'tsp']],
 
     // weight: to g
     ['g', [1, 'g']],

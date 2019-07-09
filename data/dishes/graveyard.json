@@ -1,17 +1,88 @@
 {
+	"asparagusPancettaHash": {
+		"title": "Asparagus Pancetta Hash",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"0.125 lb pancetta (grease incl.)",
+			"0.5 lb potatoes (Yukon gold)",
+			"½ onion",
+			"0.5 bunch asparagus",
+			"2 egg",
+			"1 dab goat cheese",
+			"1 green onion"
+		],
+		"img": "img/asparagus-pancetta-hash.png",
+		"recipe": "https://smittenkitchen.com/2010/05/spring-asparagus-pancetta-hash/"
+	},
+	"bibimbap": {
+		"title": "Bibimbap",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 cup rice (white, cooked)",
+			"1 carrot",
+			"½ cucumber",
+			"4 mushrooms (white)",
+			"½ tbsp olive oil",
+			"1 egg"
+		],
+		"img": "img/bibimbap.png"
+	},
+	"capreseChickenSaladBowl": {
+		"title": "Caprese Chicken Salad Bowl",
+		"mealHint": "lunch",
+		"ingredients": [
+			"0.25 cup quinoa (cooked)",
+			"½ tbsp olive oil",
+			"½ tbsp balsamic vinegar",
+			"0.5 chicken breast",
+			"1 cup cherry tomatoes",
+			"0.5 bunch basil",
+			"0.5 cup mozarella",
+			"1 tbsp olive oil",
+			"1 tsp balsamic vinegar",
+			"1 tsp honey"
+		],
+		"img": "img/caprese-chicken-salad-bowl.png",
+		"recipe": "https://sweetpeasandsaffron.com/caprese-chicken-salad-meal-prep-bowls/"
+	},
 	"chipotleBurrito": {
 		"title": "Chipotle Burrito",
 		"mealHint": "lunch",
 		"ingredients": [
 			[1200, "[chipotle burrito]"]
-		]
+		],
+		"noteTxt": "For meal prepping, let's not plan on this one."
+	},
+	"dukkahChicken": {
+		"title": "Dukkah Chicken",
+		"mealHint": "dinner",
+		"ingredients": [
+			"0.5 lbs sweet potato",
+			"1 tbsp dukkah",
+			"1 lime",
+			"4 tbsp sour cream",
+			"1 chicken breast",
+			"0.5 lbs snap peas"
+		],
+		"img": "img/dukkah-chicken.png",
+		"recipe": "https://www.hellofresh.com/recipes/uk-pan-fried-chicken-with-sweet-5857fc5d14d0f16d6175eb32"
 	},
 	"frozenGrilledChickenBreast": {
 		"title": "Frozen Grilled Chicken Breast",
 		"mealHint": "dinner",
 		"ingredients": [
 			[257, "⅓ bag chicken breast, Tyson frozen grilled"]
-		]
+		],
+		"noteTxt": "Permanently tired of this."
+	},
+	"frozenVegetables": {
+		"title": "Frozen Vegetables",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 cup frozen vegetables (steamed)",
+			"¼ tbsp butter"
+		],
+		"img": "img/frozen-veggies.png"
 	},
 	"instantMashedPotatoesSmall": {
 		"title": "Instant Mashed Potatoes (small)",
@@ -21,21 +92,86 @@
 			[0, "⅓ cup water"],
 			[50, "½ tbsp butter"],
 			[70, "⅓ cup potato flakes"]
-		]
+		],
+		"noteTxt": "Useful, but small quantity. Maybe 'small portions' file?"
+	},
+	"instantMashedPotatoesRegular": {
+		"title": "Mashed Potatoes (side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			"⅓ cup milk (1%)",
+			"⅔ cup water",
+			"1 tbsp butter",
+			"⅔ cup potato flakes"
+		],
+		"img": "img/mashed-potatoes.png"
+	},
+	"italianSub": {
+		"title": "Italian Sub",
+		"mealHint": "lunch",
+		"ingredients": [
+			"⅓ baguette",
+			"2 slices provolone cheese",
+			"3 slices turkey",
+			"3 slices roast beef",
+			"3 pieces pepperoni",
+			"1 tbsp butter",
+			"0.5 tomato",
+			"1 cup lettuce"
+		],
+		"img": "img/italian-sub.png"
+	},
+	"justCrackEggDenver": {
+		"title": "Just Crack an Egg: Denver (+2 eggs)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 cup Just Crack an Egg: Denver",
+			"2 egg"
+		],
+		"img": "img/jce-denver.png"
+	},
+	"justCrackEggAmerican": {
+		"title": "Just Crack an Egg: American (+2 eggs)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 cup Just Crack an Egg: American",
+			"2 egg"
+		],
+		"img": "img/jce-american.png"
+	},
+	"justCrackEggUltimate": {
+		"title": "Just Crack an Egg: Ultimate (+2 eggs)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 cup Just Crack an Egg: Ultimate",
+			"2 egg"
+		],
+		"img": "img/jce-ultimate.png"
+	},
+	"justCrackEggRustic": {
+		"title": "Just Crack an Egg: Rustic (+2 eggs)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 cup Just Crack an Egg: Rustic",
+			"2 egg"
+		],
+		"img": "img/jce-rustic.png"
 	},
 	"leftovers": {
 		"title": "Leftovers!",
 		"mealHint": "lunch",
 		"ingredients": [
 			[500, "[eat this much-ish]"]
-		]
+		],
+		"noteTxt": "Might as well just put the dish."
 	},
 	"riceSideSmall": {
 		"title": "Rice (side) (small)",
 		"mealHint": "dinner",
 		"ingredients": [
 			[100, "½ cup rice (white, cooked)"]
-		]
+		],
+		"noteTxt": "Useful, but small quantity. Maybe 'small portions' file?"
 	},
 	"scrambledEggsSmall": {
 		"title": "Scrambled Eggs (Small)",
@@ -44,7 +180,8 @@
 			[140, "2 egg"],
 			[25, "¼ tbsp butter"]
 		],
-		"img": "img/scrambled-eggs.png"
+		"img": "img/scrambled-eggs.png",
+		"noteTxt": "Let's just call this scrambled eggs"
 	},
 	"shakshuka": {
 		"title": "Shakshuka",
@@ -56,6 +193,29 @@
 			[30, "½ onion"],
 			[180, "1 cup tomato sauce"],
 			[140, "2 egg"]
-		]
+		],
+		"noteTxt": "Nothing like real Shakshuka."
+	},
+	"slowCookerSesameChicken": {
+		"title": "Slow Cooker Sesame Chicken",
+		"mealHint": "dinner",
+		"ingredients": [
+			"4 chicken breast",
+			"0.33 cup soy sauce",
+			"0.33 cup honey",
+			"2 tbsp tomato paste",
+			"3 cloves garlic",
+			"1 tsp siracha",
+			"1 tsp ground ginger",
+			"1 tsp sesame oil",
+			"2 tbsp rice vinegar",
+			"1 tbsp cornstarch",
+			"4 heads broccoli",
+			"4 cups rice (white, cooked)"
+		],
+		"img": "img/slow-cooker-sesame-chicken.png",
+		"recipeServings": 4,
+		"recipe": "https://www.youtube.com/watch?v=17Bagme20IM",
+		"noteTxt": "This was disgusting. Never again."
 	}
 }

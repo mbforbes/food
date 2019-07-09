@@ -210,6 +210,8 @@ const displayDishesFN = 'data/dishes/dishes.json';
 const otherDishesFNs = [
     'data/dishes/mom-dishes.json',
     'data/dishes/customization.json',
+    'data/dishes/treats.json',
+    'data/dishes/graveyard.json',
 ];
 const caloriesFN = 'data/calories.json';
 

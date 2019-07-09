@@ -19,27 +19,12 @@
 		],
 		"img": "img/asparagus.png"
 	},
-	"asparagusPancettaHash": {
-		"title": "Asparagus Pancetta Hash",
-		"mealHint": "breakfast",
-		"ingredients": [
-			"0.125 lb pancetta (grease incl.)",
-			"0.5 lb potatoes (Yukon gold)",
-			"½ onion",
-			"0.5 bunch asparagus",
-			"2 egg",
-			"1 dab goat cheese",
-			"1 green onion"
-		],
-		"img": "img/asparagus-pancetta-hash.png",
-		"recipe": "https://smittenkitchen.com/2010/05/spring-asparagus-pancetta-hash/"
-	},
 	"avocadoSandwich": {
 		"title": "Avocado Sandwich",
 		"mealHint": "lunch",
 		"ingredients": [
 			"½ avocado",
-			"3 egg",
+			"2 egg",
 			"⅓ tomato",
 			"2 pcs lettuce",
 			"2 pcs bacon",
@@ -89,9 +74,20 @@
 		"mealHint": "breakfast",
 		"ingredients": [
 			"1 breakfast sausage patty",
-			"1 egg",
+			"2 egg",
 			"1 biscuit",
-			"1 slices cheddar cheese"
+			"25 g white cheddar cheese"
+		],
+		"img": "img/biscuit-sandwich.png"
+	},
+	"biscuitSandwichWholeFoods": {
+		"title": "Biscuit Sandwich — Whole Foods Edition",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"2 breakfast sausage link",
+			"2 egg",
+			"1 Immaculate biscuit",
+			"15 g white cheddar cheese"
 		],
 		"img": "img/biscuit-sandwich.png"
 	},
@@ -110,19 +106,6 @@
 		"img": "img/breakfast-sandwich.png",
 		"recipe": "https://tasty.co/recipe/breakfast-sandwich-meal-prep",
 		"recipeServings": 5
-	},
-	"bibimbap": {
-		"title": "Bibimbap",
-		"mealHint": "dinner",
-		"ingredients": [
-			"1 cup rice (white, cooked)",
-			"1 carrot",
-			"½ cucumber",
-			"4 mushrooms (white)",
-			"½ tbsp olive oil",
-			"1 egg"
-		],
-		"img": "img/bibimbap.png"
 	},
 	"breakfastSausagePatties": {
 		"title": "Breakfast Sausage Patties",
@@ -183,24 +166,6 @@
 		"img": "img/burrito-bowl.png",
 		"recipeServings": 4
 	},
-	"capreseChickenSaladBowl": {
-		"title": "Caprese Chicken Salad Bowl",
-		"mealHint": "lunch",
-		"ingredients": [
-			"0.25 cup quinoa (cooked)",
-			"½ tbsp olive oil",
-			"½ tbsp balsamic vinegar",
-			"0.5 chicken breast",
-			"1 cup cherry tomatoes",
-			"0.5 bunch basil",
-			"0.5 cup mozarella",
-			"1 tbsp olive oil",
-			"1 tsp balsamic vinegar",
-			"1 tsp honey"
-		],
-		"img": "img/caprese-chicken-salad-bowl.png",
-		"recipe": "https://sweetpeasandsaffron.com/caprese-chicken-salad-meal-prep-bowls/"
-	},
 	"carrots": {
 		"title": "Carrots",
 		"mealHint": "snack",
@@ -208,20 +173,6 @@
 			"150 g carrot"
 		],
 		"img": "img/carrots.png"
-	},
-	"cheeseburger": {
-		"title": "Cheeseburger",
-		"mealHint": "dinner",
-		"ingredients": [
-			"⅓ lb ground beef (85% lean)",
-			"1 slice cheese (Amiercan)",
-			"1 egg",
-			"1 slice tomato",
-			"1 piece lettuce",
-			"1 tbsp mayo",
-			"1 hamburger bun"
-		],
-		"img": "img/cheeseburger.png"
 	},
 	"chiaSeedPudding": {
 		"title": "Chia Seed Pudding",
@@ -235,6 +186,35 @@
 		],
 		"img": "img/chia-seed-pudding.png",
 		"recipe": "https://www.eatingbirdfood.com/basic-chia-seed-pudding/"
+	},
+	"chickenBreastMarinade": {
+		"title": "Chicken Breast Marinade",
+		"mealHint": "dinner",
+		"ingredients": [
+			"0.33 cup olive oil",
+			"3 tbsp lemon (juice)",
+			"3 tbsp soy sauce",
+			"2 tbsp balsamic vinegar",
+			"0.25 cup brown sugar",
+			"1 tbsp Worcestershire sauce",
+			"3 cloves garlic"
+		],
+		"img": "img/chicken-breast-marinade.png",
+		"recipe": "https://www.modernhoney.com/the-best-chicken-marinade-recipe/",
+		"noteTxt": "For 2 lbs chicken. None of this is eaten, so just put on a throwaway slot to generate ingredients."
+	},
+	"chickenNaanWrap": {
+		"title": "Chicken Naan Wrap",
+		"mealHint": "dinner",
+		"ingredients": [
+			"7 oz chicken thigh",
+			"0.5 piece garlic naan",
+			"2 tbsp tzatziki sauce",
+			"2 tbsp feta",
+			"0.5 cup garden salad",
+			"0.25 cucumber"
+		],
+		"img": "img/chicken-gyro.png"
 	},
 	"chickenRiceBroc": {
 		"title": "Chicken, Rice, and Broccoli",
@@ -267,20 +247,6 @@
 		],
 		"img": "img/chicken-veggie-stir-fry.png",
 		"recipe": "https://www.youtube.com/watch?v=TCVTOa01uN8"
-	},
-	"dukkahChicken": {
-		"title": "Dukkah Chicken",
-		"mealHint": "dinner",
-		"ingredients": [
-			"0.5 lbs sweet potato",
-			"1 tbsp dukkah",
-			"1 lime",
-			"4 tbsp sour cream",
-			"1 chicken breast",
-			"0.5 lbs snap peas"
-		],
-		"img": "img/dukkah-chicken.png",
-		"recipe": "https://www.hellofresh.com/recipes/uk-pan-fried-chicken-with-sweet-5857fc5d14d0f16d6175eb32"
 	},
 	"eatOutBreakfast": {
 		"title": "[Eating Out!]",
@@ -344,6 +310,16 @@
 		],
 		"img": "img/english-muffin.png"
 	},
+	"ghettoCordonBleau": {
+		"title": "Ghetto Cordon Bleau",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 chicken breast",
+			"2 slices ham",
+			"41 g white cheddar cheese"
+		],
+		"img": "img/ghetto-cordon-bleau.png"
+	},
 	"halfChickenBreast": {
 		"title": "Half Chicken Breast",
 		"mealHint": "snack",
@@ -384,15 +360,6 @@
 		"recipe": "https://cooking.nytimes.com/recipes/12177-fried-rice",
 		"recipeServings": 3
 	},
-	"frozenVegetables": {
-		"title": "Frozen Vegetables",
-		"mealHint": "dinner",
-		"ingredients": [
-			"1 cup frozen vegetables (steamed)",
-			"¼ tbsp butter"
-		],
-		"img": "img/frozen-veggies.png"
-	},
 	"hardboiledEgg": {
 		"title": "Hardboiled Egg",
 		"mealHint": "lunch",
@@ -409,6 +376,18 @@
 		],
 		"img": "img/hash-brown-patty.png"
 	},
+	"huevosRancheros": {
+		"title": "Huevos Rancheros",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"3 mini corn tortilla",
+			"3 tsp olive oil",
+			"1.5 cup refried beans",
+			"3 egg",
+			"2 oz cojita cheese"
+		],
+		"img": "img/huevos-rancheros.png"
+	},
 	"hummus": {
 		"title": "Hummus",
 		"mealHint": "snack",
@@ -416,32 +395,6 @@
 			"2 tbsp hummus"
 		],
 		"img": "img/hummus.png"
-	},
-	"instantMashedPotatoesRegular": {
-		"title": "Mashed Potatoes (side)",
-		"mealHint": "dinner",
-		"ingredients": [
-			"⅓ cup milk (1%)",
-			"⅔ cup water",
-			"1 tbsp butter",
-			"⅔ cup potato flakes"
-		],
-		"img": "img/mashed-potatoes.png"
-	},
-	"italianSub": {
-		"title": "Italian Sub",
-		"mealHint": "lunch",
-		"ingredients": [
-			"⅓ baguette",
-			"2 slices provolone cheese",
-			"3 slices turkey",
-			"3 slices roast beef",
-			"3 pieces pepperoni",
-			"1 tbsp butter",
-			"0.5 tomato",
-			"1 cup lettuce"
-		],
-		"img": "img/italian-sub.png"
 	},
 	"jam": {
 		"title": "Jam (Side)",
@@ -461,52 +414,17 @@
 		],
 		"img": "img/jam-toast.png"
 	},
-	"justCrackEggDenver": {
-		"title": "Just Crack an Egg: Denver (+2 eggs)",
-		"mealHint": "breakfast",
-		"ingredients": [
-			"1 cup Just Crack an Egg: Denver",
-			"2 egg"
-		],
-		"img": "img/jce-denver.png"
-	},
-	"justCrackEggAmerican": {
-		"title": "Just Crack an Egg: American (+2 eggs)",
-		"mealHint": "breakfast",
-		"ingredients": [
-			"1 cup Just Crack an Egg: American",
-			"2 egg"
-		],
-		"img": "img/jce-american.png"
-	},
-	"justCrackEggUltimate": {
-		"title": "Just Crack an Egg: Ultimate (+2 eggs)",
-		"mealHint": "breakfast",
-		"ingredients": [
-			"1 cup Just Crack an Egg: Ultimate",
-			"2 egg"
-		],
-		"img": "img/jce-ultimate.png"
-	},
-	"justCrackEggRustic": {
-		"title": "Just Crack an Egg: Rustic (+2 eggs)",
-		"mealHint": "breakfast",
-		"ingredients": [
-			"1 cup Just Crack an Egg: Rustic",
-			"2 egg"
-		],
-		"img": "img/jce-rustic.png"
-	},
 	"kaleSalad": {
-		"title": "Kale Salad",
+		"title": "Kale Chicken Salad",
 		"mealHint": "lunch",
 		"ingredients": [
 			"2 cups kale",
+			"6 oz chicken thigh",
 			"0.5 apple",
-			"0.25 cup walnuts",
 			"2 tbsp lemon (juice)",
-			"2 tbsp olive oil",
-			"1 tsp honey"
+			"1 tbsp olive oil",
+			"2 tsp honey",
+			"1 tbsp feta"
 		],
 		"img": "img/kale-apple-walnut-salad.png",
 		"recipe": "https://www.freshfitkitchen.com/kale-apple-and-walnut-salad/"
@@ -641,13 +559,27 @@
 			"2 tbsp sake",
 			"1 tbsp sugar",
 			"1 yellow onion",
-			"1 chicken breast",
+			"0.5 chicken breast",
 			"3 scallions",
-			"3 egg",
+			"2 egg",
 			"1 tsp togarashi"
 		],
 		"img": "img/oyakodon.png",
 		"recipe": "https://www.seriouseats.com/recipes/2016/08/oyakodon-japanese-chicken-and-egg-rice-bowl-recipe.html"
+	},
+	"picoDeGallo": {
+		"title": "Pico de Gallo",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 onion",
+			"1 jalapeño",
+			"2 lime (juiced)",
+			"4 tomato",
+			"0.5 cup cilantro"
+		],
+		"img": "img/pico-de-gallo.png",
+		"recipe": "https://cookieandkate.com/classic-pico-de-gallo-recipe/",
+		"recipeServings": 2
 	},
 	"PBToast": {
 		"title": "Peanut Butter Toast",
@@ -689,11 +621,10 @@
 		"title": "Quinoa Salad",
 		"mealHint": "dinner",
 		"ingredients": [
-			"½ can black beans",
-			"2 egg",
 			"1 cup quinoa (cooked)",
+			"6 oz chicken breast",
 			"71 g arugula",
-			"1 tbsp olive oil",
+			"2 tsp olive oil",
 			"½ lemon (juice)",
 			"0.5 avocado"
 		],
@@ -781,27 +712,6 @@
 		"img": "img/shrimpAndBasilStirFry.png",
 		"recipe": "https://www.bonappetit.com/recipe/shrimp-and-basil-stir-fry"
 	},
-	"slowCookerSesameChicken": {
-		"title": "Slow Cooker Sesame Chicken",
-		"mealHint": "dinner",
-		"ingredients": [
-			"4 chicken breast",
-			"0.33 cup soy sauce",
-			"0.33 cup honey",
-			"2 tbsp tomato paste",
-			"3 cloves garlic",
-			"1 tsp siracha",
-			"1 tsp ground ginger",
-			"1 tsp sesame oil",
-			"2 tbsp rice vinegar",
-			"1 tbsp cornstarch",
-			"4 heads broccoli",
-			"4 cups rice (white, cooked)"
-		],
-		"img": "img/slow-cooker-sesame-chicken.png",
-		"recipeServings": 4,
-		"recipe": "https://www.youtube.com/watch?v=17Bagme20IM"
-	},
 	"soylent": {
 		"title": "Soylent",
 		"mealHint": "lunch",
@@ -810,34 +720,55 @@
 		],
 		"img": "img/soylent.png"
 	},
-	"spaghettiSausage": {
-		"title": "Spaghetti, Red Sauce, Sausage",
+	"spaghettiSquashMeatSauce": {
+		"title": "Spaghetti Squash & Meat Sauce",
 		"mealHint": "dinner",
 		"ingredients": [
-			"0.33 box pasta",
-			"0.33 can red sauce",
-			"2 pork sausages (Johnsonville)"
+			"2.5 cup spaghetti squash",
+			"1 tsp olive oil",
+			"1 cup red sauce",
+			"0.33 lb ground beef (90% lean)",
+			"1 oz parmesan"
 		],
-		"img": "img/spag-sausage.png"
+		"img": "img/spaghetti-squash-meat-sauce.png",
+		"recipe": "https://cookieandkate.com/how-to-cook-spaghetti-squash/"
 	},
-	"spicySambalNoodles": {
-		"title"	: "Spicy-Sweet Sambal Pork Noodles",
+	"spanishTortilla": {
+		"title": "Spanish Tortilla",
+		"mealHint": "lunch",
+		"ingredients": [
+			"0.25 cup olive oil",
+			"2 lbs potatoes",
+			"2 tbsp olive oil",
+			"2 onion",
+			"6 egg",
+			"1 roasted red pepper",
+			"3 oz ham",
+			"2 tbsp parsley"
+		],
+		"img": "img/spanish-tortilla.png",
+		"recipe": "https://www.allrecipes.com/recipe/147109/tortilla-espanola-spanish-tortilla/",
+		"noteTxt": "Use 1/2 cup olive oil, see how much is left after. 1/4 cup is estimate.",
+		"recipeServings": 4
+	},
+	"spicyCoconutChickenThighsMarinade": {
+		"title": "Spicy Coconut Chicken Thighs Marinade",
 		"mealHint": "dinner",
 		"ingredients": [
-			"0.5 lbs ground pork",
-			"0.5 inch ginger",
-			"2 clove garlic",
-			"0.5 tbsp sugar",
-			"0.5 tbsp tomato paste",
-			"0.5 sprig basil",
-			"1.5 tbsp sambal oelek",
-			"1 tbsp soy sauce",
-			"1 tbsp rice vinegar",
-			"0.25 box pasta",
-			"0.5 tbsp butter"
+			"3 inch ginger",
+			"5 cloves garlic",
+			"0.75 cup coconut milk (in can)",
+			"0.25 cup sambal oelek",
+			"0.25 cup lime juice",
+			"2 tbsp brown sugar",
+			"1 tbsp salt",
+			"2 tbsp vegetable oil",
+			"0.5 cup cilantro"
 		],
-		"img": "img/spicySambalNoodles.png",
-		"recipe": "https://www.bonappetit.com/recipe/spicy-sweet-sambal-pork-noodles"
+		"img": "img/spicy-coconut-chicken-thighs.png",
+		"recipe": "https://www.bonappetit.com/recipe/spicy-coconut-grilled-chicken-thighs",
+		"noteTxt": "This is for the marinade only (for 2 lbs chicken). We'll portion the marinade and thighs separately.",
+		"recipeServings": 5
 	},
 	"squashSide": {
 		"title": "Baked Squash (side)",
@@ -856,14 +787,21 @@
 		],
 		"img": "img/strawbs.png"
 	},
+	"tomatoSoupWater": {
+		"title": "Tomato Soup (water)",
+		"mealHint": "lunch",
+		"ingredients": [
+			"0.25 can tomato soup (water)"
+		],
+		"img": "img/tomato-soup.png"
+	},
 	"tunaFishSandwich": {
 		"title": "Tuna Fish Sandwich",
 		"mealHint": "lunch",
 		"ingredients": [
-			"1 can tuna (5oz can in water)",
+			"1 can tuna (5oz can, in water)",
 			"2 tbsp mayo",
-			"⅓ tomato",
-			"2 pieces lettuce",
+			"4 pieces lettuce",
 			"2 pcs Dave's Killer Bread"
 		],
 		"img": "img/tuna-fish-sandwich.png"

@@ -91,6 +91,18 @@
 		],
 		"img": "img/biscuit-sandwich.png"
 	},
+	"breakfastBurritos": {
+		"title": "Breakfast Burritos",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 cup shredded hash browns",
+			"2 egg",
+			"2 pcs bacon",
+			"1 oz white cheddar cheese",
+			"2 tbsp sour cream"
+		],
+		"img": "img/breakfast-burritos.png"
+	},
 	"breakfastSandwich": {
 		"title": "Breakfast Sandwich",
 		"mealHint": "breakfast",
@@ -128,6 +140,22 @@
 			"1 slice ham"
 		],
 		"img": "img/breakfast-scramble.png"
+	},
+	"broccoliStuffedChicken": {
+		"title": "Broccoli Stuffed Chicken Breast",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 chicken breast",
+			"0.5 tsp garlic powder",
+			"0.125 tsp paprika",
+			"0.33 cup broccoli",
+			"0.5 bell pepper",
+			"2 oz white cheddar cheese",
+			"1 tsp mayo",
+			"2 tsp olive oil"
+		],
+		"img": "img/broccoli-stuffed-chicken-breast.png",
+		"recipe": "https://iwashyoudry.com/broccoli-cheese-stuffed-chicken-breast/"
 	},
 	"brusslesSproutsSide": {
 		"title": "Baked Brussles Sprouts (side)",
@@ -429,6 +457,28 @@
 		"img": "img/kale-apple-walnut-salad.png",
 		"recipe": "https://www.freshfitkitchen.com/kale-apple-and-walnut-salad/"
 	},
+	"lentilCurry": {
+		"title": "Lentil Curry",
+		"mealHint": "lunch",
+		"ingredients": [
+			"2 tbsp coconut oil",
+			"1 tsp cumin",
+			"1 tsp coriander",
+			"10 cloves garlic",
+			"28 oz crushed tomatoes",
+			"2 tbsp ginger paste",
+			"1 tbsp tumeric",
+			"2 tsp salt",
+			"1 cup red lentils",
+			"2 tsp cayenne powder",
+			"400 ml coconut milk (in can)",
+			"2 cups cherry tomatoes",
+			"1 cup cilantro"
+		],
+		"img": "img/lentil-curry.png",
+		"recipe": "https://www.theendlessmeal.com/creamy-coconut-lentil-curry/",
+		"recipeServings": 5
+	},
 	"lettuceWrap": {
 		"title": "Lettuce Wrap",
 		"mealHint": "dinner",
@@ -579,7 +629,7 @@
 		],
 		"img": "img/pico-de-gallo.png",
 		"recipe": "https://cookieandkate.com/classic-pico-de-gallo-recipe/",
-		"recipeServings": 2
+		"recipeServings": 4
 	},
 	"PBToast": {
 		"title": "Peanut Butter Toast",
@@ -737,11 +787,10 @@
 		"title": "Spanish Tortilla",
 		"mealHint": "lunch",
 		"ingredients": [
-			"0.25 cup olive oil",
+			"0.60 cup olive oil",
 			"2 lbs potatoes",
-			"2 tbsp olive oil",
 			"2 onion",
-			"6 egg",
+			"7 egg",
 			"1 roasted red pepper",
 			"3 oz ham",
 			"2 tbsp parsley"
@@ -749,7 +798,7 @@
 		"img": "img/spanish-tortilla.png",
 		"recipe": "https://www.allrecipes.com/recipe/147109/tortilla-espanola-spanish-tortilla/",
 		"noteTxt": "Use 1/2 cup olive oil, see how much is left after. 1/4 cup is estimate.",
-		"recipeServings": 4
+		"recipeServings": 5
 	},
 	"spicyCoconutChickenThighsMarinade": {
 		"title": "Spicy Coconut Chicken Thighs Marinade",

@@ -64,6 +64,9 @@
 	"blueberries": [
 		[85, "1 cup"]
 	],
+	"burrito tortilla": [
+		[210, "1 tortilla"]
+	],
 	"butter": [
 		[100, "1 tbsp"]
 	],
@@ -74,7 +77,8 @@
 		[70, "1 x"]
 	],
 	"broccoli": [
-		[60, "1 head"]
+		[60, "1 head"],
+		[31, "1 cup"]
 	],
 	"brown sugar": [
 		[50, "1 tbsp"]
@@ -95,6 +99,9 @@
 	"casein protein powder": [
 		[120, "33 g"],
 		[120, "1 scoop"]
+	],
+	"cayenne powder": [
+		[17, "1 tbsp"]
 	],
 	"cheddar cheese": [
 		[113, "1 slice"],
@@ -132,11 +139,17 @@
 	"coconut milk (in can)": [
 		[140, "80 ml"]
 	],
+	"coconut oil": [
+		[120, "1 tbsp"]
+	],
 	"coffee": [
 		[0, "1 cup"]
 	],
 	"cojita cheese": [
 		[100, "1 oz"]
+	],
+	"coriander": [
+		[5, "1 tsp"]
 	],
 	"corn": [
 		[60, "0.5 cup"],
@@ -145,8 +158,15 @@
 	"cornstarch": [
 		[488, "1 cup"]
 	],
+	"crushed tomatoes": [
+		[90, "8.5 oz"],
+		[90, "1 cup"]
+	],
 	"cucumber": [
 		[17, "0.5 x"]
+	],
+	"cumin": [
+		[8, "1 tsp"]
 	],
 	"Dave's Killer Bread": [
 		[120, "1 psc"]
@@ -203,6 +223,9 @@
 	],
 	"garlic naan": [
 		[370, "1 piece"]
+	],
+	"garlic powder": [
+		[32, "1 tbsp"]
 	],
 	"ginger": [
 		[6, "1 inch"]
@@ -291,6 +314,10 @@
 		[5, "½ x"],
 		[5, "1 tbsp"]
 	],
+	"red lentils": [
+		[180, "0.25 cup"],
+		[180, "50 g"]
+	],
 	"lettuce": [
 		[4, "2 pcs"],
 		[8, "1 cup"]
@@ -320,7 +347,7 @@
 		[128, "1 cup"]
 	],
 	"mini corn tortilla": [
-		[100, "3 x"]
+		[60, "1 x"]
 	],
 	"mozarella": [
 		[200, "0.5 cup"]
@@ -345,6 +372,9 @@
 	],
 	"pancetta (grease incl.)": [
 		[294, "0.125 lb"]
+	],
+	"paprika": [
+		[19, "1 tbsp"]
 	],
 	"parmesan": [
 		[122, "1 oz"]
@@ -484,6 +514,9 @@
 	"sesame seeds": [
 		[16, "1 tsp"]
 	],
+	"shredded hash browns": [
+		[70, "1 cup"]
+	],
 	"shrimp": [
 		[225, "0.5 lb"]
 	],
@@ -539,6 +572,9 @@
 	],
 	"Tonkotsu Ramen (Sun Noodle Brand)": [
 		[500, "1 pack"]
+	],
+	"tumeric": [
+		[29, "1 tbsp"]
 	],
 	"tuna (5oz can, in water)": [
 		[100, "1 can"]

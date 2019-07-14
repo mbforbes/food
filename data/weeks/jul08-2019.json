@@ -4,12 +4,12 @@
             "biscuitSandwichWholeFoods"
         ],
         "lunch": [
-            "kaleSalad190708"
+            "kaleSalad"
         ],
         "snack": [],
         "dinner": [
-            "chickenNaanWrap",
-            "spicyCoconutChickenThighsMarinade"
+            "spicyCoconutChickenThighsMarinade",
+            "chickenNaanWrap"
         ]
     },
     "tuesday": {
@@ -21,8 +21,8 @@
         ],
         "snack": [],
         "dinner": [
-            "chickenNaanWrap",
-            "spicyCoconutChickenThighsMarinade"
+            "spicyCoconutChickenThighsMarinade",
+            "chickenNaanWrap"
         ]
     },
     "wednesday": {

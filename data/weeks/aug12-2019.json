@@ -1,0 +1,76 @@
+{
+    "monday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": [
+            "lentilCurry"
+        ]
+    },
+    "tuesday": {
+        "breakfast": [
+            "breakfastBurritosPotatoes"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "snack": [],
+        "dinner": [
+            "lentilCurry",
+            "halfChickenBreast"
+        ]
+    },
+    "wednesday": {
+        "breakfast": [
+            "breakfastBurritosPotatoes"
+        ],
+        "lunch": [
+            "lentilCurry",
+            "halfChickenBreast"
+        ],
+        "snack": [],
+        "dinner": [
+            "asparagusSide",
+            "meatloaf"
+        ]
+    },
+    "thursday": {
+        "breakfast": [
+            "breakfastBurritosPotatoes"
+        ],
+        "lunch": [
+            "meatloaf"
+        ],
+        "snack": [],
+        "dinner": [
+            "lentilCurry",
+            "halfChickenBreast"
+        ]
+    },
+    "friday": {
+        "breakfast": [
+            "breakfastBurritosPotatoes"
+        ],
+        "lunch": [
+            "lentilCurry",
+            "halfChickenBreast"
+        ],
+        "snack": [],
+        "dinner": [
+            "bakedBroccoliSide",
+            "meatloaf"
+        ]
+    },
+    "saturday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": []
+    },
+    "sunday": {
+        "breakfast": [],
+        "lunch": [],
+        "snack": [],
+        "dinner": []
+    }
+}

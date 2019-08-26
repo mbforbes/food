@@ -165,6 +165,73 @@
 		],
 		"noteTxt": "Might as well just put the dish."
 	},
+	"overnightOatsBananaBread": {
+		"title": "Overnight Oats: Banana Bread",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"0.75 cup oats",
+			"0.75 cup milk (1%)",
+			"0.25 cup greek yogurt",
+			"1 pack splenda",
+			"0.25 tsp salt",
+
+			"0.5 tsp cinnamon",
+			"0.25 cup walnuts",
+			"1 banana"
+		],
+		"img": "img/overnight-oats-banana.png",
+		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
+	},
+	"overnightOatsBlueberrychocolate": {
+		"title": "Overnight Oats: Blueberry Chocolate",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"0.75 cup oats",
+			"0.75 cup milk (1%)",
+			"0.25 cup greek yogurt",
+			"1 pack splenda",
+			"0.25 tsp salt",
+
+			"0.25 tsp vanilla extract",
+			"1 cup blueberries",
+			"1 tbsp chocolate chips"
+		],
+		"img": "img/overnight-oats-blueberry.png",
+		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
+	},
+	"overnightOatsCinnamonApple": {
+		"title": "Overnight Oats: Cinnamon Apple",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"0.75 cup oats",
+			"0.75 cup milk (1%)",
+			"0.25 cup greek yogurt",
+			"1 pack splenda",
+			"0.25 tsp salt",
+
+			"0.5 tsp cinnamon",
+			"1 apple",
+			"2 tbsp raisins"
+		],
+		"img": "img/overnight-oats-apple.png",
+		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
+	},
+	"overnightOatsPBCoffee": {
+		"title": "Overnight Oats: Peanut Butter Coffee",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"0.75 cup oats",
+			"0.75 cup milk (1%)",
+			"0.25 cup greek yogurt",
+			"1 pack splenda",
+			"0.25 tsp salt",
+
+			"2 tbsp peanut butter",
+			"0.5 pack instant coffee"
+		],
+		"img": "img/overnight-oats-pb.png",
+		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
+	},
 	"riceSideSmall": {
 		"title": "Rice (side) (small)",
 		"mealHint": "dinner",

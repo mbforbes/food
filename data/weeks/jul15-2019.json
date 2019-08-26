@@ -1,33 +1,67 @@
 {
     "monday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "breakfastBurritosPotatoes"
+        ],
+        "lunch": [
+            "spaghettiSquashMeatSauce"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "lentilCurry",
+            "riceSide"
+        ]
     },
     "tuesday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "breakfastBurritosPotatoes"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "wednesday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "breakfastBurritosCheese"
+        ],
+        "lunch": [
+            "spaghettiSquashMeatSauce"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "lentilCurry",
+            "riceSide"
+        ]
     },
     "thursday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "breakfastBurritosPotatoes"
+        ],
+        "lunch": [
+            "lentilCurry",
+            "riceSide"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "quinoaSalad"
+        ]
     },
     "friday": {
-        "breakfast": [],
-        "lunch": [],
+        "breakfast": [
+            "breakfastBurritosCheese"
+        ],
+        "lunch": [
+            "lentilCurry",
+            "riceSide"
+        ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "quinoaSalad"
+        ]
     },
     "saturday": {
         "breakfast": [],

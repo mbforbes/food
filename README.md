@@ -36,28 +36,23 @@ is what makes this exhausting, and makes being creative difficult.
 
 (maybe)
 
-## Meals On The Radar
+## Completed Weeks
 
-advance in bulk
-- https://www.youtube.com/watch?v=17Bagme20IM
+~1800 target
+
+- `aug26-2019` (chicken/rice/veggies; lettuce wraps; shrimp; tuna salad; quinoa salad) (scrambles/oats)
+
+## Meals On The Radar
 
 healthy stuff
 - SALADSSSSSS (need to xport well)
 
 others
 - [beef stew (+ first comment)](https://www.allrecipes.com/recipe/14685/slow-cooker-beef-stew-i/)
-- breakfast burritos
 - meatballs
 - slow cooker meals
-- Quinoa salad upgrade
-    - toppings
-- huevos rancheros
-
-Someday
 - [slow cooker "steak"](https://www.allrecipes.com/recipe/73124/slow-cooker-salisbury-steak/)
 - Shakshuka (actually)
 - pasta salad
 - quesadillas
-- ugh https://www.buzzfeed.com/hannahloewentheil/budget-cooking-meal-plan
-    - egg + avocado bake
-    - smoothies
+- Mediterranean Chickpea Quinoa Bowl (google)

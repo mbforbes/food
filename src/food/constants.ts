@@ -54,7 +54,7 @@ const BULK_THINGS = new Set([
     'ketchup',
     'red wine vinegar',
     'honey',
-    'Worchestireshire sauce',
+    'Worcestershire sauce',
     'sake',
     'hondashi',
     'togarashi',
@@ -89,6 +89,12 @@ const BULK_THINGS = new Set([
     'cornstarch',
     'ground ginger',
     'tomato paste',
+    'coconut oil',
+    'coriander',
+    'cumin',
+    'tumeric',
+    'cayenne powder',
+    'splenda',
 ])
 
 // things used as internal placeholders we don't need to add to any list

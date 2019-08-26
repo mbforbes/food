@@ -5,8 +5,7 @@
 		"ingredients": [
 			"71 g arugula",
 			"0.5 tbsp olive oil",
-			"½ lemon (juice)",
-			"¼ avocado"
+			"½ lemon (juice)"
 		],
 		"img": "img/arugula-side-salad.png"
 	},
@@ -49,6 +48,14 @@
 		],
 		"img": "img/baked-broccoli.png"
 	},
+	"banana": {
+		"title": "Banana",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 banana"
+		],
+		"img": "img/banana.png"
+	},
 	"bananaPancakes": {
 		"title": "Banana Pancakes",
 		"mealHint": "breakfast",
@@ -68,6 +75,14 @@
 			"12 fl-oz beer (7% abv)"
 		],
 		"img": "img/beer.png"
+	},
+	"bellPepperSide": {
+		"title": "Bell Pepper (Side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 bell pepper"
+		],
+		"img": "img/bell-pepper.png"
 	},
 	"biscuitSandwich": {
 		"title": "Biscuit Sandwich",
@@ -91,15 +106,25 @@
 		],
 		"img": "img/biscuit-sandwich.png"
 	},
-	"breakfastBurritos": {
-		"title": "Breakfast Burritos",
+	"breakfastBurritosPotatoes": {
+		"title": "Breakfast Burritos: Potatoes",
 		"mealHint": "breakfast",
 		"ingredients": [
+			"1 burrito tortilla",
 			"1 cup shredded hash browns",
 			"2 egg",
-			"2 pcs bacon",
-			"1 oz white cheddar cheese",
-			"2 tbsp sour cream"
+			"2 pcs bacon: 365 Uncured Center-Cut Smokehouse"
+		],
+		"img": "img/breakfast-burritos.png"
+	},
+	"breakfastBurritosCheese": {
+		"title": "Breakfast Burritos: Cheese",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 burrito tortilla",
+			"2 egg",
+			"2 pcs bacon: 365 Uncured Center-Cut Smokehouse",
+			"0.6 oz white cheddar cheese"
 		],
 		"img": "img/breakfast-burritos.png"
 	},
@@ -127,25 +152,54 @@
 		],
 		"img": "img/breakfast-sausage-patties.png"
 	},
-	"breakfastScramble": {
-		"title": "Breakfast Scramble",
+	"breakfastScrambleA": {
+		"title": "Breakfast Scramble A",
 		"mealHint": "breakfast",
 		"ingredients": [
 			"½ tbsp olive oil",
 			"½ bell pepper",
 			"½ onion",
-			"2 egg",
-			"0.5 tbsp butter",
-			"1 slice cheddar cheese",
-			"1 slice ham"
+			"3 egg",
+			"60 g ham"
 		],
-		"img": "img/breakfast-scramble.png"
+		"img": "img/scrambled-eggs-combo.png"
+	},
+	"breakfastScrambleB": {
+		"title": "Breakfast Scramble B",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"½ tbsp olive oil",
+			"4 mushrooms (white)",
+			"½ onion",
+			"3 egg",
+			"60 g ham"
+		],
+		"img": "img/scrambled-eggs-combo.png"
+	},
+	"breakfastScrambleC": {
+		"title": "Breakfast Scramble B",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"½ tbsp olive oil",
+			"3 egg",
+			"60 g ham",
+			"10 g parmesan"
+		],
+		"img": "img/scrambled-eggs-combo.png"
+	},
+	"broccoliSide": {
+		"title": "Broccoli (Side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 head broccoli"
+		],
+		"img": "img/broccoli.png"
 	},
 	"broccoliStuffedChicken": {
 		"title": "Broccoli Stuffed Chicken Breast",
 		"mealHint": "dinner",
 		"ingredients": [
-			"1 chicken breast",
+			"0.75 lb chicken breast",
 			"0.5 tsp garlic powder",
 			"0.125 tsp paprika",
 			"0.33 cup broccoli",
@@ -157,12 +211,20 @@
 		"img": "img/broccoli-stuffed-chicken-breast.png",
 		"recipe": "https://iwashyoudry.com/broccoli-cheese-stuffed-chicken-breast/"
 	},
+	"brownRiceSide": {
+		"title": "Brown Rice (side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			"0.75 cup rice (brown, cooked)"
+		],
+		"img": "img/brown-rice.png"
+	},
 	"brusslesSproutsSide": {
 		"title": "Baked Brussles Sprouts (side)",
 		"mealHint": "dinner",
 		"ingredients": [
 			"12 brussles sprouts",
-			"1 tbsp olive oil"
+			"0.5 tbsp olive oil"
 		],
 		"img": "img/brussles-sprouts.png"
 	},
@@ -193,6 +255,14 @@
 		],
 		"img": "img/burrito-bowl.png",
 		"recipeServings": 4
+	},
+	"cabbageSide": {
+		"title": "Cabbage (Side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			"200 g cabbage"
+		],
+		"img": "img/cabbage.png"
 	},
 	"carrots": {
 		"title": "Carrots",
@@ -248,7 +318,7 @@
 		"title": "Chicken, Rice, and Broccoli",
 		"mealHint": "dinner",
 		"ingredients": [
-			"1 chicken breast",
+			"0.75 lb chicken breast",
 			"1 cup rice (white, cooked)",
 			"1 head broccoli",
 			"½ tbsp olive oil"
@@ -259,7 +329,7 @@
 		"title": "Chicken Vegetable Stir-Fry",
 		"mealHint": "dinner",
 		"ingredients": [
-			"1 chicken breast",
+			"0.75 lb chicken breast",
 			"1 tbsp olive oil",
 			"0.25 onion",
 			"4 mushrooms (white)",
@@ -342,7 +412,7 @@
 		"title": "Ghetto Cordon Bleau",
 		"mealHint": "dinner",
 		"ingredients": [
-			"1 chicken breast",
+			"0.75 lb chicken breast",
 			"2 slices ham",
 			"41 g white cheddar cheese"
 		],
@@ -352,8 +422,8 @@
 		"title": "Half Chicken Breast",
 		"mealHint": "snack",
 		"ingredients": [
-			"0.25 tbsp olive oil",
-			"½ chicken breast"
+			"2 tsp olive oil",
+			"6 oz chicken breast"
 		],
 		"img": "img/chicken-breast.png"
 	},
@@ -362,7 +432,7 @@
 		"mealHint": "dinner",
 		"ingredients": [
 			"½ tbsp olive oil",
-			"1 chicken breast"
+			"0.75 lbs chicken breast"
 		],
 		"img": "img/chicken-breast.png"
 	},
@@ -532,72 +602,18 @@
 		],
 		"img": "img/omelette.png"
 	},
-	"overnightOatsBananaBread": {
-		"title": "Overnight Oats: Banana Bread",
+	"overnightOats": {
+		"title": "Overnight Oats",
 		"mealHint": "breakfast",
 		"ingredients": [
-			"0.75 cup oats",
-			"0.75 cup milk (1%)",
-			"0.75 cup greek yogurt",
+			"0.66 cup oats",
+			"0.66 cup milk (nonfat)",
+			"4 oz yogurt (nonfat)",
 			"1 pack splenda",
-			"0.25 tsp salt",
-
-			"0.5 tsp cinnamon",
-			"0.25 cup walnuts",
-			"1 banana"
+			"0.25 tsp salt"
 		],
-		"img": "img/overnight-oats-banana.png",
-		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
-	},
-	"overnightOatsBlueberrychocolate": {
-		"title": "Overnight Oats: Blueberry Chocolate",
-		"mealHint": "breakfast",
-		"ingredients": [
-			"0.75 cup oats",
-			"0.75 cup milk (1%)",
-			"0.75 cup greek yogurt",
-			"1 pack splenda",
-			"0.25 tsp salt",
-
-			"0.25 tsp vanilla extract",
-			"1 cup blueberries",
-			"1 tbsp chocolate chips"
-		],
-		"img": "img/overnight-oats-blueberry.png",
-		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
-	},
-	"overnightOatsCinnamonApple": {
-		"title": "Overnight Oats: Cinnamon Apple",
-		"mealHint": "breakfast",
-		"ingredients": [
-			"0.75 cup oats",
-			"0.75 cup milk (1%)",
-			"0.75 cup greek yogurt",
-			"1 pack splenda",
-			"0.25 tsp salt",
-
-			"0.5 tsp cinnamon",
-			"1 apple",
-			"2 tbsp raisins"
-		],
-		"img": "img/overnight-oats-apple.png",
-		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
-	},
-	"overnightOatsPBCoffee": {
-		"title": "Overnight Oats: Peanut Butter Coffee",
-		"mealHint": "breakfast",
-		"ingredients": [
-			"0.75 cup oats",
-			"0.75 cup milk (1%)",
-			"0.75 cup greek yogurt",
-			"1 pack splenda",
-			"0.25 tsp salt",
-
-			"2 tbsp peanut butter",
-			"0.5 pack instant coffee"
-		],
-		"img": "img/overnight-oats-pb.png",
-		"recipe": "https://chocolatecoveredkatie.com/2019/03/07/how-to-make-overnight-oats-recipes/"
+		"img": "img/overnight-oats.png",
+		"recipe": "https://feelgoodfoodie.net/recipe/overnight-oats/"
 	},
 	"oyakodon": {
 		"title": "Oyakodon",
@@ -609,7 +625,7 @@
 			"2 tbsp sake",
 			"1 tbsp sugar",
 			"1 yellow onion",
-			"0.5 chicken breast",
+			"6 oz chicken breast",
 			"3 scallions",
 			"2 egg",
 			"1 tsp togarashi"
@@ -630,6 +646,14 @@
 		"img": "img/pico-de-gallo.png",
 		"recipe": "https://cookieandkate.com/classic-pico-de-gallo-recipe/",
 		"recipeServings": 4
+	},
+	"peanutButter": {
+		"title": "Peanut Butter",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 tbsp peanut butter"
+		],
+		"img": "img/peanut-butter.png"
 	},
 	"PBToast": {
 		"title": "Peanut Butter Toast",
@@ -663,22 +687,45 @@
 		"mealHint": "snack",
 		"ingredients": [
 			"1 scoop protein powder",
-			"1 cup milk (1%)"
+			"1 cup milk (nonfat)"
 		],
 		"img": "img/protein-shake.png"
 	},
-	"quinoaSalad": {
-		"title": "Quinoa Salad",
+	"quinoaSaladDinner": {
+		"title": "Quinoa Salad (Dinner)",
 		"mealHint": "dinner",
 		"ingredients": [
 			"1 cup quinoa (cooked)",
 			"6 oz chicken breast",
+			"2 tsp olive oil",
 			"71 g arugula",
 			"2 tsp olive oil",
 			"½ lemon (juice)",
 			"0.5 avocado"
 		],
 		"img": "img/quinoa-salad.png"
+	},
+	"quinoaSaladLunch": {
+		"title": "Quinoa Salad (Lunch)",
+		"mealHint": "lunch",
+		"ingredients": [
+			"0.66 cup quinoa (cooked)",
+			"6 oz chicken breast",
+			"2 tsp olive oil",
+			"71 g arugula",
+			"1 tsp olive oil",
+			"½ lemon (juice)",
+			"0.5 avocado"
+		],
+		"img": "img/quinoa-salad.png"
+	},
+	"quinoaSide": {
+		"title": "Quinoa (Side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			"0.5 cup quinoa (cooked)"
+		],
+		"img": "img/quinoa.png"
 	},
 	"ramenFancy": {
 		"title": "Fancy Ramen",
@@ -693,7 +740,7 @@
 		"title": "Rice (side)",
 		"mealHint": "dinner",
 		"ingredients": [
-			"1 cup rice (white, cooked)"
+			"0.75 cup rice (white, cooked)"
 		],
 		"img": "img/rice.png"
 	},
@@ -774,9 +821,9 @@
 		"title": "Spaghetti Squash & Meat Sauce",
 		"mealHint": "dinner",
 		"ingredients": [
-			"2.5 cup spaghetti squash",
+			"1.5 cup spaghetti squash",
 			"1 tsp olive oil",
-			"1 cup red sauce",
+			"0.33 can red sauce: Rao's Arrabbiata",
 			"0.33 lb ground beef (90% lean)",
 			"1 oz parmesan"
 		],
@@ -854,6 +901,19 @@
 			"2 pcs Dave's Killer Bread"
 		],
 		"img": "img/tuna-fish-sandwich.png"
+	},
+	"tunaCabbageSalad": {
+		"title": "Tuna Cabbage Salad",
+		"mealHint": "lunch",
+		"ingredients": [
+			"2 can tuna (5oz can, in water)",
+			"1 tbsp mayo",
+			"4 oz yogurt (nonfat)",
+			"200 g cabbage",
+			"2 scallions",
+			"1 jalapeño"
+		],
+		"img": "img/tuna-cabbage-salad.png"
 	},
 	"yogurt": {
 		"title": "Yogurt Cup",

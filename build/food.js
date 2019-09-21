@@ -371,6 +371,24 @@ function drag(ev, dishID, dayID, mealID) {
         ev.dataTransfer.setData('dayID', dayID);
         ev.dataTransfer.setData('mealID', mealID);
     }
+    // set what image is displayed. may drag the image itself, or the div surrounding
+    // it, in which case we try to find it.
+    let imgEl = null;
+    let el = ev.target;
+    if (el.nodeName == 'IMG' && el.hasAttribute('src')) {
+        imgEl = el;
+    }
+    else {
+        for (let child of el.children) {
+            if (child.nodeName == 'IMG' && child.hasAttribute('src')) {
+                imgEl = child;
+                break;
+            }
+        }
+    }
+    if (imgEl != null) {
+        ev.dataTransfer.setDragImage(imgEl, 0, 0);
+    }
 }
 function getHighlightEl(el) {
     let maxTraverse = 5;
@@ -554,11 +572,13 @@ function htmlDish(dishID, dishTitle, dishGuests, dishCalories, dishImg, dishReci
     // const dishIDDisplay = (view == View.Dishes) ? ' <h2><pre>[' + dishID + ']</pre></h2>' : '';
     return `
     <div class="${cssClass}">
-        <h1>${dishTitle}${dishExtra}</h1>
-        <h2>${calories} calories</h2>
+        <div class="txtHeader">
+            <h1>${dishTitle}${dishExtra}</h1>
+            <h2>${calories} calories</h2>
+        </div>
         <img src="${dishImg}" />
 
-        <span class="${tooltipClass}">
+        <span class="${tooltipClass}" onresize="tooltipResize">
             ${ingredientsHTML}
             ${recipe}
         </span>
@@ -695,7 +715,8 @@ function renderWeek(dishes, week, view) {
         weekHTML += dayHTML;
         weekIngredDescs.push(...dayIngredDescs);
     }
-    return [weekHTML, weekIngredDescs];
+    let fullWeekHTML = '<div class="weekContainer">' + weekHTML + '</div>';
+    return [fullWeekHTML, weekIngredDescs];
 }
 /**
  * @returns [dayHTML, list of ingredient descriptions for day]
@@ -886,6 +907,27 @@ function getNextWeekFilename() {
     return getWeekPath(candidate);
 }
 //
+// finishing up
+//
+function onResize() {
+    const els = $('.tooltip');
+    const bodySize = document.body.getBoundingClientRect();
+    const buffer = 20;
+    for (let el of els) {
+        const elSize = el.getBoundingClientRect();
+        if (elSize.right + buffer > bodySize.right) {
+            $(el).addClass('left');
+            console.log('adding left');
+        }
+        else {
+            $(el).removeClass('left');
+        }
+    }
+}
+function finish() {
+    onResize();
+}
+//
 // process data
 //
 /**
@@ -963,6 +1005,7 @@ function onDishesLoadedDishes(displayDishesRaw, allDishesRaw) {
     // console.log('Got dishes');
     // console.log(allDishes);
     $('body').append(renderDishes(displayDishes, View.Dishes));
+    finish();
 }
 function onWeekFail(weekFN, view, displayDishes, allDishes) {
     if (view == View.Edit) {
@@ -980,7 +1023,7 @@ function onWeekLoaded(view, displayDishes, allDishes, week) {
     // console.log('Got week');
     // console.log(week);
     DragNDropGlobals.weekData = week;
-    console.log('viewType: ' + view);
+    console.log('viewType: ' + View[view]);
     if (view == View.ShowWeek) {
         // render full-week display-only view.
         let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.ShowWeek);
@@ -997,6 +1040,7 @@ function onWeekLoaded(view, displayDishes, allDishes, week) {
         let [dayHTML, _] = renderDay(allDishes, dayID, week[dayID], View.ShowDay);
         $('body').append(dayHTML);
     }
+    finish();
 }
 //
 // core execution
@@ -1058,7 +1102,7 @@ function getView(url) {
             view = View.ShowWeek;
             break;
     }
-    console.log('Using view: ' + view);
+    console.log('Using view: ' + View[view]);
     return view;
 }
 function main(calorieFile) {
@@ -1087,6 +1131,8 @@ function preload() {
     $.getJSON(caloriesFN, main);
 }
 preload();
+// swap around tooltips as window is resized!
+window.addEventListener("resize", onResize);
 /// <reference path="constants.ts" />
 function serialize(week, path, success) {
     // NOTE: unsafe

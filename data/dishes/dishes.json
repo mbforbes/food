@@ -85,13 +85,13 @@
 		"img": "img/bell-pepper.png"
 	},
 	"biscuitSandwich": {
-		"title": "Biscuit Sandwich",
+		"title": "Biscuit Sandwich (Safeway)",
 		"mealHint": "breakfast",
 		"ingredients": [
-			"1 breakfast sausage patty",
+			"1 breakfast sausage patty (Safeway)",
 			"2 egg",
-			"1 biscuit",
-			"25 g white cheddar cheese"
+			"1 biscuit (Safeway)",
+			"12 g white cheddar cheese"
 		],
 		"img": "img/biscuit-sandwich.png"
 	},
@@ -148,7 +148,7 @@
 		"title": "Breakfast Sausage Patties",
 		"mealHint": "breakfast",
 		"ingredients": [
-			"2 breakfast sausage patty"
+			"2 breakfast sausage patty (Safeway)"
 		],
 		"img": "img/breakfast-sausage-patties.png"
 	},
@@ -305,7 +305,7 @@
 		"title": "Chicken Naan Wrap",
 		"mealHint": "dinner",
 		"ingredients": [
-			"7 oz chicken thigh",
+			"0.5 lb chicken thigh",
 			"0.5 piece garlic naan",
 			"2 tbsp tzatziki sauce",
 			"2 tbsp feta",
@@ -531,7 +531,7 @@
 		"title": "Lentil Curry",
 		"mealHint": "lunch",
 		"ingredients": [
-			"2 tbsp coconut oil",
+			"1 tbsp coconut oil",
 			"1 tsp cumin",
 			"1 tsp coriander",
 			"10 cloves garlic",
@@ -541,7 +541,7 @@
 			"2 tsp salt",
 			"1 cup red lentils",
 			"2 tsp cayenne powder",
-			"400 ml coconut milk (in can)",
+			"400 ml light coconut milk (in can)",
 			"2 cups cherry tomatoes",
 			"1 cup cilantro"
 		],

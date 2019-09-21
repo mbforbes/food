@@ -12,6 +12,24 @@ function drag(ev: DragEvent, dishID: string, dayID?: DayID, mealID?: MealID): vo
         ev.dataTransfer.setData('dayID', dayID);
         ev.dataTransfer.setData('mealID', mealID);
     }
+
+    // set what image is displayed. may drag the image itself, or the div surrounding
+    // it, in which case we try to find it.
+    let imgEl: Element = null;
+    let el: Element = (ev.target as Element);
+    if (el.nodeName == 'IMG' && el.hasAttribute('src')) {
+        imgEl = el;
+    } else {
+        for (let child of el.children) {
+            if (child.nodeName == 'IMG' && child.hasAttribute('src')) {
+                imgEl = child;
+                break;
+            }
+        }
+    }
+    if (imgEl != null) {
+        ev.dataTransfer.setDragImage(imgEl, 0, 0);
+    }
 }
 
 function getHighlightEl(el: Element): Element {

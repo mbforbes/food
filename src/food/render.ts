@@ -154,11 +154,13 @@ function htmlDish(
 
     return `
     <div class="${cssClass}">
-        <h1>${dishTitle}${dishExtra}</h1>
-        <h2>${calories} calories</h2>
+        <div class="txtHeader">
+            <h1>${dishTitle}${dishExtra}</h1>
+            <h2>${calories} calories</h2>
+        </div>
         <img src="${dishImg}" />
 
-        <span class="${tooltipClass}">
+        <span class="${tooltipClass}" onresize="tooltipResize">
             ${ingredientsHTML}
             ${recipe}
         </span>
@@ -311,7 +313,8 @@ function renderWeek(dishes: Dishes, week: Week, view: View): [string, string[]] 
         weekHTML += dayHTML;
         weekIngredDescs.push(...dayIngredDescs);
     }
-    return [weekHTML, weekIngredDescs];
+    let fullWeekHTML = '<div class="weekContainer">' + weekHTML + '</div>';
+    return [fullWeekHTML, weekIngredDescs];
 }
 
 /**

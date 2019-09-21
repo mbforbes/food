@@ -7,18 +7,15 @@
 
 :root {
 
+    /* For softer text */
+    --white: #fff;
+    --off-black: #100c08;
+    --color1: #fed530;
+    --color2: #3980da;
+
     /* BG colors */
     /* --page-bg-color: #fdfff0; */
-    --page-bg-color: #fff;
-    --item-hover-color: #a7d7c5;
-    --area-hover-color: #74b49b;
-    --tooltip-color: var(--item-hover-color);
-    --img-frame-color: #f4f9f4;
-    --dish-card-bg-color: #f4f9f4;
-
-    /* For softer text */
-    --off-white: #f4f9f4;
-    --off-black: #100c08;
+    --page-bg-color: var(--white);
 }
 
 body {
@@ -66,7 +63,8 @@ body {
     /* these rules allow independent scrolling to access later dishes while still
     viewing the whole week. */
     overflow: scroll;
-    height: 1100px;
+    /* height: 1100px; */
+    height: 100vh;
 }
 
 .editDishes h1 {
@@ -94,12 +92,13 @@ body {
     background-color: #fcfcfc;
     margin: 5px;
     padding: 5px;
-    box-shadow: -4px 4px 2px -2px grey;
+    border-top: 2px solid var(--color1);
+    /* box-shadow: -4px 4px 2px -2px grey; */
     position: relative;
 }
 
 .editDish:hover {
-    background-color: var(--item-hover-color);
+    background-color: var(--color1);
     cursor: grab;
     transition: all 0.2s ease-out;
 }
@@ -113,15 +112,18 @@ img {
 .editDish .calOverlay {
     font-size: 14px;
     text-align: center;
-    background-color: var(--off-black);
+    background-color: #333;
     color: #fff;
     font-weight: bold;
     position: absolute;
-    right: 0;
+    right: 2px;
+    bottom: 8px;
     z-index: 2;
-    margin-top: -23px;
+    /* margin-top: -23px; */
     margin-right: 6px;
-    padding-left: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
     padding-right: 4px;
     border-radius: 6px;
 }
@@ -129,27 +131,42 @@ img {
 .tooltip {
     width: 200px;
     visibility: hidden;
-    background: rgb(2,0,36);
-    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(244,249,244,1) 0%, rgba(167,215,197,1) 100%);
+    background: var(--color1);
     color: var(--off-black);
     text-align: center;
     padding: 8px;
-    border-radius: 6px;
+    /* border-radius: 6px; */
     position: absolute;
     z-index: 3;
+    border: 3px solid var(--off-black);
+    transition: transform 0.2s ease-out;
 }
 
 .tooltip.left {
-    right: 0;
+    right: 100%;
 }
 
-.tooltip.right {
-    left: 0;
+.tooltip hr {
+    /* border-top: 1px solid var(--off-black); */
+    border-style: solid;
 }
 
 
-.editDish:hover .tooltip {
+/* These give the tooltip a slight rise when they appear. */
+.editDish:hover .tooltip,
+.dish:hover .tooltip,
+.dishCard:hover .tooltip {
     visibility: visible;
+    transform: translateY(-10px);
+}
+
+/* These prevent the tooltip from blocking mouse movement */
+
+/* .dish span.tooltip:hover, */
+/* .dishCard span.tooltip:hover, */
+.editDish span.tooltip:hover
+{
+    visibility: hidden;
 }
 
 /*
@@ -207,9 +224,14 @@ img {
 }
 
 [drop-active=on] {
-    background-color: var(--area-hover-color);
-    color: var(--off-white);
+    background-color: var(--color2);
+    color: var(--white);
 }
+
+.controlPanel {
+    margin-bottom: 15px;
+}
+
 
 /**
  * In the edit view, on the left (time), this contains the dishes for a meal in
@@ -242,7 +264,7 @@ img {
 }
 
 .meal h1 {
-    font-size: 24pt;
+    font-size: 60pt;
     font-family: sans-serif;
 }
 
@@ -250,28 +272,31 @@ img {
     /* width: 250px; */
     float: left;
     /* height: 435px; */
-    background-color: #fcfcfc;
-    margin: 10px;
-    padding: 10px;
-    box-shadow: -10px 10px 6px -6px grey;
+    /* background-color: #fcfcfc; */
+    margin: 7px;
+    padding: 5px;
+    padding-top: 7px;
+    /* box-shadow: -10px 10px 6px -6px grey; */
+
+    width: 170px;
+    height: 225px;
+    border-top: 3px solid var(--color1);
+    position: relative;
+}
+
+.dishCard:hover {
+    transition: all 0.2s ease-out;
+    background-color: var(--color1);
 }
 
 .dishCard img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 .dish img {
     width: 150px;
     height: 150px;
-}
-
-.dishCard:hover .tooltip {
-    visibility: visible;
-}
-
-.dish:hover .tooltip {
-    visibility: visible;
 }
 
 .recipeLink {
@@ -280,6 +305,20 @@ img {
 
 
 /* Display week and day views */
+
+.weekContainer {
+    zoom: 1;
+    margin-bottom: 10px;
+}
+
+.weekContainer:before, .weekContainer:after {
+    content: " ";
+    display: table;
+}
+
+.weekContainer:after {
+    clear: both;
+}
 
 /*
  * Day (Monday)
@@ -351,7 +390,12 @@ img {
     margin-left: 0px;
     margin-right: 0px;
     padding: 10px;
-    background-color: var(--dish-card-bg-color);
+    background-color: var(--white);
+    border-top: 3px solid var(--color1);
+}
+
+.dish:hover {
+   background-color: var(--color1);
 }
 
 .dish table {
@@ -386,6 +430,10 @@ img {
     /* font-style: italic; */
 }
 
+.dishCard .txtHeader {
+    height: 40pt;
+}
+
 /* Ingredient calories (140) */
 .calorieCell {
     text-align: right;
@@ -413,7 +461,7 @@ img {
 }
 
 .groceryListInner {
-    background-color: #fcfcfc;
+    background-color: #fff;
     padding: 10px;
 }
 

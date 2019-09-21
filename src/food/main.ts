@@ -57,6 +57,31 @@ function getNextWeekFilename(): string {
     return getWeekPath(candidate);
 }
 
+
+//
+// finishing up
+//
+
+function onResize() {
+    const els = $('.tooltip');
+    const bodySize = document.body.getBoundingClientRect()
+    const buffer = 20;
+
+    for (let el of els) {
+        const elSize = el.getBoundingClientRect();
+        if (elSize.right + buffer > bodySize.right) {
+            $(el).addClass('left');
+            console.log('adding left');
+        } else {
+            $(el).removeClass('left');
+        }
+    }
+}
+
+function finish() {
+    onResize();
+}
+
 //
 // process data
 //
@@ -150,6 +175,7 @@ function onDishesLoadedDishes(displayDishesRaw: Dishes, allDishesRaw: Dishes): v
     // console.log(allDishes);
 
     $('body').append(renderDishes(displayDishes, View.Dishes));
+    finish();
 }
 
 function onWeekFail(
@@ -184,7 +210,7 @@ function onWeekLoaded(
     // console.log(week);
     DragNDropGlobals.weekData = week;
 
-    console.log('viewType: ' + view);
+    console.log('viewType: ' + View[view]);
     if (view == View.ShowWeek) {
         // render full-week display-only view.
         let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.ShowWeek);
@@ -199,6 +225,7 @@ function onWeekLoaded(
         let [dayHTML, _] = renderDay(allDishes, dayID, week[dayID], View.ShowDay);
         $('body').append(dayHTML);
     }
+    finish();
 }
 
 
@@ -266,7 +293,7 @@ function getView(url: URL): View {
             view = View.ShowWeek;
             break;
     }
-    console.log('Using view: ' + view);
+    console.log('Using view: ' + View[view]);
     return view;
 }
 
@@ -299,3 +326,6 @@ function preload() {
 }
 
 preload();
+
+// swap around tooltips as window is resized!
+window.addEventListener("resize", onResize);

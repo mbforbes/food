@@ -78,6 +78,7 @@
 			"1 tsp hot sauce (cholula)",
 			"1 tsp Worcestershire sauce"
 		],
+		"img": "img/bbq-sauce.png",
 		"recipe": "https://smittenkitchen.com/2018/07/minimalist-barbecue-sauce/",
 		"noteTxt": "Makes about 1/4 cup."
 	},
@@ -688,6 +689,7 @@
 			"0.8 tbsp mayo",
 			"2 tbsp bbq sauce (homemade)"
 		],
+		"img": "img/pulled-pork-sandwich.png",
 		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
 	},
 	"proteinScoop": {

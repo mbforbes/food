@@ -68,6 +68,19 @@
 		],
 		"img": "img/banana-pancakes.png"
 	},
+	"bbqSauceHomemade": {
+		"title": "BBQ Sauce (Homemade)",
+		"mealHint": "lunch",
+		"ingredients": [
+			"1.5 tbsp ketchup",
+			"1 tbsp molasses",
+			"1 tbsp apple cider vinegar",
+			"1 tsp hot sauce (cholula)",
+			"1 tsp Worcestershire sauce"
+		],
+		"recipe": "https://smittenkitchen.com/2018/07/minimalist-barbecue-sauce/",
+		"noteTxt": "Makes about 1/4 cup."
+	},
 	"beer": {
 		"title": "Beeeeeerrr",
 		"mealHint": "snack",
@@ -106,25 +119,16 @@
 		],
 		"img": "img/biscuit-sandwich.png"
 	},
-	"breakfastBurritosPotatoes": {
-		"title": "Breakfast Burritos: Potatoes",
+	"breakfastBurritos": {
+		"title": "Breakfast Burritos",
 		"mealHint": "breakfast",
 		"ingredients": [
-			"1 burrito tortilla",
-			"1 cup shredded hash browns",
+			"1 carb balance whole wheat burrito tortilla",
+			"0.66 cup diced hash brown potatoes",
+			"1 tbsp olive oil",
 			"2 egg",
-			"2 pcs bacon: 365 Uncured Center-Cut Smokehouse"
-		],
-		"img": "img/breakfast-burritos.png"
-	},
-	"breakfastBurritosCheese": {
-		"title": "Breakfast Burritos: Cheese",
-		"mealHint": "breakfast",
-		"ingredients": [
-			"1 burrito tortilla",
-			"2 egg",
-			"2 pcs bacon: 365 Uncured Center-Cut Smokehouse",
-			"0.6 oz white cheddar cheese"
+			"2 pcs bacon",
+			"17 g white cheddar cheese"
 		],
 		"img": "img/breakfast-burritos.png"
 	},
@@ -219,14 +223,14 @@
 		],
 		"img": "img/brown-rice.png"
 	},
-	"brusslesSproutsSide": {
-		"title": "Baked Brussles Sprouts (side)",
+	"brusselsSproutsSide": {
+		"title": "Baked Brussels Sprouts (side)",
 		"mealHint": "dinner",
 		"ingredients": [
-			"12 brussles sprouts",
+			"12 brussels sprouts",
 			"0.5 tbsp olive oil"
 		],
-		"img": "img/brussles-sprouts.png"
+		"img": "img/brussels-sprouts.png"
 	},
 	"butteredToast": {
 		"title": "Buttered Toast",
@@ -408,15 +412,15 @@
 		],
 		"img": "img/english-muffin.png"
 	},
-	"ghettoCordonBleau": {
-		"title": "Ghetto Cordon Bleau",
+	"ghettoCordonBleu": {
+		"title": "Ghetto Cordon Bleu",
 		"mealHint": "dinner",
 		"ingredients": [
 			"0.75 lb chicken breast",
 			"2 slices ham",
 			"41 g white cheddar cheese"
 		],
-		"img": "img/ghetto-cordon-bleau.png"
+		"img": "img/ghetto-cordon-Bleu.png"
 	},
 	"halfChickenBreast": {
 		"title": "Half Chicken Breast",
@@ -673,6 +677,18 @@
 			"2 tbsp jam"
 		],
 		"img": "img/pbnj.png"
+	},
+	"pulledPorkSandwich": {
+		"title": "Pulled Pork Sandwich",
+		"mealHint": "lunch",
+		"ingredients": [
+			"0.5 sandwich bun (oroweat crustini)",
+			"130 g pulled pork",
+			"1 cup cabbage",
+			"0.8 tbsp mayo",
+			"2 tbsp bbq sauce (homemade)"
+		],
+		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
 	},
 	"proteinScoop": {
 		"title": "Protein Scoop",

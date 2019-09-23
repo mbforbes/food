@@ -6,6 +6,9 @@
 		[75, "1 x"],
 		[52, "100 g"]
 	],
+	"apple cider vinegar": [
+		[5, "2 tbsp"]
+	],
 	"arugula": [
 		[18, "71 g"],
 		[10, "1 cup"]
@@ -20,7 +23,7 @@
 		[45, "2 cups"]
 	],
 	"bacon": [
-		[120, "2 pcs"]
+		[90, "2 pcs"]
 	],
 	"bacon: 365 Uncured Center-Cut Smokehouse": [
 		[80, "2 pcs"]
@@ -41,6 +44,9 @@
 		[5, "0.5 bunch"],
 		[5, "1 cup"],
 		[5, "1 sprig"]
+	],
+	"bbq sauce (homemade)": [
+		[97, "0.25 cup"]
 	],
 	"beer (7% abv)": [
 		[210, "12 fl-oz"]
@@ -86,7 +92,7 @@
 	"brown sugar": [
 		[50, "1 tbsp"]
 	],
-	"brussles sprouts": [
+	"brussels sprouts": [
 		[96, "12 x"]
 	],
 	"cabbage": [
@@ -95,6 +101,9 @@
 	],
 	"califa milk": [
 		[45, "8 oz"]
+	],
+	"carb balance whole wheat burrito tortilla": [
+		[110, "1 x"]
 	],
 	"carrot": [
 		[25, "1 x"],
@@ -111,7 +120,7 @@
 		[113, "1 slice"],
 		[104, "27 g"]
 	],
-	"cheese (Amiercan)": [
+	"cheese (American)": [
 		[70, "1 slice"]
 	],
 	"cheese (shredded)": [
@@ -176,6 +185,10 @@
 	],
 	"Dave's Killer Bread": [
 		[120, "1 psc"]
+	],
+	"diced hash brown potatoes": [
+		[60, "0.66 cup"],
+		[60, "85 g"]
 	],
 	"diced tomatoes": [
 		[88, "1 can"],
@@ -285,6 +298,9 @@
 	"honey": [
 		[21, "1 tsp"]
 	],
+	"hot sauce (cholula)": [
+		[0, "1 tsp"]
+	],
 	"hummus": [
 		[50, "2 tbsp"]
 	],
@@ -358,7 +374,10 @@
 	"mini corn tortilla": [
 		[60, "1 x"]
 	],
-	"mozarella": [
+	"molasses": [
+		[60, "1 tbsp"]
+	],
+	"mozzarella": [
 		[200, "0.5 cup"]
 	],
 	"mushrooms (white)": [
@@ -432,6 +451,9 @@
 	],
 	"provolone cheese": [
 		[140, "2 slices"]
+	],
+	"pulled pork": [
+		[175, "3 oz"]
 	],
 	"pumpkin": [
 		[100, "1 cup"]
@@ -510,6 +532,9 @@
 	],
 	"sambal oelek": [
 		[14, "0.5 cup"]
+	],
+	"sandwich bun (oroweat crustini)": [
+		[180, "1 x"]
 	],
 	"scallions": [
 		[20, "4 x"]

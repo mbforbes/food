@@ -58,7 +58,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 10px;
-    padding-right: 120px;
+    /* padding-right: 120px; */
 
     /* these rules allow independent scrolling to access later dishes while still
     viewing the whole week. */
@@ -69,6 +69,10 @@ body {
 
 .editDishes h1 {
     margin-bottom: 0px;
+}
+
+.editDishesSpacer {
+    margin-bottom: 150px;
 }
 
 /**
@@ -144,6 +148,10 @@ img {
 
 .tooltip.left {
     right: 100%;
+}
+
+.tooltip.up {
+    bottom: 0;
 }
 
 .tooltip hr {

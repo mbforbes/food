@@ -62,25 +62,71 @@ function getNextWeekFilename(): string {
 // finishing up
 //
 
+let scrollTimer = null;
+
+/**
+ * Don't want to adjust stuff constantly while scrolling is happening. Better to wait
+ * until ~done.
+ */
+function onScroll() {
+    if (scrollTimer != null) {
+        clearTimeout(scrollTimer);
+    }
+    scrollTimer = setTimeout(adjustScroll, 150);
+}
+
+function adjustScroll() {
+    const els = $('.tooltip');
+    let maxY = window.innerHeight + window.scrollY;
+    const buffer = 5;
+    const imgH = 80;
+
+    // for edit view, we do a check for being buried outside the container
+    const container = $('#editDishes');
+    if (container != null && container.length > 0) {
+        let rect = container[0].getBoundingClientRect();
+        maxY = Math.min(maxY, rect.bottom);
+    }
+
+
+    for (let el of els) {
+        const elSize = el.getBoundingClientRect();
+        if (elSize.bottom + buffer > maxY) {
+            $(el).addClass('up');
+        } else if ($(el).hasClass('up') && elSize.bottom + elSize.height - imgH + buffer < maxY) {
+            // similar logic here to that described in onResize().
+            $(el).removeClass('up');
+        }
+    }
+}
+
 function onResize() {
     const els = $('.tooltip');
     const bodySize = document.body.getBoundingClientRect()
-    const buffer = 20;
+    const buffer = 10;
+    const imgW = 80;
 
     for (let el of els) {
         const elSize = el.getBoundingClientRect();
         if (elSize.right + buffer > bodySize.right) {
             $(el).addClass('left');
-            console.log('adding left');
-        } else {
+        } else if ($(el).hasClass('left') && elSize.right + imgW + elSize.width + buffer < bodySize.right) {
+            // note: the math here is gross. we're trying to calculate what whould
+            // happen if it were to swap positions, which includes wapping which side of
+            // the image it is on. (also note the hasClass check doesn't really matter,
+            // but for me it helps my brain grasp the logic here a bit quicker.)
             $(el).removeClass('left');
         }
     }
+
+    adjustScroll();
 }
+
 
 function finish() {
     onResize();
 }
+
 
 //
 // process data
@@ -329,3 +375,4 @@ preload();
 
 // swap around tooltips as window is resized!
 window.addEventListener("resize", onResize);
+window.addEventListener("scroll", onScroll);

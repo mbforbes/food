@@ -300,8 +300,15 @@ function renderEdit(displayDishes: Dishes, allDishes: Dishes, week: Week): strin
         <div class="editTime">
             ${weekHTML}
         </div>
-        <div class="editDishes" ondragover="allowDrop(event)" ondrop="trashDrop(event)">
+        <div id="editDishes" class="editDishes" ondragover="allowDrop(event)" ondrop="trashDrop(event)" onscroll="onScroll()">
             ${dishesHTML}
+            <!--
+                For ensuring tooltips don't expand / contract the overall size of the div
+                when they discover they're offscreen, move up (with .up class applied),
+                shrink the div, no longer become off screen, and then start jittering
+                around.
+            -->
+            <div class="editDishesSpacer"></div>
         </div>
     </div>
     ${groceryList}

@@ -5,10 +5,6 @@ eat stuff
 
 ## TODO
 
-### Fixups
-
-- Add similar css to "left" tooltip when it would be below screen
-
 ### Meals
 
 If I can do this the most low-effort way possible, it could be really helpful for making

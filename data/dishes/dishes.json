@@ -692,6 +692,19 @@
 		"img": "img/pulled-pork-sandwich.png",
 		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
 	},
+	"pulledPorkRiceSlaw": {
+		"title": "Pulled Pork, Rice, Slaw",
+		"mealHint": "dinner",
+		"ingredients": [
+			"170 g pulled pork",
+			"2 tbsp bbq sauce (homemade)",
+			"1 cup rice (white, cooked)",
+			"1 cup cabbage",
+			"0.8 tbsp mayo"
+		],
+		"img": "img/pulled-pork-rice-slaw.jpg",
+		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
+	},
 	"proteinScoop": {
 		"title": "Protein Scoop",
 		"mealHint": "snack",

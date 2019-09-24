@@ -93,7 +93,10 @@ function htmlMeal(dayID: DayID, mealID: MealID, mealCalories: number, dishesHTML
         `
     }
 
-    // display view for week or day
+    // display view for week or day. if the meal is empty, don't display.
+    if (dishesHTML.length == 0) {
+        return "";
+    }
     return `
     <h2>${displayMeal}</h2>
     <h3>${calories} calories</h3>

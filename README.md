@@ -7,7 +7,6 @@ eat stuff
 
 ### Fixups
 
-- Don't show unplanned empty meals on non-edit views
 - Add similar css to "left" tooltip when it would be below screen
 
 ### Meals

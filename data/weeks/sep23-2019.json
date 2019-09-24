@@ -1,15 +1,17 @@
 {
     "monday": {
         "breakfast": [
-            "breakfastBurritosPotatoes"
+            "breakfastBurritos"
         ],
-        "lunch": [],
+        "lunch": [
+            "pulledPorkSandwich"
+        ],
         "snack": [],
         "dinner": []
     },
     "tuesday": {
         "breakfast": [
-            "breakfastBurritosPotatoes"
+            "breakfastBurritos"
         ],
         "lunch": [
             "eatOutLunch"
@@ -19,9 +21,11 @@
     },
     "wednesday": {
         "breakfast": [
-            "breakfastBurritosPotatoes"
+            "breakfastBurritos"
         ],
-        "lunch": [],
+        "lunch": [
+            "pulledPorkSandwich"
+        ],
         "snack": [],
         "dinner": [
             "quinoaSaladLunch"
@@ -29,7 +33,7 @@
     },
     "thursday": {
         "breakfast": [
-            "breakfastBurritosPotatoes"
+            "breakfastBurritos"
         ],
         "lunch": [
             "quinoaSaladLunch"
@@ -39,9 +43,11 @@
     },
     "friday": {
         "breakfast": [
-            "breakfastBurritosPotatoes"
+            "breakfastBurritos"
         ],
-        "lunch": [],
+        "lunch": [
+            "pulledPorkSandwich"
+        ],
         "snack": [],
         "dinner": []
     },

@@ -589,7 +589,7 @@ function htmlDish(dishID, dishTitle, dishGuests, dishCalories, dishImg, dishReci
                 <img src="${dishImg}" />
                 <span class="calOverlay">${calories}</span>
                 <span class="${tooltipClass}">
-                    <b>${dishTitle}</b> (${calories} cal)
+                    <b>${dishTitle}</b> (${calories}&nbsp;cal)
                     <br />
                     <hr />
                     ${ingredientsHTML}
@@ -724,7 +724,7 @@ function simplifyUnits(origQuantity, origUnit) {
         }
     }
     else if (origUnit == 'g') {
-        if (origQuantity <= 200) {
+        if (origQuantity < 155) {
             return [origQuantity, origUnit];
         }
         else if (origQuantity <= 453) {

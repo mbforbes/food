@@ -133,6 +133,7 @@ img {
 }
 
 .tooltip {
+    font-size: 11pt;
     width: 200px;
     visibility: hidden;
     background: var(--color1);

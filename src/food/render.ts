@@ -140,7 +140,7 @@ function htmlDish(
                 <img src="${dishImg}" />
                 <span class="calOverlay">${calories}</span>
                 <span class="${tooltipClass}">
-                    <b>${dishTitle}</b> (${calories} cal)
+                    <b>${dishTitle}</b> (${calories}&nbsp;cal)
                     <br />
                     <hr />
                     ${ingredientsHTML}
@@ -287,7 +287,7 @@ function simplifyUnits(origQuantity: number, origUnit: string): [number, string]
             return [origQuantity / UnitConversion.get('cup')[0], 'cup'];
         }
     } else if (origUnit == 'g') {
-        if (origQuantity <= 200) {
+        if (origQuantity < 155) {
             return [origQuantity, origUnit];
         } else if (origQuantity <= 453) {
             return [origQuantity / UnitConversion.get('oz')[0], 'oz'];

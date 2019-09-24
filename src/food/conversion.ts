@@ -65,8 +65,8 @@ const UnitConversion: Map<string, [number, string]> = new Map([
 
     // weight: to g
     ['g', [1, 'g']],
-    ['lb', [453.59237, 'g']],
     ['oz', [28.3495, 'g']],
+    ['lb', [453.59237, 'g']],
 ]);
 
 
@@ -75,10 +75,19 @@ const UnitConversion: Map<string, [number, string]> = new Map([
  */
 function buildBank(cf: CalorieFile): CalorieBank {
     let bank: CalorieBank = {};
-    for (let ingredient in cf) {
+    for (let ingredientFull in cf) {
+
+        // pull off ingredient name and location if povided.
+        let ingredientName = ingredientFull;
+        let ingredientLoc: string = null;
+        if (ingredientFull.search(/\[.*\]/i) == 0) {
+            let endLoc = ingredientFull.search(/\]/i);
+            ingredientLoc = ingredientFull.slice(1, endLoc);
+            ingredientName = ingredientFull.slice(endLoc + 1).trim();
+        }
 
         let calorieData = {};
-        for (let calorieSpec of cf[ingredient]) {
+        for (let calorieSpec of cf[ingredientFull]) {
             let [calories, quantityAndunitRaw] = calorieSpec;
             let [quantity, unitRaw] = getQU(quantityAndunitRaw.split(' '));
 
@@ -100,9 +109,19 @@ function buildBank(cf: CalorieFile): CalorieBank {
             calorieData[unit] = calorieUnitData;
         }
 
-        bank[ingredient] = calorieData;
+        bank[ingredientName] = {
+            "calorieData": calorieData,
+            "location": ingredientLoc,
+        };
     }
     return bank;
+}
+
+function getLocation(bank: CalorieBank, ingredient: string): string | null {
+    if ((!(ingredient in bank))) {
+        return null;
+    }
+    return bank[ingredient].location;
 }
 
 /**
@@ -119,7 +138,7 @@ function getCalories(bank: CalorieBank, ingredientQUT: string): number {
     // standardize input unit reference
     let unit = UnitStandardize.has(unitRaw) ? UnitStandardize.get(unitRaw) : unitRaw;
 
-    let calorieData = bank[ingredient];
+    let calorieData = bank[ingredient].calorieData;
     if (unit in calorieData) {
         // we have a direct unit match. scale quantities and go.
         let calorieUnitData = calorieData[unit];

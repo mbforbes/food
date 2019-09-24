@@ -37,10 +37,6 @@ Thought: I could sort combos by meal and then by calorie ranges. E.g., have a ~5
 
 Allow this to be set
 
-### Ingredient shopping prefixes
-
-For easier shopping
-
 ### Img resize script
 
 Make em small, delete the old ones.

@@ -4,10 +4,14 @@
             "breakfastBurritos"
         ],
         "lunch": [
-            "pulledPorkSandwich"
+            "pulledPorkSandwich",
+            "bbqSauceHomemade"
         ],
         "snack": [],
-        "dinner": []
+        "dinner": [
+            "pulledPorkRiceSlaw",
+            "bbqSauceHomemade"
+        ]
     },
     "tuesday": {
         "breakfast": [
@@ -24,7 +28,8 @@
             "breakfastBurritos"
         ],
         "lunch": [
-            "pulledPorkSandwich"
+            "pulledPorkSandwich",
+            "bbqSauceHomemade"
         ],
         "snack": [],
         "dinner": [
@@ -46,7 +51,8 @@
             "breakfastBurritos"
         ],
         "lunch": [
-            "pulledPorkSandwich"
+            "pulledPorkSandwich",
+            "bbqSauceHomemade"
         ],
         "snack": [],
         "dinner": []

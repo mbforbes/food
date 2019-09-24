@@ -3,12 +3,28 @@
 //
 
 // http://unicodefractions.com/ for more. use hex w/o leading "&#x"
+const FRAC_EIGHTH = '\u{215B}' // ⅛
+const FRAC_THREE_EIGHTH = '\u{215C}' // ⅜
+const FRAC_FIVE_EIGHTH = '\u{215D}' // ⅝
+const FRAC_SEVEN_EIGHTH = '\u{215E}' // ⅞
+const FRAC_ONE_FIFTH = '\u{2155}'  // ⅕
+const FRAC_TWO_FIFTH = '\u{2156}'  // ⅖
+const FRAC_THREE_FIFTH = '\u{2157}' // ⅗
+const FRAC_FOUR_FIFTH = '\u{2158}' // ⅘
 const FRAC_FOURTH = '\u{BC}' // ¼
 const FRAC_THIRD = '\u{2153}' // ⅓
 const FRAC_HALF = '\u{BD}'; // ½
 const FRAC_TWO_THIRD = '\u{2154}' // ⅔
 const FRAC_THREE_QUARTER = '\u{BE}' // ¾
 const QUANT_MAP = new Map([
+    [FRAC_EIGHTH, 1 / 8],
+    [FRAC_THREE_EIGHTH, 3 / 8],
+    [FRAC_FIVE_EIGHTH, 5 / 8],
+    [FRAC_SEVEN_EIGHTH, 7 / 8],
+    [FRAC_ONE_FIFTH, 1 / 5],
+    [FRAC_TWO_FIFTH, 2 / 5],
+    [FRAC_THREE_FIFTH, 3 / 5],
+    [FRAC_FOUR_FIFTH, 4 / 5],
     [FRAC_FOURTH, 1 / 4],
     [FRAC_THIRD, 1 / 3],
     [FRAC_HALF, 1 / 2],
@@ -31,6 +47,11 @@ const KNOWN_UNITS = new Set([
     'x', 'head', 'heads', 'dab', 'dabs', 'slices', 'slice', 'cans', 'can', 'piece',
     'pieces', 'oz', 'boxes', 'box', 'packets', 'packet', 'inches', 'inch', 'sprigs',
     'sprig', 'pounds', 'pound', 'ml'
+]);
+
+const LOCATION_MAPPING = new Map<string, string>([
+    ['produce', 'prod.'],
+    ['intl', 'intl.'],
 ]);
 
 // things we probably don't have to buy, but should check that we have enough
@@ -99,11 +120,11 @@ const BULK_THINGS = new Set([
 
 // things used as internal placeholders we don't need to add to any list
 const IGNORE_THINGS = new Set([
-    '[eat this much 500]',
-    '[eat this much 600]',
-    '[eat this much 700]',
-    '[eat this much-ish]',
-    '[chipotle burrito]',
+    'eat this much 500',
+    'eat this much 600',
+    'eat this much 700',
+    'eat this much-ish',
+    'chipotle burrito',
 ])
 
 let EMPTY_WEEK: Week = {
@@ -236,9 +257,14 @@ type CalorieUnitData = {
 }
 
 type CalorieData = {
-    [unit: string]: CalorieUnitData
+    [unit: string]: CalorieUnitData,
+}
+
+type IngredientData = {
+    calorieData: CalorieData,
+    location: string | null,
 }
 
 type CalorieBank = {
-    [ingredient: string]: CalorieData
+    [ingredient: string]: IngredientData
 }

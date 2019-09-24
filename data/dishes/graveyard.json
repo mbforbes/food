@@ -49,7 +49,7 @@
 		"title": "Chipotle Burrito",
 		"mealHint": "lunch",
 		"ingredients": [
-			[1200, "[chipotle burrito]"]
+			[1200, "chipotle burrito"]
 		],
 		"noteTxt": "For meal prepping, let's not plan on this one."
 	},
@@ -161,7 +161,7 @@
 		"title": "Leftovers!",
 		"mealHint": "lunch",
 		"ingredients": [
-			[500, "[eat this much-ish]"]
+			[500, "eat this much-ish"]
 		],
 		"noteTxt": "Might as well just put the dish."
 	},

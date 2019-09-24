@@ -1,21 +1,29 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 //
 // constants
 //
 // http://unicodefractions.com/ for more. use hex w/o leading "&#x"
+const FRAC_EIGHTH = '\u{215B}'; // ⅛
+const FRAC_THREE_EIGHTH = '\u{215C}'; // ⅜
+const FRAC_FIVE_EIGHTH = '\u{215D}'; // ⅝
+const FRAC_SEVEN_EIGHTH = '\u{215E}'; // ⅞
+const FRAC_ONE_FIFTH = '\u{2155}'; // ⅕
+const FRAC_TWO_FIFTH = '\u{2156}'; // ⅖
+const FRAC_THREE_FIFTH = '\u{2157}'; // ⅗
+const FRAC_FOUR_FIFTH = '\u{2158}'; // ⅘
 const FRAC_FOURTH = '\u{BC}'; // ¼
 const FRAC_THIRD = '\u{2153}'; // ⅓
 const FRAC_HALF = '\u{BD}'; // ½
 const FRAC_TWO_THIRD = '\u{2154}'; // ⅔
 const FRAC_THREE_QUARTER = '\u{BE}'; // ¾
 const QUANT_MAP = new Map([
+    [FRAC_EIGHTH, 1 / 8],
+    [FRAC_THREE_EIGHTH, 3 / 8],
+    [FRAC_FIVE_EIGHTH, 5 / 8],
+    [FRAC_SEVEN_EIGHTH, 7 / 8],
+    [FRAC_ONE_FIFTH, 1 / 5],
+    [FRAC_TWO_FIFTH, 2 / 5],
+    [FRAC_THREE_FIFTH, 3 / 5],
+    [FRAC_FOUR_FIFTH, 4 / 5],
     [FRAC_FOURTH, 1 / 4],
     [FRAC_THIRD, 1 / 3],
     [FRAC_HALF, 1 / 2],
@@ -37,6 +45,10 @@ const KNOWN_UNITS = new Set([
     'x', 'head', 'heads', 'dab', 'dabs', 'slices', 'slice', 'cans', 'can', 'piece',
     'pieces', 'oz', 'boxes', 'box', 'packets', 'packet', 'inches', 'inch', 'sprigs',
     'sprig', 'pounds', 'pound', 'ml'
+]);
+const LOCATION_MAPPING = new Map([
+    ['produce', 'prod.'],
+    ['intl', 'intl.'],
 ]);
 // things we probably don't have to buy, but should check that we have enough
 // of
@@ -103,11 +115,11 @@ const BULK_THINGS = new Set([
 ]);
 // things used as internal placeholders we don't need to add to any list
 const IGNORE_THINGS = new Set([
-    '[eat this much 500]',
-    '[eat this much 600]',
-    '[eat this much 700]',
-    '[eat this much-ish]',
-    '[chipotle burrito]',
+    'eat this much 500',
+    'eat this much 600',
+    'eat this much 700',
+    'eat this much-ish',
+    'chipotle burrito',
 ]);
 let EMPTY_WEEK = {
     monday: {
@@ -288,17 +300,25 @@ const UnitConversion = new Map([
     ['ml', [0.202884, 'tsp']],
     // weight: to g
     ['g', [1, 'g']],
-    ['lb', [453.59237, 'g']],
     ['oz', [28.3495, 'g']],
+    ['lb', [453.59237, 'g']],
 ]);
 /**
  * Converts JSON data from calories.json file to CalorieBank.
  */
 function buildBank(cf) {
     let bank = {};
-    for (let ingredient in cf) {
+    for (let ingredientFull in cf) {
+        // pull off ingredient name and location if povided.
+        let ingredientName = ingredientFull;
+        let ingredientLoc = null;
+        if (ingredientFull.search(/\[.*\]/i) == 0) {
+            let endLoc = ingredientFull.search(/\]/i);
+            ingredientLoc = ingredientFull.slice(1, endLoc);
+            ingredientName = ingredientFull.slice(endLoc + 1).trim();
+        }
         let calorieData = {};
-        for (let calorieSpec of cf[ingredient]) {
+        for (let calorieSpec of cf[ingredientFull]) {
             let [calories, quantityAndunitRaw] = calorieSpec;
             let [quantity, unitRaw] = getQU(quantityAndunitRaw.split(' '));
             // standardize alternate spellings
@@ -316,9 +336,18 @@ function buildBank(cf) {
             };
             calorieData[unit] = calorieUnitData;
         }
-        bank[ingredient] = calorieData;
+        bank[ingredientName] = {
+            "calorieData": calorieData,
+            "location": ingredientLoc,
+        };
     }
     return bank;
+}
+function getLocation(bank, ingredient) {
+    if ((!(ingredient in bank))) {
+        return null;
+    }
+    return bank[ingredient].location;
 }
 /**
  * Gets calories for the provided ingredient QUT (quantity unit thing) string.
@@ -331,7 +360,7 @@ function getCalories(bank, ingredientQUT) {
     }
     // standardize input unit reference
     let unit = UnitStandardize.has(unitRaw) ? UnitStandardize.get(unitRaw) : unitRaw;
-    let calorieData = bank[ingredient];
+    let calorieData = bank[ingredient].calorieData;
     if (unit in calorieData) {
         // we have a direct unit match. scale quantities and go.
         let calorieUnitData = calorieData[unit];
@@ -599,12 +628,32 @@ function htmlIngredients(ingredientsHTML) {
     </table>
     `;
 }
+/**
+ * - Breaks unit down to bare  (tsp, g)
+ * - Builds unit up to larger quantity as needed (tbsp, cup, lb)
+ * - Renders quantity nicely (fractions, cutoff decimal, etc. etc.)
+ * - Joins up pieces and returns.
+ * @param ingredientQUT
+ */
+function reprocessIngredient(ingredientQUT) {
+    let [qRaw, uRaw, t] = getQUT(ingredientQUT.split(' '));
+    let uStandard = UnitStandardize.has(uRaw) ? UnitStandardize.get(uRaw) : uRaw;
+    if (UnitConversion.has(uStandard)) {
+        let [scaleQuantity, scaleUnit] = UnitConversion.get(uStandard);
+        qRaw *= scaleQuantity;
+        uStandard = scaleUnit;
+    }
+    const [qSimple, uFinal] = simplifyUnits(qRaw, uStandard);
+    const qFinal = renderQuantity(qSimple);
+    return [qFinal, uFinal, t].join(' ');
+}
 function htmlIngredient(caloriesRaw, ingredientQUT) {
     const calories = caloriesRaw < 0 ? '???' : caloriesRaw + '';
+    const ingredient = reprocessIngredient(ingredientQUT);
     return `
     <tr>
         <td class="calorieCell">${calories}</td>
-        <td class="ingredientCell">${ingredientQUT}</td>
+        <td class="ingredientCell">${ingredient}</td>
     </tr>
     `;
 }
@@ -626,17 +675,29 @@ function htmlGroceryIngredientList(ingredientListHTML, checkListHTML) {
     </div>
     `;
 }
-function htmlGroceryIngredient(quantity, unit, thing) {
+function htmlGroceryIngredient(quantity, unit, thing, location) {
+    let locStr = location == null ? '' : location;
+    if (LOCATION_MAPPING.has(locStr)) {
+        locStr = LOCATION_MAPPING.get(locStr);
+    }
     return `
     <tr>
-        <td class="quantity">${quantity}</td><td>${unit}</td><td>${thing}</td>
+       <td>[${locStr}]</td><td class="quantity">${quantity}</td><td>${unit}</td><td>${thing}</td>
     </tr>
     `;
 }
 //
 // rendering helpers
 //
-function addIngred(m, quantity, unit, thing) {
+function addIngred(m, origQuantity, origUnit, thing) {
+    // translate and store as base unit.
+    let quantity = origQuantity;
+    let unit = UnitStandardize.has(origUnit) ? UnitStandardize.get(origUnit) : origUnit;
+    if (UnitConversion.has(origUnit)) {
+        let [scaleQuantity, scaleUnit] = UnitConversion.get(unit);
+        quantity *= scaleQuantity;
+        unit = scaleUnit;
+    }
     let key = JSON.stringify({
         thing: thing,
         unit: unit,
@@ -646,6 +707,34 @@ function addIngred(m, quantity, unit, thing) {
         cur = m.get(key);
     }
     m.set(key, cur + quantity);
+}
+/**
+ * Assumes "base" units passed in (tsp or g).
+ */
+function simplifyUnits(origQuantity, origUnit) {
+    if (origUnit == 'tsp') {
+        if (origQuantity < 3) {
+            return [origQuantity, origUnit];
+        }
+        else if (origQuantity < 12) {
+            return [origQuantity / UnitConversion.get('tbsp')[0], 'tbsp'];
+        }
+        else {
+            return [origQuantity / UnitConversion.get('cup')[0], 'cup'];
+        }
+    }
+    else if (origUnit == 'g') {
+        if (origQuantity <= 200) {
+            return [origQuantity, origUnit];
+        }
+        else if (origQuantity <= 453) {
+            return [origQuantity / UnitConversion.get('oz')[0], 'oz'];
+        }
+        else {
+            return [origQuantity / UnitConversion.get('lb')[0], 'lb'];
+        }
+    }
+    return [origQuantity, origUnit];
 }
 function mergeIngredDescs(ingredDescs) {
     // first, we break descriptions out according to number, unit, and thing,
@@ -657,13 +746,17 @@ function mergeIngredDescs(ingredDescs) {
         let [quantity, unit, thing] = getQUT(pieces);
         addIngred(m, quantity, unit, thing);
     }
-    // now we alphabetize (could do "grocery order" or something) the
-    // ingredient list.
+    // now we alphabetize based on ingredient. note that when we import this into
+    // reminders, apple alphabetizes, so we've added a location section (not included
+    // here)  to the display. so we could potentially sort by that instead. alphabetical
+    // by ingredient might be nice here to easily check whether something is on there.
     let res = [];
     for (let key of sortedMapKeys(m)) {
         let quantity = m.get(key);
         let keyObj = JSON.parse(key);
-        res.push([renderQuantity(quantity), keyObj.unit, keyObj.thing]);
+        // we try to render the quantity as nicely as we can.
+        let [finalQuantity, finalUnit] = simplifyUnits(quantity, keyObj.unit);
+        res.push([renderQuantity(finalQuantity), finalUnit, keyObj.thing]);
     }
     return res;
 }
@@ -678,15 +771,16 @@ function renderGroceryList(rawIngredDescs) {
     let ingredientDescHTML = '';
     for (let ingredDesc of ingredDescs) {
         let [quantity, unit, thing] = ingredDesc;
+        let location = getLocation(CALORIE_BANK, thing);
         // separate ingredients from things to check
         if (IGNORE_THINGS.has(thing)) {
             // noop
         }
         else if (BULK_THINGS.has(thing)) {
-            checkListHTML += htmlGroceryIngredient(quantity, unit, thing);
+            checkListHTML += htmlGroceryIngredient(quantity, unit, thing, location);
         }
         else {
-            ingredientDescHTML += htmlGroceryIngredient(quantity, unit, thing);
+            ingredientDescHTML += htmlGroceryIngredient(quantity, unit, thing, location);
         }
     }
     // render all
@@ -854,13 +948,29 @@ function renderQuantity(raw) {
     if (raw % 1 === 0) {
         return '' + raw;
     }
-    let whole = raw < 1.0 ? '' : Math.floor(raw) + '';
+    let wholeNum = raw < 1.0 ? 0 : Math.floor(raw);
+    let wholeStr = wholeNum === 0 ? '' : wholeNum + '';
     let remainder = raw % 1;
+    // close-to-whole numbers
+    const epsilon = 0.02;
+    if (remainder < epsilon) {
+        // remainder close to zero; just return whole
+        return wholeStr;
+    }
+    if (remainder + epsilon >= 1) {
+        // remainder close to one; just return next whole number
+        return '' + (wholeNum + 1);
+    }
+    // large numbers where we don't care about fractions
+    if (raw > 25) {
+        return wholeStr;
+    }
+    // fractional pieces
     let prec = 2;
-    let inpPrec = remainder.toPrecision(prec);
+    // let inpPrec = remainder.toPrecision(prec);
     for (let [num, str] of QUANT_MAP_REV.entries()) {
-        if (inpPrec === num.toPrecision(prec)) {
-            return whole + str;
+        if (Math.abs(remainder - num) < epsilon) {
+            return wholeStr + str;
         }
     }
     return '' + raw.toPrecision(2);
@@ -984,18 +1094,16 @@ function finish() {
 function clone(obj) {
     return JSON.parse(JSON.stringify(obj));
 }
-function loadDishes(displayURL, otherURLs, next) {
-    return __awaiter(this, void 0, void 0, function* () {
-        // these are the dishes we display in the dishes and edit views
-        let displayDishes = yield $.getJSON(displayURL);
-        // we create the complete bank for lookups later
-        let mergedDishes = Object.assign({}, displayDishes);
-        for (let url of otherURLs) {
-            let dishes = yield $.getJSON(url);
-            mergedDishes = Object.assign({}, mergedDishes, dishes);
-        }
-        next(displayDishes, mergedDishes);
-    });
+async function loadDishes(displayURL, otherURLs, next) {
+    // these are the dishes we display in the dishes and edit views
+    let displayDishes = await $.getJSON(displayURL);
+    // we create the complete bank for lookups later
+    let mergedDishes = { ...displayDishes };
+    for (let url of otherURLs) {
+        let dishes = await $.getJSON(url);
+        mergedDishes = { ...mergedDishes, ...dishes };
+    }
+    next(displayDishes, mergedDishes);
 }
 /**
  * Perform preprocessing on dishes.

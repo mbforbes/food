@@ -80,7 +80,8 @@
 		],
 		"img": "img/bbq-sauce.png",
 		"recipe": "https://smittenkitchen.com/2018/07/minimalist-barbecue-sauce/",
-		"noteTxt": "Makes about 1/4 cup."
+		"noteTxt": "Makes about 1/4 cup.",
+		"recipeServings": 2
 	},
 	"beer": {
 		"title": "Beeeeeerrr",
@@ -355,7 +356,7 @@
 		"title": "[Eating Out!]",
 		"mealHint": "breakfast",
 		"ingredients": [
-			"1 x [eat this much 500]"
+			"1 x eat this much 500"
 		],
 		"img": "img/eat-out-breakfast.png"
 	},
@@ -363,7 +364,7 @@
 		"title": "[Eating Out!]",
 		"mealHint": "lunch",
 		"ingredients": [
-			"1 x [eat this much 600]"
+			"1 x eat this much 600"
 		],
 		"img": "img/eat-out-lunch.png"
 	},
@@ -371,7 +372,7 @@
 		"title": "[Eating Out!]",
 		"mealHint": "dinner",
 		"ingredients": [
-			"1 x [eat this much 700]"
+			"1 x eat this much 700"
 		],
 		"img": "img/eat-out-dinner.png"
 	},
@@ -686,8 +687,7 @@
 			"0.5 sandwich bun (oroweat crustini)",
 			"130 g pulled pork",
 			"1 cup cabbage",
-			"0.8 tbsp mayo",
-			"2 tbsp bbq sauce (homemade)"
+			"0.8 tbsp mayo"
 		],
 		"img": "img/pulled-pork-sandwich.png",
 		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
@@ -697,7 +697,6 @@
 		"mealHint": "dinner",
 		"ingredients": [
 			"170 g pulled pork",
-			"2 tbsp bbq sauce (homemade)",
 			"1 cup rice (white, cooked)",
 			"1 cup cabbage",
 			"0.8 tbsp mayo"

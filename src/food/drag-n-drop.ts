@@ -4,7 +4,7 @@
  */
 function drag(ev: DragEvent, dishID: string, dayID?: DayID, mealID?: MealID): void {
     // always send dish id
-    ev.dataTransfer.setData('dishID', dishID);
+    ev.dataTransfer.setData('dishIDs', dishID);
 
     // if coming from a specific meal, we set that as well, so it can be
     // trashed.
@@ -30,6 +30,35 @@ function drag(ev: DragEvent, dishID: string, dayID?: DayID, mealID?: MealID): vo
     if (imgEl != null) {
         ev.dataTransfer.setDragImage(imgEl, 0, 0);
     }
+}
+
+function dragCombo(ev: DragEvent, dishList: string, comboCalories: number): void {
+    // set data. this is vital
+    ev.dataTransfer.setData('dishIDs', dishList);
+
+    // draw a custom drag image
+    let w = 200, h = 40;
+    let canvas: HTMLCanvasElement = document.getElementById('comboDragImage') as HTMLCanvasElement;
+    if (canvas == null) {
+        canvas = document.createElement("canvas");
+        canvas.setAttribute('id', 'comboDragImage');
+        canvas.width = w;
+        canvas.height = h;
+        document.body.append(canvas);
+    }
+
+    let ctx = canvas.getContext("2d");
+    ctx.fillStyle = '#fed530';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.strokeStyle = '#000000';
+    ctx.fillStyle = '#000000';
+    ctx.font = 'bold 16px Inter';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(`combo (${comboCalories} calories)`, w / 2, h / 2);
+
+    ev.dataTransfer.setDragImage(canvas, w / 2, h / 2);
 }
 
 function getHighlightEl(el: Element): Element {
@@ -71,9 +100,11 @@ function mealDrop(dayID: DayID, mealID: MealID, ev: DragEvent): void {
     $(ev.target).removeAttr('drop-active');
 
     // add the dish to the meal
-    let dishID = ev.dataTransfer.getData('dishID');
+    let dishIDs = ev.dataTransfer.getData('dishIDs');
     // console.log('got ' + dayID + ' ' + mealID + ' ' + dishID);
-    DragNDropGlobals.weekData[dayID][mealID].push(dishID);
+    for (let dishID of dishIDs.split(',')) {
+        DragNDropGlobals.weekData[dayID][mealID].push(dishID);
+    }
 
     // write out
     serialize(DragNDropGlobals.weekData, DragNDropGlobals.weekFN, () => { location.reload() });
@@ -87,9 +118,10 @@ function trashDrop(ev: DragEvent): void {
     let dayID = ev.dataTransfer.getData('dayID');
     let mealID = ev.dataTransfer.getData('mealID');
     if (dayID != '' && mealID != '') {
-        let dishID = ev.dataTransfer.getData('dishID');
+        // NOTE: assuming trash drop is only one dish. (dishIDs is just one DishID).
+        let dishIDs = ev.dataTransfer.getData('dishIDs');
         let meal: string[] = DragNDropGlobals.weekData[dayID][mealID];
-        let idx = meal.indexOf(dishID);
+        let idx = meal.indexOf(dishIDs);
         if (idx > -1) {
             meal.splice(idx, 1);
         }

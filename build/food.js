@@ -173,6 +173,7 @@ var View;
     View[View["ShowDay"] = 1] = "ShowDay";
     View[View["Dishes"] = 2] = "Dishes";
     View[View["Edit"] = 3] = "Edit";
+    View[View["EditCombo"] = 4] = "EditCombo";
 })(View || (View = {}));
 /**
  * @returns a number OR null if the quantity could not be parsed
@@ -393,7 +394,7 @@ function getCalories(bank, ingredientQUT) {
  */
 function drag(ev, dishID, dayID, mealID) {
     // always send dish id
-    ev.dataTransfer.setData('dishID', dishID);
+    ev.dataTransfer.setData('dishIDs', dishID);
     // if coming from a specific meal, we set that as well, so it can be
     // trashed.
     if (dayID != null && mealID != null) {
@@ -418,6 +419,30 @@ function drag(ev, dishID, dayID, mealID) {
     if (imgEl != null) {
         ev.dataTransfer.setDragImage(imgEl, 0, 0);
     }
+}
+function dragCombo(ev, dishList, comboCalories) {
+    // set data. this is vital
+    ev.dataTransfer.setData('dishIDs', dishList);
+    // draw a custom drag image
+    let w = 200, h = 40;
+    let canvas = document.getElementById('comboDragImage');
+    if (canvas == null) {
+        canvas = document.createElement("canvas");
+        canvas.setAttribute('id', 'comboDragImage');
+        canvas.width = w;
+        canvas.height = h;
+        document.body.append(canvas);
+    }
+    let ctx = canvas.getContext("2d");
+    ctx.fillStyle = '#fed530';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = '#000000';
+    ctx.fillStyle = '#000000';
+    ctx.font = 'bold 16px Inter';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(`combo (${comboCalories} calories)`, w / 2, h / 2);
+    ev.dataTransfer.setDragImage(canvas, w / 2, h / 2);
 }
 function getHighlightEl(el) {
     let maxTraverse = 5;
@@ -453,9 +478,11 @@ function mealDrop(dayID, mealID, ev) {
     ev.preventDefault();
     $(ev.target).removeAttr('drop-active');
     // add the dish to the meal
-    let dishID = ev.dataTransfer.getData('dishID');
+    let dishIDs = ev.dataTransfer.getData('dishIDs');
     // console.log('got ' + dayID + ' ' + mealID + ' ' + dishID);
-    DragNDropGlobals.weekData[dayID][mealID].push(dishID);
+    for (let dishID of dishIDs.split(',')) {
+        DragNDropGlobals.weekData[dayID][mealID].push(dishID);
+    }
     // write out
     serialize(DragNDropGlobals.weekData, DragNDropGlobals.weekFN, () => { location.reload(); });
 }
@@ -467,9 +494,10 @@ function trashDrop(ev) {
     let dayID = ev.dataTransfer.getData('dayID');
     let mealID = ev.dataTransfer.getData('mealID');
     if (dayID != '' && mealID != '') {
-        let dishID = ev.dataTransfer.getData('dishID');
+        // NOTE: assuming trash drop is only one dish. (dishIDs is just one DishID).
+        let dishIDs = ev.dataTransfer.getData('dishIDs');
         let meal = DragNDropGlobals.weekData[dayID][mealID];
-        let idx = meal.indexOf(dishID);
+        let idx = meal.indexOf(dishIDs);
         if (idx > -1) {
             meal.splice(idx, 1);
         }
@@ -586,6 +614,23 @@ function htmlDish(dishID, dishTitle, dishGuests, dishCalories, dishImg, dishReci
                 draggable="true"
                 ondragstart="drag(event, '${dishID}', ${dayID}, ${mealID} )"
             >
+                <img src="${dishImg}" />
+                <span class="calOverlay">${calories}</span>
+                <span class="${tooltipClass}">
+                    <b>${dishTitle}</b> (${calories}&nbsp;cal)
+                    <br />
+                    <hr />
+                    ${ingredientsHTML}
+                    ${recipe}
+                </span>
+            </div>
+            `;
+    }
+    if (view == View.EditCombo) {
+        let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
+        let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
+        return `
+            <div class="editComboDish">
                 <img src="${dishImg}" />
                 <span class="calOverlay">${calories}</span>
                 <span class="${tooltipClass}">
@@ -786,11 +831,12 @@ function renderGroceryList(rawIngredDescs) {
     // render all
     return htmlGroceryIngredientList(ingredientDescHTML, checkListHTML);
 }
-function renderEdit(displayDishes, allDishes, week) {
+function renderEdit(displayDishes, allDishes, week, combos) {
     let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.Edit);
     let dishesHTML = renderDishes(displayDishes, View.Edit);
     // uncomment to instead render ALL dishes in bank
     // dishesHTML = renderDishes(allDishes, View.Edit);
+    let combosHTML = renderCombos(allDishes, combos);
     let groceryList = renderGroceryList(weekIngredDescs);
     return `
     <div class="editContainer">
@@ -798,6 +844,9 @@ function renderEdit(displayDishes, allDishes, week) {
             ${weekHTML}
         </div>
         <div id="editDishes" class="editDishes" ondragover="allowDrop(event)" ondrop="trashDrop(event)" onscroll="onScroll()">
+            <h1 class="foodSection">Combos</h1>
+            ${combosHTML}
+            <h1 class="foodSection">Dishes</h1>
             ${dishesHTML}
             <!--
                 For ensuring tooltips don't expand / contract the overall size of the div
@@ -842,6 +891,69 @@ function renderDay(dishes, dayID, day, view) {
         dayIngredDescs.push(...mealIngredDescs);
     }
     return [htmlDay(dayID, dayCalories, mealHTML, view), dayIngredDescs];
+}
+/**
+ * Get MealID for the provided combo.
+ *
+ * Very simple right now, but can add more rules if need be.
+ */
+function getMealID(dishes, combo) {
+    if (combo.dishes.length == 0) {
+        console.error("Combo w/ no dishes in it:");
+        console.error(combo);
+        return 'snack';
+    }
+    return dishes[combo.dishes[0]].mealHint;
+}
+/**
+ * C-C-C-C-COMBOOOOOOOO
+ */
+function renderCombos(dishes, combos) {
+    let combosHTML = new Map();
+    for (let combo of combos) {
+        let mealID = getMealID(dishes, combo);
+        let dishesHTML = '';
+        let comboCalories = 0;
+        for (let dishID of combo.dishes) {
+            let [dishHTML, dishCalories, dishIngredients] = renderDish(dishes, dishID, View.EditCombo);
+            dishesHTML += dishHTML;
+            comboCalories += dishCalories;
+        }
+        let dishList = combo.dishes.join(',');
+        // add to the meal set
+        let cur = '';
+        if (combosHTML.has(mealID)) {
+            cur = combosHTML.get(mealID);
+        }
+        cur += `
+        <div
+            class="combo"
+            draggable="true"
+            ondragstart="dragCombo(event, '${dishList}', ${comboCalories})"
+        >
+            <div class="comboDishes">
+                ${dishesHTML}
+            </div>
+            <p class="comboFooter">${comboCalories} calories</p>
+        </div>
+        `;
+        combosHTML.set(mealID, cur);
+    }
+    let comboMenuHTML = '';
+    for (let mealID of AllMeals) {
+        if (!combosHTML.has(mealID)) {
+            continue;
+        }
+        let displayMeal = mealID[0].toUpperCase() + mealID.slice(1);
+        comboMenuHTML += `
+        <h1>${displayMeal}</h1>
+        ${combosHTML.get(mealID)}
+        `;
+    }
+    return `<div id="combos">
+        ${comboMenuHTML}
+    </div>
+    `;
 }
 /**
  * @returns [mealHTML, mealCalories, list of ingredient descriptions for meal]
@@ -897,8 +1009,7 @@ function renderDishes(dishes, view, tooltipDirection) {
 }
 /**
  * @param timeInfo is provided if this dish is being rendered as part of a day's
- * meal. (For drag'n'drop info.) Otherwise (as part of dish view) it's just.
- * null
+ * meal. (For drag'n'drop info.) Otherwise (as part of dish view) it's just null.
  *
  * @param tooltipDirection is optionally provided to help customize what direction the
  * tooltip hangs off of the element so as to not go off-screen on elements on the border
@@ -1094,7 +1205,7 @@ function finish() {
 function clone(obj) {
     return JSON.parse(JSON.stringify(obj));
 }
-async function loadDishes(displayURL, otherURLs, next) {
+async function loadDishes(displayURL, otherURLs, combos, next) {
     // these are the dishes we display in the dishes and edit views
     let displayDishes = await $.getJSON(displayURL);
     // we create the complete bank for lookups later
@@ -1103,7 +1214,7 @@ async function loadDishes(displayURL, otherURLs, next) {
         let dishes = await $.getJSON(url);
         mergedDishes = { ...mergedDishes, ...dishes };
     }
-    next(displayDishes, mergedDishes);
+    next(displayDishes, mergedDishes, combos);
 }
 /**
  * Perform preprocessing on dishes.
@@ -1145,17 +1256,17 @@ function preprocessDishes(dishes) {
  * Callback for once dishes are loaded and rendering time-based (day/week)
  * view.
  */
-function onDishesLoadedTime(weekFN, view, displayDishesRaw, allDishesRaw) {
+function onDishesLoadedTime(weekFN, view, displayDishesRaw, allDishesRaw, combos) {
     let displayDishes = preprocessDishes(displayDishesRaw);
     let allDishes = preprocessDishes(allDishesRaw);
     console.log('Rendering time-based view.');
-    $.getJSON(weekFN, onWeekLoaded.bind(null, view, displayDishes, allDishes))
-        .fail(onWeekFail.bind(null, weekFN, view, displayDishes, allDishes));
+    $.getJSON(weekFN, onWeekLoaded.bind(null, view, displayDishes, allDishes, combos))
+        .fail(onWeekFail.bind(null, weekFN, view, displayDishes, allDishes, combos));
 }
 /**
  * Callback for once dishes are loaded and rendering dishes-only view.
  */
-function onDishesLoadedDishes(displayDishesRaw, allDishesRaw) {
+function onDishesLoadedDishes(displayDishesRaw, allDishesRaw, combos) {
     let displayDishes = preprocessDishes(displayDishesRaw);
     console.log('Rendering dishes view.');
     // console.log('Got dishes');
@@ -1163,7 +1274,7 @@ function onDishesLoadedDishes(displayDishesRaw, allDishesRaw) {
     $('body').append(renderDishes(displayDishes, View.Dishes));
     finish();
 }
-function onWeekFail(weekFN, view, displayDishes, allDishes) {
+function onWeekFail(weekFN, view, displayDishes, allDishes, combos) {
     if (view == View.Edit) {
         // write default week to path and try again
         serialize(EMPTY_WEEK, weekFN, onDishesLoadedTime.bind(null, weekFN, view, displayDishes, allDishes));
@@ -1172,7 +1283,7 @@ function onWeekFail(weekFN, view, displayDishes, allDishes) {
         $('body').append("week didn't exist uh oh. Click 'edit' to make current week.");
     }
 }
-function onWeekLoaded(view, displayDishes, allDishes, week) {
+function onWeekLoaded(view, displayDishes, allDishes, combos, week) {
     // console.log('Got dishes');
     // console.log(dishes);
     // Save week data for drag'n'drop.
@@ -1188,7 +1299,7 @@ function onWeekLoaded(view, displayDishes, allDishes, week) {
     }
     else if (view == View.Edit) {
         // render full-week edit view.
-        $('body').append(renderEdit(displayDishes, allDishes, week));
+        $('body').append(renderEdit(displayDishes, allDishes, week, combos));
     }
     else if (view == View.ShowDay) {
         // render day view. assumes current day is the one to render.
@@ -1209,6 +1320,7 @@ const otherDishesFNs = [
     'data/dishes/graveyard.json',
 ];
 const caloriesFN = 'data/calories.json';
+const combosFN = 'data/combos.json';
 function getWeekFN(url) {
     // parse url to pick week
     let weekFN;
@@ -1261,7 +1373,7 @@ function getView(url) {
     console.log('Using view: ' + View[view]);
     return view;
 }
-function main(calorieFile) {
+async function main(calorieFile) {
     // set calorie bank globally
     CALORIE_BANK = buildBank(calorieFile);
     // get config
@@ -1270,14 +1382,16 @@ function main(calorieFile) {
     let view = getView(url);
     // set global config for drag'n'drop
     DragNDropGlobals.weekFN = weekFN;
+    // load combos (won't be grounded yet)
+    let combos = await $.getJSON(combosFN);
     // perform the page requested action
     if (view == View.Dishes) {
         // display dishes
-        loadDishes(displayDishesFN, otherDishesFNs, onDishesLoadedDishes);
+        loadDishes(displayDishesFN, otherDishesFNs, combos, onDishesLoadedDishes);
     }
     else if (view == View.ShowDay || view == View.ShowWeek || view == View.Edit) {
         // display time-based rendering (week, day, or edit)
-        loadDishes(displayDishesFN, otherDishesFNs, onDishesLoadedTime.bind(null, weekFN, view));
+        loadDishes(displayDishesFN, otherDishesFNs, combos, onDishesLoadedTime.bind(null, weekFN, view));
     }
     else {
         console.error('Unknown view: ' + view);

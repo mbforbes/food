@@ -205,7 +205,8 @@ type Dish = {
 }
 
 /**
- * Found in dishes.json. Map from DishID to Dish.
+ * Found in dishes.json. Map from DishID to Dish (which Typescript won't allow, so we
+ * use string instead of DishID).
  */
 type Dishes = {
     [key: string]: Dish,
@@ -214,6 +215,12 @@ type Dishes = {
 type Day = {
     [m in MealID]?: DishIDSpec[]
 }
+
+type Combo = {
+    dishes: DishID[],
+}
+
+type Combos = Combo[];
 
 /**
  * Found in any week .json file.
@@ -227,6 +234,7 @@ enum View {
     ShowDay = 1,
     Dishes = 2,
     Edit = 3,
+    EditCombo = 4,
 }
 
 type TimeInfo = {

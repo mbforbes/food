@@ -16,6 +16,9 @@
     /* BG colors */
     /* --page-bg-color: #fdfff0; */
     --page-bg-color: var(--white);
+
+    /* Just trying because why not */
+    --general-border-radius: 0px 0px 6px 6px;
 }
 
 body {
@@ -86,6 +89,34 @@ body {
     flex-wrap: wrap;
 }
 
+.combo {
+    border-top: 2px solid var(--color1);
+    display: inline-flex;
+    flex-direction: column;
+    margin: 7px;
+    border-radius: var(--general-border-radius);
+}
+
+.combo:hover {
+    background-color: var(--color1);
+    cursor: grab;
+}
+
+.comboDishes {
+    display: flex;
+
+}
+
+.comboFooter {
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 3px;
+}
+
+.foodSection {
+    border-bottom: 1px solid var(--off-black);
+}
+
 /*
  * In the edit view, dishes appear both in the time view (left) and dish
  * inventory (right).
@@ -99,20 +130,35 @@ body {
     border-top: 2px solid var(--color1);
     /* box-shadow: -4px 4px 2px -2px grey; */
     position: relative;
+    border-radius: var(--general-border-radius);
+}
+
+.editComboDish {
+    width: 75px;
+    height: 75px;
+    /* background-color: #fcfcfc; */
+    margin: 5px;
+    padding: 5px;
+    /* border-top: 2px solid var(--color1); */
+    /* box-shadow: -4px 4px 2px -2px grey; */
+    position: relative;
+    border-radius: var(--general-border-radius);
 }
 
 .editDish:hover {
     background-color: var(--color1);
     cursor: grab;
-    transition: all 0.2s ease-out;
+    transition: all 0.1s ease-out;
 }
 
 /* .editDish img { */
 img {
     width: 75px;
     height: 75px;
+    border-radius: 50%;
 }
 
+.editComboDish .calOverlay,
 .editDish .calOverlay {
     font-size: 14px;
     text-align: center;
@@ -162,6 +208,7 @@ img {
 
 
 /* These give the tooltip a slight rise when they appear. */
+.editComboDish:hover .tooltip,
 .editDish:hover .tooltip,
 .dish:hover .tooltip,
 .dishCard:hover .tooltip {
@@ -173,6 +220,7 @@ img {
 
 /* .dish span.tooltip:hover, */
 /* .dishCard span.tooltip:hover, */
+.editComboDish span.tooltip:hover,
 .editDish span.tooltip:hover
 {
     visibility: hidden;
@@ -229,7 +277,8 @@ img {
     flex-direction: column;
     background-color: var(--page-bg-color);
     margin: 2px;
-    border: 1px solid #100c08;
+    border: 1px solid var(--off-black);
+    border-radius: var(--general-border-radius);
 }
 
 [drop-active=on] {
@@ -306,6 +355,7 @@ img {
 .dish img {
     width: 150px;
     height: 150px;
+
 }
 
 .recipeLink {
@@ -477,4 +527,10 @@ img {
 
 .quantity {
     text-align: right;
+}
+
+/* Hiding for drag and drop custom image! */
+canvas#comboDragImage {
+    position: absolute;
+    left: -100%;
 }

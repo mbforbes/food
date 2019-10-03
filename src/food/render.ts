@@ -150,6 +150,24 @@ function htmlDish(
             `
     }
 
+    if (view == View.EditCombo) {
+        let dayID = timeInfo != null ? "'" + timeInfo.dayID + "'" : null;
+        let mealID = timeInfo != null ? "'" + timeInfo.mealID + "'" : null;
+        return `
+            <div class="editComboDish">
+                <img src="${dishImg}" />
+                <span class="calOverlay">${calories}</span>
+                <span class="${tooltipClass}">
+                    <b>${dishTitle}</b> (${calories}&nbsp;cal)
+                    <br />
+                    <hr />
+                    ${ingredientsHTML}
+                    ${recipe}
+                </span>
+            </div>
+            `
+    }
+
     // dishes only view, or view within a day plan.
     const cssClass = view == View.Dishes ? 'dishCard' : 'dish';
     const dishExtra = (dishGuests === 1 ? '' : ' <i>(cook x' + dishGuests + ')</i>');
@@ -355,18 +373,26 @@ function renderGroceryList(rawIngredDescs: string[]): string {
     return htmlGroceryIngredientList(ingredientDescHTML, checkListHTML);
 }
 
-function renderEdit(displayDishes: Dishes, allDishes: Dishes, week: Week): string {
+function renderEdit(displayDishes: Dishes, allDishes: Dishes, week: Week, combos: Combos): string {
     let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.Edit);
+
     let dishesHTML = renderDishes(displayDishes, View.Edit);
     // uncomment to instead render ALL dishes in bank
     // dishesHTML = renderDishes(allDishes, View.Edit);
+
+    let combosHTML = renderCombos(allDishes, combos);
+
     let groceryList = renderGroceryList(weekIngredDescs);
+
     return `
     <div class="editContainer">
         <div class="editTime">
             ${weekHTML}
         </div>
         <div id="editDishes" class="editDishes" ondragover="allowDrop(event)" ondrop="trashDrop(event)" onscroll="onScroll()">
+            <h1 class="foodSection">Combos</h1>
+            ${combosHTML}
+            <h1 class="foodSection">Dishes</h1>
             ${dishesHTML}
             <!--
                 For ensuring tooltips don't expand / contract the overall size of the div
@@ -414,6 +440,74 @@ function renderDay(dishes: Dishes, dayID: DayID, day: Day, view: View): [string,
         dayIngredDescs.push(...mealIngredDescs);
     }
     return [htmlDay(dayID, dayCalories, mealHTML, view), dayIngredDescs];
+}
+
+/**
+ * Get MealID for the provided combo.
+ *
+ * Very simple right now, but can add more rules if need be.
+ */
+function getMealID(dishes: Dishes, combo: Combo): MealID {
+    if (combo.dishes.length == 0) {
+        console.error("Combo w/ no dishes in it:");
+        console.error(combo);
+        return 'snack';
+    }
+    return dishes[combo.dishes[0]].mealHint;
+}
+
+/**
+ * C-C-C-C-COMBOOOOOOOO
+ */
+function renderCombos(dishes: Dishes, combos: Combos): string {
+    let combosHTML = new Map<MealID, string>();
+    for (let combo of combos) {
+        let mealID = getMealID(dishes, combo);
+        let dishesHTML = '';
+        let comboCalories = 0;
+        for (let dishID of combo.dishes) {
+            let [dishHTML, dishCalories, dishIngredients] = renderDish(dishes, dishID, View.EditCombo);
+            dishesHTML += dishHTML;
+            comboCalories += dishCalories;
+        }
+        let dishList = combo.dishes.join(',');
+
+        // add to the meal set
+        let cur = '';
+        if (combosHTML.has(mealID)) {
+            cur = combosHTML.get(mealID);
+        }
+        cur += `
+        <div
+            class="combo"
+            draggable="true"
+            ondragstart="dragCombo(event, '${dishList}', ${comboCalories})"
+        >
+            <div class="comboDishes">
+                ${dishesHTML}
+            </div>
+            <p class="comboFooter">${comboCalories} calories</p>
+        </div>
+        `;
+        combosHTML.set(mealID, cur);
+    }
+
+    let comboMenuHTML = '';
+    for (let mealID of AllMeals) {
+        if (!combosHTML.has(mealID)) {
+            continue;
+        }
+        let displayMeal = mealID[0].toUpperCase() + mealID.slice(1);
+        comboMenuHTML += `
+        <h1>${displayMeal}</h1>
+        ${combosHTML.get(mealID)}
+        `
+    }
+
+    return `<div id="combos">
+        ${comboMenuHTML}
+    </div>
+    `;
 }
 
 /**
@@ -476,8 +570,7 @@ function renderDishes(dishes: Dishes, view: View, tooltipDirection?: string): st
 
 /**
  * @param timeInfo is provided if this dish is being rendered as part of a day's
- * meal. (For drag'n'drop info.) Otherwise (as part of dish view) it's just.
- * null
+ * meal. (For drag'n'drop info.) Otherwise (as part of dish view) it's just null.
  *
  * @param tooltipDirection is optionally provided to help customize what direction the
  * tooltip hangs off of the element so as to not go off-screen on elements on the border

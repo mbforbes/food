@@ -142,7 +142,8 @@ function clone<T>(obj: T): T {
 async function loadDishes(
     displayURL: string,
     otherURLs: string[],
-    next: (displayDishes: Dishes, allDishes: Dishes) => void,
+    combos: Combos,
+    next: (displayDishes: Dishes, allDishes: Dishes, combos: Combos) => void,
 ): Promise<void> {
     // these are the dishes we display in the dishes and edit views
     let displayDishes = await $.getJSON(displayURL);
@@ -153,7 +154,7 @@ async function loadDishes(
         let dishes: Dishes = await $.getJSON(url);
         mergedDishes = { ...mergedDishes, ...dishes };
     }
-    next(displayDishes, mergedDishes);
+    next(displayDishes, mergedDishes, combos);
 }
 
 /**
@@ -201,19 +202,20 @@ function onDishesLoadedTime(
     view: View,
     displayDishesRaw: Dishes,
     allDishesRaw: Dishes,
+    combos: Combos,
 ): void {
     let displayDishes = preprocessDishes(displayDishesRaw);
     let allDishes = preprocessDishes(allDishesRaw);
 
     console.log('Rendering time-based view.');
-    $.getJSON(weekFN, onWeekLoaded.bind(null, view, displayDishes, allDishes))
-        .fail(onWeekFail.bind(null, weekFN, view, displayDishes, allDishes));
+    $.getJSON(weekFN, onWeekLoaded.bind(null, view, displayDishes, allDishes, combos))
+        .fail(onWeekFail.bind(null, weekFN, view, displayDishes, allDishes, combos));
 }
 
 /**
  * Callback for once dishes are loaded and rendering dishes-only view.
  */
-function onDishesLoadedDishes(displayDishesRaw: Dishes, allDishesRaw: Dishes): void {
+function onDishesLoadedDishes(displayDishesRaw: Dishes, allDishesRaw: Dishes, combos: Combos): void {
     let displayDishes = preprocessDishes(displayDishesRaw);
 
     console.log('Rendering dishes view.');
@@ -229,6 +231,7 @@ function onWeekFail(
     view: View,
     displayDishes: Dishes,
     allDishes: Dishes,
+    combos: Combos,
 ): void {
     if (view == View.Edit) {
         // write default week to path and try again
@@ -246,6 +249,7 @@ function onWeekLoaded(
     view: View,
     displayDishes: Dishes,
     allDishes: Dishes,
+    combos: Combos,
     week: Week,
 ): void {
     // console.log('Got dishes');
@@ -264,7 +268,7 @@ function onWeekLoaded(
         $('body').append(weekHTML + groceryList);
     } else if (view == View.Edit) {
         // render full-week edit view.
-        $('body').append(renderEdit(displayDishes, allDishes, week));
+        $('body').append(renderEdit(displayDishes, allDishes, week, combos));
     } else if (view == View.ShowDay) {
         // render day view. assumes current day is the one to render.
         let dayID = moment().format('dddd').toLowerCase() as DayID;
@@ -287,6 +291,7 @@ const otherDishesFNs = [
     'data/dishes/graveyard.json',
 ];
 const caloriesFN = 'data/calories.json';
+const combosFN = 'data/combos.json';
 
 function getWeekFN(url: URL): string {
     // parse url to pick week
@@ -343,7 +348,7 @@ function getView(url: URL): View {
     return view;
 }
 
-function main(calorieFile: CalorieFile) {
+async function main(calorieFile: CalorieFile) {
     // set calorie bank globally
     CALORIE_BANK = buildBank(calorieFile);
 
@@ -355,13 +360,21 @@ function main(calorieFile: CalorieFile) {
     // set global config for drag'n'drop
     DragNDropGlobals.weekFN = weekFN;
 
+    // load combos (won't be grounded yet)
+    let combos: Combos = await $.getJSON(combosFN);
+
     // perform the page requested action
     if (view == View.Dishes) {
         // display dishes
-        loadDishes(displayDishesFN, otherDishesFNs, onDishesLoadedDishes);
+        loadDishes(displayDishesFN, otherDishesFNs, combos, onDishesLoadedDishes);
     } else if (view == View.ShowDay || view == View.ShowWeek || view == View.Edit) {
         // display time-based rendering (week, day, or edit)
-        loadDishes(displayDishesFN, otherDishesFNs, onDishesLoadedTime.bind(null, weekFN, view));
+        loadDishes(
+            displayDishesFN,
+            otherDishesFNs,
+            combos,
+            onDishesLoadedTime.bind(null, weekFN, view)
+        );
     } else {
         console.error('Unknown view: ' + view);
     }

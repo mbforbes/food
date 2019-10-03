@@ -6,7 +6,7 @@ import code
 import sys
 import SimpleHTTPServer as shs
 
-import gnureadline
+# import gnureadline
 
 
 class SputHTTPRequestHandler(shs.SimpleHTTPRequestHandler):

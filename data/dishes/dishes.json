@@ -692,14 +692,38 @@
 		"img": "img/pulled-pork-sandwich.png",
 		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
 	},
-	"pulledPorkRiceSlaw": {
-		"title": "Pulled Pork, Rice, Slaw",
+	"pulledPorkRiceSlawDinner": {
+		"title": "Pulled Pork, Rice, Slaw (Dinner)",
 		"mealHint": "dinner",
 		"ingredients": [
 			"170 g pulled pork",
 			"1 cup rice (white, cooked)",
 			"1 cup cabbage",
 			"0.8 tbsp mayo"
+		],
+		"img": "img/pulled-pork-rice-slaw.jpg",
+		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
+	},
+	"pulledPorkRiceSlawLunch": {
+		"title": "Pulled Pork, Rice, Slaw (Lunch)",
+		"mealHint": "lunch",
+		"ingredients": [
+			"170 g pulled pork",
+			"0.75 cup rice (white, cooked)",
+			"1 cup cabbage",
+			"0.8 tbsp mayo"
+		],
+		"img": "img/pulled-pork-rice-slaw.jpg",
+		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
+	},
+	"pulledPorkRiceSlawLunchSmall": {
+		"title": "Pulled Pork, Rice, Slaw (Lunch, Small)",
+		"mealHint": "lunch",
+		"ingredients": [
+			"140 g pulled pork",
+			"0.75 cup rice (white, cooked)",
+			"0.75 cup cabbage",
+			"0.6 tbsp mayo"
 		],
 		"img": "img/pulled-pork-rice-slaw.jpg",
 		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"

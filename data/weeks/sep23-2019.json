@@ -9,8 +9,8 @@
         ],
         "snack": [],
         "dinner": [
-            "pulledPorkRiceSlaw",
-            "bbqSauceHomemade"
+            "bbqSauceHomemade",
+            "pulledPorkRiceSlawDinner"
         ]
     },
     "tuesday": {
@@ -28,8 +28,8 @@
             "breakfastBurritos"
         ],
         "lunch": [
-            "pulledPorkSandwich",
-            "bbqSauceHomemade"
+            "bbqSauceHomemade",
+            "pulledPorkRiceSlawLunchSmall"
         ],
         "snack": [],
         "dinner": [

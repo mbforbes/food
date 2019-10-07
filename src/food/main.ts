@@ -272,12 +272,10 @@ function onWeekLoaded(
     console.log('viewType: ' + View[view]);
     if (view == View.ShowWeek) {
         // render full-week display-only view.
-        let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.ShowWeek);
-        let groceryList = renderGroceryList(weekIngredDescs);
-        $('body').append(weekHTML + groceryList);
+        $('body').append(renderWeekView(allDishes, week));
     } else if (view == View.Edit) {
         // render full-week edit view.
-        $('body').append(renderEdit(displayDishes, allDishes, week, combos, templates));
+        $('body').append(renderEditView(displayDishes, allDishes, week, combos, templates));
     } else if (view == View.ShowDay) {
         // render day view. assumes current day is the one to render.
         let dayID = moment().format('dddd').toLowerCase() as DayID;

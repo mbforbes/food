@@ -699,18 +699,16 @@ function htmlIngredient(caloriesRaw, ingredientQUT) {
 // below are for the grocery list
 function htmlGroceryIngredientList(ingredientListHTML, checkListHTML) {
     return `
-    <div class="groceryListOuter">
-        <div class="groceryListInner">
-            <h1>Grocery List</h1>
-                <h2>Buy</h2>
-                <table>
-                    ${ingredientListHTML}
-                </table>
-                <h2>Check on Hand</h2>
-                <table>
-                    ${checkListHTML}
-                </table>
-        </div>
+    <div class="groceryListInner">
+        <h1>Grocery List</h1>
+            <h2>Buy</h2>
+            <table>
+                ${ingredientListHTML}
+            </table>
+            <h2>Check on Hand</h2>
+            <table>
+                ${checkListHTML}
+            </table>
     </div>
     `;
 }
@@ -825,7 +823,7 @@ function renderGroceryList(rawIngredDescs) {
     // render all
     return htmlGroceryIngredientList(ingredientDescHTML, checkListHTML);
 }
-function renderEdit(displayDishes, allDishes, week, combos, templates) {
+function renderEditView(displayDishes, allDishes, week, combos, templates) {
     let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.Edit);
     // uncomment to instead render ALL dishes in bank
     // dishesHTML = renderDishes(allDishes, View.Edit);
@@ -833,6 +831,7 @@ function renderEdit(displayDishes, allDishes, week, combos, templates) {
     let combosHTML = renderCombos(allDishes, combos);
     let templatesHTML = renderTemplates(allDishes, templates);
     let groceryList = renderGroceryList(weekIngredDescs);
+    let mealPrep = renderWeekPrep(allDishes, getWeekPrep(allDishes, week, true));
     return `
     <div class="editContainer">
         <div class="editTime">
@@ -861,7 +860,28 @@ function renderEdit(displayDishes, allDishes, week, combos, templates) {
             </details>
         </div>
     </div>
-    ${groceryList}
+    <div class="appendixOuter">
+        ${groceryList}
+        <div class="mealPrepInner">
+            <h1>Meal Prep</h1>
+            ${mealPrep}
+        </div>
+    </div>
+    `;
+}
+function renderWeekView(allDishes, week) {
+    let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.ShowWeek);
+    let groceryList = renderGroceryList(weekIngredDescs);
+    let mealPrep = renderWeekPrep(allDishes, getWeekPrep(allDishes, week, true));
+    return `
+    ${weekHTML}
+    <div class="appendixOuter">
+        ${groceryList}
+        <div class="mealPrepInner">
+            <h1>Meal Prep</h1>
+            ${mealPrep}
+        </div>
+    </div>
     `;
 }
 function renderWeek(dishes, week, view) {
@@ -915,7 +935,10 @@ function getMealID(dishes, combo) {
     }
     return dish.mealHint;
 }
-function getWeekPrep(dishes, week) {
+/**
+ * @param skipFalse Whether to skip entries marked with `mealPrep: false`.
+ */
+function getWeekPrep(dishes, week, skipFalse) {
     // as we go, aggregate by meal prep groups and/or dishes
     let aggregate = new Map();
     for (let dayID in week) {
@@ -926,8 +949,8 @@ function getWeekPrep(dishes, week) {
             for (let dishIDSpec of mealDishes) {
                 let [dishID, guests] = unpackDishIDSpec(dishIDSpec);
                 let dish = dishes[dishID];
-                if (dish == null || dish.mealPrep == false) {
-                    // unknown dish.
+                if (dish == null || (skipFalse && dish.mealPrep == false)) {
+                    // unknown dish, or we're skipping no prep and it's no prep.
                     continue;
                 }
                 // aggregate by meal prep group if provided, or just use dishID. set
@@ -954,16 +977,32 @@ function getWeekPrep(dishes, week) {
     }
     return Array.from(aggregate.values());
 }
-function renderWeekPrep(weekPrep) {
+function renderWeekPrep(dishes, weekPrep) {
     let res = '';
     for (let mealPrep of weekPrep) {
-        let nDishes = mealPrep.dishCounts.size;
-        let dishStr = nDishes == 1 ? '' : '(' + nDishes + ' dishes)';
         let nMeals = (new Set(mealPrep.meals)).size;
         let mealStr = nMeals == 1 ? '1 meal' : nMeals + ' meals';
+        // if eating out, don't render these as separate dishes.
+        let nDishes = mealPrep.name == '[Eating Out!]' ? 1 : mealPrep.dishCounts.size;
+        let dishStr = nDishes == 1 ? '' : '(' + nDishes + ' dishes)';
+        let dishDetails = '';
+        if (nDishes > 1) {
+            dishDetails = '</ul>';
+            for (let dishID of mealPrep.dishCounts.keys()) {
+                let dish = dishes[dishID];
+                if (dish == null) {
+                    continue;
+                }
+                dishDetails += `<li class="weekPrepDishList">${dish.title}</li>`;
+            }
+            dishDetails += '</ul>';
+        }
         res += `
         <p class="mealPrepTitle">${mealPrep.name}</p>
         <p class="mealPrepInfo">${mealStr} ${dishStr}</p>
+        <div class="mealPrepDishDetails">
+        ${dishDetails}
+        </div>
         `;
     }
     return res;
@@ -974,7 +1013,7 @@ function renderTemplates(dishes, templates) {
         templateHTML += `
         <div class="template">
             <p class="title">${template.name}</p>
-            ${renderWeekPrep(getWeekPrep(dishes, template.week))}
+            ${renderWeekPrep(dishes, getWeekPrep(dishes, template.week, false))}
             <a href="/?view=edit&week=${template.path}"><button>View/Edit</button></a>
             <button onclick="copyWeek('${template.path}');">Copy in</button>
         </div>
@@ -1390,13 +1429,11 @@ function onWeekLoaded(view, displayDishes, allDishes, combos, templates, week) {
     console.log('viewType: ' + View[view]);
     if (view == View.ShowWeek) {
         // render full-week display-only view.
-        let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.ShowWeek);
-        let groceryList = renderGroceryList(weekIngredDescs);
-        $('body').append(weekHTML + groceryList);
+        $('body').append(renderWeekView(allDishes, week));
     }
     else if (view == View.Edit) {
         // render full-week edit view.
-        $('body').append(renderEdit(displayDishes, allDishes, week, combos, templates));
+        $('body').append(renderEditView(displayDishes, allDishes, week, combos, templates));
     }
     else if (view == View.ShowDay) {
         // render day view. assumes current day is the one to render.

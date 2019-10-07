@@ -272,6 +272,7 @@ img {
 .editDayMeals {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .editDayMeal {
@@ -279,7 +280,7 @@ img {
     can be effective drop zones for dragging and dropping dishes from the
     inventory on the right. */
     flex-grow: 1;
-    width: 33%;
+    /* width: 33%; */
 
     /* As a flex container, a meal contains a row for the dishes, and a row for
     the name of the meal and its calories. */
@@ -309,8 +310,9 @@ img {
 .editDayMealsDishes {
     display: flex;
     flex-direction: row;
-    /* Min-height set so it can be a drag'n'drop zone. */
-    min-height: 50px;
+    /* Min-height set so it can be a drag'n'drop zone. And so that the meal lavels align
+    for both empty meals and ones with dishes in them. */
+    min-height: 82px;
 }
 
 .editDayMeal .meal {
@@ -525,19 +527,25 @@ img {
 /**
  * Ya
  */
-.groceryListOuter {
-    /* background-color: #A9CEF4; */
+.appendixOuter {
     clear: left;
     margin: 10px;
     margin-top: 40px;
     padding: 10px;
-    width: 450px;
-    border: 1px solid var(--off-black);
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .groceryListInner {
-    background-color: #fff;
-    padding: 10px;
+    border: 1px solid var(--off-black);
+    padding: 20px;
+    margin: 10px;
+}
+
+.mealPrepInner {
+    border: 1px solid var(--off-black);
+    padding: 20px;
+    margin: 10px;
 }
 
 .quantity {
@@ -582,6 +590,16 @@ details {
 
 .mealPrepInfo {
     margin-top: 0px;
+    margin-bottom: 0px;
     font-weight: 300;
     /* font-style: italic; */
+}
+
+.mealPrepDishDetails {
+    margin-bottom: 8px;
+}
+
+.weekPrepDishList {
+    font-weight: 300;
+    font-style: italic;
 }

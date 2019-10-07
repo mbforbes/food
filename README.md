@@ -3,16 +3,6 @@
 eat stuff
 
 
-## TODO
-
-### Meal prep checklist
-
-Allow this to be set.
-
-### Img resize script
-
-Make em small, delete the old ones.
-
 ## Completed Weeks
 
 ~1800 target

@@ -106,7 +106,7 @@
 		[25, "1 x"],
 		[61, "150 g"]
 	],
-	"casein protein powder": [
+	"[online] casein protein powder": [
 		[120, "33 g"],
 		[120, "1 scoop"]
 	],
@@ -124,7 +124,7 @@
 		[104, "27 g"],
 		[104, "0.216 cups"]
 	],
-	"cherry tomatoes": [
+	"[produce] cherry tomatoes": [
 		[35, "1 cup"]
 	],
 	"chia seeds": [
@@ -160,6 +160,10 @@
 	"[cheese] cojita cheese": [
 		[100, "1 oz"]
 	],
+	"[online] collagen powder": [
+		[40, "1 scoop"],
+		[40, "11 g"]
+	],
 	"[spices] coriander": [
 		[5, "1 tsp"]
 	],
@@ -183,6 +187,9 @@
 	"[bread] Dave's Killer Bread": [
 		[120, "1 psc"]
 	],
+	"[bread] Dave's Killer Bread Bagel": [
+		[260, "1 psc"]
+	],
 	"[frozen] diced hash brown potatoes": [
 		[60, "0.66 cup"],
 		[60, "85 g"]
@@ -200,6 +207,9 @@
 	],
 	"[spices] dukkah": [
 		[0, "1 tsp"]
+	],
+	"eat this much 200": [
+		[200, "1 x"]
 	],
 	"eat this much 500": [
 		[500, "1 x"]
@@ -256,7 +266,7 @@
 		[98, "0.75 cup"]
 	],
 	"[produce] green onion": [
-	   [20, "4 x"]
+		[20, "4 x"]
 	],
 	"ground beef (80% lean)": [
 		[1120, "1 lb"]
@@ -332,6 +342,9 @@
 	"[produce] lemon (juice)": [
 		[5, "½ x"],
 		[5, "1 tbsp"]
+	],
+	"[juice] light OJ": [
+		[50, "8 fl-oz"]
 	],
 	"red lentils": [
 		[180, "0.25 cup"],
@@ -419,7 +432,7 @@
 	"[frozen] peas": [
 		[105, "1 cup"]
 	],
-	"pepperoni": [
+	"[deli] pepperoni": [
 		[75, "3 pieces"]
 	],
 	"[produce] persian cucumber": [
@@ -437,13 +450,13 @@
 	"potato flakes": [
 		[140, "⅔ cup"]
 	],
-	"pork sausages (Johnsonville)": [
+	"[meat] pork sausages (Johnsonville)": [
 		[260, "1 x"]
 	],
 	"Pro Base Energy Bar": [
 		[280, "1 x"]
 	],
-	"protein powder": [
+	"[online] protein powder": [
 		[120, "1 scoop"]
 	],
 	"[dairy] provolone cheese": [
@@ -473,7 +486,7 @@
 	"[produce] red onion": [
 		[60, "1 x"]
 	],
-	"red sauce: Rao's Arrabbiata": [
+	"[pasta] red sauce: Rao's Arrabbiata": [
 		[490, "1 can"],
 		[110, "0.5 cup"]
 	],

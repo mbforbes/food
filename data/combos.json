@@ -1,8 +1,10 @@
-[
-	{
+[{
 		"dishes": [
-			"scrambledEggs",
-			"butteredToast"
+			"scrambledEggsTwo",
+			"PBToast"
 		]
+	},
+	{
+		"dishes": ["breakfastBurritos"]
 	}
 ]

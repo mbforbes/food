@@ -1,0 +1,6 @@
+[
+  {"type":"directory","name":"data/weeks/templates/","contents":[
+    {"type":"file","name":"internship-template.json"},
+    {"type":"file","name":"pulled-pork-basics.json"}
+  ]}
+]

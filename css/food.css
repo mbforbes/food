@@ -18,20 +18,22 @@
     --page-bg-color: var(--white);
 
     /* Just trying because why not */
-    --general-border-radius: 0px 0px 6px 6px;
+    --general-border-radius: 0px 0px 8px 8px;
 }
 
 body {
     /* font-family: "Computer Modern Serif", Serif; */
     font-family: 'Inter', sans-serif;
-    font-feature-settings: 'tnum' 1;
+    font-feature-settings: 'tnum'1;
     background-color: var(--page-bg-color);
     font-size: 10pt;
 }
 
 @supports (font-variation-settings: normal) {
-    html { font-family: 'Inter var', sans-serif; }
-  }
+    html {
+        font-family: 'Inter var', sans-serif;
+    }
+}
 
 
 /*
@@ -71,6 +73,7 @@ body {
 }
 
 .editDishes h1 {
+    font-weight: normal;
     margin-bottom: 0px;
 }
 
@@ -114,6 +117,7 @@ body {
 }
 
 .foodSection {
+    font-size: 24px;
     border-bottom: 1px solid var(--off-black);
 }
 
@@ -131,6 +135,11 @@ body {
     /* box-shadow: -4px 4px 2px -2px grey; */
     position: relative;
     border-radius: var(--general-border-radius);
+}
+
+.editDayMeal .editDayMealsDishes .editDish {
+    width: 60px;
+    height: 60px;
 }
 
 .editComboDish {
@@ -153,8 +162,9 @@ body {
 
 /* .editDish img { */
 img {
-    width: 75px;
-    height: 75px;
+    width: 100%;
+    /* width: 75px; */
+    /* height: 75px; */
     border-radius: 50%;
 }
 
@@ -221,15 +231,14 @@ img {
 /* .dish span.tooltip:hover, */
 /* .dishCard span.tooltip:hover, */
 .editComboDish span.tooltip:hover,
-.editDish span.tooltip:hover
-{
+.editDish span.tooltip:hover {
     visibility: hidden;
 }
 
 /*
  * Rows are the day name, and then the meals.
  */
- .editDay {
+.editDay {
     display: flex;
     flex-direction: column;
     background-color: var(--page-bg-color);
@@ -270,11 +279,13 @@ img {
     can be effective drop zones for dragging and dropping dishes from the
     inventory on the right. */
     flex-grow: 1;
+    width: 33%;
 
     /* As a flex container, a meal contains a row for the dishes, and a row for
     the name of the meal and its calories. */
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     background-color: var(--page-bg-color);
     margin: 2px;
     border: 1px solid var(--off-black);
@@ -295,7 +306,7 @@ img {
  * In the edit view, on the left (time), this contains the dishes for a meal in
  * a day.
  */
- .editDayMealsDishes {
+.editDayMealsDishes {
     display: flex;
     flex-direction: row;
     /* Min-height set so it can be a drag'n'drop zone. */
@@ -370,7 +381,8 @@ img {
     margin-bottom: 10px;
 }
 
-.weekContainer:before, .weekContainer:after {
+.weekContainer:before,
+.weekContainer:after {
     content: " ";
     display: table;
 }
@@ -417,7 +429,7 @@ img {
 }
 
 /* More space on solo day view*/
-.day.solo > h2 {
+.day.solo>h2 {
     margin-top: 50px;
 }
 
@@ -454,7 +466,7 @@ img {
 }
 
 .dish:hover {
-   background-color: var(--color1);
+    background-color: var(--color1);
 }
 
 .dish table {
@@ -466,12 +478,14 @@ img {
     padding: 5px;
 }
 
-.dish tr, .dishCard tr {
+.dish tr,
+.dishCard tr {
     line-height: 1.1;
 }
 
 /* Name of dish (Banana Pancakes */
-.dish h1, .dishCard h1 {
+.dish h1,
+.dishCard h1 {
     font-size: 12pt;
     text-align: left;
     margin-top: 0px;
@@ -481,7 +495,8 @@ img {
 }
 
 /* Dish calories (260 calories) */
-.dish h2, .dishCard h2 {
+.dish h2,
+.dishCard h2 {
     font-size: 10.5pt;
     text-align: left;
     margin-top: 1px;
@@ -517,7 +532,7 @@ img {
     margin-top: 40px;
     padding: 10px;
     width: 450px;
-    border: 1px solid #100c08;
+    border: 1px solid var(--off-black);
 }
 
 .groceryListInner {
@@ -533,4 +548,40 @@ img {
 canvas#comboDragImage {
     position: absolute;
     left: -100%;
+}
+
+details {
+    margin-bottom: 10px;
+}
+
+.templates {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.template {
+    background-color: var(--color1);
+    /* color: white; */
+    margin: 5px;
+    padding: 10px;
+    border-radius: var(--general-border-radius);
+}
+
+.template .title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0px;
+    border-bottom: 1px solid var(--off-black);
+}
+
+.mealPrepTitle {
+    margin-bottom: 0px;
+    font-size: 11pt;
+    font-weight: 500;
+}
+
+.mealPrepInfo {
+    margin-top: 0px;
+    font-weight: 300;
+    /* font-style: italic; */
 }

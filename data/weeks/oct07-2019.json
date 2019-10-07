@@ -1,0 +1,61 @@
+{
+    "monday": {
+        "breakfast": [
+            "collagenDrink",
+            "proteinShake",
+            "eatOutBreakfast200"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "dinner": []
+    },
+    "tuesday": {
+        "breakfast": [
+            "scrambledEggsTwo",
+            "PBToast"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "dinner": []
+    },
+    "wednesday": {
+        "breakfast": [
+            "collagenDrink",
+            "proteinShake",
+            "eatOutBreakfast200"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "dinner": []
+    },
+    "thursday": {
+        "breakfast": [
+            "scrambledEggsTwo",
+            "PBToast"
+        ],
+        "lunch": [],
+        "dinner": []
+    },
+    "friday": {
+        "breakfast": [
+            "eatOutBreakfast"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "dinner": []
+    },
+    "saturday": {
+        "breakfast": [],
+        "lunch": [],
+        "dinner": []
+    },
+    "sunday": {
+        "breakfast": [],
+        "lunch": [],
+        "dinner": []
+    }
+}

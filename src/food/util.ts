@@ -9,3 +9,12 @@ function sortedMapKeys(m: Map<string, number>): string[] {
         return JSON.parse(a).thing.localeCompare(JSON.parse(b).thing)
     });
 }
+
+
+function incrementCounter<K>(map: Map<K, number>, key: K): void {
+    let val = 1;
+    if (map.has(key)) {
+        val = map.get(key) + 1;
+    }
+    map.set(key, val);
+}

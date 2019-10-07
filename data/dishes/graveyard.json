@@ -240,16 +240,6 @@
 		],
 		"noteTxt": "Useful, but small quantity. Maybe 'small portions' file?"
 	},
-	"scrambledEggsSmall": {
-		"title": "Scrambled Eggs (Small)",
-		"mealHint": "breakfast",
-		"ingredients": [
-			[140, "2 egg"],
-			[25, "¼ tbsp butter"]
-		],
-		"img": "img/scrambled-eggs.png",
-		"noteTxt": "Let's just call this scrambled eggs"
-	},
 	"shakshuka": {
 		"title": "Shakshuka",
 		"mealHint": "dinner",

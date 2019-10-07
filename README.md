@@ -5,42 +5,13 @@ eat stuff
 
 ## TODO
 
-### Meals
-
-If I can do this the most low-effort way possible, it could be really helpful for making
-building new menus much easier.
-
-Taxonomy:
-
-- **ingredient**: item with specific calories (e.g., chicken breast)
-
-- **dish**: produced from one recipe (e.g., chicken pita wrap); can use other dishes if
-  necessary (e.g., chicken pita wraps that use chicken marinade)
-
-- **meal**: set of dishes that reach a specific calorie goal (e.g., chicken pita wrap +
-  baked Brussels sprouts). (Currently, tied to: all food eaten at a time on a day.)
-
-The gap has been that I plan in terms of meals, but constantly need to compose dishes
-into meals.
-
-Master plan:
-- make the week edit window display meals as a primary view, and dishes either below or
-  as a separate view.
-
-Thought: I could sort combos by meal and then by calorie ranges. E.g., have a ~500 +/-
-50 cals region. Could stratify by 100s or by 50s
-
-- by 100s: 450 -- 549 ~= 500
-- by 50s: 475 -- 524 ~= 500
-
 ### Meal prep checklist
 
-Allow this to be set
+Allow this to be set.
 
 ### Img resize script
 
 Make em small, delete the old ones.
-
 
 ## Completed Weeks
 
@@ -66,6 +37,38 @@ a bit less healthy
 
 
 ## Notes
+
+## Taxonomy
+
+- **ingredient**: item with specific calories (e.g., chicken breast)
+
+- **dish**: composed from ingredients; produced from one recipe (e.g., chicken pita
+  wrap); to use other dishes as components (e.g., chicken pita wraps that use chicken
+  marinade), must turn a dish into an ingredient; simpler composing is to use multiple
+  dishes.
+
+- **combo**: composed from dishes; aimed to reach a specific calorie goal (e.g., chicken
+  pita wrap + baked Brussels sprouts).
+
+- **meal**: composed from dishes; linked to a particular day and time; abstractly,
+  identical to a combo in that it is simply a set of dishes, but semantically a combo is
+  an abstract collection of dishes, and a meal is a set of dishes set to a particular
+  day and time of eating; note that a combo can be dragged onto a meal, but this simply
+  transfers the set of dishes, not the concept of a "combo."
+
+Combos fill the gap between turning recipes into ingredients and dishes (low level), but
+doing my weekly meal planning by caloric goals and how much meal prep I need to do (high
+level).
+
+
+## Combo organization
+
+Thought: I could sort combos by meal and then by calorie ranges. E.g., have a ~500 +/-
+50 cals region. Could stratify by 100s or by 50s
+
+- by 100s: 450 -- 549 ~= 500
+- by 50s: 475 -- 524 ~= 500
+
 
 ### Why menus?
 

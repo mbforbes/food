@@ -39,6 +39,14 @@
 		],
 		"img": "img/bacon.png"
 	},
+	"bagel": {
+		"title": "Bagel",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 pcs Dave's Killer Bread Bagel"
+		],
+		"img": "img/bagel.png"
+	},
 	"bakedBroccoliSide": {
 		"title": "Baked Broccoli (side)",
 		"mealHint": "dinner",
@@ -81,7 +89,8 @@
 		"img": "img/bbq-sauce.png",
 		"recipe": "https://smittenkitchen.com/2018/07/minimalist-barbecue-sauce/",
 		"noteTxt": "Makes about 1/4 cup.",
-		"recipeServings": 2
+		"recipeServings": 2,
+		"mealPrep": "Pulled Pork"
 	},
 	"beer": {
 		"title": "Beeeeeerrr",
@@ -117,7 +126,7 @@
 			"2 breakfast sausage link",
 			"2 egg",
 			"1 Immaculate biscuit",
-			"15 g white cheddar cheese"
+			"12 g white cheddar cheese"
 		],
 		"img": "img/biscuit-sandwich.png"
 	},
@@ -126,11 +135,10 @@
 		"mealHint": "breakfast",
 		"ingredients": [
 			"1 carb balance whole wheat burrito tortilla",
-			"0.66 cup diced hash brown potatoes",
-			"1 tbsp olive oil",
-			"2 egg",
-			"2 pcs bacon",
-			"17 g white cheddar cheese"
+			"0.5 cup diced hash brown potatoes",
+			"1 tsp olive oil",
+			"3 egg",
+			"2 pcs bacon"
 		],
 		"img": "img/breakfast-burritos.png"
 	},
@@ -352,13 +360,32 @@
 		"img": "img/chicken-veggie-stir-fry.png",
 		"recipe": "https://www.youtube.com/watch?v=TCVTOa01uN8"
 	},
+	"collagenDrink": {
+		"title": "Collagen Drink",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"8 fl-oz light OJ",
+			"1 scoop collagen powder"
+		],
+		"img": "img/light-oj.png"
+	},
+	"eatOutBreakfast200": {
+		"title": "[Eating Out!]",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 x eat this much 200"
+		],
+		"img": "img/eat-out-breakfast.png",
+		"mealPrep": false
+	},
 	"eatOutBreakfast": {
 		"title": "[Eating Out!]",
 		"mealHint": "breakfast",
 		"ingredients": [
 			"1 x eat this much 500"
 		],
-		"img": "img/eat-out-breakfast.png"
+		"img": "img/eat-out-breakfast.png",
+		"mealPrep": false
 	},
 	"eatOutLunch": {
 		"title": "[Eating Out!]",
@@ -366,7 +393,8 @@
 		"ingredients": [
 			"1 x eat this much 600"
 		],
-		"img": "img/eat-out-lunch.png"
+		"img": "img/eat-out-lunch.png",
+		"mealPrep": false
 	},
 	"eatOutDinner": {
 		"title": "[Eating Out!]",
@@ -374,7 +402,8 @@
 		"ingredients": [
 			"1 x eat this much 700"
 		],
-		"img": "img/eat-out-dinner.png"
+		"img": "img/eat-out-dinner.png",
+		"mealPrep": false
 	},
 	"eggBake": {
 		"title": "Egg Bake",
@@ -516,7 +545,8 @@
 			"½ tbsp butter",
 			"1 tbsp jam"
 		],
-		"img": "img/jam-toast.png"
+		"img": "img/jam-toast.png",
+		"mealPrep": false
 	},
 	"kaleSalad": {
 		"title": "Kale Chicken Salad",
@@ -668,7 +698,8 @@
 			"2 tbsp peanut butter",
 			"1 pcs Dave's Killer Bread"
 		],
-		"img": "img/pb-toast.png"
+		"img": "img/pb-toast.png",
+		"mealPrep": false
 	},
 	"PBnJ": {
 		"title": "PB & J",
@@ -690,7 +721,8 @@
 			"0.8 tbsp mayo"
 		],
 		"img": "img/pulled-pork-sandwich.png",
-		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
+		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/",
+		"mealPrep": "Pulled Pork"
 	},
 	"pulledPorkRiceSlawDinner": {
 		"title": "Pulled Pork, Rice, Slaw (Dinner)",
@@ -702,7 +734,8 @@
 			"0.8 tbsp mayo"
 		],
 		"img": "img/pulled-pork-rice-slaw.jpg",
-		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
+		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/",
+		"mealPrep": "Pulled Pork"
 	},
 	"pulledPorkRiceSlawLunch": {
 		"title": "Pulled Pork, Rice, Slaw (Lunch)",
@@ -714,7 +747,8 @@
 			"0.8 tbsp mayo"
 		],
 		"img": "img/pulled-pork-rice-slaw.jpg",
-		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
+		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/",
+		"mealPrep": "Pulled Pork"
 	},
 	"pulledPorkRiceSlawLunchSmall": {
 		"title": "Pulled Pork, Rice, Slaw (Lunch, Small)",
@@ -726,7 +760,8 @@
 			"0.6 tbsp mayo"
 		],
 		"img": "img/pulled-pork-rice-slaw.jpg",
-		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/"
+		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/",
+		"mealPrep": "Pulled Pork"
 	},
 	"proteinScoop": {
 		"title": "Protein Scoop",
@@ -804,7 +839,8 @@
 		"ingredients": [
 			"1 Safeway Apple & Walnut Salad"
 		],
-		"img": "img/safeway-salad-apple-walnut.png"
+		"img": "img/safeway-salad-apple-walnut.png",
+		"mealPrep": false
 	},
 	"saladSafewayAsian": {
 		"title": "Safeway Asian Style Salad",
@@ -812,7 +848,8 @@
 		"ingredients": [
 			"1 Safeway Asian Style Salad"
 		],
-		"img": "img/safeway-salad-asian.png"
+		"img": "img/safeway-salad-asian.png",
+		"mealPrep": false
 	},
 	"saladSafewayChef": {
 		"title": "Safeway Chef Salad",
@@ -820,7 +857,8 @@
 		"ingredients": [
 			"1 Safeway Chef Salad"
 		],
-		"img": "img/safeway-salad-chef.png"
+		"img": "img/safeway-salad-chef.png",
+		"mealPrep": false
 	},
 	"saladSafewayThaiStyle": {
 		"title": "Safeway Thai-style Salad",
@@ -828,7 +866,8 @@
 		"ingredients": [
 			"1 Safeway Thai-style Salad"
 		],
-		"img": "img/safeway-salad-thai.png"
+		"img": "img/safeway-salad-thai.png",
+		"mealPrep": false
 	},
 	"salmon": {
 		"title": "Salmon",
@@ -838,8 +877,8 @@
 		],
 		"img": "img/salmon.png"
 	},
-	"scrambledEggs": {
-		"title": "Scrambled Eggs",
+	"scrambledEggsTwo": {
+		"title": "Two Scrambled Eggs",
 		"mealHint": "breakfast",
 		"ingredients": [
 			"2 egg",
@@ -847,6 +886,17 @@
 		],
 		"img": "img/scrambled-eggs.png"
 	},
+	"scrambledEggsThree": {
+		"title": "Three Scrambled Eggs",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"3 egg",
+			"½ tbsp butter"
+		],
+		"img": "img/scrambled-eggs.png",
+		"noteTxt": "Let's just call this scrambled eggs"
+	},
+
 	"shrimpAndBasilStirFry": {
 		"title": "Shrimp and Basil Stir-Fry",
 		"mealHint": "dinner",
@@ -935,7 +985,8 @@
 		"ingredients": [
 			"½ pound strawberries"
 		],
-		"img": "img/strawbs.png"
+		"img": "img/strawbs.png",
+		"mealPrep": false
 	},
 	"tomatoSoupWater": {
 		"title": "Tomato Soup (water)",

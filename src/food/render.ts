@@ -373,15 +373,15 @@ function renderGroceryList(rawIngredDescs: string[]): string {
     return htmlGroceryIngredientList(ingredientDescHTML, checkListHTML);
 }
 
-function renderEdit(displayDishes: Dishes, allDishes: Dishes, week: Week, combos: Combos): string {
+function renderEdit(displayDishes: Dishes, allDishes: Dishes, week: Week, combos: Combos, templates: Templates): string {
     let [weekHTML, weekIngredDescs] = renderWeek(allDishes, week, View.Edit);
 
-    let dishesHTML = renderDishes(displayDishes, View.Edit);
     // uncomment to instead render ALL dishes in bank
     // dishesHTML = renderDishes(allDishes, View.Edit);
+    let dishesHTML = renderDishes(displayDishes, View.Edit);
 
     let combosHTML = renderCombos(allDishes, combos);
-
+    let templatesHTML = renderTemplates(allDishes, templates);
     let groceryList = renderGroceryList(weekIngredDescs);
 
     return `
@@ -390,17 +390,26 @@ function renderEdit(displayDishes: Dishes, allDishes: Dishes, week: Week, combos
             ${weekHTML}
         </div>
         <div id="editDishes" class="editDishes" ondragover="allowDrop(event)" ondrop="trashDrop(event)" onscroll="onScroll()">
-            <h1 class="foodSection">Combos</h1>
-            ${combosHTML}
-            <h1 class="foodSection">Dishes</h1>
-            ${dishesHTML}
-            <!--
-                For ensuring tooltips don't expand / contract the overall size of the div
-                when they discover they're offscreen, move up (with .up class applied),
-                shrink the div, no longer become off screen, and then start jittering
-                around.
-            -->
-            <div class="editDishesSpacer"></div>
+            <!-- TODO: close -->
+            <details open>
+                <summary class="foodSection">Templates</summary>
+                ${templatesHTML}
+            </details>
+            <details open>
+                <summary class="foodSection">Combos</summary>
+                ${combosHTML}
+                </details>
+            <details open>
+                <summary class="foodSection">Dishes</summary>
+                ${dishesHTML}
+                <!--
+                    For ensuring tooltips don't expand / contract the overall size of the div
+                    when they discover they're offscreen, move up (with .up class applied),
+                    shrink the div, no longer become off screen, and then start jittering
+                    around.
+                -->
+                <div class="editDishesSpacer"></div>
+            </details>
         </div>
     </div>
     ${groceryList}
@@ -453,7 +462,90 @@ function getMealID(dishes: Dishes, combo: Combo): MealID {
         console.error(combo);
         return 'snack';
     }
-    return dishes[combo.dishes[0]].mealHint;
+    let dishID = combo.dishes[0];
+    let dish = dishes[dishID];
+    if (dish == null) {
+        console.error('unknown dish: ' + dishID);
+        return 'snack';
+    }
+    return dish.mealHint;
+}
+
+function getWeekPrep(dishes: Dishes, week: Week): WeekPrep {
+    // as we go, aggregate by meal prep groups and/or dishes
+    let aggregate = new Map<string, MealPrep>();
+    for (let dayID in week) {
+        let day = week[(dayID as DayID)];
+        for (let mealID in day) {
+            let mealDishes = day[(mealID as MealID)];
+            // let mealCalorieTotal = 0;
+            for (let dishIDSpec of mealDishes) {
+                let [dishID, guests] = unpackDishIDSpec(dishIDSpec);
+                let dish = dishes[dishID];
+                if (dish == null || dish.mealPrep == false) {
+                    // unknown dish.
+                    continue;
+                }
+
+                // aggregate by meal prep group if provided, or just use dishID. set
+                // default.
+                let groupID = dish.mealPrep || dish.title;
+                if (!aggregate.has(groupID)) {
+                    aggregate.set(groupID, {
+                        name: groupID,
+                        meals: [],
+                        calories: [],
+                        dishCounts: new Map(),
+                    })
+                }
+                let mealPrep = aggregate.get(groupID);
+
+                // add this dish's info.
+                let [dishCalories, _, __] = computeDishInfo(dish, guests);
+                mealPrep.meals.push(dayID + '-' + mealID);
+                // this is wrong (not summing calories within meal) but we'll worry
+                // about this later.
+                mealPrep.calories.push(dishCalories);
+                incrementCounter(mealPrep.dishCounts, dishID);
+            }
+        }
+    }
+    return Array.from(aggregate.values());
+}
+
+function renderWeekPrep(weekPrep: WeekPrep): string {
+    let res = '';
+
+    for (let mealPrep of weekPrep) {
+        let nDishes = mealPrep.dishCounts.size;
+        let dishStr = nDishes == 1 ? '' : '(' + nDishes + ' dishes)';
+        let nMeals = (new Set(mealPrep.meals)).size;
+        let mealStr = nMeals == 1 ? '1 meal' : nMeals + ' meals';
+        res += `
+        <p class="mealPrepTitle">${mealPrep.name}</p>
+        <p class="mealPrepInfo">${mealStr} ${dishStr}</p>
+        `;
+    }
+    return res;
+}
+
+function renderTemplates(dishes: Dishes, templates: Templates): string {
+    let templateHTML = '';
+    for (let template of templates) {
+        templateHTML += `
+        <div class="template">
+            <p class="title">${template.name}</p>
+            ${renderWeekPrep(getWeekPrep(dishes, template.week))}
+            <a href="/?view=edit&week=${template.path}"><button>View/Edit</button></a>
+            <button onclick="copyWeek('${template.path}');">Copy in</button>
+        </div>
+        `;
+    }
+    return `
+    <div class="templates">
+        ${templateHTML}
+    </div>
+    `;
 }
 
 /**
@@ -466,7 +558,7 @@ function renderCombos(dishes: Dishes, combos: Combos): string {
         let dishesHTML = '';
         let comboCalories = 0;
         for (let dishID of combo.dishes) {
-            let [dishHTML, dishCalories, dishIngredients] = renderDish(dishes, dishID, View.EditCombo);
+            let [dishHTML, dishCalories, _] = renderDish(dishes, dishID, View.EditCombo);
             dishesHTML += dishHTML;
             comboCalories += dishCalories;
         }
@@ -569,36 +661,20 @@ function renderDishes(dishes: Dishes, view: View, tooltipDirection?: string): st
 }
 
 /**
- * @param timeInfo is provided if this dish is being rendered as part of a day's
- * meal. (For drag'n'drop info.) Otherwise (as part of dish view) it's just null.
- *
- * @param tooltipDirection is optionally provided to help customize what direction the
- * tooltip hangs off of the element so as to not go off-screen on elements on the border
- *
- * @returns [dishHTML, dishCalories, dishIngredients]
+ * Returns [dishID, guests].
  */
-function renderDish(
-    dishes: Dishes,
-    dishIDSpec: DishIDSpec,
-    view: View,
-    timeInfo?: TimeInfo,
-    tooltipDirection?: string,
-): [string, number, string[]] {
-    // figure out dish spec type
-    let dishID: DishID = '';
-    let guests = 1;
+function unpackDishIDSpec(dishIDSpec: DishIDSpec): [string, number] {
     if (typeof dishIDSpec === 'string') {
-        dishID = dishIDSpec;
+        return [dishIDSpec, 1];
     } else {
-        dishID = dishIDSpec.dishID;
-        guests = dishIDSpec.guests;
+        return [dishIDSpec.dishID, dishIDSpec.guests];
     }
+}
 
-    let dish = dishes[dishID];
-    if (dish == null) {
-        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, null, null, null, '', view, timeInfo, tooltipDirection), 0, []]
-    }
-
+/**
+ * @returns [calories, ingredient descriptions, ingredients HTML]
+ */
+function computeDishInfo(dish: Dish, guests: number): [number, string[], string] {
     // to handle multiple guests, we keep recipe and calories display the same
     // (minus a little "(cook xN)" notification), but repeat each ingredient
     // for the ingredients bookkeeping.
@@ -617,6 +693,33 @@ function renderDish(
         // add to ingredients html
         ingredientsHTMLInner += htmlIngredient(ingredCals, ingredientQUT);
     }
+
+    return [dishCalories, dishIngredDescs, ingredientsHTMLInner];
+}
+
+/**
+ * @param timeInfo is provided if this dish is being rendered as part of a day's
+ * meal. (For drag'n'drop info.) Otherwise (as part of dish view) it's just null.
+ *
+ * @param tooltipDirection is optionally provided to help customize what direction the
+ * tooltip hangs off of the element so as to not go off-screen on elements on the border
+ *
+ * @returns [dishHTML, dishCalories, dishIngredients]
+ */
+function renderDish(
+    dishes: Dishes,
+    dishIDSpec: DishIDSpec,
+    view: View,
+    timeInfo?: TimeInfo,
+    tooltipDirection?: string,
+): [string, number, string[]] {
+    let [dishID, guests] = unpackDishIDSpec(dishIDSpec);
+    let dish = dishes[dishID];
+    if (dish == null) {
+        return [htmlDish(null, 'Unknown Dish: "' + dishID + '"', 1, 0, null, null, null, '', view, timeInfo, tooltipDirection), 0, []]
+    }
+
+    let [dishCalories, dishIngredDescs, ingredientsHTMLInner] = computeDishInfo(dish, guests);
 
     return [
         htmlDish(

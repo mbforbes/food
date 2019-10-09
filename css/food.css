@@ -18,7 +18,16 @@
     --page-bg-color: var(--white);
 
     /* Just trying because why not */
-    --general-border-radius: 0px 0px 8px 8px;
+    --general-border-radius: 0px 0px 12px 12px;
+
+    /* These are for dish previews in:
+     *  - small = edit (left side)
+     *  - medium = edit (right side), combos
+     *  - large = dishes, week, day
+     */
+    --small-dish-size: 55px;
+    --medium-dish-size: 75px;
+    --large-dish-size: 150px;
 }
 
 body {
@@ -126,8 +135,8 @@ body {
  * inventory (right).
  */
 .editDish {
-    width: 75px;
-    height: 75px;
+    width: var(--medium-dish-size);
+    height: var(--medium-dish-size);
     background-color: #fcfcfc;
     margin: 5px;
     padding: 5px;
@@ -138,13 +147,13 @@ body {
 }
 
 .editDayMeal .editDayMealsDishes .editDish {
-    width: 60px;
-    height: 60px;
+    width: var(--small-dish-size);
+    height: var(--small-dish-size);
 }
 
 .editComboDish {
-    width: 75px;
-    height: 75px;
+    width: var(--medium-dish-size);
+    height: var(--medium-dish-size);
     /* background-color: #fcfcfc; */
     margin: 5px;
     padding: 5px;
@@ -278,9 +287,10 @@ img {
 .editDayMeal {
     /* As a flex item, the meals should fill to take they day's space so they
     can be effective drop zones for dragging and dropping dishes from the
-    inventory on the right. */
-    flex-grow: 1;
-    /* width: 33%; */
+    inventory on the right. This seems best accoplished with flex-basis! */
+    /* flex-grow: 1; */
+    /* width: 32%; */
+    flex-basis: 32%;
 
     /* As a flex container, a meal contains a row for the dishes, and a row for
     the name of the meal and its calories. */
@@ -361,13 +371,13 @@ img {
 }
 
 .dishCard img {
-    width: 150px;
-    height: 150px;
+    width: var(--large-dish-size);
+    height: var(--large-dish-size);
 }
 
 .dish img {
-    width: 150px;
-    height: 150px;
+    width: var(--large-dish-size);
+    height: var(--large-dish-size);
 
 }
 

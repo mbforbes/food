@@ -712,55 +712,56 @@
 		],
 		"img": "img/pbnj.png"
 	},
+	"pulledPork": {
+		"title": "Pulled Pork",
+		"mealHint": "dinner",
+		"ingredients": [
+			"170 g pulled pork"
+		],
+		"img": "img/pulled-pork.png",
+		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/",
+		"mealPrep": "Pulled Pork"
+	},
+	"pulledPorkSmall": {
+		"title": "Pulled Pork (Small)",
+		"mealHint": "lunch",
+		"ingredients": [
+			"160 g pulled pork"
+		],
+		"img": "img/pulled-pork.png",
+		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/",
+		"mealPrep": "Pulled Pork"
+	},
 	"pulledPorkSandwich": {
 		"title": "Pulled Pork Sandwich",
 		"mealHint": "lunch",
 		"ingredients": [
-			"0.5 sandwich bun (oroweat crustini)",
-			"130 g pulled pork",
-			"1 cup cabbage",
-			"0.8 tbsp mayo"
+			"1 sandwich bun (oroweat crustini)",
+			"134.5 g pulled pork"
 		],
 		"img": "img/pulled-pork-sandwich.png",
 		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/",
 		"mealPrep": "Pulled Pork"
 	},
-	"pulledPorkRiceSlawDinner": {
-		"title": "Pulled Pork, Rice, Slaw (Dinner)",
+	"pulledPorkSlaw": {
+		"title": "Pulled Pork Slaw",
 		"mealHint": "dinner",
 		"ingredients": [
-			"170 g pulled pork",
-			"1 cup rice (white, cooked)",
 			"1 cup cabbage",
 			"0.8 tbsp mayo"
 		],
-		"img": "img/pulled-pork-rice-slaw.jpg",
+		"img": "img/slaw.png",
 		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/",
 		"mealPrep": "Pulled Pork"
 	},
-	"pulledPorkRiceSlawLunch": {
-		"title": "Pulled Pork, Rice, Slaw (Lunch)",
+	"pulledPorkSlawSmall": {
+		"title": "Pulled Pork Slaw (Small)",
 		"mealHint": "lunch",
 		"ingredients": [
-			"170 g pulled pork",
-			"0.75 cup rice (white, cooked)",
-			"1 cup cabbage",
-			"0.8 tbsp mayo"
-		],
-		"img": "img/pulled-pork-rice-slaw.jpg",
-		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/",
-		"mealPrep": "Pulled Pork"
-	},
-	"pulledPorkRiceSlawLunchSmall": {
-		"title": "Pulled Pork, Rice, Slaw (Lunch, Small)",
-		"mealHint": "lunch",
-		"ingredients": [
-			"140 g pulled pork",
-			"0.75 cup rice (white, cooked)",
 			"0.75 cup cabbage",
 			"0.6 tbsp mayo"
 		],
-		"img": "img/pulled-pork-rice-slaw.jpg",
+		"img": "img/slaw.png",
 		"recipe": "https://smittenkitchen.com/2019/07/crispy-oven-pulled-pork/",
 		"mealPrep": "Pulled Pork"
 	},
@@ -827,11 +828,19 @@
 		],
 		"img": "img/ramen.png"
 	},
-	"riceSide": {
-		"title": "Rice (side)",
-		"mealHint": "dinner",
+	"riceSide0.75cup": {
+		"title": "Rice (med side)",
+		"mealHint": "lunch",
 		"ingredients": [
 			"0.75 cup rice (white, cooked)"
+		],
+		"img": "img/rice.png"
+	},
+	"riceSide1cup": {
+		"title": "Rice (lg side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 cup rice (white, cooked)"
 		],
 		"img": "img/rice.png"
 	},
@@ -991,6 +1000,23 @@
 		],
 		"img": "img/strawbs.png",
 		"mealPrep": false
+	},
+	"tacos": {
+		"title": "Tacos",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 tbsp canola oil",
+			"1 onion",
+			"1 lb ground beef (85% lean)",
+			"0.5 packet taco seasoning (TJ's)",
+			"1 tomato",
+			"6 taco shell (TJ's)",
+			"1 cup cabbage",
+			"1 cup mexican cheese",
+			"3 tbsp sour cream"
+		],
+		"recipeServings": 3,
+		"img": "img/tacos.png"
 	},
 	"tomatoSoupWater": {
 		"title": "Tomato Soup (water)",

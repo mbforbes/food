@@ -99,6 +99,9 @@
 	"califa milk": [
 		[45, "8 oz"]
 	],
+	"[oils] canola oil": [
+		[120, "1 tbsp"]
+	],
 	"[isle end] carb balance whole wheat burrito tortilla": [
 		[110, "1 x"]
 	],
@@ -600,6 +603,12 @@
 	],
 	"[intl] taco seasoning": [
 		[70, "1 packet"]
+	],
+	"[intl] taco seasoning (TJ's)": [
+		[120, "1 packet"]
+	],
+	"[intl] taco shell (TJ's)": [
+		[130, "2 x"]
 	],
 	"[intl] togarashi": [
 		[0, "1 tsp"]

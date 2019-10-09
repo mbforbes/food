@@ -550,7 +550,7 @@ function renderWeekPrep(dishes: Dishes, weekPrep: WeekPrep): string {
 
         let dishDetails = '';
         if (nDishes > 1) {
-            dishDetails = '</ul>'
+            dishDetails = '<ul style="margin-top: 0px;">'
             for (let dishID of mealPrep.dishCounts.keys()) {
                 let dish = dishes[dishID];
                 if (dish == null) {
@@ -592,6 +592,25 @@ function renderTemplates(dishes: Dishes, templates: Templates): string {
 }
 
 /**
+ * Round to a rounder number for easier planning.
+ *
+ * Mostly to stop me from tweaking grams to hit exact numbers.
+ */
+function massageCalories(raw: number, epsilon: number = 10, step: number = 100, recurse: boolean = true): number {
+    // test by tweaking the raw value up and down by epsilon. if it crosses a step
+    // value, then it's near a step, so we round to the nearest step.
+    const lowMult = Math.floor((raw - epsilon) / step);
+    const highMult = Math.floor((raw + epsilon) / step);
+    if (lowMult != highMult) {
+        return highMult * step;
+    }
+    if (recurse) {
+        return massageCalories(raw, 5, 10, false);
+    }
+    return raw;
+}
+
+/**
  * C-C-C-C-COMBOOOOOOOO
  */
 function renderCombos(dishes: Dishes, combos: Combos): string {
@@ -621,7 +640,7 @@ function renderCombos(dishes: Dishes, combos: Combos): string {
             <div class="comboDishes">
                 ${dishesHTML}
             </div>
-            <p class="comboFooter">${comboCalories} calories</p>
+            <p class="comboFooter">~${massageCalories(comboCalories)} calories</p>
         </div>
         `;
         combosHTML.set(mealID, cur);

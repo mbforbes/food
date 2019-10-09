@@ -8,7 +8,9 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "tuesday": {
         "breakfast": [
@@ -18,7 +20,9 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "wednesday": {
         "breakfast": [
@@ -29,15 +33,21 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "thursday": {
         "breakfast": [
             "scrambledEggsTwo",
             "PBToast"
         ],
-        "lunch": [],
-        "dinner": []
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "dinner": [
+            "tacos"
+        ]
     },
     "friday": {
         "breakfast": [
@@ -46,7 +56,9 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "tacos"
+        ]
     },
     "saturday": {
         "breakfast": [],

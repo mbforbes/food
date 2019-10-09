@@ -5,12 +5,14 @@
         ],
         "lunch": [
             "pulledPorkSandwich",
+            "pulledPorkSlaw",
             "bbqSauceHomemade"
         ],
-        "snack": [],
         "dinner": [
+            "pulledPork",
+            "pulledPorkSlaw",
             "bbqSauceHomemade",
-            "pulledPorkRiceSlawDinner"
+            "riceSide1cup"
         ]
     },
     "tuesday": {
@@ -20,7 +22,6 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "snack": [],
         "dinner": []
     },
     "wednesday": {
@@ -28,10 +29,11 @@
             "breakfastBurritos"
         ],
         "lunch": [
+            "pulledPorkSmall",
+            "pulledPorkSlawSmall",
             "bbqSauceHomemade",
-            "pulledPorkRiceSlawLunchSmall"
+            "riceSide0.75cup"
         ],
-        "snack": [],
         "dinner": [
             "quinoaSaladLunch"
         ]
@@ -43,7 +45,6 @@
         "lunch": [
             "quinoaSaladLunch"
         ],
-        "snack": [],
         "dinner": []
     },
     "friday": {
@@ -52,21 +53,19 @@
         ],
         "lunch": [
             "pulledPorkSandwich",
+            "pulledPorkSlaw",
             "bbqSauceHomemade"
         ],
-        "snack": [],
         "dinner": []
     },
     "saturday": {
         "breakfast": [],
         "lunch": [],
-        "snack": [],
         "dinner": []
     },
     "sunday": {
         "breakfast": [],
         "lunch": [],
-        "snack": [],
         "dinner": []
     }
 }

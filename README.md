@@ -3,32 +3,9 @@
 eat stuff
 
 
-## Completed Weeks
-
-~1800 target
-
-- `aug26-2019` (chicken/rice/veggies; lettuce wraps; shrimp; tuna salad; quinoa salad) (scrambles/oats)
-
-
-## Dishes On The Radar
-
-- SALADSSSSSS (need to xport well)
-- golden curry (+rice, meat)
-- [beef stew (+ first comment)](https://www.allrecipes.com/recipe/14685/slow-cooker-beef-stew-i/)
-- meatballs
-- slow cooker meals
-- [slow cooker "steak"](https://www.allrecipes.com/recipe/73124/slow-cooker-salisbury-steak/)
-- Shakshuka (actually)
-- Mediterranean Chickpea Quinoa Bowl (google)
-
-a bit less healthy
-- pasta salad
-- quesadillas
-
-
 ## Notes
 
-## Taxonomy
+### Taxonomy
 
 - **ingredient**: item with specific calories (e.g., chicken breast)
 
@@ -51,7 +28,7 @@ doing my weekly meal planning by caloric goals and how much meal prep I need to 
 level).
 
 
-## Combo organization
+### Combo organization
 
 Thought: I could sort combos by meal and then by calorie ranges. E.g., have a ~500 +/-
 50 cals region. Could stratify by 100s or by 50s

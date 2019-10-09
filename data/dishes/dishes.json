@@ -834,7 +834,8 @@
 		"ingredients": [
 			"0.75 cup rice (white, cooked)"
 		],
-		"img": "img/rice.png"
+		"img": "img/rice.png",
+		"mealPrep": "White Rice"
 	},
 	"riceSide1cup": {
 		"title": "Rice (lg side)",
@@ -842,7 +843,8 @@
 		"ingredients": [
 			"1 cup rice (white, cooked)"
 		],
-		"img": "img/rice.png"
+		"img": "img/rice.png",
+		"mealPrep": "White Rice"
 	},
 	"saladSafewayApple": {
 		"title": "Safeway Apple & Walnut Salad",

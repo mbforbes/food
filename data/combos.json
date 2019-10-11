@@ -1,10 +1,4 @@
 [{
-		"dishes": [
-			"scrambledEggsTwo",
-			"PBToast"
-		]
-	},
-	{
 		"dishes": ["breakfastBurritos"]
 	},
 	{
@@ -23,5 +17,32 @@
 	},
 	{
 		"dishes": ["tacos"]
+	},
+	{
+		"dishes": ["breakfastSandwich"]
+	},
+	{
+		"dishes": ["overnightOats", "banana"]
+	},
+	{
+		"dishes": ["overnightOats", "strawberries", "peanutButterSmall"]
+	},
+	{
+		"dishes": ["biscuitSandwichWholeFoods"]
+	},
+	{
+		"dishes": ["omelette", "dryWhiteToast"]
+	},
+	{
+		"dishes": [
+			"scrambledEggsTwo",
+			"PBToast"
+		]
+	},
+	{
+		"dishes": ["bananaPancakes"]
+	},
+	{
+		"dishes": ["huevosRancheros", "picoDeGallo"]
 	}
 ]

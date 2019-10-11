@@ -14,6 +14,22 @@
 		"img": "img/asparagus-pancetta-hash.png",
 		"recipe": "https://smittenkitchen.com/2010/05/spring-asparagus-pancetta-hash/"
 	},
+	"breakfastSandwichEggBake": {
+		"title": "Breakfast Sandwich w/ Egg Bake",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"8 egg",
+			"0.5 cup milk (2%)",
+			"1 red onion",
+			"1 bell pepper",
+			"5 slices ham",
+			"5 english muffin",
+			"5 slice cheddar cheese"
+		],
+		"img": "img/breakfast-sandwich.png",
+		"recipe": "https://tasty.co/recipe/breakfast-sandwich-meal-prep",
+		"recipeServings": 5
+	},
 	"bibimbap": {
 		"title": "Bibimbap",
 		"mealHint": "dinner",

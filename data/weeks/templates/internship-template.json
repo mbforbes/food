@@ -13,7 +13,9 @@
         ]
     },
     "tuesday": {
-        "breakfast": [],
+        "breakfast": [
+            "collagenDrink"
+        ],
         "lunch": [
             "eatOutLunch"
         ],
@@ -35,12 +37,15 @@
         ]
     },
     "thursday": {
-        "breakfast": [],
+        "breakfast": [
+            "collagenDrink"
+        ],
         "lunch": [],
         "dinner": []
     },
     "friday": {
         "breakfast": [
+            "collagenDrink",
             "eatOutBreakfast"
         ],
         "lunch": [

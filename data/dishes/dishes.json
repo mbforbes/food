@@ -146,17 +146,12 @@
 		"title": "Breakfast Sandwich",
 		"mealHint": "breakfast",
 		"ingredients": [
-			"8 egg",
-			"0.5 cup milk (2%)",
-			"1 red onion",
-			"1 bell pepper",
-			"5 slices ham",
-			"5 english muffin",
-			"5 slice cheddar cheese"
+			"2 egg",
+			"3 slice ham",
+			"1 english muffin",
+			"1 slice cheddar cheese"
 		],
-		"img": "img/breakfast-sandwich.png",
-		"recipe": "https://tasty.co/recipe/breakfast-sandwich-meal-prep",
-		"recipeServings": 5
+		"img": "img/breakfast-sandwich.png"
 	},
 	"breakfastSausagePatties": {
 		"title": "Breakfast Sausage Patties",
@@ -370,6 +365,16 @@
 		"img": "img/light-oj.png",
 		"mealPrep": false
 	},
+	"dryWhiteToast": {
+		"title": "Dry White Toast",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"1 psc Dave's Killer Bread"
+		],
+		"img": "img/dry-white-toast.png",
+		"noteTxt": "When you don't even have the calories for butter...",
+		"mealPrep": false
+	},
 	"eatOutBreakfast200": {
 		"title": "[Eating Out!]",
 		"mealHint": "breakfast",
@@ -518,7 +523,7 @@
 			"3 tsp olive oil",
 			"1.5 cup refried beans",
 			"3 egg",
-			"2 oz cojita cheese"
+			"60 g cojita cheese"
 		],
 		"img": "img/huevos-rancheros.png"
 	},
@@ -630,11 +635,11 @@
 		"title": "Omelette",
 		"mealHint": "breakfast",
 		"ingredients": [
-			"½ tbsp olive oil",
+			"0.5 tbsp olive oil",
 			"½ bell pepper",
 			"½ onion",
 			"4 mushrooms (white)",
-			"½ tbsp butter",
+			"1 tsp butter",
 			"3 egg"
 		],
 		"img": "img/omelette.png"
@@ -643,9 +648,9 @@
 		"title": "Overnight Oats",
 		"mealHint": "breakfast",
 		"ingredients": [
-			"0.66 cup oats",
-			"0.66 cup milk (nonfat)",
-			"4 oz yogurt (nonfat)",
+			"0.75 cup oats",
+			"0.75 cup milk (nonfat)",
+			"6 oz yogurt (nonfat)",
 			"1 pack splenda",
 			"0.25 tsp salt"
 		],
@@ -689,6 +694,14 @@
 		"mealHint": "breakfast",
 		"ingredients": [
 			"1 tbsp peanut butter"
+		],
+		"img": "img/peanut-butter.png"
+	},
+	"peanutButterSmall": {
+		"title": "Peanut Butter (Small)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"0.5 tbsp peanut butter"
 		],
 		"img": "img/peanut-butter.png"
 	},

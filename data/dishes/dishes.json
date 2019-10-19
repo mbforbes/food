@@ -14,7 +14,7 @@
 		"mealHint": "dinner",
 		"ingredients": [
 			"1 bunch asparagus",
-			"1 tbsp olive oil"
+			"2 tsp olive oil"
 		],
 		"img": "img/asparagus.png"
 	},
@@ -30,6 +30,14 @@
 			"2 pcs Dave's Killer Bread"
 		],
 		"img": "img/avocado-sandwich.png"
+	},
+	"avocadoSide": {
+		"title": "Avocado (Side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			"½ avocado"
+		],
+		"img": "img/avocado.png"
 	},
 	"bacon": {
 		"title": "Bacon",
@@ -51,7 +59,7 @@
 		"title": "Baked Broccoli (side)",
 		"mealHint": "dinner",
 		"ingredients": [
-			"2 head broccoli",
+			"1 head broccoli",
 			"1 tbsp olive oil"
 		],
 		"img": "img/baked-broccoli.png"
@@ -62,7 +70,8 @@
 		"ingredients": [
 			"1 banana"
 		],
-		"img": "img/banana.png"
+		"img": "img/banana.png",
+		"mealPrep": false
 	},
 	"bananaPancakes": {
 		"title": "Banana Pancakes",
@@ -150,6 +159,17 @@
 			"3 slice ham",
 			"1 english muffin",
 			"1 slice cheddar cheese"
+		],
+		"img": "img/breakfast-sandwich.png"
+	},
+	"breakfastSandwichLight": {
+		"title": "Breakfast Sandwich (Light)",
+		"mealHint": "breakfast",
+		"ingredients": [
+			"2 egg",
+			"2 slice ham",
+			"1 english muffin",
+			"18 g cheddar cheese"
 		],
 		"img": "img/breakfast-sandwich.png"
 	},
@@ -273,6 +293,14 @@
 		],
 		"img": "img/cabbage.png"
 	},
+	"carrotsSmall": {
+		"title": "Carrots (small)",
+		"mealHint": "lunch",
+		"ingredients": [
+			"61 g carrot"
+		],
+		"img": "img/carrots.png"
+	},
 	"carrots": {
 		"title": "Carrots",
 		"mealHint": "snack",
@@ -314,7 +342,7 @@
 		"title": "Chicken Naan Wrap",
 		"mealHint": "dinner",
 		"ingredients": [
-			"0.5 lb chicken thigh",
+			"8 oz chicken thigh",
 			"0.5 piece garlic naan",
 			"2 tbsp tzatziki sauce",
 			"2 tbsp feta",
@@ -322,6 +350,15 @@
 			"0.25 cucumber"
 		],
 		"img": "img/chicken-gyro.png"
+	},
+	"chickenThighs": {
+		"title": "Chicken Thighs",
+		"mealHint": "dinner",
+		"ingredients": [
+			"0.5 lb chicken thigh",
+			"1 tbsp vegetable oil"
+		],
+		"img": "img/chicken-thighs.png"
 	},
 	"chickenRiceBroc": {
 		"title": "Chicken, Rice, and Broccoli",
@@ -350,10 +387,33 @@
 			"2 tbsp soy sauce",
 			"1 tbsp rice vinegar",
 			"1 tsp sesame oil",
-			"1 tsp sesame seeds"
+			"0.5 tsp sesame seeds"
 		],
 		"img": "img/chicken-veggie-stir-fry.png",
 		"recipe": "https://www.youtube.com/watch?v=TCVTOa01uN8"
+	},
+	"chili": {
+		"title": "Chili",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 tbsp olive oil",
+			"2 lbs ground beef (90% lean)",
+			"1 onion",
+			"6 cloves garlic",
+			"2 can diced tomatoes",
+			"24 oz tomato sauce",
+			"0.5 cup beef broth",
+			"2 tbsp chili powder",
+			"2.5 tsp cumin",
+			"2 tsp paprika",
+			"2 tsp cocoa powder",
+			"1 tsp sugar",
+			"0.5 tsp coriander",
+			"30 oz kidney beans"
+		],
+		"img": "img/chili.png",
+		"recipe": "https://www.cookingclassy.com/slow-cooker-chili/",
+		"recipeServings": 5
 	},
 	"collagenDrink": {
 		"title": "Collagen Drink",
@@ -459,27 +519,27 @@
 		],
 		"img": "img/ghetto-cordon-Bleu.png"
 	},
-	"halfChickenBreast": {
-		"title": "Half Chicken Breast",
-		"mealHint": "snack",
+	"chickenBreastQuarterPound": {
+		"title": "Chicken Breast (¼ lb)",
+		"mealHint": "lunch",
 		"ingredients": [
-			"2 tsp olive oil",
-			"6 oz chicken breast"
+			"1 tsp olive oil",
+			"4 oz chicken breast"
 		],
 		"img": "img/chicken-breast.png"
 	},
-	"freshChickenBreast": {
-		"title": "Chicken Breast",
+	"chickenBreastHalfPound": {
+		"title": "Chicken Breast (½ lb)",
 		"mealHint": "dinner",
 		"ingredients": [
-			"½ tbsp olive oil",
-			"0.75 lbs chicken breast"
+			"1 tbsp olive oil",
+			"8 oz chicken breast"
 		],
 		"img": "img/chicken-breast.png"
 	},
 	"friedRice": {
 		"title": "Fried Rice",
-		"mealHint": "dinner",
+		"mealHint": "lunch",
 		"ingredients": [
 			"3 tbsp vegetable oil",
 			"1 onion",
@@ -488,7 +548,7 @@
 			"1 tbsp garlic",
 			"1 cup peas",
 			"1 tbsp ginger paste",
-			"4 cups rice (white, cooked)",
+			"3.5 cups rice (white, cooked)",
 			"3 egg",
 			"0.25 cup water",
 			"2 tbsp soy sauce",
@@ -558,8 +618,9 @@
 		"title": "Kale Chicken Salad",
 		"mealHint": "lunch",
 		"ingredients": [
-			"2 cups kale",
 			"6 oz chicken thigh",
+			"0.5 tbsp olive oil",
+			"2 cups kale",
 			"0.5 apple",
 			"2 tbsp lemon (juice)",
 			"1 tbsp olive oil",
@@ -567,7 +628,8 @@
 			"1 tbsp feta"
 		],
 		"img": "img/kale-apple-walnut-salad.png",
-		"recipe": "https://www.freshfitkitchen.com/kale-apple-and-walnut-salad/"
+		"recipe": "https://www.freshfitkitchen.com/kale-apple-and-walnut-salad/",
+		"noteTxt": "First tbsp olive oil for cooking chicken (estimate)."
 	},
 	"lentilCurry": {
 		"title": "Lentil Curry",
@@ -834,12 +896,21 @@
 	},
 	"ramenFancy": {
 		"title": "Fancy Ramen",
-		"mealHint": "dinner",
+		"mealHint": "lunch",
 		"ingredients": [
 			"1 pack Tonkotsu Ramen (Sun Noodle Brand)",
 			"1 egg"
 		],
 		"img": "img/ramen.png"
+	},
+	"riceSide0.5cup": {
+		"title": "Rice (small side)",
+		"mealHint": "lunch",
+		"ingredients": [
+			"0.5 cup rice (white, cooked)"
+		],
+		"img": "img/rice.png",
+		"mealPrep": "White Rice"
 	},
 	"riceSide0.75cup": {
 		"title": "Rice (med side)",
@@ -921,10 +992,8 @@
 			"½ tbsp butter"
 		],
 		"img": "img/scrambled-eggs.png",
-		"noteTxt": "Let's just call this scrambled eggs",
 		"mealPrep": false
 	},
-
 	"shrimpAndBasilStirFry": {
 		"title": "Shrimp and Basil Stir-Fry",
 		"mealHint": "dinner",
@@ -941,6 +1010,14 @@
 		"img": "img/shrimpAndBasilStirFry.png",
 		"recipe": "https://www.bonappetit.com/recipe/shrimp-and-basil-stir-fry"
 	},
+	"sourCreamSide": {
+		"title": "Sour Cream (side)",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 tbsp sour cream"
+		],
+		"img": "img/sourCream.png"
+	},
 	"soylent": {
 		"title": "Soylent",
 		"mealHint": "lunch",
@@ -953,11 +1030,11 @@
 		"title": "Spaghetti Squash & Meat Sauce",
 		"mealHint": "dinner",
 		"ingredients": [
-			"1.5 cup spaghetti squash",
+			"2 cup spaghetti squash",
 			"1 tsp olive oil",
 			"0.33 can red sauce: Rao's Arrabbiata",
 			"0.33 lb ground beef (90% lean)",
-			"1 oz parmesan"
+			"1.5 oz parmesan"
 		],
 		"img": "img/spaghetti-squash-meat-sauce.png",
 		"recipe": "https://cookieandkate.com/how-to-cook-spaghetti-squash/"

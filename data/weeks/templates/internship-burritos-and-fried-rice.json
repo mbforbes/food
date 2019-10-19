@@ -14,7 +14,8 @@
     },
     "tuesday": {
         "breakfast": [
-            "collagenDrink"
+            "collagenDrink",
+            "breakfastBurritos"
         ],
         "lunch": [
             "eatOutLunch"
@@ -32,13 +33,18 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "friedRice"
+        ]
     },
     "thursday": {
         "breakfast": [
-            "collagenDrink"
+            "collagenDrink",
+            "breakfastBurritos"
         ],
-        "lunch": [],
+        "lunch": [
+            "friedRice"
+        ],
         "dinner": [
             "eatOutDinner"
         ]
@@ -51,15 +57,26 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "saturday": {
-        "breakfast": [],
-        "lunch": [],
-        "dinner": []
+        "breakfast": [
+            "breakfastBurritos"
+        ],
+        "lunch": [
+            "chickenVeggieStirFry"
+        ],
+        "dinner": [
+            "salmon",
+            "asparagusSide"
+        ]
     },
     "sunday": {
-        "breakfast": [],
+        "breakfast": [
+            "breakfastBurritos"
+        ],
         "lunch": [],
         "dinner": []
     }

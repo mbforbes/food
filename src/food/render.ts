@@ -389,8 +389,7 @@ function renderEditView(displayDishes: Dishes, allDishes: Dishes, week: Week, co
             ${weekHTML}
         </div>
         <div id="editDishes" class="editDishes" ondragover="allowDrop(event)" ondrop="trashDrop(event)" onscroll="onScroll()">
-            <!-- TODO: close -->
-            <details open>
+            <details>
                 <summary class="foodSection">Templates</summary>
                 ${templatesHTML}
             </details>
@@ -654,7 +653,9 @@ function renderCombos(dishes: Dishes, combos: Combos): string {
         let displayMeal = mealID[0].toUpperCase() + mealID.slice(1);
         comboMenuHTML += `
         <h1>${displayMeal}</h1>
-        ${combosHTML.get(mealID)}
+        <div class="combosForMeal">
+            ${combosHTML.get(mealID)}
+        </div>
         `
     }
 

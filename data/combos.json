@@ -22,6 +22,9 @@
 		"dishes": ["breakfastSandwich"]
 	},
 	{
+		"dishes": ["breakfastSandwichLight"]
+	},
+	{
 		"dishes": ["overnightOats", "banana"]
 	},
 	{
@@ -44,5 +47,56 @@
 	},
 	{
 		"dishes": ["huevosRancheros", "picoDeGallo"]
+	},
+	{
+		"dishes": ["chickenThighs", "bellPepperSide", "riceSide1cup"]
+	},
+	{
+		"dishes": ["kaleSalad"]
+	},
+	{
+		"dishes": ["saladSafewayApple", "hardboiledEgg", "carrots", "hummus"]
+	},
+	{
+		"dishes": ["carrotsSmall", "chili"]
+	},
+	{
+		"dishes": ["chili", "sourCreamSide", "avocadoSide"]
+	},
+	{
+		"dishes": ["friedRice"]
+	},
+	{
+		"dishes": ["spaghettiSquashMeatSauce"]
+	},
+	{
+		"dishes": ["ramenFancy", "arugulaSideSalad"]
+	},
+	{
+		"dishes": ["salmon", "asparagusSide"]
+	},
+	{
+		"dishes": ["riceSide1cup", "lentilCurry", "chickenBreastQuarterPound"]
+	},
+	{
+		"dishes": ["chickenVeggieStirFry"]
+	},
+	{
+		"dishes": ["quinoaSaladDinner"]
+	},
+	{
+		"dishes": ["chickenBreastHalfPound", "bakedBroccoliSide", "riceSide0.75cup"]
+	},
+	{
+		"dishes": ["lentilCurry", "chickenBreastQuarterPound", "riceSide0.5cup"]
+	},
+	{
+		"dishes": ["oyakodon"]
+	},
+	{
+		"dishes": ["shrimpAndBasilStirFry", "riceSide0.5cup"]
+	},
+	{
+		"dishes": ["chickenNaanWrap", "spicyCoconutChickenThighsMarinade"]
 	}
 ]

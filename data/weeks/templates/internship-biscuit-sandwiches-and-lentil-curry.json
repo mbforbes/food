@@ -14,7 +14,8 @@
     },
     "tuesday": {
         "breakfast": [
-            "collagenDrink"
+            "collagenDrink",
+            "biscuitSandwichWholeFoods"
         ],
         "lunch": [
             "eatOutLunch"
@@ -32,13 +33,22 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "riceSide1cup",
+            "lentilCurry",
+            "chickenBreastQuarterPound"
+        ]
     },
     "thursday": {
         "breakfast": [
-            "collagenDrink"
+            "collagenDrink",
+            "biscuitSandwichWholeFoods"
         ],
-        "lunch": [],
+        "lunch": [
+            "lentilCurry",
+            "chickenBreastQuarterPound",
+            "riceSide0.5cup"
+        ],
         "dinner": [
             "eatOutDinner"
         ]
@@ -51,15 +61,28 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "saturday": {
-        "breakfast": [],
-        "lunch": [],
-        "dinner": []
+        "breakfast": [
+            "biscuitSandwichWholeFoods"
+        ],
+        "lunch": [
+            "lentilCurry",
+            "chickenBreastQuarterPound",
+            "riceSide0.5cup"
+        ],
+        "dinner": [
+            "shrimpAndBasilStirFry",
+            "riceSide0.5cup"
+        ]
     },
     "sunday": {
-        "breakfast": [],
+        "breakfast": [
+            "bananaPancakes"
+        ],
         "lunch": [],
         "dinner": []
     }

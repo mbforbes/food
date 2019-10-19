@@ -63,6 +63,7 @@ const BULK_THINGS = new Set([
     'peanut butter',
     'potato flakes',
     'protein powder',
+    'collagen powder',
     'quinoa (cooked)',
     'rice (white, cooked)',
     'dried parsley leaves',
@@ -838,8 +839,7 @@ function renderEditView(displayDishes, allDishes, week, combos, templates) {
             ${weekHTML}
         </div>
         <div id="editDishes" class="editDishes" ondragover="allowDrop(event)" ondrop="trashDrop(event)" onscroll="onScroll()">
-            <!-- TODO: close -->
-            <details open>
+            <details>
                 <summary class="foodSection">Templates</summary>
                 ${templatesHTML}
             </details>
@@ -1085,7 +1085,9 @@ function renderCombos(dishes, combos) {
         let displayMeal = mealID[0].toUpperCase() + mealID.slice(1);
         comboMenuHTML += `
         <h1>${displayMeal}</h1>
-        ${combosHTML.get(mealID)}
+        <div class="combosForMeal">
+            ${combosHTML.get(mealID)}
+        </div>
         `;
     }
     return `<div id="combos">

@@ -101,6 +101,11 @@ body {
     flex-wrap: wrap;
 }
 
+.combosForMeal {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .combo {
     border-top: 2px solid var(--color1);
     display: inline-flex;
@@ -126,8 +131,10 @@ body {
 }
 
 .foodSection {
-    font-size: 24px;
+    font-size: 36pt;
+    /* font-weight: bold; */
     border-bottom: 1px solid var(--off-black);
+    margin-top: 40px;
 }
 
 /*

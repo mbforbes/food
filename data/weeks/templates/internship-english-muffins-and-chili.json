@@ -14,7 +14,8 @@
     },
     "tuesday": {
         "breakfast": [
-            "collagenDrink"
+            "collagenDrink",
+            "breakfastSandwichLight"
         ],
         "lunch": [
             "eatOutLunch"
@@ -32,13 +33,21 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "chili",
+            "sourCreamSide",
+            "avocadoSide"
+        ]
     },
     "thursday": {
         "breakfast": [
-            "collagenDrink"
+            "collagenDrink",
+            "breakfastSandwichLight"
         ],
-        "lunch": [],
+        "lunch": [
+            "carrotsSmall",
+            "chili"
+        ],
         "dinner": [
             "eatOutDinner"
         ]
@@ -51,15 +60,28 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "chili",
+            "sourCreamSide",
+            "avocadoSide"
+        ]
     },
     "saturday": {
-        "breakfast": [],
-        "lunch": [],
-        "dinner": []
+        "breakfast": [
+            "breakfastSandwich"
+        ],
+        "lunch": [
+            "carrotsSmall",
+            "chili"
+        ],
+        "dinner": [
+            "oyakodon"
+        ]
     },
     "sunday": {
-        "breakfast": [],
+        "breakfast": [
+            "breakfastSandwich"
+        ],
         "lunch": [],
         "dinner": []
     }

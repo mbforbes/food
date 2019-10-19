@@ -14,7 +14,8 @@
     },
     "tuesday": {
         "breakfast": [
-            "collagenDrink"
+            "collagenDrink",
+            "breakfastSandwichLight"
         ],
         "lunch": [
             "eatOutLunch"
@@ -32,13 +33,21 @@
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "chickenThighs",
+            "broccoliSide",
+            "riceSide1cup"
+        ]
     },
     "thursday": {
         "breakfast": [
-            "collagenDrink"
+            "collagenDrink",
+            "breakfastSandwichLight"
         ],
-        "lunch": [],
+        "lunch": [
+            "chickenThighs",
+            "riceSide0.75cup"
+        ],
         "dinner": [
             "eatOutDinner"
         ]
@@ -46,15 +55,23 @@
     "friday": {
         "breakfast": [
             "collagenDrink",
-            "eatOutBreakfast"
+            "proteinShake",
+            "eatOutBreakfast200"
         ],
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "chickenThighs",
+            "bellPepperSide",
+            "riceSide1cup"
+        ]
     },
     "saturday": {
-        "breakfast": [],
+        "breakfast": [
+            "collagenDrink",
+            "breakfastSandwichLight"
+        ],
         "lunch": [],
         "dinner": []
     },

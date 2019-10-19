@@ -67,6 +67,7 @@ const BULK_THINGS = new Set([
     'peanut butter',
     'potato flakes',
     'protein powder',
+    'collagen powder',
     'quinoa (cooked)',
     'rice (white, cooked)',
     'dried parsley leaves',

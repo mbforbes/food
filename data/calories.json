@@ -45,6 +45,9 @@
 		[5, "1 cup"],
 		[5, "1 sprig"]
 	],
+	"beef broth": [
+		[40, "1 cup"]
+	],
 	"[booze] beer (7% abv)": [
 		[210, "12 fl-oz"]
 	],
@@ -137,7 +140,10 @@
 		[114, "3.5 oz"]
 	],
 	"[meat] chicken thigh": [
-		[119, "3.5 oz"]
+		[160, "4 oz"]
+	],
+	"[spices] chili powder": [
+		[22, "1 tbsp"]
 	],
 	"[baking] chocolate chips": [
 		[75, "1 tbsp"]
@@ -147,6 +153,9 @@
 	],
 	"[spices] cinnamon": [
 		[0, "0.5 tsp"]
+	],
+	"cocoa powder": [
+		[60, "2.5 tbsp"]
 	],
 	"[intl] coconut milk (in can)": [
 		[140, "80 ml"]
@@ -342,6 +351,9 @@
 	"[jars] ketchup": [
 		[40, "2 tbsp"]
 	],
+	"kidney beans": [
+		[371, "15 oz"]
+	],
 	"[produce] lemon (juice)": [
 		[5, "½ x"],
 		[5, "1 tbsp"]
@@ -403,7 +415,7 @@
 		[225, "0.75 cup"]
 	],
 	"[oils] olive oil": [
-		[60, "0.5 tbsp"]
+		[120, "1 tbsp"]
 	],
 	"[produce] onion": [
 		[30, "0.5 x"]
@@ -620,6 +632,10 @@
 	"tomato paste": [
 		[25, "2 tbsp"]
 	],
+	"tomato sauce": [
+		[20, "0.25 cup"],
+		[140, "15 oz"]
+	],
 	"tomato soup (water)": [
 		[315, "1 can"]
 	],
@@ -643,7 +659,7 @@
 		[3, "0.25 tsp"]
 	],
 	"[oils] vegetable oil": [
-		[120, "2 tbsp"]
+		[120, "1 tbsp"]
 	],
 	"[nuts] walnuts": [
 		[183, "0.25 cup"],

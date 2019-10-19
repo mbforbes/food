@@ -1,7 +1,8 @@
 {
     "monday": {
         "breakfast": [
-            "breakfastBurritos"
+            "breakfastBurritos",
+            "collagenDrink"
         ],
         "lunch": [
             "pulledPorkSandwich",
@@ -17,16 +18,20 @@
     },
     "tuesday": {
         "breakfast": [
-            "breakfastBurritos"
+            "breakfastBurritos",
+            "collagenDrink"
         ],
         "lunch": [
             "eatOutLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "wednesday": {
         "breakfast": [
-            "breakfastBurritos"
+            "breakfastBurritos",
+            "collagenDrink"
         ],
         "lunch": [
             "pulledPorkSmall",
@@ -40,28 +45,41 @@
     },
     "thursday": {
         "breakfast": [
-            "breakfastBurritos"
+            "breakfastBurritos",
+            "collagenDrink"
         ],
         "lunch": [
             "quinoaSaladLunch"
         ],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "friday": {
         "breakfast": [
-            "breakfastBurritos"
+            "breakfastBurritos",
+            "collagenDrink"
         ],
         "lunch": [
             "pulledPorkSandwich",
             "pulledPorkSlaw",
             "bbqSauceHomemade"
         ],
-        "dinner": []
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "saturday": {
-        "breakfast": [],
-        "lunch": [],
-        "dinner": []
+        "breakfast": [
+            "bananaPancakes"
+        ],
+        "lunch": [
+            "ramenFancy"
+        ],
+        "dinner": [
+            "salmon",
+            "asparagusSide"
+        ]
     },
     "sunday": {
         "breakfast": [],

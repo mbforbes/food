@@ -1,6 +1,13 @@
 [
   {"type":"directory","name":"data/weeks/templates/","contents":[
-    {"type":"file","name":"internship-template.json"},
-    {"type":"file","name":"pulled-pork-basics.json"}
+    {"type":"file","name":"full-week-chicken.json"},
+    {"type":"file","name":"full-week-pulled-pork.json"},
+    {"type":"file","name":"full-week-template.json"},
+    {"type":"file","name":"internship-biscuit-sandwiches-and-lentil-curry.json"},
+    {"type":"file","name":"internship-burritos-and-fried-rice.json"},
+    {"type":"file","name":"internship-english-muffins-and-chili.json"},
+    {"type":"file","name":"internship-lazy.json"},
+    {"type":"file","name":"internship-overnight-oats-and-quinoa-salad.json"},
+    {"type":"file","name":"internship-template.json"}
   ]}
 ]

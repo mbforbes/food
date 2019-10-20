@@ -8,7 +8,7 @@ A simple, ugly, desktop-only web app for meal prepping to lose weight.
 
 This is a web app I made to count calories while cooking my own meals.
 
-It is simple, stupid, and is full of rough edges. I made it feature by feature only so
+It is simple, stupid, and full of rough edges. I made it feature by feature only so
 that it would be useful for me personally. You have to edit `.json` files to add
 ingredients, calories, dishes, and combos. The UI is ugly and updates only through page
 refreshes. And to use it, you have to run a server locally on your desktop, because
@@ -16,8 +16,9 @@ there's no login, no accounts, and not even a mobile UI.
 
 And it works. Well, at least it worked for me. I lost a bunch of weight, saved money by
 cooking, saved time by meal prepping (and then spent it working on this app 😊), and
-improved my cooking. I hope to write more about why I think this is a good approach, at
-least for me, which I'll link to here.
+improved my cooking.
+
+![preview](media/preview-dishes-small.png) ![preview](media/preview-view-small.png)
 
 ## Notes
 

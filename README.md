@@ -1,6 +1,6 @@
 # food
 
-A simple, ugly, desktop-only web app for meal prepping to lose weight.
+A simple, ugly, desktop-only web app for meal prepping to count calories.
 
 ![preview of food app edit page](media/preview-edit.png)
 
@@ -14,9 +14,9 @@ refreshes. And to use it, you have to run a server locally on your desktop, beca
 there's no login, no accounts, and not even a mobile UI. I made it feature by feature
 only so that it would be useful for me personally.
 
-And it works. Well, at least it worked for me. I lost a bunch of weight, saved money by
-cooking, saved time by meal prepping (and then spent it working on this app 😊), and
-improved my cooking.
+And it works. Well, at least it worked for me. I lost a bunch of weight by counting
+calories, saved money by cooking, saved time by meal prepping (and then spent it working
+on this app 😊), and improved my cooking.
 
 ![preview of grocery list](media/preview-grocery-tiny.png) ![preview of week view](media/preview-view-small.png) ![preview of dishes view](media/preview-dishes-small.png)
 

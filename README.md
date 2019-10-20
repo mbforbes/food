@@ -18,7 +18,7 @@ And it works. Well, at least it worked for me. I lost a bunch of weight, saved m
 cooking, saved time by meal prepping (and then spent it working on this app 😊), and
 improved my cooking.
 
-![preview of grocery list](media/preview-grocery-small.png) ![preview of week view](media/preview-view-small.png) ![preview of dishes view](media/preview-dishes-small.png)
+![preview of grocery list](media/preview-grocery-tiny.png) ![preview of week view](media/preview-view-small.png) ![preview of dishes view](media/preview-dishes-small.png)
 
 ## Notes
 

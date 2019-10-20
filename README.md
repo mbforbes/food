@@ -2,7 +2,7 @@
 
 A simple, ugly, desktop-only web app for meal prepping to lose weight.
 
-![preview of food app edit page](media/preview-edit-small.png)
+![preview of food app edit page](media/preview-edit.png)
 
 ## About
 

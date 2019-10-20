@@ -18,14 +18,24 @@ And it works. Well, at least it worked for me. I lost a bunch of weight by count
 calories, saved money by cooking, saved time by meal prepping (and then spent it working
 on this app 😊), and improved my cooking.
 
+## Usage
 
-## How to use it
+Clone the repository, then run
 
-Let's walk through adding a new recipe, some _slow cooker chili_. Perfect for colder
-months, and cooking in bulk so you have something to eat throughout the week.
+```bash
+# Serves HTTP on 127.0.0.1:8001
+./server.sh
+```
+
+and point your browser to `http://localhost:8001/`.
+
+## Walkthough
+
+First we'll add a new recipe, some _slow cooker chili_. Perfect for colder months, and
+cooking in bulk so you have something to eat throughout the week. Then we'll add a dish
+(_breakfast burritos_) to our meal plan for the week.
 
 ### Adding a dish
-
 Find a recipe on your favorite website or cookbook, and add an entry to
 `data/dishes/dishes.json` (the keys are alphabetical for convenience):
 
@@ -114,7 +124,7 @@ recipe:
 
 ### Meal planning
 
-Now let's add the dish to our meal plan for the upcoming week. Click on the "Edit this
+Now let's add a dish to our meal plan for the upcoming week. Click on the "Edit this
 week" (or "Edit next week") button at the top of the page to go to the edit view. Note
 that weeks begin on Mondays.
 
@@ -141,7 +151,9 @@ To remove:
 ![drag and drop demo of removing dish](media/dnd-remove-dish.gif)
 
 That's it! The meal and day calorie totals will update for every dish you add and
-remove.
+remove. What's going on under the hood is the dish you dropped is added to the relevant
+meal in the active week, that week is saved to the current `.json` week file (e.g.,
+`data/weeks/oct21-2019.json`), and the page is auto-refreshed.
 
 The bottom of the page houses an auto-generated grocery list and meal prep section for
 the week:

@@ -2,7 +2,7 @@
 
 A simple, ugly, desktop-only web app for meal prepping to count calories.
 
-![preview of food app edit page](media/preview-edit.png)
+![drag and drop demo of adding dish](media/dnd-add-dish.gif)
 
 ## About
 
@@ -18,7 +18,6 @@ And it works. Well, at least it worked for me. I lost a bunch of weight by count
 calories, saved money by cooking, saved time by meal prepping (and then spent it working
 on this app 😊), and improved my cooking.
 
-![preview of grocery list](media/preview-grocery-tiny.png) ![preview of week view](media/preview-view-small.png) ![preview of dishes view](media/preview-dishes-small.png)
 
 ## How to use it
 
@@ -162,7 +161,7 @@ If you're a serious web developer, you'll scoff at pretty much everything in her
 building (a much better version of) this app would be a great starter project for
 someone learning React, Redux, Elm, etc. The current version uses pure Typescript,
 string templates to spit out HTML, page refreshes instead of tracking any state, and a
-lot of ¯\_(ツ)_/¯.
+lot of `¯\_(ツ)_/¯`.
 
 ## Notes
 
@@ -220,12 +219,13 @@ is what makes this exhausting, and makes being creative difficult.
 
 ### Features that won't be made
 
-At this point, my journey with this app is complete, and I don't think I'll work on it.
-But I'm going to include here some pain points based on using the app all the time. Some
-are obvious, but some interesting ones aren't (at least they weren't to me). (There's
-probably a whole essay to write here about feature lists being relatively easy to throw
-together, but the really critical ones won't be discovered unless you are deep in the
-workflow of someone using the app.)
+At this point, my journey with this app is complete. It's served me well, but it does
+most of what I need, and frankly I think I've spent enough time on it. But I'm going to
+include here some pain points based on using the app all the time. Some are obvious, but
+some interesting ones aren't (at least they weren't to me). (There's probably a whole
+essay to write here about feature lists being relatively easy to throw together, but the
+really critical ones won't be discovered unless you are deep in the workflow of someone
+using the app.)
 
 Obvious:
 
@@ -263,7 +263,7 @@ Less obvious:
 
 - Some kind of "toppings" section for ingredients. The use case is making a combo out of
   a dish (like chili) plus toppings that aren't dishes (like sour cream, onions,
-  cheese). The ingredients could be grouped into a toppings section next to the combo.
+  cheese). The ingredients could be grouped into a toppings section within the combo.
   You'd want to be able to scale the ingredients easily, too. The reason you want this
   is you might want to keep the base recipe the same, but modify the toppings for
   different meals where you have different calorie allowances.
@@ -288,3 +288,9 @@ Less obvious:
   and know about when they're in a week plan. The purpose of this is to encourage you to
   tidy out dishes from your active collection that no longer spark joy, but still be
   able to know their calorie count if you're eating it this week.
+
+## Screenshots
+
+![preview of food app edit page](media/preview-edit.png)
+
+![preview of grocery list](media/preview-grocery-tiny.png) ![preview of week view](media/preview-view-small.png) ![preview of dishes view](media/preview-dishes-small.png)

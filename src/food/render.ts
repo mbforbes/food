@@ -393,7 +393,7 @@ function renderEditView(displayDishes: Dishes, allDishes: Dishes, week: Week, co
                 <summary class="foodSection">Templates</summary>
                 ${templatesHTML}
             </details>
-            <details open>
+            <details>
                 <summary class="foodSection">Combos</summary>
                 ${combosHTML}
                 </details>

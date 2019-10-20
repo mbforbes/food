@@ -5,7 +5,9 @@
         "dinner": []
     },
     "tuesday": {
-        "breakfast": [],
+        "breakfast": [
+            "breakfastBurritos"
+        ],
         "lunch": [],
         "dinner": []
     },

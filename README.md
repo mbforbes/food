@@ -29,7 +29,7 @@ Clone the repository, then run
 
 and point your browser to `http://localhost:8001/`.
 
-## Walkthough
+## Walkthrough
 
 First we'll add a new recipe, some _slow cooker chili_. Perfect for colder months, and
 cooking in bulk so you have something to eat throughout the week. Then we'll add a dish

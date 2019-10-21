@@ -1,23 +1,47 @@
 {
     "monday": {
-        "breakfast": [],
-        "lunch": [],
-        "dinner": []
+        "breakfast": [
+            "collagenDrink",
+            "breakfastSandwich"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "dinner": [
+            "TJsFrozenDinners"
+        ]
     },
     "tuesday": {
         "breakfast": [
-            "breakfastBurritos"
+            "collagenDrink",
+            "overnightOats",
+            "banana"
         ],
-        "lunch": [],
-        "dinner": []
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "wednesday": {
-        "breakfast": [],
-        "lunch": [],
-        "dinner": []
+        "breakfast": [
+            "collagenDrink",
+            "proteinShake",
+            "eatOutBreakfast200"
+        ],
+        "lunch": [
+            "eatOutLunch"
+        ],
+        "dinner": [
+            "eatOutDinner"
+        ]
     },
     "thursday": {
-        "breakfast": [],
+        "breakfast": [
+            "overnightOats",
+            "banana"
+        ],
         "lunch": [],
         "dinner": []
     },

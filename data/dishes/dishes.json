@@ -1110,6 +1110,15 @@
 		"recipeServings": 3,
 		"img": "img/tacos.png"
 	},
+	"TJsFrozenDinners": {
+		"title": "[TJ's Frozen Dinners]",
+		"mealHint": "dinner",
+		"ingredients": [
+			"1 x eat this much 700"
+		],
+		"img": "img/eat-out-dinner.png",
+		"mealPrep": false
+	},
 	"tomatoSoupWater": {
 		"title": "Tomato Soup (water)",
 		"mealHint": "lunch",

@@ -14,8 +14,7 @@
     "tuesday": {
         "breakfast": [
             "collagenDrink",
-            "overnightOats",
-            "banana"
+            "breakfastSandwich"
         ],
         "lunch": [
             "eatOutLunch"
@@ -39,8 +38,7 @@
     },
     "thursday": {
         "breakfast": [
-            "overnightOats",
-            "banana"
+            "breakfastSandwich"
         ],
         "lunch": [],
         "dinner": []
